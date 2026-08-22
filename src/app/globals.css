@@ -398,6 +398,10 @@ img {
     .nav-mobile-btn {
         display: flex
     }
+
+    .nav-actions {
+        display: none;
+    }
 }
 
 /* ═══════════ PRODUCT MEGAMENU — "The Switcher" ═══════════ */
