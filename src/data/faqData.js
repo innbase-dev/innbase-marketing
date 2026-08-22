@@ -57,7 +57,7 @@ export const FAQS = [
         Four plans priced by the size of your team, from ₦24,000/mo for a Boutique property up to
         a custom Enterprise plan for larger or multi-property operations. Every plan runs the same
         complete platform. No card required to start — see the full breakdown on our{" "}
-        <a href="pricing.html" style={{ color: "var(--amber-bright)" }}>
+        <a href="/pricing" style={{ color: "var(--amber-bright)" }}>
           pricing page
         </a>
         .

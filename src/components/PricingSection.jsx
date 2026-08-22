@@ -44,7 +44,7 @@ export default function PricingSection() {
               reconciliation, and staff management. Larger plans add capacity, Guest Companion,
               and priority support as your team grows.
             </p>
-            <a href="pricing.html" className="btn btn-brass">
+            <a href="/pricing" className="btn btn-brass">
               See plans &amp; pricing
             </a>
           </div>

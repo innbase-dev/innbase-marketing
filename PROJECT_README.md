@@ -22,11 +22,41 @@ landing page, matching the source design 1:1.
 src/
   app/
     layout.js        Metadata, JSON-LD, global chrome
-    page.js           Assembles every section in order
-    globals.css        Full ported design system + Tailwind import
-  components/          One component per concern (Navbar, Hero, ProductSection, ...)
-  data/                 Static content arrays (FAQ copy, demo mock data, case studies, ledger ticker)
+    page.js           Homepage — assembles every landing-page section
+    about/page.js      About page
+    pricing/page.js     Pricing page
+    legal/page.js       Terms / Privacy / GDPR (tabbed)
+    globals.css         Full ported design system + Tailwind import
+  components/          Shared: Navbar, Footer, Icon, Reveal, CountUp, FaqAccordion, ...
+    about/               About-page-only sections
+    pricing/             Pricing-page-only sections
+    legal/               Legal-page-only sections (accordion, tabs)
+  data/                 Static content arrays (FAQ copy, demo mock data, case studies,
+                         ledger ticker, pricing plans, about copy, legal text)
 ```
+
+## Multi-page notes
+
+- **Nav & footer are shared** across all four routes (`Navbar`, `MobileMenu`,
+  `ProductMegaMenu`, `Footer`) with active-page highlighting via
+  `usePathname()`.
+- **Design tokens are unified** — `about.html`, `legal.html`, and
+  `pricing.html` referenced several CSS custom properties
+  (`--success`, `--warning`, `--info`, `--ai`, `--ai-text`, `--danger-text`,
+  `--border-strong`, `--accent-warm-soft`) that were never actually defined
+  in their source files. I traced each back to a matching literal hex color
+  already used elsewhere on the site and added them as real tokens in
+  `globals.css`, so every page now draws from the same palette.
+- **`.page-about`** scopes a 2-column hero grid (content + founder photos)
+  that's unique to the About page, so it doesn't collide with the
+  single-column hero used everywhere else.
+- **Legal page accordion** uses HeadlessUI's `Disclosure` (same pattern as
+  the homepage FAQ) instead of native `<details>`, with `.open` class
+  fallbacks added to the CSS alongside the original `[open]` selectors.
+- **Founder bios and the founder letter** on the About page contain
+  clearly-marked placeholder copy (`[Founder perspective — replace with
+  approved copy from ...]`) — ported faithfully from the source rather than
+  invented, since that's real content pending sign-off, not filler.
 
 ## Before you deploy
 

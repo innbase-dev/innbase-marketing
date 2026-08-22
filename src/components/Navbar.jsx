@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Icon from "./Icon";
 import ProductMegaMenu from "./ProductMegaMenu";
 import MobileMenu from "./MobileMenu";
-import Image from "next/image";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -30,31 +33,51 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
 
+  const isCurrent = (path) => pathname === path;
+
   return (
     <>
       <nav className={`navbar${scrolled ? " scrolled" : ""}`} id="navbar">
         <div className="nav-inner">
-          <a href="#main" className="nav-wordmark" aria-label="Innbase home">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Image src="/images/innbase-light.svg" alt="logo" width={132} height={28} />
-            <span className="sr-only">Innbase</span>
-          </a>
+          <Link href="/" className="nav-wordmark" aria-label="Innbase home">
+            <Image src="/images/innbase-light.svg" alt="Innbase" width={132} height={28} priority />
+          </Link>
 
           <div className="nav-links">
             <ProductMegaMenu />
-            <a href="#product">How it works</a>
-            <a href="#stories">Customers</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="#faq">FAQ</a>
+            <Link href="/#product">How it works</Link>
+            <Link
+              href="/about"
+              className={isCurrent("/about") ? "current" : undefined}
+              aria-current={isCurrent("/about") ? "page" : undefined}
+            >
+              About
+            </Link>
+            <Link href="/#stories">Customers</Link>
+            <Link
+              href="/pricing"
+              className={isCurrent("/pricing") ? "current" : undefined}
+              aria-current={isCurrent("/pricing") ? "page" : undefined}
+            >
+              Pricing
+            </Link>
+            <Link href="/#faq">FAQ</Link>
+            <Link
+              href="/contact"
+              className={isCurrent("/contact") ? "current" : undefined}
+              aria-current={isCurrent("/contact") ? "page" : undefined}
+            >
+              Contact
+            </Link>
           </div>
 
           <div className="nav-actions">
-            <a href="auth.html" className="btn btn-ghost-dark btn-sm">
+            <Link href="/auth" className="btn btn-ghost-dark btn-sm">
               Log in
-            </a>
-            <a href="#cta" className="btn btn-brass btn-sm">
+            </Link>
+            <Link href="/#cta" className="btn btn-brass btn-sm">
               Book a Demo
-            </a>
+            </Link>
           </div>
 
           <button
@@ -69,7 +92,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} pathname={pathname} />
     </>
   );
 }

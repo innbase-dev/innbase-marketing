@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Icon from "./Icon";
 
 const TILES = [
   {
-    href: "#product",
+    href: "/#product",
     bg: "var(--teal-soft)",
     color: "var(--teal-bright)",
     icon: "banknote",
@@ -15,7 +16,7 @@ const TILES = [
     stat: "96% auto-matched",
   },
   {
-    href: "#product",
+    href: "/#product",
     bg: "rgba(248,113,113,.1)",
     color: "#f87171",
     icon: "package-search",
@@ -25,7 +26,7 @@ const TILES = [
     stat: "2 need attention",
   },
   {
-    href: "#product",
+    href: "/#product",
     bg: "rgba(96,165,250,.1)",
     color: "#60a5fa",
     icon: "calendar-clock",
@@ -35,7 +36,7 @@ const TILES = [
     stat: "92% coverage",
   },
   {
-    href: "#product",
+    href: "/#product",
     bg: "var(--amber-soft)",
     color: "var(--amber-bright)",
     icon: "door-open",
@@ -96,7 +97,7 @@ export default function ProductMegaMenu() {
           <div className="mm-grid">
             <div className="mm-tiles">
               {TILES.map((t) => (
-                <a className="mm-tile" href={t.href} key={t.title}>
+                <Link className="mm-tile" href={t.href} key={t.title}>
                   <span className="mm-tile-ico" style={{ background: t.bg, color: t.color }}>
                     <Icon name={t.icon} className="icon" style={{ width: 15, height: 15 }} />
                   </span>
@@ -106,14 +107,14 @@ export default function ProductMegaMenu() {
                     <span className="d" style={{ background: t.dot }} />
                     {t.stat}
                   </span>
-                </a>
+                </Link>
               ))}
             </div>
             <div className="mm-links">
-              <a href="pricing.html">Pricing</a>
-              <a href="#roles">Who it&apos;s for</a>
-              <a href="#faq">FAQ</a>
-              <a href="#reconciliation">Why it&apos;s trustworthy</a>
+              <Link href="/pricing">Pricing</Link>
+              <Link href="/#roles">Who it&apos;s for</Link>
+              <Link href="/#faq">FAQ</Link>
+              <Link href="/#reconciliation">Why it&apos;s trustworthy</Link>
             </div>
           </div>
           <div className="mm-rail">
@@ -125,9 +126,9 @@ export default function ProductMegaMenu() {
               <b>96%</b>
               <span>match confidence, live</span>
             </div>
-            <a href="#stories" className="mm-rail-cta">
+            <Link href="/#stories" className="mm-rail-cta">
               Read the story <Icon name="arrow-right" className="icon" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

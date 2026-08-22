@@ -1,15 +1,16 @@
 {
-  "name": "marketing",
+  "name": "innbase",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3002",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
+    "@next/third-parties": "^16.3.2",
     "framer-motion": "^13.1.1",
     "iconsax-react": "^0.0.8",
     "next": "16.3.2",
