@@ -1,5 +1,4 @@
 import "./globals.css";
-import { GoogleTagManager } from '@next/third-parties/google'
 import { Instrument_Sans } from 'next/font/google'
 
 const instrumental = Instrument_Sans({
