@@ -1,0 +1,94 @@
+/* 1. Define Theme Variables */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #555555;
+    /* Soft dark shadow for light mode */
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    /* Soft orange glow derived from the logo for the pulse peak */
+    --glow-color: rgba(193, 80, 46, 0.3); 
+}
+
+/* 2. Automatically Switch to Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        /* Deeper shadow for dark mode base */
+        --shadow-color: rgba(0, 0, 0, 0.6);
+        /* Brighter ambient orange glow for dark mode */
+        --glow-color: rgba(193, 80, 46, 0.6); 
+    }
+}
+
+/* 3. Base Page Setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* 4. Loader Container Layout */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* 5. Logo Animation Styling */
+.loading-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 25%; /* Rounds the edges beautifully to match the squircle */
+    animation: floatAndPulse 2.5s ease-in-out infinite;
+}
+
+/* 6. Text Animation Styling */
+.loading-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+/* Animated dots after "Loading" */
+.loading-text::after {
+    content: '';
+    animation: ellipsis 2s infinite linear;
+}
+
+/* --- Keyframes --- */
+
+@keyframes floatAndPulse {
+    0% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 10px 20px var(--shadow-color);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+        /* The shadow expands and shifts color to create a breathing glow effect */
+        box-shadow: 0 25px 35px var(--glow-color);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 10px 20px var(--shadow-color);
+    }
+}
+
+@keyframes ellipsis {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+    100% { content: ''; }
+}
