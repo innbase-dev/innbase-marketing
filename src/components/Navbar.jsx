@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Icon from "./Icon";
 import ProductMegaMenu from "./ProductMegaMenu";
+import CompanyDropdown from "./CompanyDropdown";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
@@ -46,14 +47,7 @@ export default function Navbar() {
           <div className="nav-links">
             <ProductMegaMenu />
             <Link href="/#product">How it works</Link>
-            <Link
-              href="/about"
-              className={isCurrent("/about") ? "current" : undefined}
-              aria-current={isCurrent("/about") ? "page" : undefined}
-            >
-              About
-            </Link>
-            <Link href="/#stories">Customers</Link>
+            <CompanyDropdown />
             <Link
               href="/pricing"
               className={isCurrent("/pricing") ? "current" : undefined}
@@ -62,13 +56,6 @@ export default function Navbar() {
               Pricing
             </Link>
             <Link href="/#faq">FAQ</Link>
-            <Link
-              href="/contact"
-              className={isCurrent("/contact") ? "current" : undefined}
-              aria-current={isCurrent("/contact") ? "page" : undefined}
-            >
-              Contact
-            </Link>
           </div>
 
           <div className="nav-actions">
