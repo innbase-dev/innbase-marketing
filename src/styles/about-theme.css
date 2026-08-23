@@ -1,0 +1,53 @@
+/**
+ * styles/about-theme.css
+ * ─────────────────────────────────────────────────────────────────────────
+ * NOT a new stylesheet to import — merge this into the existing
+ * apps/web/styles/globals.css (paste directly under the `:root { ... }`
+ * block, before the first `*` reset rule). It does two things:
+ *
+ * 1. Registers the site's existing CSS custom properties as Tailwind v4
+ *    theme tokens via `@theme inline`, so utilities like `bg-ink`,
+ *    `text-teal-bright`, `border-ink-line` become available without
+ *    duplicating a single hex value — the source of truth stays the
+ *    `:root` block that's already there.
+ * 2. Adds the one keyframe the new About components need that doesn't
+ *    already exist in globals.css (the module marquee). `drift`,
+ *    `chipPulse`, and the reveal transitions are all reused as-is.
+ *
+ * Nothing here changes any existing selector, so it's additive/safe to
+ * merge — it only makes new utility classes available.
+ */
+
+@theme inline {
+    --color-ink: var(--ink);
+    --color-ink-soft: var(--ink-soft);
+    --color-ink-line: var(--ink-line);
+    --color-surface: var(--surface);
+    --color-surface-hover: var(--surface-hover);
+
+    --color-brass: var(--brass);
+    --color-brass-bright: var(--brass-bright);
+    --color-amber: var(--amber);
+    --color-amber-bright: var(--amber-bright);
+
+    --color-teal: var(--teal);
+    --color-teal-bright: var(--teal-bright);
+    --color-teal-soft: var(--teal-soft);
+
+    --color-text-dark: var(--text-dark);
+    --color-muted-dark: var(--muted-dark);
+    --color-text-strong: var(--text-strong);
+    --color-danger: var(--danger);
+
+    --font-display: "Instrument Sans", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
