@@ -1,13 +1,8 @@
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 
 const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -112,7 +107,7 @@ const faqJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.className} ${ibmPlexMono.className}`}>
+      <body className={`${instrumentSans.className}`}>
         <a className="skip-link" href="#main">
           Skip to main content
         </a>

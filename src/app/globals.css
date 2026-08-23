@@ -425,7 +425,7 @@ img {
     right: 100%;
     bottom: -2px;
     height: 1px;
-    background: var(--brass-bright);
+    /* background: var(--brass-bright); */
     transition: right .25s cubic-bezier(.16, .8, .24, 1)
 }
 
@@ -487,7 +487,6 @@ img {
 .mm-spot-inner {
     background: var(--ink-soft);
     border: 1px solid var(--ink-line);
-    padding-right: 4px;
     border-radius: 16px;
     box-shadow: 0 30px 70px -18px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .04);
     overflow: hidden;
@@ -523,10 +522,8 @@ img {
 
 .mm-mod:hover,
 .mm-mod.active {
-    background: var(--surface-hover)
-}
-
-.mm-mod.active {
+    background: var(--surface-hover);
+    padding-left: 8px;
     box-shadow: inset 2px 0 0 var(--mod-accent, var(--teal-bright))
 }
 
