@@ -55,7 +55,7 @@ export const metadata = {
     url: "https://innbase.co",
     images: [
       {
-        url: "/og-image.jpeg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Innbase Hotel Control Center",
@@ -67,7 +67,7 @@ export const metadata = {
     title: "Your Hotel Control Center | Innbase",
     description:
       "Every sale. Every payment. Every shift. Every bottle. Automatically reconciled.",
-    images: ["/og-image.jpeg"],
+    images: ["/og-image.jpg"],
   },
 };
 
