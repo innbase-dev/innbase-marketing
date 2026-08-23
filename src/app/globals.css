@@ -3593,7 +3593,10 @@ text {
 
 .btn-full {
     width: 100%;
-    text-align: center !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .sec-alt {
