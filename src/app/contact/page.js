@@ -5,12 +5,17 @@ import ContactForm from "@/components/contact/ContactForm";
 import ContactRail from "@/components/contact/ContactRail";
 
 export const metadata = {
-  title: "Contact | Innbase",
+  title: "Contact",
   description:
     "Tell us what brings you here and we'll point you to the right person — sales, support, partnerships, or a general enquiry.",
+  keywords: ["contact innbase", "hotel software support", "hospitality OS sales"],
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
-    title: "Contact | Innbase",
+    title: "Contact Innbase",
     description: "Let's talk about your hotel.",
+    url: "https://innbase.co/contact",
   },
 };
 

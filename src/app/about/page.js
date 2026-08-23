@@ -11,12 +11,17 @@ import LetterSection from "@/components/about/LetterSection";
 import AboutCta from "@/components/about/AboutCta";
 
 export const metadata = {
-  title: "About | Innbase",
+  title: "About",
   description:
     "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.",
+  keywords: ["about innbase", "hospitality startup", "hotel tech team"],
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
-    title: "About | Innbase",
+    title: "About Innbase",
     description: "Why we're building Innbase, and who's building it.",
+    url: "https://innbase.co/about",
   },
 };
 

@@ -15,6 +15,13 @@ import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 import { DemoProvider } from "@/components/DemoContext";
 
+export const metadata = {
+  title: "Your Hotel Control Center",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <>

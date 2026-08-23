@@ -8,12 +8,17 @@ import PricingFaq from "@/components/pricing/PricingFaq";
 import PricingCta from "@/components/pricing/PricingCta";
 
 export const metadata = {
-  title: "Pricing | Innbase",
+  title: "Pricing",
   description:
     "Three plans, priced in Naira and sized to your staff. Every plan runs the complete Innbase platform — no per-user charges, no card required to start.",
+  keywords: ["innbase pricing", "hotel software cost", "hospitality OS plans"],
+  alternates: {
+    canonical: "/pricing",
+  },
   openGraph: {
-    title: "Pricing | Innbase",
+    title: "Pricing Innbase",
     description: "Pay for the hotel you run — three plans, no per-staff pricing, no card required.",
+    url: "https://innbase.co/pricing",
   },
 };
 
