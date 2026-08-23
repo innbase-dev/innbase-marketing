@@ -12,21 +12,21 @@ import { useInView } from "framer-motion";
  * observer.
  */
 export default function Reveal({
-  as: Tag = "div",
-  className = "",
-  amount = 0.14,
-  once = true,
-  style,
-  children,
-  ...rest
+    as: Tag = "div",
+    className = "",
+    amount = 0.14,
+    once = true,
+    style,
+    children,
+    ...rest
 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once, amount });
-  const classes = [className, inView ? "in" : ""].filter(Boolean).join(" ");
+    const ref = useRef(null);
+    const inView = useInView(ref, { once, amount });
+    const classes = [className, inView ? "in" : ""].filter(Boolean).join(" ");
 
-  return (
-    <Tag ref={ref} className={classes} style={style} {...rest}>
-      {children}
-    </Tag>
-  );
+    return (
+        <Tag ref={ref} className={classes} style={style} {...rest}>
+            {children}
+        </Tag>
+    );
 }

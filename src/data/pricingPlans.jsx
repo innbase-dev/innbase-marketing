@@ -21,8 +21,8 @@ export const PLANS = [
     price: "₦48,000",
     daily: "≈ ₦1,600/day",
     cap: "Up to 20 staff",
-    cta: "btn-ghost-dark",
-    featured: false,
+    cta: "btn-brass",
+    featured: true,
     features: ["Everything in Boutique", "More staff capacity", "AI Operational Assistant included"],
   },
   {
@@ -32,8 +32,8 @@ export const PLANS = [
     price: "₦99,000",
     daily: "≈ ₦3,300/day",
     cap: "Up to 50 staff",
-    cta: "btn-brass",
-    featured: true,
+    cta: "btn-ghost-dark",
+    featured: false,
     features: [
       "Everything in Base",
       <>
