@@ -26,6 +26,7 @@ export default function LegalAccordion({ panel }) {
                         <Disclosure.Panel
                             as="div"
                             className="legal-section-body"
+                            unmount={false}
                         >
                             {sec.body}
                         </Disclosure.Panel>

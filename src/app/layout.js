@@ -1,6 +1,8 @@
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Instrument_Sans } from "next/font/google";
+import Script from "next/script";
+import { JsonLd, SITE_URL, SITE_NAME } from "@/lib/seo";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -8,7 +10,7 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://innbase.co"),
+  metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | Innbase",
     default: "Your Hotel Control Center | Innbase",
@@ -75,70 +77,31 @@ export const viewport = {
   themeColor: "#0b0e13",
 };
 
-const softwareAppJsonLd = {
+// Site-wide entity schema. These describe the company and the website
+// itself, so — unlike FAQPage or Product schema — they are accurate on
+// every route and belong in the root layout. Page-specific structured data
+// (FAQPage, Offers, BreadcrumbList) lives on the pages whose visible
+// content it actually matches; see src/lib/seo.js.
+const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Innbase",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/innbase-light.svg`,
   description:
-    "Reconciliation software for hotels and bars — payments, inventory, shifts and guest folios reconciled automatically.",
+    "Innbase builds the AI operating system for hospitality — reconciling payments, inventory, shifts, and guest folios automatically for hotels, restaurants, and bars.",
+  email: "hello@innbase.co",
   areaServed: "NG",
 };
 
-const faqJsonLd = {
+const websiteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does setup actually take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "One afternoon for most properties. We import opening balances and stock counts, connect bank statements and Pos exports, and the first shift runs on Innbase the same evening.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Will my staff need training?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Each role sees only its own screen. Most teams are comfortable by the second shift.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Which banks and POS providers does it work with?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Statement imports work with every Nigerian bank our pilots use today, including GTBank, UBA, Access, and Zenith, alongside Moniepoint and Opay POS records.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What happens when a match is wrong?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Nothing is final until a person confirms it. Innbase proposes matches with a confidence score; you accept, correct, or reject each one.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is our data safe?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Data is encrypted in transit and at rest, access is role-based, and you can export everything at any time.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does it cost?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A flat monthly fee per property, quoted on the demo call. All modules and unlimited staff accounts included; no card required to start.",
-      },
-    },
-  ],
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 export default function RootLayout({ children }) {
@@ -149,14 +112,11 @@ export default function RootLayout({ children }) {
           Skip to main content
         </a>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
+        <Script id="civchat-config" data-cfasync="false">
+          {`window.civchat = {apiKey: "nm97mo",};`}
+        </Script>
+        <Script data-cfasync="false" src="https://innbase.user.com/widget.js" />
       </body>
       {process.env.NEXT_PUBLIC_GTM_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />}
     </html>

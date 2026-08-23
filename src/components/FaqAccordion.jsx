@@ -18,7 +18,7 @@ export default function FaqAccordion({ items }) {
                             <Icon name="plus" className="icon" />
                         </span>
                     </Disclosure.Button>
-                    <Disclosure.Panel as="div" className="faq-body">
+                    <Disclosure.Panel as="div" className="faq-body" unmount={false}>
                         {item.a}
                     </Disclosure.Panel>
                 </Disclosure>

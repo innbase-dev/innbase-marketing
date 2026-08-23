@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { CASE_STUDIES } from "@/data/caseStudies";
@@ -118,13 +119,13 @@ export default function CaseStudiesSection() {
                                         />
                                         {c.badge}
                                     </div>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src={c.img}
                                         alt={c.alt}
+                                        fill
+                                        sizes="(max-width: 768px) 90vw, 340px"
                                         className="case-media-img"
                                         loading="lazy"
-                                        decoding="async"
                                     />
                                     <div className="case-media-foot">
                                         <span className="case-logo">
