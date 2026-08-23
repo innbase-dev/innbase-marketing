@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { COMPANY_MENU_ITEMS } from "@/data/companyMenuData";
 
 export default function MobileMenu({ open, onClose, pathname }) {
   const isCurrent = (path) => pathname === path;
@@ -19,20 +20,15 @@ export default function MobileMenu({ open, onClose, pathname }) {
         <Link href="/#demo">Try the live demo</Link>
         <Link href="/#reconciliation">Why it&apos;s trustworthy</Link>
         <span className="mobile-menu-label">Company</span>
-        <Link href="/about" className={isCurrent("/about") ? "current" : undefined}>
-          About
-        </Link>
-        <Link href="/#stories">Customers</Link>
+        {COMPANY_MENU_ITEMS.map((item) => (
+          <Link href={item.href} key={item.key} className={isCurrent(item.href) ? "current" : undefined}>
+            {item.title}
+          </Link>
+        ))}
         <Link href="/pricing" className={isCurrent("/pricing") ? "current" : undefined}>
           Pricing
         </Link>
         <Link href="/#faq">FAQ</Link>
-        <Link href="/legal" className={isCurrent("/legal") ? "current" : undefined}>
-          Legal
-        </Link>
-        <Link href="/contact" className={isCurrent("/contact") ? "current" : undefined}>
-          Contact
-        </Link>
         <div className="mm-cta-row">
           <Link href="/auth" className="btn btn-ghost-dark">
             Log in

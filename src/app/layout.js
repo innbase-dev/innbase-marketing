@@ -1,11 +1,5 @@
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Instrument_Sans } from "next/font/google";
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata = {
   title: "Your Hotel Control Center | Innbase",
@@ -107,7 +101,7 @@ const faqJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={instrumentSans.className}>
+      <body>
         <a className="skip-link" href="#main">
           Skip to main content
         </a>
