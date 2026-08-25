@@ -1302,7 +1302,7 @@ section {
 }
 
 .sec-head {
-    max-width: 640px
+    max-width: 960px
 }
 
 .sec-eyebrow {
@@ -1329,7 +1329,7 @@ section {
     color: var(--muted-dark);
     margin-top: 16px;
     line-height: 1.65;
-    max-width: 520px
+    max-width: 960px
 }
 
 .sec-head.center {
