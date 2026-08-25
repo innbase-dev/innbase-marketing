@@ -44,16 +44,18 @@ export const FOUNDERS = [
         image: "/images/efe-o.jpeg",
         name: "Efe Ojadua",
         role: "CEO",
+        linkedin: "https://linkedin.com/in/ojadua-efe",
         focusLabel: "Focus:",
         focus:
             " product, strategy, and company direction — deciding what Innbase should do, and just as importantly, what it shouldn't.",
-        quote: "technology has to align with reality or it's useless",
+        quote: "technology has to align with business reality or it's useless",
     },
     {
         initials: "CO",
         color: "var(--teal)",
         name: "Chibeze Endurance Ochonogor",
         role: "CTO",
+        linkedin: "https://ng.linkedin.com/in/chibeze-ochonogor",
         focusLabel: "Focus:",
         focus:
             " engineering and technical direction — making sure what gets built actually holds up on a busy Friday night.",
