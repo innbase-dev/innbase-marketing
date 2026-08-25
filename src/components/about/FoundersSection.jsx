@@ -1,3 +1,4 @@
+"use client"
 import Reveal from "@/components/Reveal";
 import { FOUNDERS } from "@/data/aboutData";
 import Link from "next/link";
