@@ -79,7 +79,7 @@ export default function Navbar() {
                         >
                             Log in
                         </Link>
-                        <Link href="/#cta" className="btn btn-brass btn-sm">
+                        <Link href="/contact" className="btn btn-brass btn-sm">
                             Book a Demo
                         </Link>
                     </div>

@@ -172,7 +172,7 @@ export default function CaseStudiesSection() {
                                 Set up your first workspace in an afternoon and
                                 see your own numbers reconcile from day one.
                             </p>
-                            <a href="#cta" className="case-link">
+                            <a href="/contact" className="case-link">
                                 Book a demo{" "}
                                 <Icon name="arrow-right" className="icon" />
                             </a>

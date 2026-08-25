@@ -37,7 +37,7 @@ export default function Hero() {
                         className="hero-ctas reveal in"
                         style={{ transitionDelay: ".22s" }}
                     >
-                        <a href="#cta" className="btn btn-brass">
+                        <a href="/contact" className="btn btn-brass">
                             Book a Demo
                         </a>
                         <a href="#demo" className="btn btn-ghost-dark">

@@ -26,7 +26,7 @@ export default function PricingCta() {
                     className="cta-ctas reveal"
                     style={{ transitionDelay: ".16s" }}
                 >
-                    <Link href="/#cta" className="btn btn-brass">
+                    <Link href="/contact" className="btn btn-brass">
                         Book a demo
                     </Link>
                     <a

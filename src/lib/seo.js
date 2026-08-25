@@ -40,7 +40,7 @@ export function absoluteUrl(path = "/") {
  * it here means that can't happen by omission again.
  */
 export const DEFAULT_OG_IMAGE = {
-  url: "/og-image.jpg",
+  url: absoluteUrl("/og-image.jpg"),
   width: 1200,
   height: 630,
   alt: "Innbase — the AI operating system for hospitality",

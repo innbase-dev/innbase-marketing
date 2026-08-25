@@ -26,7 +26,7 @@ export default function CTABand() {
                     style={{ transitionDelay: ".16s" }}
                 >
                     <a
-                        href="mailto:hello@innbase.co?subject=Innbase%20demo%20request"
+                        href="/contact"
                         className="btn btn-brass"
                     >
                         Book a Demo

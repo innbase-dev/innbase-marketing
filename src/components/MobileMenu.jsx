@@ -46,7 +46,7 @@ export default function MobileMenu({ open, onClose, pathname }) {
                     <Link href="/auth" className="btn btn-ghost-dark">
                         Log in
                     </Link>
-                    <Link href="/#cta" className="btn btn-brass">
+                    <Link href="/contact" className="btn btn-brass">
                         Book a demo
                     </Link>
                 </div>

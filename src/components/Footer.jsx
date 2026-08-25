@@ -73,7 +73,7 @@ export default function Footer() {
                     <Link href="/pricing">Pricing</Link>
                     <Link href="/#faq">FAQ</Link>
                     <Link href="/#stories">Pilot results</Link>
-                    <Link href="/#cta">Book a demo</Link>
+                    <Link href="/contact">Book a demo</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
