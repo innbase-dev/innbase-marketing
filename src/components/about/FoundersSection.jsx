@@ -47,7 +47,7 @@ export default function FoundersSection() {
                                     {f.name.split(" ")[0]}
                                 </div>
                                 <span className="founder-placeholder-tag">
-                                    Quote &amp; signature — pending approval
+                                    Quote &amp; signature
                                 </span>
                             </div>
                         </div>
