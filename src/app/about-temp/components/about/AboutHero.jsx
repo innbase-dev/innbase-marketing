@@ -10,7 +10,7 @@ export default function AboutHero() {
             </div>
             <div className="hero-dots" />
             <div className="wrap hero-inner">
-                <div className="about-hero-content">
+                <div className="hero-content">
                     <span className="eyebrow reveal in">
                         <span className="dot" />
                         Why we&apos;re building Innbase

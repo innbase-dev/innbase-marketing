@@ -524,6 +524,7 @@ img {
 .mm-mod.active {
     background: var(--surface-hover);
     padding-left: 8px;
+    box-shadow: inset 2px 0 0 var(--mod-accent, var(--teal-bright))
 }
 
 .mm-mod-ico {
@@ -1039,11 +1040,6 @@ img {
 
 .hero-content {
     max-width: 720px;
-}
-
-.about-hero-content {
-    width: 85%;
-    max-width: 1080px;
 }
 
 .eyebrow {

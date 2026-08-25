@@ -9,30 +9,20 @@ import AfricaSection from "@/components/about/AfricaSection";
 import LetterSection from "@/components/about/LetterSection";
 import AboutCta from "@/components/about/AboutCta";
 
-import { FOUNDERS } from "@/data/aboutData";
-import { JsonLd, SITE_URL, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
-
-const TITLE = "About Innbase";
-const DESCRIPTION =
-  "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.";
-
 export const metadata = {
     title: "About",
-    description: DESCRIPTION,
+    description:
+        "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.",
     keywords: ["about innbase", "hospitality startup", "hotel tech team"],
     alternates: {
         canonical: "/about",
     },
-    ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/about" }),
+    openGraph: {
+        title: "About Innbase",
+        description: "Why we're building Innbase, and who's building it.",
+        url: "https://innbase.co/about",
+    },
 };
-
-const founderJsonLd = FOUNDERS.map((f) => ({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: f.name,
-  jobTitle: f.role,
-  worksFor: { "@id": `${SITE_URL}/#organization` },
-}));
 
 export default function AboutPage() {
     return (
@@ -49,7 +39,6 @@ export default function AboutPage() {
                 <AboutCta />
             </main>
             <Footer />
-            <JsonLd data={[...founderJsonLd, breadcrumbJsonLd("About", "/about")]} />
         </div>
     );
 }
