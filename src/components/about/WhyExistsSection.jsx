@@ -10,7 +10,7 @@ const BANNER_LINES = [MANIFESTO_LINES[1], MANIFESTO_LINES[3], MANIFESTO_LINES[4]
 export default function WhyExistsSection() {
     return (
         <section className="sec" id="why">
-            <div className="wrap">
+            <div className="wrap about-wrap">
                 <Reveal className="sec-head reveal">
                     <span className="sec-eyebrow">Why Innbase exists</span>
                     <h2 className="sec-h2">

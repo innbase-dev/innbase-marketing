@@ -4552,6 +4552,9 @@ text {
     line-height: 1.6
 }
 
+.about-wrap {
+    margin-top: 48px;
+}
 
 /* ── About: founder letter ── */
 /* ═══════════ FOUNDER LETTER ═══════════ */
