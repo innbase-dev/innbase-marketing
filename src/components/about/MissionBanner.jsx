@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 import Icon from "@/components/Icon";
+import { AnimatePresence, motion } from "framer-motion";
+
+const IMAGES = [
+    "/images/cashier.jpg",
+    "/images/cashier.jpg",
+    "/images/owner.jpg",
+    "/images/payment.jpg",
+    "/images/owner.jpg",
+];
 
 export default function MissionBanner({ lines }) {
     const [index, setIndex] = useState(0);
@@ -11,10 +20,26 @@ export default function MissionBanner({ lines }) {
 
     return (
         <div className="mission-banner">
-            <div className="mission-banner-grid" aria-hidden="true" />
-            <span className="mission-banner-photo-tag">
-                Photo — to be added
-            </span>
+            <AnimatePresence mode="popLayout">
+                <motion.img
+                    key={index}
+                    src={IMAGES[index % IMAGES.length]}
+                    alt=""
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.35 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        zIndex: 0,
+                    }}
+                />
+            </AnimatePresence>
+            <div className="mission-banner-grid" aria-hidden="true" style={{ zIndex: 1 }} />
 
             <div className="mission-banner-overlay">
                 <div>

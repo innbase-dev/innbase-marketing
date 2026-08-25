@@ -53,9 +53,9 @@ export const FOUNDERS = [
     {
         initials: "CO",
         color: "var(--teal)",
-        name: "Chibeze Endurance Ochonogor",
+        name: "Chibeze Ochonogor",
         role: "CTO",
-        linkedin: "https://ng.linkedin.com/in/chibeze-ochonogor",
+        linkedin: "https://linkedin.com/in/chibeze-ochonogor",
         focusLabel: "Focus:",
         focus:
             " engineering and technical direction — making sure what gets built actually holds up on a busy Friday night.",
