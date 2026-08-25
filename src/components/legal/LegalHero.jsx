@@ -17,10 +17,7 @@ export default function LegalHero() {
                 <div className="legal-meta">
                     <span>
                         <span className="d" />
-                        Last updated:{" "}
-                        <span className="ph">
-                            Effective date — to be finalized
-                        </span>
+                        Last updated: August 1st, 2026
                     </span>
                     <span>
                         Questions?{" "}

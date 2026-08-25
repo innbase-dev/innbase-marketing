@@ -9,8 +9,8 @@ export const TERMS_PANEL = {
   intro: (
     <>
       <p>These Terms of Service (&quot;<b>Terms</b>&quot;) govern your access to and use of
-        Innbase — the software, mobile apps, and related services provided by <span className="ph">Innbase
-          Limited</span> (&quot;<b>Innbase</b>&quot;, &quot;<b>we</b>&quot;, &quot;<b>us</b>&quot;). By creating an
+        Innbase — the software, mobile apps, and related services provided by Innbase
+        Limited (&quot;<b>Innbase</b>&quot;, &quot;<b>we</b>&quot;, &quot;<b>us</b>&quot;). By creating an
         account or using Innbase, you&apos;re agreeing to these Terms on behalf of yourself and, if
         applicable, the hotel or business you represent (&quot;<b>you</b>&quot;, &quot;<b>your property</b>&quot;).</p>
     </>
@@ -71,9 +71,7 @@ export const TERMS_PANEL = {
       body: (
         <>
           <div><p>Paid plans are billed on the cycle and amount agreed at signup or shown in your
-              account. Fees are quoted in <span className="ph">supported currencies, e.g. Nigerian
-                Naira
-                (₦), Ghananian Cedis (c)</span> unless stated otherwise, and are exclusive of
+              account. Fees are quoted in Nigerian Naira (₦), Ghanaian Cedi (₵), South African Rand (ZAR), Kenyan Shilling (KES), and Tanzanian Shilling (TZS) unless stated otherwise, and are exclusive of
               applicable taxes unless
               we say they&apos;re included.</p>
             <p>If a payment fails or lapses, we may suspend access to paid features until it&apos;s
@@ -161,7 +159,7 @@ export const TERMS_PANEL = {
               time to time. We&apos;ll try to give notice for planned maintenance where practical.</p>
             <p>Specific support response times or uptime commitments, if any, will be set out in a
               separate agreement for customers who require them (for example, an enterprise or SLA
-              agreement) — see <span className="ph">link to SLA, if applicable</span>.</p></div>
+              agreement) — see <a href="https://innbase.co/sla.pdf" style={{color: 'var(--brass-bright)'}}>SLA details</a>.</p></div>
         </>
       ),
     },
@@ -199,7 +197,7 @@ export const TERMS_PANEL = {
           <div><p>To the maximum extent permitted by law, Innbase will not be liable for indirect,
               incidental, or consequential damages arising from your use of the service, including
               lost revenue or lost data, except where caused by our gross negligence or willful
-              misconduct. Our total liability for any claim will be capped at <span className="ph">500,000 NGN</span>.</p>
+              misconduct. Our total liability for any claim will be capped at 500,000 NGN.</p>
             <p>Nothing in these Terms limits liability where it cannot be limited under applicable
               law.</p></div>
         </>
@@ -227,10 +225,10 @@ export const TERMS_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>These Terms are governed by the laws of the <span className="ph">Federal Republic of
-                Nigeria — confirm governing jurisdiction</span>, without regard to
+          <div><p>These Terms are governed by the laws of the Federal Republic of
+                Nigeria, without regard to
               conflict-of-law principles. We&apos;ll try to resolve any dispute informally first; if
-              that doesn&apos;t work, disputes will be handled by the courts of <span className="ph">jurisdiction / venue</span>, unless applicable law says otherwise.
+              that doesn&apos;t work, disputes will be handled by any court of repute within Nigeria, unless applicable law says otherwise.
             </p></div>
         </>
       ),
@@ -361,8 +359,7 @@ export const PRIVACY_PANEL = {
               <li><b>A successor entity</b>, in the event of a merger, acquisition, or sale of
                 assets — with the same privacy commitments carried forward.</li>
             </ul>
-            <p>A specific list of the sub-processors we currently use is available on request at <a href="mailto:hello@innbase.co?subject=Sub-processor%20list%20request" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a> and will be published
-              here: <span className="ph">sub-processor list — to be published</span>.</p></div>
+            <p>A specific list of the sub-processors we currently use is available on request at <a href="mailto:hello@innbase.co?subject=Sub-processor%20list%20request" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a>.</p></div>
         </>
       ),
     },
@@ -374,8 +371,8 @@ export const PRIVACY_PANEL = {
         <>
           <div><p>We retain operational data for as long as your account is active, so your
               reconciliation history stays intact. After an account is closed, we retain data for
-              a limited window to allow export and to meet legal or accounting obligations — <span className="ph">retention period, e.g. 90 days post-closure, subject to legal
-                minimums</span> — after which it&apos;s deleted or anonymized.</p>
+              a limited window to allow export and to meet legal or accounting obligations — 90 days post-closure, subject to legal
+                minimums — after which it&apos;s deleted or anonymized.</p>
             <p>Some records may need to be kept longer where required by law (for example, financial
               records for tax purposes).</p></div>
         </>
@@ -592,7 +589,7 @@ export const GDPR_PANEL = {
       body: (
         <>
           <div><p>Email <a href="mailto:hello@innbase.co?subject=Data%20rights%20request" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a> with your request and
-              enough detail for us to verify who you are. We aim to respond within <span className="ph">30 days, or the timeframe required by applicable law</span>. If
+              enough detail for us to verify who you are. We aim to respond within 30 days, or the timeframe required by applicable law. If
               you&apos;re a guest of a property using Innbase, we&apos;d encourage you to also contact the
               property directly, since they hold the primary relationship with you.</p></div>
         </>
@@ -604,8 +601,7 @@ export const GDPR_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>Our data protection contact is <span className="ph">Data Protection Officer name / role,
-                if appointed</span>, reachable at <a href="mailto:hello@innbase.co" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a>. If a formal Data
+          <div><p>Our data protection contact is reachable at <a href="mailto:hello@innbase.co" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a>. If a formal Data
               Protection Officer is appointed as Innbase grows, their details will be updated
               here.</p></div>
         </>

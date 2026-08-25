@@ -46,7 +46,7 @@ export const FOUNDERS = [
         focusLabel: "Focus:",
         focus:
             " product, strategy, and company direction — deciding what Innbase should do, and just as importantly, what it shouldn't.",
-        quote: "[Founder perspective — replace with approved copy from Efe]",
+        quote: "technology has to align with reality or it's useless",
     },
     {
         initials: "CO",
@@ -56,7 +56,7 @@ export const FOUNDERS = [
         focusLabel: "Focus:",
         focus:
             " engineering and technical direction — making sure what gets built actually holds up on a busy Friday night.",
-        quote: "[Founder perspective — replace with approved copy from Chibeze]",
+        quote: "A simple solution to a complex problem always shines",
     },
 ];
 

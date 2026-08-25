@@ -14,7 +14,7 @@ export default function ContactRail() {
                     form required.
                 </p>
                 <a
-                    href="https://wa.me/2340000000000"
+                    href="https://wa.me/2349064169441"
                     target="_blank"
                     rel="noopener"
                     className="btn btn-brass btn-sm"
@@ -30,7 +30,7 @@ export default function ContactRail() {
                         <Icon name="mail" className="icon" />
                         hello@innbase.co
                     </a>
-                    <a href="tel:+2340000000000">
+                    <a href="tel:+2349064169441">
                         <Icon name="phone" className="icon" />
                         +234 000 000 0000
                     </a>
