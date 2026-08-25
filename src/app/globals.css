@@ -6078,6 +6078,16 @@ text {
     color: var(--text-dark)
 }
 
+.fq-linkedin {
+    color: var(--muted-dark);
+    display: flex;
+    transition: color 0.2s ease;
+}
+
+.fq-linkedin:hover {
+    color: var(--teal-bright);
+}
+
 .fq-role {
     margin-top: 2px;
     font-size: 13px;
