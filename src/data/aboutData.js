@@ -45,6 +45,7 @@ export const FOUNDERS = [
         name: "Efe Ojadua",
         role: "CEO",
         linkedin: "https://linkedin.com/in/ojadua-efe",
+        twitter: "https://x.com/integral19",
         focusLabel: "Focus:",
         focus:
             " product, strategy, and company direction — deciding what Innbase should do, and just as importantly, what it shouldn't.",
@@ -56,6 +57,7 @@ export const FOUNDERS = [
         name: "Chibeze Ochonogor",
         role: "CTO",
         linkedin: "https://linkedin.com/in/chibeze-ochonogor",
+        twitter: "https://x.com/classeze",
         focusLabel: "Focus:",
         focus:
             " engineering and technical direction — making sure what gets built actually holds up on a busy Friday night.",

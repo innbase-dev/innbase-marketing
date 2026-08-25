@@ -2,6 +2,7 @@
 import Reveal from "@/components/Reveal";
 import { FOUNDERS } from "@/data/aboutData";
 import Link from "next/link";
+import { Linkedin, Twitter } from "lucide-react";
 
 export default function FoundersSection() {
     return (
@@ -49,12 +50,20 @@ export default function FoundersSection() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="fq-linkedin"
+                                            aria-label={`${f.name} on LinkedIn`}
                                         >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                                <rect x="2" y="9" width="4" height="12"></rect>
-                                                <circle cx="4" cy="4" r="2"></circle>
-                                            </svg>
+                                            <Linkedin size={16} strokeWidth={1.8} />
+                                        </Link>
+                                    )}
+                                    {f.twitter && (
+                                        <Link
+                                            href={f.twitter}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="fq-linkedin"
+                                            aria-label={`${f.name} on X (Twitter)`}
+                                        >
+                                            <Twitter size={16} strokeWidth={1.8} />
                                         </Link>
                                     )}
                                 </div>
