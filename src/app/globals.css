@@ -2383,7 +2383,7 @@ section {
     .f2-grid {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 36px;
-        padding: 16px 0;
+        padding: 20px;
     }
 
     .f2-brand {
@@ -2391,7 +2391,11 @@ section {
     }
 
     .f2-bottom {
-        padding: 16px;
+        padding: 20px;
+    }
+
+    .f2-cta {
+        padding: 24px 20px;
     }
 }
 
