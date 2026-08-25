@@ -46,9 +46,6 @@ export default function FoundersSection() {
                                 <div className="fq-sign">
                                     {f.name.split(" ")[0]}
                                 </div>
-                                <span className="founder-placeholder-tag">
-                                    Quote &amp; signature
-                                </span>
                             </div>
                         </div>
                     ))}
