@@ -14,7 +14,7 @@ import { JsonLd, SITE_URL, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/s
 
 const TITLE = "About Innbase";
 const DESCRIPTION =
-  "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.";
+    "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.";
 
 export const metadata = {
     title: "About",
@@ -27,11 +27,11 @@ export const metadata = {
 };
 
 const founderJsonLd = FOUNDERS.map((f) => ({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: f.name,
-  jobTitle: f.role,
-  worksFor: { "@id": `${SITE_URL}/#organization` },
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: f.name,
+    jobTitle: f.role,
+    worksFor: { "@id": `${SITE_URL}/#organization` },
 }));
 
 export default function AboutPage() {
@@ -39,17 +39,13 @@ export default function AboutPage() {
         <div className="page-about">
             <Navbar />
             <main id="main">
-                <AboutHero />
                 <WhyExistsSection />
                 <WhoForSection />
                 <FoundersSection />
                 <PhilosophySection />
-                <AfricaSection />
-                <LetterSection />
                 <AboutCta />
             </main>
             <Footer />
-            <JsonLd data={[...founderJsonLd, breadcrumbJsonLd("About", "/about")]} />
         </div>
     );
 }

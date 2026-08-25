@@ -26,7 +26,7 @@ export const WHO_FOR_CARDS = [
     {
         icon: "message-circle",
         title: "The WhatsApp confirmation",
-        pain: "Bookings and questions move fast, informally.",
+        pain: "Bookings move fast, informally.",
         fix: "The system keeps up without forcing your front desk to learn a new habit.",
     },
     {
