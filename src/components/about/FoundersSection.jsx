@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { FOUNDERS } from "@/data/aboutData";
+import Link from "next/link";
 
 export default function FoundersSection() {
     return (
@@ -42,9 +43,9 @@ export default function FoundersSection() {
                                 <div className="fq-name" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     {f.name}
                                     {f.linkedin && (
-                                        <a 
-                                            href={f.linkedin} 
-                                            target="_blank" 
+                                        <Link
+                                            href={f.linkedin}
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                             style={{ color: "var(--muted-dark)", display: "flex" }}
                                             onMouseEnter={(e) => e.currentTarget.style.color = "var(--teal-bright)"}
@@ -55,7 +56,7 @@ export default function FoundersSection() {
                                                 <rect x="2" y="9" width="4" height="12"></rect>
                                                 <circle cx="4" cy="4" r="2"></circle>
                                             </svg>
-                                        </a>
+                                        </Link>
                                     )}
                                 </div>
                                 <div className="fq-role">
