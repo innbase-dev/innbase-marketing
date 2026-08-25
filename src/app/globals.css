@@ -2476,10 +2476,6 @@ section {
         grid-template-columns: 1fr
     }
 
-    .role-grid {
-        grid-template-columns: 1fr 1fr
-    }
-
     .stat-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px
@@ -2509,6 +2505,9 @@ section {
         grid-template-columns: 1fr
     }
 
+    .role-grid {
+        grid-template-columns: 1fr
+    }
 }
 
 /* ═══════════ SKIP LINK ═══════════ */
