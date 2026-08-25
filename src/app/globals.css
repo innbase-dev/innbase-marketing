@@ -1173,7 +1173,7 @@ img {
         /* Large display on small phones — right overflow clipped by .hero { overflow:hidden }. */
         width: 170vw;
         min-width: 520px;
-        margin-top: 32px
+        margin-top: 64px
     }
 
     .hero {

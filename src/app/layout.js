@@ -1,5 +1,5 @@
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import { JsonLd, SITE_URL, SITE_NAME } from "@/lib/seo";
@@ -118,6 +118,7 @@ export default function RootLayout({ children }) {
         </Script>
         <Script data-cfasync="false" src="https://innbase.user.com/widget.js" />
       </body>
+      <GoogleAnalytics gaId="G-3FF2TGHN9M" />
       {process.env.NEXT_PUBLIC_GTM_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />}
     </html>
   );

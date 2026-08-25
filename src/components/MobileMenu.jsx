@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { X, ChevronRight } from "lucide-react";
 import { COMPANY_MENU_ITEMS } from "@/data/companyMenuData";
 
@@ -23,7 +24,15 @@ export default function MobileMenu({ open, onClose, pathname }) {
                 aria-label="Site menu"
             >
                 <div className="mobile-menu-head">
-                    <span className="mobile-menu-brand">Innbase</span>
+                    <Link href="/" className="mobile-menu-brand" aria-label="Innbase home">
+                        <Image
+                            src="/images/innbase-light.svg"
+                            alt="Innbase"
+                            width={132}
+                            height={28}
+                            priority
+                        />
+                    </Link>
                     <button
                         type="button"
                         className="mobile-menu-close"
