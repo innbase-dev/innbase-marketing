@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/components/about/AboutHero";
-import ModuleMarquee from "@/components/about/ModuleMarquee";
+import AboutStats from "@/components/about/AboutStats";
+import IdentityMarquee from "@/components/about/IdentityMarquee";
 import WhyExistsSection from "@/components/about/WhyExistsSection";
 import WhoForSection from "@/components/about/WhoForSection";
 import FoundersSection from "@/components/about/FoundersSection";
@@ -32,7 +33,8 @@ export default function AboutPage() {
             <Navbar />
             <main id="main">
                 <AboutHero />
-                <ModuleMarquee />
+                <AboutStats />
+                <IdentityMarquee />
                 <WhyExistsSection />
                 <WhoForSection />
                 <FoundersSection />
