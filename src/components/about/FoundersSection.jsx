@@ -22,12 +22,21 @@ export default function FoundersSection() {
                 <Reveal className="fq-list reveal-stag reveal">
                     {FOUNDERS.map((f) => (
                         <div className="fq-card" key={f.name}>
-                            <span
-                                className="fq-avatar"
-                                style={{ background: f.color }}
-                            >
-                                {f.initials}
-                            </span>
+                            {f.image ? (
+                                <img
+                                    className="fq-avatar"
+                                    src={f.image}
+                                    alt={f.name}
+                                    style={{ objectFit: "cover" }}
+                                />
+                            ) : (
+                                <span
+                                    className="fq-avatar"
+                                    style={{ background: f.color }}
+                                >
+                                    {f.initials}
+                                </span>
+                            )}
                             <div className="fq-body">
                                 <p className="fq-quote">{f.quote}</p>
                                 <div className="fq-name">{f.name}</div>
