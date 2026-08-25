@@ -34,10 +34,10 @@ export default function ContactRail() {
                         <Icon name="phone" className="icon" />
                         +234 000 000 0000
                     </a>
-                    <Link href="/auth">
+                    <a href="https://app.innbase.co/login">
                         <Icon name="log-in" className="icon" />
                         Already a customer? Log in
-                    </Link>
+                    </a>
                 </div>
             </div>
 

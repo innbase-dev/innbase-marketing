@@ -73,12 +73,12 @@ export default function Navbar() {
                     </div>
 
                     <div className="nav-actions">
-                        <Link
-                            href="/auth"
+                        <a
+                            href="https://app.innbase.co/login"
                             className="btn btn-ghost-dark btn-sm"
                         >
                             Log in
-                        </Link>
+                        </a>
                         <Link href="/contact" className="btn btn-brass btn-sm">
                             Book a Demo
                         </Link>

@@ -43,9 +43,9 @@ export default function MobileMenu({ open, onClose, pathname }) {
                 </Link>
                 <Link href="/#faq">FAQ</Link>
                 <div className="mm-cta-row">
-                    <Link href="/auth" className="btn btn-ghost-dark">
+                    <a href="https://app.innbase.co/login" className="btn btn-ghost-dark">
                         Log in
-                    </Link>
+                    </a>
                     <Link href="/contact" className="btn btn-brass">
                         Book a demo
                     </Link>
