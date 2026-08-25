@@ -396,6 +396,10 @@ img {
         display: none
     }
 
+    .nav-actions {
+        display: none;
+    }
+
     .nav-mobile-btn {
         display: flex
     }
