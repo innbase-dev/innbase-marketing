@@ -2,7 +2,40 @@
 import Reveal from "@/components/Reveal";
 import { FOUNDERS } from "@/data/aboutData";
 import Link from "next/link";
-import { Linkedin, Twitter } from "lucide-react";
+
+function LinkedinIcon({ size = 16 }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+        </svg>
+    );
+}
+
+function XIcon({ size = 15 }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.25 2.25h6.988l4.26 5.632 4.746-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+        </svg>
+    );
+}
 
 export default function FoundersSection() {
     return (
@@ -52,7 +85,7 @@ export default function FoundersSection() {
                                             className="fq-linkedin"
                                             aria-label={`${f.name} on LinkedIn`}
                                         >
-                                            <Linkedin size={16} strokeWidth={1.8} />
+                                            <LinkedinIcon size={16} />
                                         </Link>
                                     )}
                                     {f.twitter && (
@@ -63,7 +96,7 @@ export default function FoundersSection() {
                                             className="fq-linkedin"
                                             aria-label={`${f.name} on X (Twitter)`}
                                         >
-                                            <Twitter size={16} strokeWidth={1.8} />
+                                            <XIcon size={15} />
                                         </Link>
                                     )}
                                 </div>

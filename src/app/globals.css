@@ -1154,6 +1154,30 @@ img {
     border-radius: 14px
 }
 
+@media(max-width:860px) {
+    .hero-visual {
+        /* Break out of the padded wrap so the dashboard fills a large viewport width.
+           .hero has overflow:hidden which clips the right-side bleed. */
+        width: calc(100% + var(--pad-x));
+        max-width: none;
+        margin-top: 40px
+    }
+}
+
+@media(max-width:640px) {
+    .hero-visual {
+        /* On small phones render at a large fixed minimum so the UI is readable,
+           right overflow is clipped by the ancestor .hero { overflow:hidden }. */
+        width: 140vw;
+        min-width: 420px;
+        margin-top: 32px
+    }
+
+    .hero {
+        padding-bottom: 48px
+    }
+}
+
 /* ═══════════ TRUST STRIP ═══════════ */
 .trust-row {
     flex-wrap: wrap;
