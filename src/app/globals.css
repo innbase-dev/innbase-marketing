@@ -132,6 +132,10 @@ h3,
     font-family: 'IBM Plex Mono', monospace
 }
 
+.mono.origin {
+    display: none;
+}
+
 .tnum {
     font-variant-numeric: tabular-nums
 }
@@ -1156,9 +1160,9 @@ img {
 
 @media(max-width:860px) {
     .hero-visual {
-        /* Break out of the padded wrap so the dashboard fills a large viewport width.
-           .hero has overflow:hidden which clips the right-side bleed. */
-        width: calc(100% + var(--pad-x));
+        /* Break out of the padded wrap — bleed past the right gutter.
+           Left margin is preserved by .wrap padding. */
+        width: calc(100% + 2 * var(--pad-x));
         max-width: none;
         margin-top: 40px
     }
@@ -1166,10 +1170,9 @@ img {
 
 @media(max-width:640px) {
     .hero-visual {
-        /* On small phones render at a large fixed minimum so the UI is readable,
-           right overflow is clipped by the ancestor .hero { overflow:hidden }. */
-        width: 140vw;
-        min-width: 420px;
+        /* Large display on small phones — right overflow clipped by .hero { overflow:hidden }. */
+        width: 170vw;
+        min-width: 520px;
         margin-top: 32px
     }
 
@@ -2482,7 +2485,7 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 20px 0;
+    padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, .1);
     font-size: 12px;
     color: var(--muted-dark);

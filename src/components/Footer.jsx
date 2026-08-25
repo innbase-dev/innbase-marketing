@@ -96,7 +96,7 @@ export default function Footer() {
                     <span className="f2-status-dot" />
                     All systems reconciled
                 </span>
-                <span className="mono">
+                <span className="mono origin">
                     Built for hotels &amp; bars across Nigeria.
                 </span>
             </div>
