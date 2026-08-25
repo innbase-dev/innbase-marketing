@@ -42,7 +42,7 @@ export const FOUNDERS = [
         initials: "EO",
         color: "var(--brass)",
         image: "/images/efe-o.jpeg",
-        name: "Efe Great Ojadua",
+        name: "Efe Ojadua",
         role: "CEO",
         focusLabel: "Focus:",
         focus:

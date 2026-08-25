@@ -69,7 +69,7 @@ export default function AboutHero() {
                                 EO
                             </span>
                             <span className="hero-duo-name">
-                                Efe Great Ojadua
+                                Efe Ojadua
                             </span>
                             <span className="hero-duo-role">CEO</span>
                         </div>

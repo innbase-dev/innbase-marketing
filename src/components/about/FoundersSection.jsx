@@ -44,7 +44,7 @@ export default function FoundersSection() {
                                     Founder &amp; {f.role} of Innbase
                                 </div>
                                 <div className="fq-sign">
-                                    {f.name.split(" ")[0]}
+                                    {f.name.split("")}
                                 </div>
                             </div>
                         </div>
