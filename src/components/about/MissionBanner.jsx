@@ -6,8 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const IMAGES = [
     "/images/cashier.jpg",
-    "/images/cashier.jpg",
-    "/images/owner.jpg",
     "/images/payment.jpg",
     "/images/owner.jpg",
 ];
@@ -46,7 +44,7 @@ export default function MissionBanner({ lines }) {
                     <span className="mission-banner-eyebrow">
                         Our mission
                     </span>
-                    <p className="mission-banner-line" key={index} aria-live="polite">
+                    <p className="mission-banner-line" aria-live="polite">
                         {lines[index]}
                     </p>
                 </div>
