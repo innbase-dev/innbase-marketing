@@ -2382,11 +2382,16 @@ section {
 @media(max-width:940px) {
     .f2-grid {
         grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 36px
+        row-gap: 36px;
+        padding: 16px 0;
     }
 
     .f2-brand {
         grid-column: 1/-1
+    }
+
+    .f2-bottom {
+        padding: 16px;
     }
 }
 
