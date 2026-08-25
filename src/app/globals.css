@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Sassy+Frass&display=swap');
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────
@@ -6097,8 +6097,8 @@ text {
 
 .fq-sign {
     margin-top: 12px;
-    font-family: 'Great Vibes', 'Caveat', 'Segoe Script', cursive;
-    font-size: 38px;
+    font-family: 'Sassy Frass', 'Caveat', 'Segoe Script', cursive;
+    font-size: 36px;
     line-height: 1;
     color: var(--teal-bright)
 }
