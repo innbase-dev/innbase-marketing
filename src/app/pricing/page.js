@@ -76,7 +76,7 @@ export default function PricingPage() {
         <ComparisonTable />
         <CapacitySection />
         <PricingFaq />
-        <PricingCta />
+        {/* <PricingCta /> */}
       </main>
       <Footer />
       <JsonLd
