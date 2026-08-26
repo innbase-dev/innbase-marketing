@@ -40,11 +40,26 @@ export default function LogoStrip() {
                 overflow: "hidden",
             }}
         >
-            <div 
+            <div
                 style={{
                     width: "100%",
-                    WebkitMaskImage: "linear-gradient(to right, transparent, black 10vw, black 90vw, transparent)",
-                    maskImage: "linear-gradient(to right, transparent, black 10vw, black 90vw, transparent)",
+                    // Use % stops relative to this element's own box, not the
+                    // viewport (vw), so the fade always aligns with the actual
+                    // left/right edges regardless of where this is nested.
+                    WebkitMaskImage:
+                        "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+                    maskImage:
+                        "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "100% 100%",
+                    maskSize: "100% 100%",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                    // Forces its own compositing layer so Safari/WebKit applies
+                    // the mask correctly on top of the animated (transformed)
+                    // child instead of intermittently failing to clip it.
+                    transform: "translateZ(0)",
                 }}
             >
                 <motion.div
