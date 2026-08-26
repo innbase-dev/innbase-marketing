@@ -43,6 +43,8 @@ export default function LogoStrip() {
             <div
                 style={{
                     width: "100%",
+                    maxWidth: 1180,
+                    margin: "0 auto",
                     // Use % stops relative to this element's own box, not the
                     // viewport (vw), so the fade always aligns with the actual
                     // left/right edges regardless of where this is nested.
