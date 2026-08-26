@@ -38,9 +38,10 @@ export default function LogoStrip() {
                 padding: "34px 0 30px",
                 borderBottom: "1px solid var(--ink-line)",
                 overflow: "hidden",
+                position: "relative",
             }}
         >
-            <div className="relative wrap">
+            <div className="wrap">
                 <motion.div
                     className="trust-row"
                     variants={marqueeVariants}
@@ -58,22 +59,22 @@ export default function LogoStrip() {
                         </span>
                     ))}
                 </motion.div>
+            </div>
 
-                {/* Fading overlays for smooth edges */}
-                <div style={{
-                    pointerEvents: "none",
-                    position: "absolute",
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                    left: 0,
-                    display: "flex",
-                    justifyContent: "space-between",
-                    zIndex: 10
-                }}>
-                    <div style={{ width: "120px", background: "linear-gradient(to right, #12161d, rgba(18, 22, 29, 0))" }} />
-                    <div style={{ width: "120px", background: "linear-gradient(to left, #12161d, rgba(18, 22, 29, 0))" }} />
-                </div>
+            {/* Fading overlays for smooth edges */}
+            <div style={{
+                pointerEvents: "none",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                display: "flex",
+                justifyContent: "space-between",
+                zIndex: 10
+            }}>
+                <div style={{ width: "15vw", minWidth: "80px", maxWidth: "200px", background: "linear-gradient(to right, #12161d 0%, rgba(18, 22, 29, 0) 100%)" }} />
+                <div style={{ width: "15vw", minWidth: "80px", maxWidth: "200px", background: "linear-gradient(to left, #12161d 0%, rgba(18, 22, 29, 0) 100%)" }} />
             </div>
         </section>
     );
