@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingHero from "@/components/pricing/PricingHero";
+import LogoStrip from "@/components/LogoStrip";
 import PlanCards from "@/components/pricing/PlanCards";
 import ComparisonTable from "@/components/pricing/ComparisonTable";
 import CapacitySection from "@/components/pricing/CapacitySection";
@@ -70,6 +71,7 @@ export default function PricingPage() {
       <Navbar />
       <main id="main">
         <PricingHero />
+        <LogoStrip />
         <PlanCards />
         <ComparisonTable />
         <CapacitySection />

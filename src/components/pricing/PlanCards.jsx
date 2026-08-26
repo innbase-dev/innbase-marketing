@@ -11,14 +11,15 @@ import {
 } from "@/data/pricingPlans";
 
 const BANDS = [
-    { band: "1", label: "1–10" },
-    { band: "2", label: "11–20" },
-    { band: "3", label: "21–50" },
+    { band: "1", label: "1-10" },
+    { band: "2", label: "11-20" },
+    { band: "3", label: "21-50" },
     { band: "4", label: "50+" },
 ];
 
 export default function PlanCards() {
     const [activeBand, setActiveBand] = useState("1");
+    const [isAnnual, setIsAnnual] = useState(false);
     const highlightPlan = QUICK_PICK_TARGET[activeBand];
 
     return (
@@ -54,46 +55,106 @@ export default function PlanCards() {
                     </span>
                 </Reveal>
 
-                <Reveal className="plan-grid reveal-stag reveal">
-                    {PLANS.map((p) => (
-                        <div
-                            className={`plan-card${p.featured ? " featured" : ""}${highlightPlan === p.plan ? " qp-hi" : ""}`}
-                            key={p.name}
+                <Reveal className="billing-switch-container reveal" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '24px' }}>
+                    <div className="billing-switch" style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--bg-sub)', padding: '4px', borderRadius: '24px', border: '1px solid var(--border-sub)' }}>
+                        <button
+                            onClick={() => setIsAnnual(false)}
+                            style={{
+                                padding: '6px 16px',
+                                borderRadius: '20px',
+                                border: 'none',
+                                background: !isAnnual ? 'var(--fg-base)' : 'transparent',
+                                color: !isAnnual ? 'var(--bg-base)' : 'var(--fg-sub)',
+                                cursor: 'pointer',
+                                fontSize: '14px',
+                                fontWeight: 500,
+                                transition: 'all 0.2s'
+                            }}
                         >
-                            {p.featured && (
-                                <span className="plan-badge">Most popular</span>
-                            )}
-                            <span className="plan-name">{p.name}</span>
-                            <p className="plan-tagline">{p.tagline}</p>
-                            <div className="plan-price-row">
-                                <span className="plan-price tnum">
-                                    {p.price}
-                                </span>
-                                <span className="plan-price-unit">/month</span>
-                            </div>
-                            <span className="plan-price-daily mono">
-                                {p.daily}
+                            Monthly
+                        </button>
+                        <button
+                            onClick={() => setIsAnnual(true)}
+                            style={{
+                                padding: '6px 16px',
+                                borderRadius: '20px',
+                                border: 'none',
+                                background: isAnnual ? 'var(--fg-base)' : 'transparent',
+                                color: isAnnual ? 'var(--bg-base)' : 'var(--fg-sub)',
+                                cursor: 'pointer',
+                                fontSize: '14px',
+                                fontWeight: 500,
+                                transition: 'all 0.2s',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                            }}
+                        >
+                            Annual
+                            <span style={{
+                                color: isAnnual ? 'var(--bg-base)' : 'var(--brand-brass)',
+                                fontSize: '12px',
+                                background: isAnnual ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.05)',
+                                padding: '2px 6px',
+                                borderRadius: '10px'
+                            }}>
+                                -2 mo
                             </span>
-                            <span className="plan-cap">
-                                <Icon name="users" className="icon" />
-                                {p.cap}
-                            </span>
-                            <ul className="plan-features">
-                                {p.features.map((f, i) => (
-                                    <li key={i}>
-                                        <Icon name="check" className="icon" />
-                                        {f}
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link
-                                href="/#cta"
-                                className={`btn ${p.cta} btn-full`}
+                        </button>
+                    </div>
+                </Reveal>
+
+                <Reveal className="plan-grid reveal-stag reveal">
+                    {PLANS.map((p) => {
+                        const numericPrice = parseInt(p.price.replace(/[^\d]/g, ""), 10);
+                        const displayPrice = isAnnual
+                            ? "₦" + (numericPrice * 10).toLocaleString()
+                            : p.price;
+                        const displayUnit = isAnnual ? "/year" : "/month";
+                        const dailyPrice = isAnnual
+                            ? `≈ ₦${Math.round((numericPrice * 10) / 365).toLocaleString()}/day`
+                            : p.daily;
+
+                        return (
+                            <div
+                                className={`plan-card${p.featured ? " featured" : ""}${highlightPlan === p.plan ? " qp-hi" : ""}`}
+                                key={p.name}
                             >
-                                Get started
-                            </Link>
-                        </div>
-                    ))}
+                                {p.featured && (
+                                    <span className="plan-badge">Most popular</span>
+                                )}
+                                <span className="plan-name">{p.name}</span>
+                                <p className="plan-tagline">{p.tagline}</p>
+                                <div className="plan-price-row">
+                                    <span className="plan-price tnum">
+                                        {displayPrice}
+                                    </span>
+                                    <span className="plan-price-unit">{displayUnit}</span>
+                                </div>
+                                <span className="plan-price-daily mono">
+                                    {dailyPrice}
+                                </span>
+                                <span className="plan-cap">
+                                    <Icon name="users" className="icon" />
+                                    {p.cap}
+                                </span>
+                                <ul className="plan-features">
+                                    {p.features.map((f, i) => (
+                                        <li key={i}>
+                                            <Icon name="check" className="icon" />
+                                            {f}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link
+                                    href="/#cta"
+                                    className={`btn ${p.cta} btn-full`}
+                                >
+                                    Get started
+                                </Link>
+                            </div>
+                        )
+                    })}
                 </Reveal>
 
                 <Reveal className="no-staff-strip reveal">
