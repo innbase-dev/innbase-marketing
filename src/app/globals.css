@@ -3795,7 +3795,6 @@ text {
 .plan-card.featured {
     background: var(--ink);
     border-color: rgba(201, 147, 46, .4);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .05) inset, 0 24px 50px -18px rgba(201, 147, 46, .28)
 }
 
 .plan-card.featured:hover {
