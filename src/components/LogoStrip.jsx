@@ -38,10 +38,15 @@ export default function LogoStrip() {
                 padding: "34px 0 30px",
                 borderBottom: "1px solid var(--ink-line)",
                 overflow: "hidden",
-                position: "relative",
             }}
         >
-            <div className="wrap">
+            <div 
+                style={{
+                    width: "100%",
+                    WebkitMaskImage: "linear-gradient(to right, transparent, black 10vw, black 90vw, transparent)",
+                    maskImage: "linear-gradient(to right, transparent, black 10vw, black 90vw, transparent)",
+                }}
+            >
                 <motion.div
                     className="trust-row"
                     variants={marqueeVariants}
@@ -59,22 +64,6 @@ export default function LogoStrip() {
                         </span>
                     ))}
                 </motion.div>
-            </div>
-
-            {/* Fading overlays for smooth edges */}
-            <div style={{
-                pointerEvents: "none",
-                position: "absolute",
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                display: "flex",
-                justifyContent: "space-between",
-                zIndex: 10
-            }}>
-                <div style={{ width: "15vw", minWidth: "80px", maxWidth: "200px", background: "linear-gradient(to right, #12161d 0%, rgba(18, 22, 29, 0) 100%)" }} />
-                <div style={{ width: "15vw", minWidth: "80px", maxWidth: "200px", background: "linear-gradient(to left, #12161d 0%, rgba(18, 22, 29, 0) 100%)" }} />
             </div>
         </section>
     );
