@@ -23,7 +23,7 @@ const marqueeVariants = {
             x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: 120,
                 ease: "linear",
             },
         },
@@ -60,10 +60,19 @@ export default function LogoStrip() {
                 </motion.div>
 
                 {/* Fading overlays for smooth edges */}
-                <div className="pointer-events-none absolute inset-0 flex">
-                    <div className="w-24" style={{ background: "linear-gradient(to right, var(--ink-soft), transparent)" }} />
-                    <div className="flex-1" />
-                    <div className="w-24" style={{ background: "linear-gradient(to left, var(--ink-soft), transparent)" }} />
+                <div style={{
+                    pointerEvents: "none",
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    zIndex: 10
+                }}>
+                    <div style={{ width: "120px", background: "linear-gradient(to right, #12161d, rgba(18, 22, 29, 0))" }} />
+                    <div style={{ width: "120px", background: "linear-gradient(to left, #12161d, rgba(18, 22, 29, 0))" }} />
                 </div>
             </div>
         </section>
