@@ -9,11 +9,12 @@
 
 :root {
     /* Premium Dark Mode Palette */
-    --ink: #06080b;
+    --ink: #0b0e13;
     /* Deep slate/charcoal base */
     --ink-soft: #12161d;
     /* Elevated surface */
     --ink-line: #1e232b;
+    --ink-lighter: #06080b;
     /* Subtle premium borders */
     --paper: #ffffff;
     --paper-dim: #f6f7f8;
@@ -3793,7 +3794,7 @@ text {
 }
 
 .plan-card.featured {
-    background: var(--ink);
+    background: var(--ink-lighter);
     border-color: rgba(201, 147, 46, .4);
 }
 
