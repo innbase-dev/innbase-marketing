@@ -4,7 +4,7 @@ import OaHero from "@/components/assistant/OaHero";
 import DevicesSection from "@/components/assistant/DevicesSection";
 import OaFaq from "@/components/assistant/OaFaq";
 import OaCta from "@/components/assistant/OaCta";
-
+import RulesSection from "@/components/assistant/RulesSection";
 import { buildSocialMetadata } from "@/lib/seo";
 import AssistantShowcase from "@/components/assistant/AssistantShowcase";
 import ProblemNotesSection from "@/components/assistant/ProblemNotesSection";
