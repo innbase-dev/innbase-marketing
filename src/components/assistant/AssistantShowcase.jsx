@@ -16,6 +16,12 @@ const LINES = [
     "The quietest Tuesday gets the same attention as your busiest Saturday.",
 ];
 
+const IMAGES = [
+    "/images/auditor.jpg",
+    "/images/new-hire.jpg",
+    "/images/busy-saturday.jpg",
+];
+
 export default function AssistantShowcase() {
     const [idx, setIdx] = useState(0);
     const [lineIdx, setLineIdx] = useState(0);
@@ -69,11 +75,18 @@ export default function AssistantShowcase() {
                         onMouseEnter={() => clearInterval(timerRef.current)}
                         onMouseLeave={start}
                     >
-                        {["g1", "g2", "g3"].map((g, i) => (
-                            <div
-                                key={g}
-                                className={`showcase-bg ${g}`}
-                                style={{ opacity: idx === i ? 1 : 0 }}
+                        {IMAGES.map((src, i) => (
+                            <img
+                                key={src}
+                                src={src}
+                                alt=""
+                                className="showcase-bg"
+                                style={{ 
+                                    opacity: idx === i ? 1 : 0, 
+                                    objectFit: "cover", 
+                                    width: "100%", 
+                                    height: "100%" 
+                                }}
                             />
                         ))}
                         <div className="showcase-grid" />
