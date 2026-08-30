@@ -41,7 +41,7 @@ export default function StaffEverywhereSection() {
                                 <div className="screen">
                                     <span className="punch-hole" />
                                     <img
-                                        src="/images/assistant/housekeeping-mobile.png"
+                                        src="/images/housekeeping-mobile.png"
                                         alt="Housekeeping mobile app showing the active cleaning queue"
                                     />
                                 </div>
@@ -81,7 +81,7 @@ export default function StaffEverywhereSection() {
                                     <span className="cam" />
                                     <div className="screen-inner">
                                         <img
-                                            src="/images/assistant/live-room-board-desktop.png"
+                                            src="/images/live-room-board-desktop.png"
                                             alt="Live room board showing housekeeping status across every room"
                                         />
                                     </div>
