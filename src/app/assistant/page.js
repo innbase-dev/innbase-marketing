@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OaHero from "@/components/assistant/OaHero";
-import DeviceSection from "@/components/assistant/DeviceSection";
+import DevicesSection from "@/components/assistant/DevicesSection";
 import OaFaq from "@/components/assistant/OaFaq";
 import OaCta from "@/components/assistant/OaCta";
 
@@ -38,7 +38,7 @@ export default function OperationalAssistantPage() {
                 <ProblemNotesSection />
                 <AssistantShowcase />
                 <RulesSection />
-                <DeviceSection />
+                <DevicesSection />
                 <ImpactSection />
                 <OaFaq />
                 <OaCta />
