@@ -40,12 +40,13 @@ export default function Footer() {
                             className="f2-dot"
                             style={{ background: "#2dd4bf" }}
                         />
-                        Product
+                        Platform
                     </h4>
-                    <Link href="/#product">Payments</Link>
-                    <Link href="/#product">Inventory</Link>
-                    <Link href="/#product">Shift</Link>
-                    <Link href="/#product">Guests</Link>
+                    <Link href="/#product">Payments &amp; Revenue</Link>
+                    <Link href="/#product">Inventory &amp; Stock</Link>
+                    <Link href="/#product">Shift Management</Link>
+                    <Link href="/#product">Guest Folios</Link>
+                    <Link href="/assistant">AI Teammate</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
@@ -53,14 +54,12 @@ export default function Footer() {
                             className="f2-dot"
                             style={{ background: "#fbbf24" }}
                         />
-                        Explore
+                        Solutions
                     </h4>
-                    <Link href="/#reconciliation">
-                        Why it&apos;s trustworthy
-                    </Link>
-                    <Link href="/about">About</Link>
-                    <Link href="/#quote">Customers</Link>
-                    <Link href="/#roles">Who it&apos;s for</Link>
+                    <Link href="/#roles">For Hotels &amp; Resorts</Link>
+                    <Link href="/#roles">For Restaurants</Link>
+                    <Link href="/#roles">For Bars &amp; Nightlife</Link>
+                    <Link href="/#reconciliation">Trust &amp; Security</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
@@ -68,12 +67,12 @@ export default function Footer() {
                             className="f2-dot"
                             style={{ background: "#60a5fa" }}
                         />
-                        Decide
+                        Resources
                     </h4>
                     <Link href="/pricing">Pricing</Link>
-                    <Link href="/#faq">FAQ</Link>
-                    <Link href="/#stories">Pilot results</Link>
-                    <Link href="/contact">Book a demo</Link>
+                    <Link href="/#quote">Customer Stories</Link>
+                    <Link href="/#faq">Help &amp; FAQ</Link>
+                    <Link href="/about">About Innbase</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
@@ -81,12 +80,11 @@ export default function Footer() {
                             className="f2-dot"
                             style={{ background: "#d68af0" }}
                         />
-                        Legal &amp; contact
+                        Contact &amp; Legal
                     </h4>
-                    <Link href="/legal#terms">Terms of Service</Link>
-                    <Link href="/legal#privacy">Privacy Policy</Link>
-                    <Link href="/legal#gdpr">GDPR &amp; Data Rights</Link>
-                    <Link href="/contact">Contact us</Link>
+                    <Link href="/contact">Book a Demo</Link>
+                    <Link href="/contact">Contact Sales</Link>
+                    <Link href="/legal#privacy">Legal &amp; Privacy</Link>
                     <a href="mailto:hello@innbase.co">hello@innbase.co</a>
                 </div>
             </div>

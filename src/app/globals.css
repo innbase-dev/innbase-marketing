@@ -6817,7 +6817,7 @@ text {
 }
 
 .note.ghost {
-    background: transparent;
+    background: var(--ink-lighter);
     border: 1px dashed rgba(255, 255, 255, .18);
     box-shadow: none;
     display: flex;
