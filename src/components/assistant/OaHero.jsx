@@ -32,7 +32,7 @@ export default function OaHero() {
                                 See it in action
                             </a>
                             <a
-                                href="mailto:hello@innbase.co?subject=Question%20about%20the%20Operational%20Assistant"
+                                href="/contact"
                                 className="btn btn-ghost-dark"
                             >
                                 Talk to the team
