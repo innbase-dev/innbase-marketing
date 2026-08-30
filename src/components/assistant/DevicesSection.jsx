@@ -1,12 +1,14 @@
+import Image from "next/image";
 import Icon from "../Icon";
 import Reveal from "../Reveal";
 
 /**
  * Option D — "wherever your staff already are", device mockups.
- * Purely illustrative markup (no data binding needed), same approach as
- * HeroDashboard.jsx: hardcoded structure standing in for a real screenshot.
- * The .dv-* chrome is light-themed on purpose — see the --lt-* token
- * comment in globals.css.
+ * Adopted direction: real product screenshots (Housekeeping mobile,
+ * Live Room Board desktop) framed in thin-bezel Android / MacBook
+ * chrome, instead of the earlier hand-drawn .dv-* mockups. Voice has
+ * no screenshot yet, so it reuses the Android frame with an
+ * illustrative "listening" sheet, same as before.
  */
 export default function DevicesSection() {
     return (
@@ -30,86 +32,46 @@ export default function DevicesSection() {
                     </p>
                 </Reveal>
 
-                <Reveal className="device-grid reveal-stag reveal">
+                <Reveal className="va-grid reveal-stag reveal">
                     {/* PHONE */}
-                    <div className="device-tile">
-                        <div className="device-stage">
-                            <div className="dv-phone">
-                                <div className="dv-phone-screen">
-                                    <div className="dv-ph-head">
-                                        <b>Housekeeping</b>
-                                        <span className="d" />
-                                    </div>
-                                    <div className="dv-ph-pills">
-                                        <span className="dv-ph-pill active">
-                                            Needs Attention&nbsp;10
-                                        </span>
-                                        <span className="dv-ph-pill ghost">
-                                            <Icon
-                                                name="sparkles"
-                                                className="icon"
-                                                style={{
-                                                    width: 8,
-                                                    height: 8,
-                                                    color: "var(--lt-danger)",
-                                                }}
-                                            />
-                                            Needs Cleaning&nbsp;5
-                                        </span>
-                                    </div>
-                                    <div className="dv-ph-label">
-                                        <span>LIVE QUEUE</span>
-                                        <span>10 ROOMS</span>
-                                    </div>
-                                    <div className="dv-ph-rows">
-                                        <div className="dv-ph-row">
-                                            <div className="rt">
-                                                <span>
-                                                    4&nbsp;&nbsp;Floor 1 ·
-                                                    Standard King
-                                                </span>
-                                                <span>★★★★</span>
-                                            </div>
-                                            <div className="rs">
-                                                Walk-in waiting at reception
-                                            </div>
-                                            <div
-                                                className="rs"
-                                                style={{
-                                                    color: "var(--lt-text)",
-                                                    fontWeight: 700,
-                                                    marginTop: 3,
-                                                }}
-                                            >
-                                                Blessing Olaitan
-                                            </div>
-                                        </div>
-                                        <div className="dv-ph-row">
-                                            <div className="rt">
-                                                <span>
-                                                    3&nbsp;&nbsp;Floor 2 ·
-                                                    Executive Suite
-                                                </span>
-                                                <span>★★★</span>
-                                            </div>
-                                            <div className="rs">
-                                                VIP arriving in 45 minutes
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="dv-badge">
-                                    <span className="d" />
-                                    Queue synced
-                                </div>
-                                <div className="dv-live">
-                                    <span className="d" />
-                                    Live
+                    <div className="va-card">
+                        <div className="va-stage">
+                            <div className="grid-dots" />
+                            <div className="android-frame">
+                                <div className="screen">
+                                    <span className="punch-hole" />
+                                    <Image
+                                        src="/images/devices-housekeeping-mobile.png"
+                                        alt="Housekeeping mobile app"
+                                        fill
+                                        sizes="(max-width: 860px) 90vw, 360px"
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "top center",
+                                        }}
+                                    />
                                 </div>
                             </div>
+                            <span className="va-tag-float va-tag-1">
+                                <span
+                                    className="dot"
+                                    style={{
+                                        background: "var(--amber-bright)",
+                                    }}
+                                />
+                                Queue synced
+                            </span>
+                            <span className="va-tag-float va-tag-2">
+                                <span
+                                    className="dot"
+                                    style={{ background: "var(--teal-bright)" }}
+                                />
+                                Live
+                            </span>
+                            <div className="va-mask" />
                         </div>
-                        <div className="device-copy">
-                            <h4>Phone</h4>
+                        <div className="va-body">
+                            <h3>Phone</h3>
                             <p>
                                 Housekeeping and front desk staff open the
                                 same assistant from the phones already in
@@ -119,106 +81,31 @@ export default function DevicesSection() {
                     </div>
 
                     {/* DESKTOP */}
-                    <div className="device-tile">
-                        <div className="device-stage">
-                            <div className="dv-laptop">
-                                <div className="dv-lap-screen">
-                                    <div className="dv-lap-inner">
-                                        <div className="dv-lap-head">
-                                            <b>Live Room Board</b>
-                                            <span className="pill">
-                                                All · 10
-                                            </span>
-                                        </div>
-                                        <div className="dv-lap-cols">
-                                            <div>
-                                                <div className="dv-lap-col-head">
-                                                    <span>
-                                                        Needs Cleaning
-                                                    </span>
-                                                    <span>4</span>
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        104
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 1 · King
-                                                    </div>
-                                                    <div className="btn" />
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        218
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 2 · Suite
-                                                    </div>
-                                                    <div className="btn" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="dv-lap-col-head">
-                                                    <span>Cleaning</span>
-                                                    <span>3</span>
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        204
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 2 · Deluxe
-                                                    </div>
-                                                    <div className="btn ghost" />
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        402
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 4 · Suite
-                                                    </div>
-                                                    <div className="btn ghost" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="dv-lap-col-head">
-                                                    <span>Inspection</span>
-                                                    <span>2</span>
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        105
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 1 · King
-                                                    </div>
-                                                    <div className="btn ghost" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="dv-lap-col-head">
-                                                    <span>Ready</span>
-                                                    <span>1</span>
-                                                </div>
-                                                <div className="dv-lap-card">
-                                                    <div className="n">
-                                                        301
-                                                    </div>
-                                                    <div className="t">
-                                                        Floor 3
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div className="va-card">
+                        <div className="va-stage">
+                            <div className="grid-dots" />
+                            <div className="macbook-frame">
+                                <div className="macbook-screen">
+                                    <span className="cam" />
+                                    <div className="screen-inner">
+                                        <Image
+                                            src="/images/devices-live-room-board-desktop.png"
+                                            alt="Live Room Board desktop"
+                                            fill
+                                            sizes="(max-width: 860px) 90vw, 620px"
+                                            style={{
+                                                objectFit: "cover",
+                                                objectPosition: "top center",
+                                            }}
+                                        />
                                     </div>
                                 </div>
-                                <div className="dv-lap-notch" />
-                                <div className="dv-lap-base" />
+                                <div className="macbook-base" />
                             </div>
+                            <div className="va-mask" />
                         </div>
-                        <div className="device-copy">
-                            <h4>Desktop</h4>
+                        <div className="va-body">
+                            <h3>Desktop</h3>
                             <p>
                                 Managers get the full room board and
                                 reconciliation view at the front desk, side
@@ -228,25 +115,40 @@ export default function DevicesSection() {
                     </div>
 
                     {/* VOICE */}
-                    <div className="device-tile">
-                        <div className="device-stage">
-                            <div className="dv-voice">
-                                <div className="dv-mic-ring">
-                                    <Icon name="mic" size={22} />
-                                </div>
-                                <div className="dv-wave">
-                                    {Array.from({ length: 7 }).map((_, i) => (
-                                        <span key={i} />
-                                    ))}
-                                </div>
-                                <div className="dv-listening">
-                                    <span className="d" />
-                                    Listening…
+                    <div className="va-card">
+                        <div className="va-stage">
+                            <div className="grid-dots" />
+                            <div className="android-frame">
+                                <div className="screen">
+                                    <span className="punch-hole" />
+                                    <div className="voice-sheet">
+                                        <span className="va-mic-badge">
+                                            <Icon name="mic" className="icon" />
+                                        </span>
+                                        <div className="wave-bars">
+                                            {[
+                                                40, 80, 55, 95, 60, 85, 45,
+                                            ].map((h, i) => (
+                                                <span
+                                                    key={i}
+                                                    style={{
+                                                        height: `${h}%`,
+                                                        animationDelay: `${i * 0.1}s`,
+                                                    }}
+                                                />
+                                            ))}
+                                        </div>
+                                        <span className="voice-listening">
+                                            <span className="ld" />
+                                            Listening…
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="va-mask" />
                         </div>
-                        <div className="device-copy">
-                            <h4>Voice — coming soon</h4>
+                        <div className="va-body">
+                            <h3>Voice</h3>
                             <p>
                                 Say what happened and Innbase logs it — no
                                 screen required while hands are full.
