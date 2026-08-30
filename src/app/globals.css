@@ -7022,6 +7022,7 @@ text {
         grid-template-columns: 1fr
     }
 }
+
 /* ═══════════════════════════════════════════════════════════
    ASSISTANT PAGE — DEVICE SHOTS (adopted direction)
    Android-style thin-bezel phone frame + MacBook-style desktop
@@ -7034,33 +7035,54 @@ text {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px
 }
+
 .va-card {
     border-radius: 20px;
     overflow: hidden;
     background: var(--ink-soft);
     border: 1px solid var(--ink-line);
 }
+
 .va-stage {
     position: relative;
     aspect-ratio: 1 / 0.9;
     overflow: hidden;
     background:
-        radial-gradient(120% 100% at 15% 0%, rgba(212,175,55,.14), transparent 60%),
-        radial-gradient(120% 100% at 100% 100%, rgba(45,212,191,.12), transparent 55%),
+        radial-gradient(120% 100% at 15% 0%, rgba(212, 175, 55, .14), transparent 60%),
+        radial-gradient(120% 100% at 100% 100%, rgba(45, 212, 191, .12), transparent 55%),
         linear-gradient(160deg, #171c25, #0e1218);
 }
+
 .va-stage .grid-dots {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px);
     background-size: 22px 22px;
     -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 85%);
-            mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 85%);
+    mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 85%);
 }
+
 /* fixed height keeps all three cards aligned regardless of copy length */
-.va-body { padding: 22px 22px 24px; height: 132px; display: flex; flex-direction: column; }
-.va-body h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); flex-shrink: 0; }
-.va-body p { font-size: 13.5px; color: var(--muted-dark); margin-top: 8px; line-height: 1.55 }
+.va-body {
+    padding: 22px 22px 24px;
+    height: 132px;
+    display: flex;
+    flex-direction: column;
+}
+
+.va-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-strong);
+    flex-shrink: 0;
+}
+
+.va-body p {
+    font-size: 13.5px;
+    color: var(--muted-dark);
+    margin-top: 8px;
+    line-height: 1.55
+}
 
 .va-tag-float {
     position: absolute;
@@ -7077,9 +7099,25 @@ text {
     box-shadow: var(--shadow-card);
     z-index: 3;
 }
-.va-tag-float .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0 }
-.va-tag-1 { top: 8%; right: 6%; transform: rotate(4deg); }
-.va-tag-2 { top: 40%; left: 4%; transform: rotate(-3deg); }
+
+.va-tag-float .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0
+}
+
+.va-tag-1 {
+    top: 8%;
+    right: 6%;
+    transform: rotate(4deg);
+}
+
+.va-tag-2 {
+    top: 40%;
+    left: 4%;
+    transform: rotate(-3deg);
+}
 
 /* fade mask — hides the lower quarter of every mockup so it reads
    as tucked behind the description panel, consistently across cards */
@@ -7106,10 +7144,11 @@ text {
     border-radius: 30px;
     padding: 7px;
     box-shadow:
-        0 26px 50px -14px rgba(0,0,0,.7),
-        0 0 0 1px rgba(255,255,255,.05),
-        inset 0 0 0 1px rgba(255,255,255,.04);
+        0 26px 50px -14px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, .05),
+        inset 0 0 0 1px rgba(255, 255, 255, .04);
 }
+
 /* volume rocker + power button, thin bezel android detail */
 .android-frame::before {
     content: '';
@@ -7121,6 +7160,7 @@ text {
     background: #0b0d10;
     border-radius: 2px 0 0 2px;
 }
+
 .android-frame::after {
     content: '';
     position: absolute;
@@ -7132,6 +7172,7 @@ text {
     border-radius: 0 2px 2px 0;
     box-shadow: 0 22px 0 -1px #0b0d10;
 }
+
 .android-frame .screen {
     position: relative;
     width: 100%;
@@ -7140,6 +7181,7 @@ text {
     overflow: hidden;
     background: #0b0e13;
 }
+
 /* screenshot renders true-to-reality: object-fit:contain preserves its
    real aspect ratio with no forced crop; any letterbox space is hidden
    under .va-mask at the bottom of the stage */
@@ -7151,6 +7193,7 @@ text {
     object-fit: contain;
     object-position: top center;
 }
+
 /* punch-hole camera, android style */
 .android-frame .punch-hole {
     position: absolute;
@@ -7161,7 +7204,7 @@ text {
     height: 8px;
     border-radius: 50%;
     background: #05070a;
-    box-shadow: 0 0 0 2px rgba(255,255,255,.04);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .04);
     z-index: 4;
 }
 
@@ -7170,19 +7213,20 @@ text {
     position: absolute;
     top: 9%;
     left: 50%;
-    transform: translateX(-50%) translateY(36px);
+    transform: translateX(-30%) translateY(80px);
     width: 104%;
-    margin-bottom: -36px;
 }
+
 .ipad-screen {
     position: relative;
     background: linear-gradient(160deg, #2a2f38, #10131a 60%);
     border-radius: 22px;
     padding: 14px;
     box-shadow:
-        0 26px 55px -14px rgba(0,0,0,.7),
-        0 0 0 1px rgba(255,255,255,.05);
+        0 26px 55px -14px rgba(0, 0, 0, .7),
+        0 0 0 1px rgba(255, 255, 255, .05);
 }
+
 .ipad-screen .cam {
     position: absolute;
     top: 6px;
@@ -7192,9 +7236,10 @@ text {
     height: 5px;
     border-radius: 50%;
     background: #05070a;
-    box-shadow: 0 0 0 2px rgba(255,255,255,.03);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .03);
     z-index: 4;
 }
+
 /* fixed aspect-ratio bezel; the screenshot inside never crops —
    it's letterboxed with object-fit:contain so it renders exactly
    as it would on a real device, and any letterbox bars are tucked
@@ -7206,6 +7251,7 @@ text {
     aspect-ratio: 4 / 3;
     background: #0b0e13;
 }
+
 .ipad-screen .screen-inner img {
     position: absolute;
     inset: 0;
@@ -7217,14 +7263,16 @@ text {
 
 /* ══════ voice sheet (reuses android frame) ══════ */
 .voice-sheet {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    background: radial-gradient(120% 90% at 50% 100%, rgba(212,175,55,.14), transparent 60%), #0b0e13;
+    background: radial-gradient(120% 90% at 50% 100%, rgba(212, 175, 55, .14), transparent 60%), #0b0e13;
 }
+
 .va-mic-badge {
     width: 44px;
     height: 44px;
@@ -7233,24 +7281,35 @@ text {
     color: var(--amber-bright);
     display: grid;
     place-items: center;
-    box-shadow: 0 0 0 8px rgba(212,175,55,.06);
+    box-shadow: 0 0 0 8px rgba(212, 175, 55, .06);
 }
+
 .wave-bars {
     display: flex;
     align-items: flex-end;
     gap: 3px;
     height: 32px
 }
+
 .wave-bars span {
     width: 3px;
     border-radius: 2px;
     background: linear-gradient(180deg, var(--amber-bright), var(--teal-bright));
     animation: wavepulse 1.1s ease-in-out infinite;
 }
+
 @keyframes wavepulse {
-    0%, 100% { transform: scaleY(.35) }
-    50% { transform: scaleY(1) }
+
+    0%,
+    100% {
+        transform: scaleY(.35)
+    }
+
+    50% {
+        transform: scaleY(1)
+    }
 }
+
 .voice-listening {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
@@ -7259,11 +7318,17 @@ text {
     align-items: center;
     gap: 6px;
 }
+
 .voice-listening .ld {
-    width: 6px; height: 6px; border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
     background: var(--teal-bright);
     box-shadow: 0 0 0 3px var(--teal-soft);
 }
 
-@media(max-width:860px) { .va-grid { grid-template-columns: 1fr } }
-
+@media(max-width:860px) {
+    .va-grid {
+        grid-template-columns: 1fr
+    }
+}
