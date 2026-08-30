@@ -7213,8 +7213,8 @@ text {
     position: absolute;
     top: 9%;
     left: 50%;
-    transform: translateX(-30%) translateY(80px);
-    width: 104%;
+    transform: translateX(-25%) translateY(0px);
+    width: 150%;
 }
 
 .ipad-screen {
