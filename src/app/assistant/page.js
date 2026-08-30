@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OaHero from "@/components/assistant/OaHero";
-import DevicesSection from "@/components/assistant/DevicesSection";
 import OaFaq from "@/components/assistant/OaFaq";
 import OaCta from "@/components/assistant/OaCta";
 import RulesSection from "@/components/assistant/RulesSection";
@@ -9,6 +8,7 @@ import { buildSocialMetadata } from "@/lib/seo";
 import AssistantShowcase from "@/components/assistant/AssistantShowcase";
 import ProblemNotesSection from "@/components/assistant/ProblemNotesSection";
 import ImpactSection from "@/components/assistant/ImpactSection";
+import StaffEverywhereSection from "../../components/assistant/StaffEverywhereSection";
 
 const TITLE = "AI Operational Assistant";
 const DESCRIPTION =
@@ -38,7 +38,7 @@ export default function OperationalAssistantPage() {
                 <ProblemNotesSection />
                 <AssistantShowcase />
                 <RulesSection />
-                <DevicesSection />
+                <StaffEverywhereSection />
                 <ImpactSection />
                 <OaFaq />
                 <OaCta />

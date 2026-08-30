@@ -7057,8 +7057,9 @@ text {
     -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 85%);
             mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 85%);
 }
-.va-body { padding: 22px 22px 24px; }
-.va-body h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); }
+/* fixed height keeps all three cards aligned regardless of copy length */
+.va-body { padding: 22px 22px 24px; height: 132px; display: flex; flex-direction: column; }
+.va-body h3 { font-size: 17px; font-weight: 700; color: var(--text-strong); flex-shrink: 0; }
 .va-body p { font-size: 13.5px; color: var(--muted-dark); margin-top: 8px; line-height: 1.55 }
 
 .va-tag-float {
@@ -7139,10 +7140,15 @@ text {
     overflow: hidden;
     background: #0b0e13;
 }
+/* screenshot renders true-to-reality: object-fit:contain preserves its
+   real aspect ratio with no forced crop; any letterbox space is hidden
+   under .va-mask at the bottom of the stage */
 .android-frame .screen img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top center;
 }
 /* punch-hole camera, android style */
@@ -7159,26 +7165,27 @@ text {
     z-index: 4;
 }
 
-/* ══════ MacBook-style frame for desktop ══════ */
-.macbook-frame {
+/* ══════ iPad-style frame for desktop ══════ */
+.ipad-frame {
     position: absolute;
     top: 9%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(36px);
     width: 104%;
+    margin-bottom: -36px;
 }
-.macbook-screen {
+.ipad-screen {
     position: relative;
     background: linear-gradient(160deg, #2a2f38, #10131a 60%);
-    border-radius: 13px 13px 4px 4px;
-    padding: 11px 11px 8px;
+    border-radius: 22px;
+    padding: 14px;
     box-shadow:
         0 26px 55px -14px rgba(0,0,0,.7),
         0 0 0 1px rgba(255,255,255,.05);
 }
-.macbook-screen .cam {
+.ipad-screen .cam {
     position: absolute;
-    top: 5px;
+    top: 6px;
     left: 50%;
     transform: translateX(-50%);
     width: 5px;
@@ -7188,37 +7195,24 @@ text {
     box-shadow: 0 0 0 2px rgba(255,255,255,.03);
     z-index: 4;
 }
-.macbook-screen .screen-inner {
+/* fixed aspect-ratio bezel; the screenshot inside never crops —
+   it's letterboxed with object-fit:contain so it renders exactly
+   as it would on a real device, and any letterbox bars are tucked
+   under the va-mask gradient at the bottom of the stage */
+.ipad-screen .screen-inner {
     position: relative;
-    border-radius: 5px;
+    border-radius: 9px;
     overflow: hidden;
-    aspect-ratio: 16 / 10.2;
+    aspect-ratio: 4 / 3;
     background: #0b0e13;
 }
-.macbook-screen .screen-inner img {
+.ipad-screen .screen-inner img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top center;
-}
-.macbook-base {
-    position: relative;
-    height: 12px;
-    margin: 0 -4%;
-    background: linear-gradient(180deg, #3a4048, #1c1f25);
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 6px 14px -6px rgba(0,0,0,.6);
-}
-.macbook-base::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15%;
-    height: 5px;
-    background: #0e1218;
-    border-radius: 0 0 8px 8px;
 }
 
 /* ══════ voice sheet (reuses android frame) ══════ */
