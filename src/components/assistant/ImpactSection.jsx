@@ -38,7 +38,7 @@ export default function ImpactSection() {
                         Your staff get their time back.
                     </h2>
                     <p className="sec-sub">
-                        That&apos;s the whole point — not &quot;AI,&quot;
+                        That&apos;s the whole point — not <strong>AI</strong>,
                         just less busywork.
                     </p>
                 </Reveal>
