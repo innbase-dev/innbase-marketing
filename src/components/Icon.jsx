@@ -36,6 +36,9 @@ import {
     Login,
     Call,
     Profile2User,
+    ArrowDown,
+    Heart,
+    NoteText,
 } from "iconsax-react";
 
 /**
@@ -79,6 +82,9 @@ const ICONS = {
     "life-buoy": Lifebuoy,
     "log-in": Login,
     phone: Call,
+    "arrow-down": ArrowDown,
+    heart: Heart,
+    list: NoteText,
 };
 
 export default function Icon({
