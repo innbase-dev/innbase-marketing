@@ -1,12 +1,18 @@
 import "./globals.css";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Caveat } from "next/font/google";
 import Script from "next/script";
 import { JsonLd, SITE_URL, SITE_NAME } from "@/lib/seo";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-caveat",
 });
 
 export const metadata = {
@@ -107,7 +113,7 @@ const websiteJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.className}`}>
+      <body className={`${instrumentSans.className} ${caveat.variable}`}>
         <a className="skip-link" href="#main">
           Skip to main content
         </a>

@@ -6790,7 +6790,7 @@ text {
 }
 
 .note p {
-    font-family: 'Caveate', cursive;
+    font-family: var(--font-caveat), 'Caveat', cursive;
     font-weight: 600;
     font-size: 22px;
     line-height: 1.25;
