@@ -6823,11 +6823,11 @@ text {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center
+    text-align: center;
 }
 
 .note.ghost .pin {
-    background: transparent;
+    background: var(--ink-lighter);
     border: 1px dashed rgba(255, 255, 255, .25)
 }
 
