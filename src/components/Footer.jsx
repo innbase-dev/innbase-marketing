@@ -42,11 +42,11 @@ export default function Footer() {
                         />
                         Platform
                     </h4>
-                    <Link href="/#product">Payments &amp; Revenue</Link>
-                    <Link href="/#product">Inventory &amp; Stock</Link>
+                    <Link href="/#product">Payments</Link>
+                    <Link href="/#product">Inventory</Link>
                     <Link href="/#product">Shift Management</Link>
                     <Link href="/#product">Guest Folios</Link>
-                    <Link href="/assistant">AI Teammate</Link>
+                    <Link href="/assistant">AI Assistant</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
@@ -71,8 +71,8 @@ export default function Footer() {
                     </h4>
                     <Link href="/pricing">Pricing</Link>
                     <Link href="/#quote">Customer Stories</Link>
-                    <Link href="/#faq">Help &amp; FAQ</Link>
-                    <Link href="/about">About Innbase</Link>
+                    <Link href="/#faq">FAQs</Link>
+                    <Link href="/about">About</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
