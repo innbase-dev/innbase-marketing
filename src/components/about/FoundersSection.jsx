@@ -101,7 +101,7 @@ export default function FoundersSection() {
                                     )}
                                 </div>
                                 <div className="fq-role">
-                                    Founder &amp; {f.role} of Innbase
+                                    Co-Founder
                                 </div>
                                 <div className="fq-sign">
                                     {f.name.split("")}
