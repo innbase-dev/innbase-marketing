@@ -6211,7 +6211,7 @@ text {
 
 .fq-sign {
     margin-top: 12px;
-    font-family: 'Fuggles', 'Caveat', 'Segoe Script', cursive;
+    font-family: 'Fuggles', 'Segoe Script', cursive;
     font-size: 36px;
     line-height: 1;
     color: var(--teal-bright)
