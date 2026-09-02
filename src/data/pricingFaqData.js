@@ -5,7 +5,7 @@ export const PRICING_FAQS = [
   },
   {
     q: "Is the AI Operational Assistant metered?",
-    a: "It's included on every plan — no credit counter, no usage meter. If your usage is unusually high for your plan's size, we'll reach out before anything changes, the same as any other capacity conversation.",
+    a: "It's included on every plan — Our fair usage policy is applied here. If your usage is unusually high for your plan's size, we'll reach out before anything changes, the same as any other capacity conversation.",
   },
   {
     q: "What happens when my hotel outgrows its plan?",
@@ -17,6 +17,6 @@ export const PRICING_FAQS = [
   },
   {
     q: "Is there a free trial or a card required to start?",
-    a: "No card required to start. We set up your workspace together — opening balances, stock counts, bank statements — and most properties are running the same evening. Cancel any month; your data leaves with you.",
+    a: "Yes, your business is entitled to a 1-month free trial period, no card required to start. We set up your workspace together — opening balances, stock counts, bank statements — and most properties are running the same evening. Cancel any month; your data leaves with you.",
   },
 ];
