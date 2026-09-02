@@ -4192,7 +4192,7 @@ text {
 }
 
 .plan-card.featured {
-    background: var(--ink-lighter);
+    background: var(--surface);
     border-color: rgba(201, 147, 46, .4);
 }
 
