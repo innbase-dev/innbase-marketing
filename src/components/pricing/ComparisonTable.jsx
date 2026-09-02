@@ -74,24 +74,34 @@ export default function ComparisonTable() {
                 </Reveal>
 
                 <Reveal className="v3-list reveal">
-                    {COMPARE_ROWS.map((row) => (
-                        <div
-                            className={`v3-row${diffOnly && row.same ? " hidden" : ""}`}
-                            key={row.feature}
-                        >
-                            <span className="v3-fname">{row.feature}</span>
-                            <span className="v3-ladder">
-                                <ValueChip value={row.values[0]} colClass="b" />
-                                <span className="v3-arrow">→</span>
-                                <ValueChip
-                                    value={row.values[1]}
-                                    colClass="ba"
-                                />
-                                <span className="v3-arrow">→</span>
-                                <ValueChip value={row.values[2]} colClass="g" />
-                            </span>
-                        </div>
-                    ))}
+                    {COMPARE_ROWS.map((row, i) => {
+                        // Section header rows only have a `section` key — no values array
+                        if (row.section) {
+                            return (
+                                <div className="v3-section-head" key={`section-${i}`}>
+                                    {row.section}
+                                </div>
+                            );
+                        }
+                        return (
+                            <div
+                                className={`v3-row${diffOnly && row.same ? " hidden" : ""}`}
+                                key={row.feature}
+                            >
+                                <span className="v3-fname">{row.feature}</span>
+                                <span className="v3-ladder">
+                                    <ValueChip value={row.values[0]} colClass="b" />
+                                    <span className="v3-arrow">→</span>
+                                    <ValueChip
+                                        value={row.values[1]}
+                                        colClass="ba"
+                                    />
+                                    <span className="v3-arrow">→</span>
+                                    <ValueChip value={row.values[2]} colClass="g" />
+                                </span>
+                            </div>
+                        );
+                    })}
                 </Reveal>
                 <p className="v3-def-cap">
                     A staff account is anyone with access to your workspace —
