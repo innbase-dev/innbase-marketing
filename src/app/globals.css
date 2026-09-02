@@ -1,6 +1,6 @@
-@import "../showcase/product-theme.css";
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fuggles&display=swap');
+@import "../showcase/product-theme.css";
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────
@@ -12125,7 +12125,7 @@ text {
 }
 
 .plan-card.featured {
-    background: var(--ink-lighter);
+    background: var(--surface);
     border-color: rgba(201, 147, 46, .4);
 }
 
