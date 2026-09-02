@@ -19,7 +19,7 @@ const BANDS = [
 
 export default function PlanCards() {
     const [activeBand, setActiveBand] = useState("1");
-    const [isAnnual, setIsAnnual] = useState(false);
+    const [isAnnual, setIsAnnual] = useState(true);
     const highlightPlan = QUICK_PICK_TARGET[activeBand];
 
     return (
@@ -55,19 +55,23 @@ export default function PlanCards() {
                     </span>
                 </Reveal>
 
-                <Reveal className="billing-switch-container reveal" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '24px' }}>
+                <Reveal className="billing-switch-container reveal" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', marginBottom: '32px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 600, color: 'var(--brand-brass)' }}>
+                        <Icon name="sparkles" className="icon" style={{ width: 14, height: 14 }} />
+                        Pay annually and get 2 months free
+                    </span>
                     <div className="billing-switch" style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--bg-sub)', padding: '4px', borderRadius: '24px', border: '1px solid var(--border-sub)' }}>
                         <button
                             onClick={() => setIsAnnual(false)}
                             style={{
-                                padding: '6px 16px',
+                                padding: '8px 20px',
                                 borderRadius: '20px',
                                 border: 'none',
                                 background: !isAnnual ? 'var(--fg-base)' : 'transparent',
                                 color: !isAnnual ? 'var(--bg-base)' : 'var(--fg-sub)',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                fontWeight: 500,
+                                fontWeight: 600,
                                 transition: 'all 0.2s'
                             }}
                         >
@@ -76,29 +80,31 @@ export default function PlanCards() {
                         <button
                             onClick={() => setIsAnnual(true)}
                             style={{
-                                padding: '6px 16px',
+                                padding: '8px 20px',
                                 borderRadius: '20px',
                                 border: 'none',
                                 background: isAnnual ? 'var(--fg-base)' : 'transparent',
                                 color: isAnnual ? 'var(--bg-base)' : 'var(--fg-sub)',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                fontWeight: 500,
+                                fontWeight: 600,
                                 transition: 'all 0.2s',
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: '6px'
+                                gap: '8px'
                             }}
                         >
                             Annual
                             <span style={{
-                                color: isAnnual ? 'var(--bg-base)' : 'var(--brand-brass)',
-                                fontSize: '12px',
-                                background: isAnnual ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.05)',
-                                padding: '2px 6px',
+                                color: isAnnual ? 'var(--brand-brass)' : '#fff',
+                                background: isAnnual ? 'rgba(0,0,0,0.15)' : 'var(--brand-brass)',
+                                fontSize: '11px',
+                                fontWeight: 700,
+                                letterSpacing: '0.02em',
+                                padding: '3px 8px',
                                 borderRadius: '10px'
                             }}>
-                                -2 mo
+                                SAVE 2 MONTHS
                             </span>
                         </button>
                     </div>
