@@ -75,14 +75,6 @@ export default function ComparisonTable() {
 
                 <Reveal className="v3-list reveal">
                     {COMPARE_ROWS.map((row, i) => {
-                        // Section header rows only have a `section` key — no values array
-                        if (row.section) {
-                            return (
-                                <div className="v3-section-head" key={`section-${i}`}>
-                                    {row.section}
-                                </div>
-                            );
-                        }
                         return (
                             <div
                                 className={`v3-row${diffOnly && row.same ? " hidden" : ""}`}
