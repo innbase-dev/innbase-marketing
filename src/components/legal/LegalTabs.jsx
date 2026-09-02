@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import LegalAccordion from "@/components/legal/LegalAccordion";
-import { TERMS_PANEL, PRIVACY_PANEL, GDPR_PANEL } from "@/data/legalData";
+import { TERMS_PANEL, PRIVACY_PANEL, GDPR_PANEL, FAIR_USAGE_PANEL } from "@/data/legalData";
 
-const PANELS = [TERMS_PANEL, PRIVACY_PANEL, GDPR_PANEL];
+const PANELS = [TERMS_PANEL, PRIVACY_PANEL, GDPR_PANEL, FAIR_USAGE_PANEL];
 const KEYS = PANELS.map((p) => p.key);
 
 export default function LegalTabs() {

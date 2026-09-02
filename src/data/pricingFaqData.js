@@ -5,7 +5,15 @@ export const PRICING_FAQS = [
   },
   {
     q: "Is the AI Operational Assistant metered?",
-    a: "It's included on every plan — Our fair usage policy is applied here. If your usage is unusually high for your plan's size, we'll reach out before anything changes, the same as any other capacity conversation.",
+    a: "No per-question billing. The AI Operational Assistant is included on every plan. We monitor usage quietly in the background to protect service reliability and understand capacity. If your usage is unusually high for the size and nature of your operation, we'll reach out before anything changes — there are no surprise AI overage charges.",
+  },
+  {
+    q: "Do I have to watch an AI usage limit?",
+    a: "No. Innbase isn't designed around a meter you have to manage. Normal AI use for your hotel's operations is included in your plan. We monitor capacity internally and will contact you if your usage is substantially outside what we'd reasonably expect for a property of your size.",
+  },
+  {
+    q: "Can Innbase charge me more if my usage increases?",
+    a: "Not automatically. If your hotel grows or your usage consistently requires more capacity, we'll contact you and explain why a different plan may make sense. We don't turn unexpected usage into a surprise overage invoice.",
   },
   {
     q: "What happens when my hotel outgrows its plan?",

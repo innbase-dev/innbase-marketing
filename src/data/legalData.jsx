@@ -672,3 +672,366 @@ export const GDPR_PANEL = {
     ),
   },
 };
+
+export const FAIR_USAGE_PANEL = {
+  key: "fair-usage",
+  tabLabel: "Fair Usage",
+  tabIcon: "gauge",
+  intro: (
+    <>
+      <p>
+        Innbase plans are designed around your hotel's operational size, not a
+        meter you have to watch. Core hotel operations are included in your
+        plan, and AI-powered features are available across all plans.
+      </p>
+      <p>
+        We monitor usage quietly in the background so we can keep Innbase
+        reliable, sustainable, and fair for every property. If your usage is
+        unusually high for the size and nature of your operation, we'll talk
+        to you before anything changes.
+      </p>
+    </>
+  ),
+
+  sections: [
+    {
+      num: "01",
+      title: "What fair usage means",
+      defaultOpen: true,
+      body: (
+        <>
+          <div>
+            <p>
+              Fair usage means using Innbase for your hotel's normal day-to-day
+              operations in a way that is reasonably consistent with the size
+              and plan of your property.
+            </p>
+
+            <p>
+              Your subscription is not designed around a pay-per-action model.
+              You don't need to count AI questions, watch a transaction meter,
+              or calculate whether a normal operational action will create an
+              additional charge.
+            </p>
+
+            <p>
+              Our usage controls exist primarily to protect service
+              availability, prevent abuse, and make sure the economics of the
+              platform remain sustainable as properties grow.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "02",
+      title: "AI Operational Assistant",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              The AI Operational Assistant is included with every Innbase
+              plan. Normal operational use is covered by your subscription;
+              there is no per-question or per-response charge.
+            </p>
+
+            <p>
+              We may monitor AI usage, including request volume, frequency,
+              complexity, and other technical measures needed to operate the
+              service reliably and understand capacity requirements.
+            </p>
+
+            <p>
+              We may contact you if usage is substantially outside the range
+              reasonably expected for properties of a similar size and
+              operating profile. This is a capacity conversation, not an
+              automatic overage charge.
+            </p>
+
+            <p>
+              Higher AI capacity is available on larger plans where the
+              property's operational needs justify it.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "03",
+      title: "What counts as unusual usage",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Unusual usage is usage that is materially inconsistent with
+              ordinary hotel operations or places disproportionate demand on
+              the service.
+            </p>
+
+            <p>Examples may include:</p>
+
+            <ul>
+              <li>
+                Automated or scripted activity generating large volumes of
+                requests.
+              </li>
+              <li>
+                Repeated requests designed primarily to consume AI or
+                infrastructure capacity rather than support hotel operations.
+              </li>
+              <li>
+                Use of Innbase as a general-purpose AI or data-processing
+                service unrelated to the property's operations.
+              </li>
+              <li>
+                Activity that creates an unusual and sustained load on shared
+                infrastructure.
+              </li>
+              <li>
+                Attempts to bypass technical safeguards or usage controls.
+              </li>
+            </ul>
+
+            <p>
+              Heavy legitimate usage is not automatically considered abuse.
+              A property's actual operational needs are taken into account
+              before we ask it to change plans or usage patterns.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "04",
+      title: "Premium features & capacity",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Some optional or premium capabilities may have capacity
+              requirements that differ from the core Innbase platform.
+            </p>
+
+            <p>
+              This can include guest-facing capabilities such as Guest
+              Companion, where usage may depend on factors such as guest
+              activity, service volume, connected outlets, notifications, or
+              other infrastructure requirements.
+            </p>
+
+            <p>
+              Where a premium feature has a specific capacity or commercial
+              boundary, we will communicate that boundary clearly when you
+              subscribe to or activate the feature. We will not introduce a
+              hidden usage charge simply because normal usage increases.
+            </p>
+
+            <p>
+              If your property consistently exceeds the capacity appropriate
+              to its current plan, we'll contact you to discuss the appropriate
+              plan or configuration.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "05",
+      title: "No surprise overage charges",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Innbase does not use fair usage as a mechanism for generating
+              unexpected usage bills.
+            </p>
+
+            <p>
+              If we believe your property has materially outgrown its current
+              capacity, we will contact you and explain what we're seeing
+              before changing your commercial arrangement.
+            </p>
+
+            <p>
+              We will not silently convert unusual usage into an unexpected
+              invoice.
+            </p>
+
+            <p>
+              Any change to your subscription or pricing will be communicated
+              to you and handled through the normal subscription process.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "06",
+      title: "We won't interrupt your operation",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Innbase is operational software. We understand that hotels don't
+              stop operating because a usage threshold was reached.
+            </p>
+
+            <p>
+              We therefore aim not to impose a hard cutoff in the middle of a
+              normal operational period because a property has temporarily
+              exceeded an expected usage level.
+            </p>
+
+            <p>
+              Where a capacity issue requires action, we'll work with the
+              property to resolve it rather than leaving staff unexpectedly
+              without access to an operational capability.
+            </p>
+
+            <p>
+              This does not prevent us from taking immediate action where
+              necessary to protect the security, integrity, or availability of
+              the service, including in cases of abuse or deliberate attempts
+              to circumvent safeguards.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "07",
+      title: "How we measure usage",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Usage monitoring is primarily an internal capacity and service
+              management mechanism. Depending on the feature, we may consider
+              measures such as:
+            </p>
+
+            <ul>
+              <li>Number and frequency of requests.</li>
+              <li>AI processing volume and workload.</li>
+              <li>Transaction and operational activity.</li>
+              <li>Guest-facing activity for premium features.</li>
+              <li>Infrastructure resources consumed.</li>
+              <li>Patterns indicating automated or abusive activity.</li>
+            </ul>
+
+            <p>
+              These measures are not intended to turn ordinary hotel
+              operations into a collection of billable events.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "08",
+      title: "Growing beyond your plan",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Staff capacity remains the primary way we structure our standard
+              plans, but staff count is not the only signal we consider.
+            </p>
+
+            <p>
+              We also look at actual operational usage when determining whether
+              a property has meaningfully outgrown its plan.
+            </p>
+
+            <p>
+              If your hotel is growing, you don't need to wait for something
+              to stop working. We'll help you understand when moving to a
+              larger plan makes sense and what additional capacity it provides.
+            </p>
+
+            <p>
+              Plan changes normally take effect on the next billing cycle,
+              unless we've agreed otherwise with you.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "09",
+      title: "Abuse & prohibited use",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              Fair usage does not replace Innbase's Acceptable Use requirements.
+              You must not deliberately manipulate usage, bypass safeguards,
+              abuse shared infrastructure, or use Innbase to provide an
+              unauthorized service to third parties.
+            </p>
+
+            <p>
+              Where activity threatens the security, integrity, or availability
+              of Innbase, we may restrict or suspend access as permitted under
+              our Terms of Service.
+            </p>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      num: "10",
+      title: "Changes to this policy",
+      defaultOpen: false,
+      body: (
+        <>
+          <div>
+            <p>
+              As Innbase grows, we may refine how we measure capacity and
+              identify unusual usage. We will not use such changes to
+              retroactively impose charges for usage that was previously
+              included in your plan.
+            </p>
+
+            <p>
+              If a material change affects how your plan works, we'll provide
+              notice in accordance with our Terms of Service.
+            </p>
+          </div>
+        </>
+      ),
+    },
+  ],
+
+  callout: {
+    icon: "shield-check",
+    body: (
+      <>
+        <span>
+          <b>Think your hotel needs more capacity?</b>
+          <span>
+            Talk to us before you worry about a meter. We'll look at your
+            operation and help you find the right plan.
+          </span>
+        </span>
+      </>
+    ),
+  },
+};
