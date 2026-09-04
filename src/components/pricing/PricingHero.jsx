@@ -35,8 +35,7 @@ export default function PricingHero() {
                     >
                         <span className="live-dot" />
                         NO PER-STAFF PRICING <span className="sep">·</span> NO
-                        CARD TO START <span className="sep">·</span> CANCEL ANY
-                        MONTH
+                        CARD TO START 
                     </div>
                 </div>
             </div>
