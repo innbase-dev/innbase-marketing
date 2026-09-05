@@ -21,7 +21,7 @@ export default function GcArchitectureSection() {
                 <div className="hero-visual gc-arch-visual reveal" style={{ transitionDelay: ".1s" }}>
                     <div className="hero-dash gc-arch-fade">
                         <Image
-                            src="/images/guest-companion-overview.png"
+                            src="/images/guest-companion-overview.webp"
                             alt="Innbase Guest Companion admin — Overview dashboard showing online guests, open orders, pending requests, recent activity and top selling items"
                             width={1894}
                             height={979}
