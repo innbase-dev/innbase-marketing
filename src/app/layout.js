@@ -114,7 +114,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Silktide Consent Manager — stylesheet */}
+        {/*
+          Consent Mode v2 defaults. Must run before GTM/gtag loads anywhere
+          on the page, so it's declared beforeInteractive and placed first.
+          Silktide's onAccept/onReject handlers below call gtag('consent',
+          'update', ...) once the user actually chooses.
+        */}
+        <Script id="consent-mode-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ window.dataLayer.push(arguments); }
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              personalization_storage: 'denied'
+            });
+          `}
+        </Script>
+
+        {/* Silktide Consent Manager — stylesheet (non-blocking) */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
@@ -122,7 +142,19 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css"
           integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
           crossOrigin="anonymous"
+          media="print"
+          // eslint-disable-next-line react/no-unknown-property
+          onLoad="this.media='all'"
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css"
+            integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
+            crossOrigin="anonymous"
+          />
+        </noscript>
+
         {/* Silktide Consent Manager — brand overrides */}
         <style
           id="silktide-consent-manager-overrides"
@@ -147,15 +179,38 @@ export default function RootLayout({ children }) {
         <a className="skip-link" href="#main">
           Skip to main content
         </a>
+
+        {/*
+          GTM now lives inside <body> as required. It loads unconditionally
+          (GTM's container script itself is lightweight), but any GA4/ads
+          tags configured *inside* GTM should be set to respect Consent Mode
+          signals (GTM reads the same dataLayer 'consent' commands) — check
+          your GTM container's built-in Consent Mode setting if you haven't.
+        */}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
+
         {children}
+
         <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
-        <Script id="civchat-config" data-cfasync="false">
+
+        <Script id="civchat-config" strategy="lazyOnload" data-cfasync="false">
           {`window.civchat = {apiKey: "nm97mo",};`}
         </Script>
-        <Script data-cfasync="false" src="https://innbase.user.com/widget.js" />
-        
+        <Script
+          strategy="lazyOnload"
+          data-cfasync="false"
+          src="https://innbase.user.com/widget.js"
+        />
+
         {/* Silktide Consent Manager */}
-        <Script src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js" integrity="sha384-5Pt34uiIbCsvfiiZXoLi4HRf/YBXjr9c8e+gYeVo9smUaInNHYVtc8NZ8wUnXJIq" crossOrigin="anonymous" strategy="afterInteractive" />
+        <Script
+          src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js"
+          integrity="sha384-5Pt34uiIbCsvfiiZXoLi4HRf/YBXjr9c8e+gYeVo9smUaInNHYVtc8NZ8wUnXJIq"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Script id="silktide-consent-init" strategy="afterInteractive">
           {`window.silktideConsentManager.init({
   backdrop: {
@@ -182,22 +237,21 @@ export default function RootLayout({ children }) {
       label: "Analytics",
       description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
       required: false,
-      gtag: [
-        "analytics_storage",
-        "personalization_storage"
-      ],
-      scripts: [
-        {
-          url: "https://www.googletagmanager.com/gtag/js?id=G-3FF2TGHN9M",
-          load: "async"
-        }
-      ],
       onAccept: function() {
-        // Google Analytics 4 (G-3FF2TGHN9M)
         window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-3FF2TGHN9M');
+        function gtag(){ window.dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          personalization_storage: 'granted'
+        });
+      },
+      onReject: function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          analytics_storage: 'denied',
+          personalization_storage: 'denied'
+        });
       }
     },
     {
@@ -205,11 +259,24 @@ export default function RootLayout({ children }) {
       label: "Marketing",
       description: "<p>These cookies are used by us and our advertising partners to show you relevant ads on this site and elsewhere, and to measure how those campaigns perform.</p>",
       required: false,
-      gtag: [
-        "ad_storage",
-        "ad_user_data",
-        "ad_personalization"
-      ]
+      onAccept: function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+        });
+      },
+      onReject: function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied'
+        });
+      }
     }
   ],
   text: {
@@ -234,8 +301,6 @@ export default function RootLayout({ children }) {
 });`}
         </Script>
       </body>
-
-      {process.env.NEXT_PUBLIC_GTM_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />}
     </html>
   );
 }
