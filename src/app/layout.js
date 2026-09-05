@@ -1,5 +1,5 @@
 import "./globals.css";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Instrument_Sans, Caveat } from "next/font/google";
 import Script from "next/script";
 import { JsonLd, SITE_URL, SITE_NAME } from "@/lib/seo";
@@ -113,6 +113,31 @@ const websiteJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Silktide Consent Manager — stylesheet */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          id="silktide-consent-manager-css"
+          href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css"
+          integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
+          crossOrigin="anonymous"
+        />
+        {/* Silktide Consent Manager — brand overrides */}
+        <style id="silktide-consent-manager-overrides">{`
+          #stcm-wrapper {
+            --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+            --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
+            --primaryColor: #d4af37;
+            --backgroundColor: #0b0e13;
+            --textColor: #FFFFFF;
+            --backdropBackgroundColor: #00000033;
+            --backdropBackgroundBlur: 0px;
+            --iconColor: #d4af37;
+            --iconBackgroundColor: #0b0e13;
+          }
+        `}</style>
+      </head>
       <body className={`${instrumentSans.className} ${caveat.variable}`}>
         <a className="skip-link" href="#main">
           Skip to main content
@@ -124,7 +149,78 @@ export default function RootLayout({ children }) {
         </Script>
         <Script data-cfasync="false" src="https://innbase.user.com/widget.js" />
       </body>
-      <GoogleAnalytics gaId="G-3FF2TGHN9M" />
+      {/* Silktide Consent Manager — main script (loads before hydration, per Next.js docs cookie consent guidance) */}
+      <Script
+        id="silktide-consent-manager-js"
+        src="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js"
+        integrity="sha384-5Pt34uiIbCsvfiiZXoLi4HRf/YBXjr9c8e+gYeVo9smUaInNHYVtc8NZ8wUnXJIq"
+        crossOrigin="anonymous"
+        strategy="beforeInteractive"
+      />
+      {/* Silktide Consent Manager — init (runs immediately after the script above) */}
+      <Script id="silktide-consent-manager-init" strategy="beforeInteractive">{`
+        window.silktideConsentManager.init({
+          backdrop: { show: true },
+          icon: { position: "bottomLeft" },
+          prompt: { position: "bottomLeft" },
+          consentTypes: [
+            {
+              id: "essential",
+              label: "Essential",
+              description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
+              required: true,
+              onAccept: function() {
+                console.log('Add logic for the required Essential consent type here');
+              }
+            },
+            {
+              id: "analytics",
+              label: "Analytics",
+              description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
+              required: false,
+              gtag: ["analytics_storage", "personalization_storage"],
+              scripts: [
+                {
+                  url: "https://www.googletagmanager.com/gtag/js?id=G-3FF2TGHN9M",
+                  load: "async"
+                }
+              ],
+              onAccept: function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { window.dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-3FF2TGHN9M');
+              }
+            },
+            {
+              id: "marketing",
+              label: "Marketing",
+              description: "<p>These cookies are used by us and our advertising partners to show you relevant ads on this site and elsewhere, and to measure how those campaigns perform.</p>",
+              required: false,
+              gtag: ["ad_storage", "ad_user_data", "ad_personalization"]
+            }
+          ],
+          text: {
+            prompt: {
+              description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.</p>",
+              acceptAllButtonText: "Accept all",
+              acceptAllButtonAccessibleLabel: "Accept all cookies",
+              rejectNonEssentialButtonText: "Reject non-essential",
+              rejectNonEssentialButtonAccessibleLabel: "Reject all non-essential cookies",
+              preferencesButtonText: "Preferences",
+              preferencesButtonAccessibleLabel: "Toggle preferences"
+            },
+            preferences: {
+              title: "Customize your cookie preferences",
+              description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+              saveButtonText: "Save and close",
+              saveButtonAccessibleLabel: "Save your cookie preferences",
+              creditLinkText: "Get this banner for free",
+              creditLinkAccessibleLabel: "Get this banner for free"
+            }
+          }
+        });
+      `}</Script>
       {process.env.NEXT_PUBLIC_GTM_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />}
     </html>
   );
