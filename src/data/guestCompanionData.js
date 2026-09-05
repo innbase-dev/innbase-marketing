@@ -7,7 +7,7 @@
 // real file yet — same convention as OaHero's <Image src="/images/...">,
 // per PROJECT_README.md: drop real property photography in before deploy.
 export const GC_SHOWCASE_IMAGES = [
-    { src: "/images/guest-companion-showcase-1.jpg", alt: "A guest ordering from their phone at a hotel table" },
+    { src: "/images/guest-companion-showcase-1.gif", alt: "A guest ordering from their phone at a hotel table" },
     { src: "/images/guest-companion-showcase-2.jpg", alt: "A hotel lobby with staff attending to a guest" },
     { src: "/images/guest-companion-showcase-3.jpg", alt: "A staff member confirming a guest request on a tablet" },
 ];
