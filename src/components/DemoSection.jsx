@@ -154,7 +154,7 @@ export default function DemoSection() {
                     </div>
                 </Reveal>
 
-                <div className="mid-cta reveal">
+                <Reveal className="mid-cta reveal">
                     <p>
                         <b>These are sample numbers.</b> Yours load in an
                         afternoon — bank statements, POS, and stock counts
@@ -163,7 +163,7 @@ export default function DemoSection() {
                     <a href="#cta" className="btn btn-brass btn-sm">
                         See it with your numbers
                     </a>
-                </div>
+                </Reveal>
             </div>
         </section>
     );

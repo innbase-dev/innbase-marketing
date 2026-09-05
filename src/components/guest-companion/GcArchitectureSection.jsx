@@ -18,7 +18,7 @@ export default function GcArchitectureSection() {
                     here it holds a real product screenshot of the Guest Companion admin,
                     faded out at the bottom edge with .gc-arch-fade so it reads as sinking
                     into the section that follows rather than ending on a hard crop. */}
-                <div className="hero-visual gc-arch-visual reveal" style={{ transitionDelay: ".1s" }}>
+                <Reveal className="hero-visual gc-arch-visual reveal" style={{ transitionDelay: ".1s" }}>
                     <div className="hero-dash gc-arch-fade">
                         <Image
                             src="/images/guest-companion-overview.webp"
@@ -29,7 +29,7 @@ export default function GcArchitectureSection() {
                             className="hero-shot-img"
                         />
                     </div>
-                </div>
+                </Reveal>
             </div>
         </section>
     );
