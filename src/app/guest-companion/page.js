@@ -11,6 +11,7 @@ import GcOutcomesSection from "@/components/guest-companion/GcOutcomesSection";
 import GcArchitectureSection from "@/components/guest-companion/GcArchitectureSection";
 import GcFaq from "@/components/guest-companion/GcFaq";
 import GcCta from "@/components/guest-companion/GcCta";
+import LogoStrip from "@/components/LogoStrip";
 
 const TITLE = "Guest Companion";
 const DESCRIPTION =
@@ -39,6 +40,7 @@ export default function GuestCompanionPage() {
             <Navbar />
             <main id="main">
                 <GcHero />
+                <LogoStrip />
                 <GcProblemSection />
                 <GcNoIntercomSection />
                 <GcMomentsSection />

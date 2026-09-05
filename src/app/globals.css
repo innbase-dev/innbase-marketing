@@ -13154,6 +13154,212 @@ text {
     color: var(--muted-dark);
 }
 
+/* ═══════════ PROBLEM/SOLUTION — VERTICAL TIMELINE COMPARISON ═══════════
+   Replaces the old .problem-compare (single card wrapping two horizontal
+   .flow-row chip lists) with two independent cards side by side, each a
+   short vertical timeline. Reuses --danger / --teal-bright as the two
+   accent colors already established by .sec-eyebrow.danger and the rest
+   of the Guest Companion page. */
+.problem-compare-v2 {
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    gap: 0 28px;
+}
+
+.flow-card {
+    border: 1px solid var(--ink-line);
+    border-radius: var(--radius);
+    background: var(--ink-soft);
+    padding: 28px clamp(20px, 3vw, 32px) 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+/* Quiet glow behind the resolved ("with") card only — a single accent
+   moment rather than decorating both sides equally. */
+.flow-card.with {
+    border-color: rgba(45, 212, 191, .22);
+}
+
+.flow-card.with::before {
+    content: '';
+    position: absolute;
+    inset: -40% -30% auto auto;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(45, 212, 191, .16), transparent 70%);
+    pointer-events: none;
+}
+
+.flow-card-head {
+    display: flex;
+    margin-bottom: 26px;
+}
+
+.flow-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted-dark);
+}
+
+.flow-card-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--muted-dark);
+    flex: none;
+}
+
+.flow-card-badge.now .flow-card-dot {
+    background: var(--danger);
+}
+
+.flow-card-badge.with .flow-card-dot {
+    background: var(--teal-bright);
+}
+
+.flow-card-badge.with {
+    color: var(--teal-bright);
+}
+
+/* ── vertical step timeline ── */
+.flow-steps {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flow-step {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.flow-step-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+}
+
+.flow-step-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted-dark);
+    background: var(--ink);
+    border: 1px solid var(--ink-line);
+}
+
+.flow-step-line {
+    width: 1px;
+    flex: 1 1 auto;
+    min-height: 22px;
+    background: var(--ink-line);
+    margin: 4px 0;
+}
+
+.flow-step-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding-bottom: 26px;
+    padding-top: 2px;
+}
+
+.flow-step:last-child .flow-step-text {
+    padding-bottom: 0;
+}
+
+/* Resolution step — the payoff line at the end of "With Guest Companion" */
+.flow-step.is-outcome .flow-step-dot {
+    background: var(--teal-soft);
+    border-color: rgba(45, 212, 191, .45);
+    color: var(--teal-bright);
+}
+
+.flow-step.is-outcome .flow-step-dot .icon {
+    width: 13px;
+    height: 13px;
+}
+
+.flow-step.is-outcome .flow-step-text {
+    font-weight: 700;
+    color: var(--teal-bright);
+}
+
+/* ── center divider between the two cards ── */
+.problem-compare-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 2px;
+}
+
+.problem-compare-divider-line {
+    width: 1px;
+    flex: 1 1 auto;
+    background: linear-gradient(180deg, transparent, var(--ink-line) 30%, var(--ink-line) 70%, transparent);
+}
+
+.problem-compare-divider-arrow {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    border: 1px solid var(--ink-line);
+    color: var(--muted-dark);
+}
+
+.problem-compare-divider-arrow .icon {
+    width: 15px;
+    height: 15px;
+}
+
+@media (max-width: 860px) {
+    .problem-compare-v2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .problem-compare-divider {
+        flex-direction: row;
+        padding: 4px 0;
+    }
+
+    .problem-compare-divider-line {
+        height: 1px;
+        width: auto;
+        background: linear-gradient(90deg, transparent, var(--ink-line) 30%, var(--ink-line) 70%, transparent);
+    }
+
+    .problem-compare-divider-arrow {
+        transform: rotate(90deg);
+    }
+}
+
 @media(max-width: 860px) {
     .gc-mock-wrap {
         grid-template-columns: 1fr;

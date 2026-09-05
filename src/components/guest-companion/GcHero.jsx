@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Icon from "@/components/Icon";
 import { GC_MODULE_STRIP, GC_SHOWCASE_IMAGES } from "@/data/guestCompanionData";
-import LogoStrip from "../LogoStrip";
 
 export default function GcHero() {
     return (
@@ -52,10 +50,6 @@ export default function GcHero() {
                     ))}
                 </div>
             </header>
-
-            <div className="strip">
-                <LogoStrip />
-            </div>
         </>
     );
 }

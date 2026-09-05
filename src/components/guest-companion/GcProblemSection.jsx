@@ -1,28 +1,37 @@
-import { Fragment } from "react";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import { GC_PROBLEM_FLOW } from "@/data/guestCompanionData";
 
-// Plain DOM siblings (Fragment, not a wrapping span) so that
-// `.flow-block.with .flow-chip:last-child` in globals.css — which highlights
-// the final "after" step — matches against .flow-row's real last child.
-function FlowRow({ steps }) {
+// Vertical step timeline — replaces the horizontal chip+arrow row with a
+// connected line of numbered steps so each column reads as a short story
+// rather than a tag list. The last step of the "after" column is the
+// resolution, so it gets the highlighted treatment.
+function FlowTimeline({ steps, variant }) {
     return (
-        <div className="flow-row">
-            {steps.map((step, i) => (
-                <Fragment key={step}>
-                    <span className="flow-chip">
-                        <span className="d" />
-                        {step}
-                    </span>
-                    {i < steps.length - 1 && (
-                        <span className="flow-arrow">
-                            <Icon name="arrow-right" className="icon" />
+        <ol className="flow-steps">
+            {steps.map((step, i) => {
+                const isLast = i === steps.length - 1;
+                const isOutcome = variant === "with" && isLast;
+                return (
+                    <li
+                        className={`flow-step${isOutcome ? " is-outcome" : ""}`}
+                        key={step}
+                    >
+                        <span className="flow-step-rail">
+                            <span className="flow-step-dot">
+                                {isOutcome ? (
+                                    <Icon name="check" className="icon" />
+                                ) : (
+                                    i + 1
+                                )}
+                            </span>
+                            {!isLast && <span className="flow-step-line" />}
                         </span>
-                    )}
-                </Fragment>
-            ))}
-        </div>
+                        <span className="flow-step-text">{step}</span>
+                    </li>
+                );
+            })}
+        </ol>
     );
 }
 
@@ -45,15 +54,33 @@ export default function GcProblemSection() {
                     </p>
                 </Reveal>
 
-                <Reveal className="problem-compare reveal">
-                    <div className="flow-block now">
-                        <div className="flow-block-label now">Today</div>
-                        <FlowRow steps={GC_PROBLEM_FLOW.before} />
+                <Reveal className="problem-compare-v2 reveal">
+                    <div className="flow-card now">
+                        <div className="flow-card-head">
+                            <span className="flow-card-badge now">
+                                <span className="flow-card-dot" />
+                                Today
+                            </span>
+                        </div>
+                        <FlowTimeline steps={GC_PROBLEM_FLOW.before} variant="now" />
                     </div>
-                    <div className="divider" />
-                    <div className="flow-block with">
-                        <div className="flow-block-label with">With Guest Companion</div>
-                        <FlowRow steps={GC_PROBLEM_FLOW.after} />
+
+                    <div className="problem-compare-divider">
+                        <span className="problem-compare-divider-line" />
+                        <span className="problem-compare-divider-arrow">
+                            <Icon name="arrow-right" className="icon" />
+                        </span>
+                        <span className="problem-compare-divider-line" />
+                    </div>
+
+                    <div className="flow-card with">
+                        <div className="flow-card-head">
+                            <span className="flow-card-badge with">
+                                <span className="flow-card-dot" />
+                                With Guest Companion
+                            </span>
+                        </div>
+                        <FlowTimeline steps={GC_PROBLEM_FLOW.after} variant="with" />
                     </div>
                 </Reveal>
             </div>
