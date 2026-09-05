@@ -56,7 +56,8 @@ export default function GcHero() {
                 so it sits outside hero-inner rather than nested in it. */}
             <div className="gc-showcase reveal in" style={{ transitionDelay: ".3s" }}>
                 {GC_SHOWCASE_IMAGES.map((img, i) => (
-                    <div className="gc-showcase-item" key={img.src}>
+                    <div className={`gc-showcase-item ph-${i + 1}`} key={img.src}>
+                        <div className="gc-ph-dots" />
                         <Image
                             src={img.src}
                             alt={img.alt}
