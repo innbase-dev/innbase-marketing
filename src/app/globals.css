@@ -12895,11 +12895,9 @@ text {
    Everything else the page needs (.hero*, .eyebrow, .btn*, .sec*,
    .problem-grid/.problem-card/.p-ico, .role-grid/.role-card,
    .flow-row/.flow-chip/.flow-arrow, .problem-compare/.flow-block,
-   .how-mock*/
-.how-line,
-.device-node/.device-connector,
-.cta-band/.cta-ctas,
-.faq-* ══════════════════════════════════════════════════════════════════ */
+   .how-mock*, .how-line, .device-node/.device-connector,
+   .cta-band/.cta-ctas, .faq-*)
+   ══════════════════════════════════════════════════════════════════ */
 
 /* ═══════════ HERO — 3-IMAGE SHOWCASE (full-bleed) ═══════════
    Matches the referenced pattern exactly: a narrow–wide–narrow row that
