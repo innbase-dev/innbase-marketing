@@ -47,6 +47,7 @@ export default function Footer() {
                     <Link href="/#product">Shift Management</Link>
                     <Link href="/#product">Guest Folios</Link>
                     <Link href="/assistant">AI Assistant</Link>
+                    <Link href="/guest-companion">Guest Companion</Link>
                 </div>
                 <div className="f2-col">
                     <h4>

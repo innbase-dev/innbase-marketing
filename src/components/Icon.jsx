@@ -39,6 +39,17 @@ import {
     ArrowDown,
     Heart,
     NoteText,
+    ScanBarcode,
+    Coffee,
+    Broom,
+    Setting2,
+    MessageQuestion,
+    CallSlash,
+    Mobile,
+    Activity,
+    Send2,
+    Layer,
+    ShoppingBag,
 } from "iconsax-react";
 
 /**
@@ -85,6 +96,19 @@ const ICONS = {
     "arrow-down": ArrowDown,
     heart: Heart,
     list: NoteText,
+    // Added for /guest-companion — not needed by any earlier page, so not
+    // part of the original lucide->iconsax mapping table above.
+    scan: ScanBarcode,
+    coffee: Coffee,
+    broom: Broom,
+    gear: Setting2,
+    "message-question": MessageQuestion,
+    "call-slash": CallSlash,
+    mobile: Mobile,
+    activity: Activity,
+    send: Send2,
+    layer: Layer,
+    "shopping-bag": ShoppingBag,
 };
 
 export default function Icon({

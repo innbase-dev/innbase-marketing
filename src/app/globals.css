@@ -12890,6 +12890,301 @@ text {
     }
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   GUEST COMPANION PAGE — additions only.
+   Everything else the page needs (.hero*, .eyebrow, .btn*, .sec*,
+   .problem-grid/.problem-card/.p-ico, .role-grid/.role-card,
+   .flow-row/.flow-chip/.flow-arrow, .problem-compare/.flow-block,
+   .how-mock*/
+.how-line,
+.device-node/.device-connector,
+.cta-band/.cta-ctas,
+.faq-* ══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════ HERO — 3-IMAGE SHOWCASE (full-bleed) ═══════════
+   Matches the referenced pattern exactly: a narrow–wide–narrow row that
+   breaks out of .wrap to run edge-to-edge, small gaps between panels, and
+   rounded corners only on the sides that face a gap — the two true outer
+   edges (leftmost of panel 1, rightmost of panel 3) stay square since they
+   bleed off-canvas rather than meeting a visible corner. Bottom corners are
+   always square, matching the reference. */
+.gc-showcase {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 56px;
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+}
+
+.gc-showcase-item {
+    position: relative;
+    flex: 27 1 0;
+    height: clamp(220px, 30vw, 420px);
+    overflow: hidden;
+    background: var(--ink-soft);
+}
+
+.gc-showcase-item:nth-child(2) {
+    flex: 44 1 0;
+}
+
+.gc-showcase-item:first-child {
+    border-radius: 0 20px 0 0;
+}
+
+.gc-showcase-item:last-child {
+    border-radius: 20px 0 0 0;
+}
+
+.gc-showcase-item:not(:first-child):not(:last-child) {
+    border-radius: 20px 20px 0 0;
+}
+
+.gc-showcase-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(max-width: 760px) {
+    .gc-showcase {
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 2px;
+    }
+
+    .gc-showcase-item,
+    .gc-showcase-item:nth-child(2) {
+        flex: 0 0 78vw;
+        height: 280px;
+        scroll-snap-align: start;
+    }
+}
+
+/* ═══════════ THREE-STEP WALKTHROUGH (Scan → Choose → Request) ═══════════ */
+.gc-steps-row {
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    margin-top: 52px;
+}
+
+.gc-step {
+    flex: 1;
+    border: 1px solid var(--ink-line);
+    border-radius: var(--radius);
+    background: var(--ink-soft);
+    padding: 26px 24px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.gc-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--border);
+    background: var(--surface-hover);
+}
+
+.gc-step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal-bright);
+}
+
+.gc-step h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-top: 10px;
+}
+
+.gc-step p {
+    font-size: 13px;
+    color: var(--muted-dark);
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+.gc-step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 32px;
+    color: var(--muted-dark);
+    opacity: .5;
+}
+
+@media(max-width: 760px) {
+    .gc-steps-row {
+        flex-direction: column;
+    }
+
+    .gc-step-arrow {
+        transform: rotate(90deg);
+        width: auto;
+        height: 24px;
+    }
+}
+
+/* ═══════════ GUEST GETS / HOTEL GETS ═══════════ */
+.gc-outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 52px;
+}
+
+.gc-outcome-col {
+    border: 1px solid var(--ink-line);
+    border-radius: var(--radius);
+    background: var(--ink-soft);
+    padding: 30px 28px;
+}
+
+.gc-outcome-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.gc-outcome-head .d {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex: none;
+}
+
+.gc-outcome-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 0;
+    border-top: 1px solid var(--ink-line);
+    font-size: 13.5px;
+    color: var(--muted-dark);
+    line-height: 1.55;
+}
+
+.gc-outcome-row:first-of-type {
+    border-top: none;
+    margin-top: 18px;
+}
+
+.gc-outcome-row .icon {
+    flex: none;
+    margin-top: 2px;
+    width: 14px;
+    height: 14px;
+}
+
+@media(max-width: 760px) {
+    .gc-outcomes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ═══════════ OPERATIONAL EVENT MOCK ═══════════
+   Reuses .how-mock/.how-mock-head/.how-mock-dot/.how-mock-body/.how-line
+   verbatim for the record card; only the room badge and the four-step
+   receipt trail beneath it are new. */
+.gc-mock-wrap {
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.gc-mock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--teal-soft);
+    color: var(--teal-bright);
+    border: 1px solid rgba(45, 212, 191, .3);
+    border-radius: 99px;
+    padding: 5px 13px;
+    font-size: 11.5px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.gc-flow-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.gc-flow-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-line);
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.gc-flow-item:last-child {
+    border-bottom: none;
+}
+
+.gc-flow-item .fi-n {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--ink-line);
+    display: grid;
+    place-items: center;
+    flex: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted-dark);
+}
+
+@media(max-width: 860px) {
+    .gc-mock-wrap {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+/* ═══════════ CONTEXT CHIPS (in room / restaurant / property) ═══════════
+   Plain reuse of .flow-chip as a parallel (non-arrowed) chip list. */
+.gc-context-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+/* ═══════════ ARCHITECTURE — TWO ASSISTANTS, ONE PLATFORM ═══════════
+   Reuses .hero-visual/.hero-dash as-is (same pair HeroDashboard uses on
+   the homepage) to frame the Guest Companion screenshot instead of the
+   old device-node + two-card .gc-arch-wrap layout. .gc-arch-fade masks
+   the bottom 10% of the shot so it appears to sink into the next section. */
+.gc-arch-visual {
+    margin-top: 56px;
+}
+
+.gc-arch-fade {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 90%, transparent 100%);
+}
+
+
 
 /* ── About: product philosophy, manifesto, africa vision ── */
 /* ═══════════ PRODUCT PHILOSOPHY ═══════════ */
