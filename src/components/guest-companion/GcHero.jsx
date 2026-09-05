@@ -69,20 +69,6 @@ export default function GcHero() {
                     </div>
                 ))}
             </div>
-
-            <div className="strip">
-                <div className="wrap strip-row">
-                    <span className="strip-label">Every request lands in the Innbase you already run</span>
-                    <div className="strip-chips">
-                        {GC_MODULE_STRIP.map((m) => (
-                            <span className="strip-chip" key={m.label}>
-                                <Icon name={m.icon} className="icon" />
-                                {m.label}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
         </header>
     );
 }
