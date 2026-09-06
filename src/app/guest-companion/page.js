@@ -41,7 +41,7 @@ export default function GuestCompanionPage() {
             <main id="main">
                 <GcHero />
                 <LogoStrip />
-                <GcProblemSection />
+                {/* <GcProblemSection /> */}
                 <GcNoIntercomSection />
                 <GcMomentsSection />
                 <GcStepsSection />
