@@ -1,14 +1,10 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import OaHero from "@/components/assistant/OaHero";
-import OaFaq from "@/components/assistant/OaFaq";
-import OaCta from "@/components/assistant/OaCta";
-import RulesSection from "@/components/assistant/RulesSection";
+import MarketingShell from "@/components/marketing/MarketingShell";
+import AssistantPage from "@/components/marketing/AssistantPage";
 import { buildSocialMetadata } from "@/lib/seo";
-import AssistantShowcase from "@/components/assistant/AssistantShowcase";
-import ProblemNotesSection from "@/components/assistant/ProblemNotesSection";
-import ImpactSection from "@/components/assistant/ImpactSection";
-import StaffEverywhereSection from "../../components/assistant/StaffEverywhereSection";
+
+
+
+
 
 const TITLE = "AI Operational Assistant";
 const DESCRIPTION =
@@ -24,26 +20,11 @@ export const metadata = {
         "hotel task management Nigeria",
     ],
     alternates: {
-        canonical: "/operational-assistant",
+    canonical: "/assistant",
     },
-    ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/operational-assistant" }),
+    ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/assistant" }),
 };
 
-export default function OperationalAssistantPage() {
-    return (
-        <>
-            <Navbar />
-            <main id="main">
-                <OaHero />
-                <ProblemNotesSection />
-                <AssistantShowcase />
-                <RulesSection />
-                <StaffEverywhereSection />
-                <ImpactSection />
-                <OaFaq />
-                <OaCta />
-            </main>
-            <Footer />
-        </>
-    );
+export default function MarketingRoute() {
+  return <MarketingShell><AssistantPage /></MarketingShell>;
 }

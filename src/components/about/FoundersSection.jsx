@@ -2,6 +2,7 @@
 import Reveal from "@/components/Reveal";
 import { FOUNDERS } from "@/data/aboutData";
 import Link from "next/link";
+import AssetImage from "@/components/AssetImage";
 
 function LinkedinIcon({ size = 16 }) {
     return (
@@ -59,10 +60,14 @@ export default function FoundersSection() {
                     {FOUNDERS.map((f) => (
                         <div className="fq-card" key={f.name}>
                             {f.image ? (
-                                <img
+                                <AssetImage
                                     className="fq-avatar"
                                     src={f.image}
                                     alt={f.name}
+                                    width={80}
+                                    height={80}
+                                    fallbackLabel={f.initials}
+                                    fallbackTone="portrait"
                                     style={{ objectFit: "cover" }}
                                 />
                             ) : (

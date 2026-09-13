@@ -1,8 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ContactHero from "@/components/contact/ContactHero";
-import ContactForm from "@/components/contact/ContactForm";
-import ContactRail from "@/components/contact/ContactRail";
+import MarketingShell from "@/components/marketing/MarketingShell";
+import ContactPage from "@/components/marketing/ContactPage";
 import { JsonLd, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
 
 const TITLE = "Contact Innbase";
@@ -19,21 +16,6 @@ export const metadata = {
   ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/contact" }),
 };
 
-export default function ContactPage() {
-  return (
-    <>
-      <Navbar />
-      <main id="main">
-        <ContactHero />
-        <section className="contact-sec" id="contact-form">
-          <div className="wrap contact-grid">
-            <ContactForm />
-            <ContactRail />
-          </div>
-        </section>
-      </main>
-      <Footer />
-      <JsonLd data={breadcrumbJsonLd("Contact", "/contact")} />
-    </>
-  );
+export default function MarketingRoute() {
+  return <MarketingShell><ContactPage /><JsonLd data={breadcrumbJsonLd("Contact", "/contact")} /></MarketingShell>;
 }

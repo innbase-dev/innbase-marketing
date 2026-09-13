@@ -1,12 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PricingHero from "@/components/pricing/PricingHero";
-import LogoStrip from "@/components/LogoStrip";
-import PlanCards from "@/components/pricing/PlanCards";
-import ComparisonTable from "@/components/pricing/ComparisonTable";
-import CapacitySection from "@/components/pricing/CapacitySection";
-import PricingFaq from "@/components/pricing/PricingFaq";
-import PricingCta from "@/components/pricing/PricingCta";
+import MarketingShell from "@/components/marketing/MarketingShell";
+import PricingPage from "@/components/marketing/PricingPage";
 import { PLANS } from "@/data/pricingPlans";
 import { PRICING_FAQS } from "@/data/pricingFaqData";
 import { JsonLd, SITE_URL, breadcrumbJsonLd, buildSocialMetadata, toPlainText } from "@/lib/seo";
@@ -65,23 +58,6 @@ const offersJsonLd = {
   })),
 };
 
-export default function PricingPage() {
-  return (
-    <>
-      <Navbar />
-      <main id="main">
-        <PricingHero />
-        <LogoStrip />
-        <PlanCards />
-        <ComparisonTable />
-        <CapacitySection />
-        <PricingFaq />
-        {/* <PricingCta /> */}
-      </main>
-      <Footer />
-      <JsonLd
-        data={[pricingFaqJsonLd, offersJsonLd, breadcrumbJsonLd("Pricing", "/pricing")]}
-      />
-    </>
-  );
+export default function MarketingRoute() {
+  return <MarketingShell><PricingPage /><JsonLd data={[pricingFaqJsonLd, offersJsonLd, breadcrumbJsonLd("Pricing", "/pricing")]} /></MarketingShell>;
 }

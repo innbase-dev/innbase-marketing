@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Innbase marketing
 
-## Getting Started
+A redesign of the seven-route Next.js marketing project based on the approved Guest Companion and Pricing concepts. Page compositions, imagery, product demonstrations, navigation, and the footer have been rebuilt.
 
-First, run the development server:
+See **REFRACTOR_REPORT.md** for the scope and validation limits.
+
+## Run
+
+The supplied manifest and lockfile are unchanged: Next.js 16.3.2 and React 19.2.8.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For production:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build was **not completed in the authoring environment**. Dependency installation was blocked by a usage limit, and `npm run build` returned `next: not found`.
 
-## Learn More
+## Source map
 
-To learn more about Next.js, take a look at the following resources:
+| Location | Responsibility |
+| --- | --- |
+| `src/app/*/page.js` | Routes, metadata, and structured data |
+| `src/app/layout.js` | Fonts, global metadata, consent, analytics, and chat |
+| `src/app/marketing.css` | The new design system and responsive layouts |
+| `src/components/marketing/MarketingShell.jsx` | Shared shell and full footer |
+| `src/components/marketing/MarketingNav.jsx` | Mega menus and mobile disclosures |
+| `src/components/marketing/navigation.js` | Navigation and footer destinations |
+| `src/components/marketing/Primitives.jsx` | Buttons, headings, image, FAQ, and product relationship section |
+| `src/components/marketing/*Page.jsx` | The seven page compositions |
+| `src/components/marketing/GuestDemo.jsx` | Six guest-to-team request flows |
+| `src/components/marketing/OperationsDemo.jsx` | Sales, payment review, and stock-count examples |
+| `src/components/marketing/AssistantDemo.jsx` | Five illustrative assistant conversations |
+| `src/components/marketing/CustomerStories.jsx` | Existing testimonials and pilot results |
+| `src/data/` | Product copy, commercial terms, policies, and example data |
+| `public/images/marketing/hotel-room.webp` | The actual image from the approved preview |
+| `public/images/innbase-light.svg` | The official supplied Innbase logo |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Behavior to know
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Demos use local illustrative data. They do not contact a hotel workspace, payment service, or AI provider.
+- Pricing uses production data: Boutique **₦24,000**, Base **₦60,000**, Growth **₦150,000** per month. Enterprise is recommended above 50 staff accounts.
+- Contact prepares a message for the visitor to send through email or WhatsApp. There is no submission backend or false delivery confirmation. Pricing links carry their plan into the form.
+- Legal copy remains unchanged in `src/data/legalData.jsx`. Document hashes and native expandable sections support navigation.
+- Pilot quotes and results are retained from the production source, without independent verification by this redesign.
+- GTM remains conditional on `NEXT_PUBLIC_GTM_ID`; existing consent and chat integrations remain in the layout.
 
-## Deploy on Vercel
+The active presentation no longer imports Tailwind utilities, Framer Motion, Headless UI, or Iconsax. Their dependencies remain in the unchanged manifest.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Hero images use eager loading and high fetch priority; supporting imagery is lazy-loaded, following the [Next.js Image API](https://nextjs.org/docs/app/api-reference/components/image).

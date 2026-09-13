@@ -1,6 +1,6 @@
-import "./globals.css";
+import "./marketing.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Instrument_Sans, Caveat } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import { JsonLd, SITE_URL, SITE_NAME } from "@/lib/seo";
 
@@ -9,10 +9,11 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const caveat = Caveat({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-caveat",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-editorial",
 });
 
 export const metadata = {
@@ -80,7 +81,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0b0e13",
+  themeColor: "#101714",
 };
 
 // Site-wide entity schema. These describe the company and the website
@@ -112,7 +113,7 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={instrumentSerif.variable}>
       <head>
         {/*
           Consent Mode v2 defaults. Must run before GTM/gtag loads anywhere
@@ -134,7 +135,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Silktide Consent Manager — stylesheet (non-blocking) */}
+        {/* Silktide Consent Manager — stylesheet */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
@@ -142,18 +143,8 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css"
           integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
           crossOrigin="anonymous"
-          media="print"
-          // eslint-disable-next-line react/no-unknown-property
-          onLoad="this.media='all'"
+          media="all"
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css"
-            integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
-            crossOrigin="anonymous"
-          />
-        </noscript>
 
         {/* Silktide Consent Manager — brand overrides */}
         <style
@@ -163,19 +154,19 @@ export default function RootLayout({ children }) {
               #stcm-wrapper {
                 --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
                 --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
-                --primaryColor: #d4af37;
-                --backgroundColor: #0b0e13;
+                --primaryColor: #f3bc80;
+                --backgroundColor: #101714;
                 --textColor: #FFFFFF;
                 --backdropBackgroundColor: #00000033;
                 --backdropBackgroundBlur: 0px;
-                --iconColor: #d4af37;
-                --iconBackgroundColor: #0b0e13;
+                --iconColor: #f3bc80;
+                --iconBackgroundColor: #101714;
               }
             `,
           }}
         />
       </head>
-      <body className={`${instrumentSans.className} ${caveat.variable}`}>
+      <body className={instrumentSans.className}>
         <a className="skip-link" href="#main">
           Skip to main content
         </a>

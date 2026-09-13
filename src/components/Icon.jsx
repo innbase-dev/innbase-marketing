@@ -106,6 +106,7 @@ const ICONS = {
     "call-slash": CallSlash,
     mobile: Mobile,
     activity: Activity,
+    mic: Activity,
     send: Send2,
     layer: Layer,
     "shopping-bag": ShoppingBag,

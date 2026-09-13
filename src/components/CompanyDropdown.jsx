@@ -7,10 +7,11 @@ import {
 export default function CompanyDropdown() {
     return (
         <SpotlightMenu
-            label="Company"
-            ariaLabel="Company menu"
+            label="Explore"
+            ariaLabel="Explore menu"
             items={COMPANY_MENU_ITEMS}
             quickLinks={COMPANY_MENU_QUICK_LINKS}
+            quickLinksLabel="Explore"
         />
     );
 }

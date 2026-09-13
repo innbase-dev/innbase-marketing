@@ -3,9 +3,9 @@
 // to edit without touching markup.
 
 // Hero showcase — a full-bleed 3-image row (narrow–wide–narrow), not a
-// product screenshot. Paths are local and intentionally don't resolve to a
-// real file yet — same convention as OaHero's <Image src="/images/...">,
-// per PROJECT_README.md: drop real property photography in before deploy.
+// product screenshot. Paths stay local so the final property-photo pack can
+// be dropped in without changing the page data; AssetImage keeps the layout
+// composed while that pack is still being assembled.
 export const GC_SHOWCASE_IMAGES = [
     { src: "/images/guest-companion-showcase-1.svg", alt: "A guest ordering from their phone at a hotel table" },
     { src: "/images/guest-companion-showcase-2.svg", alt: "A hotel lobby with staff attending to a guest" },

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Icon from "@/components/Icon";
+import AssetImage from "@/components/AssetImage";
 import { GC_MODULE_STRIP, GC_SHOWCASE_IMAGES } from "@/data/guestCompanionData";
 
 // Desktop widths follow the showcase's narrow/wide/narrow flex ratio
@@ -58,13 +57,15 @@ export default function GcHero() {
                 {GC_SHOWCASE_IMAGES.map((img, i) => (
                     <div className={`gc-showcase-item ph-${i + 1}`} key={img.src}>
                         <div className="gc-ph-dots" />
-                        <Image
+                        <AssetImage
                             src={img.src}
                             alt={img.alt}
                             fill
                             sizes={SHOWCASE_SIZES[i]}
                             priority={i === 1}
                             loading={i === 1 ? undefined : "eager"}
+                            fallbackLabel={i === 1 ? "Guest Companion" : "Guest moment"}
+                            fallbackTone={i === 1 ? "sage" : "apricot"}
                         />
                     </div>
                 ))}

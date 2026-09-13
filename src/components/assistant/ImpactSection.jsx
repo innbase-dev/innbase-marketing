@@ -30,7 +30,7 @@ const IMPACTS = [
 
 export default function ImpactSection() {
     return (
-        <section className="sec" id="impact-alt">
+        <section className="sec light-surface" id="impact-alt">
             <div className="wrap">
                 <Reveal className="sec-head reveal">
                     <span className="sec-eyebrow">Why it matters</span>

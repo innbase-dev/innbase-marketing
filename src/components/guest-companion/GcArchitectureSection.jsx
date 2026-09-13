@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import AssetImage from "@/components/AssetImage";
 
 export default function GcArchitectureSection() {
     return (
@@ -20,13 +20,15 @@ export default function GcArchitectureSection() {
                     into the section that follows rather than ending on a hard crop. */}
                 <Reveal className="hero-visual gc-arch-visual reveal" style={{ transitionDelay: ".1s" }}>
                     <div className="hero-dash gc-arch-fade">
-                        <Image
+                        <AssetImage
                             src="/images/guest-companion-overview.webp"
                             alt="Innbase Guest Companion admin — Overview dashboard showing online guests, open orders, pending requests, recent activity and top selling items"
                             width={1894}
                             height={979}
                             sizes="(max-width: 1024px) 100vw, 1180px"
                             className="hero-shot-img"
+                            fallbackLabel="Guest Companion overview"
+                            fallbackTone="sage"
                         />
                     </div>
                 </Reveal>

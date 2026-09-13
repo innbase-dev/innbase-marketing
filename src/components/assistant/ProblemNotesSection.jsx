@@ -7,7 +7,7 @@ import Reveal from "../Reveal";
  */
 export default function ProblemNotesSection() {
     return (
-        <section className="sec sec-alt" id="problem-notes">
+        <section className="sec sec-alt light-surface" id="problem-notes">
             <div className="wrap">
                 <Reveal className="sec-head reveal">
                     <span className="sec-eyebrow danger">

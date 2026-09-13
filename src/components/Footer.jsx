@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import BrandMark from "./BrandMark";
 
 export default function Footer() {
     return (
@@ -8,85 +8,85 @@ export default function Footer() {
                 <div>
                     <span className="f2-eyebrow">Ready when you are</span>
                     <h3 className="f2-cta-h">
-                        Stop guessing what happened at 2am.
+                        Give every shift a clearer story.
                     </h3>
+                    <p className="f2-cta-p">
+                        See how Innbase keeps the people behind every great
+                        stay in sync.
+                    </p>
                 </div>
-                <Link className="btn btn-brass" href="/#cta">
-                    Get a demo
+                <Link className="btn btn-brass" href="/contact">
+                    Book a demo <span aria-hidden="true">↗</span>
                 </Link>
             </div>
             <div className="wrap f2-grid">
                 <div className="f2-brand">
-                    <Link
-                        href="/"
-                        className="nav-wordmark"
-                        aria-label="Innbase home"
-                    >
-                        <Image
-                            src="/images/innbase-light.svg"
-                            alt="Innbase"
-                            width={132}
-                            height={32}
-                        />
+                    <Link href="/" className="nav-wordmark" aria-label="Innbase home">
+                        <BrandMark />
                     </Link>
                     <p>
-                        Every sale, payment, and shift — reconciled
-                        automatically.
+                        The operating system for the people behind every great
+                        stay.
                     </p>
+                    <span className="f2-brand-note">Built in Nigeria · made for hospitality</span>
                 </div>
                 <div className="f2-col">
                     <h4>
                         <span
                             className="f2-dot"
-                            style={{ background: "#2dd4bf" }}
+                            style={{ background: "var(--sage)" }}
                         />
-                        Platform
+                        Product
                     </h4>
                     <Link href="/#product">Payments</Link>
+                    <Link href="/#product">Point of sale</Link>
                     <Link href="/#product">Inventory</Link>
-                    <Link href="/#product">Shift Management</Link>
-                    <Link href="/#product">Guest Folios</Link>
-                    <Link href="/assistant">AI Assistant</Link>
+                    <Link href="/#product">Shift management</Link>
                     <Link href="/guest-companion">Guest Companion</Link>
+                    <Link href="/assistant">AI Assistant</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
                         <span
                             className="f2-dot"
-                            style={{ background: "#fbbf24" }}
+                            style={{ background: "var(--apricot)" }}
                         />
-                        Solutions
+                        Explore
                     </h4>
-                    <Link href="/#roles">For Hotels &amp; Resorts</Link>
-                    <Link href="/#roles">For Restaurants</Link>
-                    <Link href="/#roles">For Bars &amp; Nightlife</Link>
-                    <Link href="/#reconciliation">Trust &amp; Security</Link>
+                    <Link href="/#roles">Hotels &amp; guesthouses</Link>
+                    <Link href="/#roles">Restaurants</Link>
+                    <Link href="/#roles">Bars &amp; lounges</Link>
+                    <Link href="/#roles">Multi-property</Link>
+                    <Link href="/about">Why Innbase</Link>
+                    <Link href="/#stories">Customer stories</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
                         <span
                             className="f2-dot"
-                            style={{ background: "#60a5fa" }}
+                            style={{ background: "#d8b894" }}
                         />
-                        Resources
+                        Decide
                     </h4>
                     <Link href="/pricing">Pricing</Link>
-                    <Link href="/#quote">Customer Stories</Link>
+                    <Link href="/#demo">Live demo</Link>
                     <Link href="/#faq">FAQs</Link>
-                    <Link href="/about">About</Link>
+                    <Link href="/#reconciliation">Trust &amp; security</Link>
+                    <Link href="/legal">Terms &amp; privacy</Link>
                 </div>
                 <div className="f2-col">
                     <h4>
                         <span
                             className="f2-dot"
-                            style={{ background: "#d68af0" }}
+                            style={{ background: "#d7b6d9" }}
                         />
-                        Contact &amp; Legal
+                        Contact
                     </h4>
                     <Link href="/contact">Book a Demo</Link>
-                    <Link href="/contact">Contact Sales</Link>
-                    <Link href="/legal#privacy">Legal &amp; Privacy</Link>
+                    <Link href="/contact">Talk to sales</Link>
+                    <Link href="/contact">Support</Link>
                     <a href="mailto:hello@innbase.co">hello@innbase.co</a>
+                    <a href="https://app.innbase.co/login">Log in ↗</a>
                 </div>
             </div>
             <div className="wrap f2-bottom">
@@ -96,7 +96,11 @@ export default function Footer() {
                     All systems reconciled
                 </span>
                 <span className="mono origin">
-                    Built for hotels &amp; bars across Nigeria.
+                    Nigeria · hospitality, connected.
+                </span>
+                <span className="f2-bottom-links">
+                    <Link href="/legal#privacy">Privacy</Link>
+                    <Link href="/legal#terms">Terms</Link>
                 </span>
             </div>
         </footer>

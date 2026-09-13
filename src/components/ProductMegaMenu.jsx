@@ -7,8 +7,8 @@ import {
 export default function ProductMegaMenu() {
     return (
         <SpotlightMenu
-            label="Product"
-            ariaLabel="Product menu"
+            label="Platform"
+            ariaLabel="Platform menu"
             items={PRODUCT_MENU_ITEMS}
             quickLinks={PRODUCT_MENU_QUICK_LINKS}
         />

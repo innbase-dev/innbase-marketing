@@ -1,7 +1,8 @@
 # Innbase — Next.js port
 
-A fully-responsive Next.js/React conversion of the original static Innbase
-landing page, matching the source design 1:1.
+A fully-responsive Next.js/React marketing site for Innbase. The current
+surface keeps the operational product story but uses the warmer hospitality
+direction: forest, paper, apricot, and sage with an editorial display face.
 
 ## Stack
 
@@ -37,7 +38,7 @@ src/
 
 ## Multi-page notes
 
-- **Nav & footer are shared** across all four routes (`Navbar`, `MobileMenu`,
+- **Nav & footer are shared** across every marketing route (`Navbar`, `MobileMenu`,
   `ProductMegaMenu`, `Footer`) with active-page highlighting via
   `usePathname()`.
 - **Design tokens are unified** — `about.html`, `legal.html`, and
@@ -47,6 +48,13 @@ src/
   in their source files. I traced each back to a matching literal hex color
   already used elsewhere on the site and added them as real tokens in
   `globals.css`, so every page now draws from the same palette.
+- **Brand refresh is additive** — `src/app/brand-refresh.css` owns the new
+  forest/paper/apricot/sage tokens and page-surface rhythm, while the existing
+  interaction-heavy product mockups remain intact.
+- **Navigation is intentionally deep** — Platform, Solutions, and Explore are
+  full spotlight menus on desktop; mobile keeps the same destinations in
+  grouped, thumb-friendly sections. The footer mirrors that hierarchy with
+  Product, Explore, Decide, and Contact columns.
 - **`.page-about`** scopes a 2-column hero grid (content + founder photos)
   that's unique to the About page, so it doesn't collide with the
   single-column hero used everywhere else.
@@ -60,9 +68,10 @@ src/
 
 ## Before you deploy
 
-Drop the real image/icon assets into `public/images` and `public/` — see
-`public/images/README.txt` for the exact filenames expected by the
-components. Without them the `<img>` tags will just 404 quietly.
+Drop the real image/icon assets into `public/images` and `public/` — the
+component data keeps the expected filenames close to each route. The shared
+`AssetImage` wrapper preserves the layout with an abstract Innbase fallback
+until those property photos and product screenshots are available.
 
 ## Run it
 

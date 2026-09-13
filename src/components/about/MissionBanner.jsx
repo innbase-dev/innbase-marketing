@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Icon from "@/components/Icon";
 import { AnimatePresence, motion } from "framer-motion";
+import AssetImage from "@/components/AssetImage";
 
 const IMAGES = [
     "/images/cashier.jpg",
@@ -19,10 +20,8 @@ export default function MissionBanner({ lines }) {
     return (
         <div className="mission-banner">
             <AnimatePresence mode="popLayout">
-                <motion.img
+                <motion.div
                     key={index}
-                    src={IMAGES[index % IMAGES.length]}
-                    alt=""
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.35 }}
                     exit={{ opacity: 0 }}
@@ -32,10 +31,18 @@ export default function MissionBanner({ lines }) {
                         inset: 0,
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
                         zIndex: 0,
                     }}
-                />
+                >
+                    <AssetImage
+                        src={IMAGES[index % IMAGES.length]}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, 940px"
+                        fallbackLabel="A day in hospitality"
+                        fallbackTone="forest"
+                    />
+                </motion.div>
             </AnimatePresence>
             <div className="mission-banner-grid" aria-hidden="true" style={{ zIndex: 1 }} />
 

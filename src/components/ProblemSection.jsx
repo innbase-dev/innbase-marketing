@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function ProblemSection() {
     return (
-        <section className="sec">
+        <section className="sec problem-sec">
             <div className="dot-grain" />
             <div
                 className="sec-blob"

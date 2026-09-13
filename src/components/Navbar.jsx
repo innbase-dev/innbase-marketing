@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Icon from "./Icon";
+import BrandMark from "./BrandMark";
 import ProductMegaMenu from "./ProductMegaMenu";
+import SolutionsMegaMenu from "./SolutionsMegaMenu";
 import CompanyDropdown from "./CompanyDropdown";
 import MobileMenu from "./MobileMenu";
 
@@ -45,18 +46,12 @@ export default function Navbar() {
                         className="nav-wordmark"
                         aria-label="Innbase home"
                     >
-                        <Image
-                            src="/images/innbase-light.svg"
-                            alt="Innbase"
-                            width={132}
-                            height={28}
-                            priority
-                        />
+                        <BrandMark />
                     </Link>
 
                     <div className="nav-links">
                         <ProductMegaMenu />
-                        <Link href="/#product">How it works</Link>
+                        <SolutionsMegaMenu />
                         <CompanyDropdown />
                         <Link
                             href="/pricing"
@@ -69,7 +64,13 @@ export default function Navbar() {
                         >
                             Pricing
                         </Link>
-                        <Link href="/#faq">FAQ</Link>
+                        <Link
+                            href="/about"
+                            className={isCurrent("/about") ? "current" : undefined}
+                            aria-current={isCurrent("/about") ? "page" : undefined}
+                        >
+                            About
+                        </Link>
                     </div>
 
                     <div className="nav-actions">

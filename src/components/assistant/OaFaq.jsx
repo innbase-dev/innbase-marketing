@@ -4,7 +4,7 @@ import { OA_FAQ } from "@/data/operationalAssistantData";
 
 export default function OaFaq() {
     return (
-        <section className="sec sec-alt" id="faq">
+        <section className="sec sec-alt light-surface" id="faq">
             <div className="wrap">
                 <Reveal className="sec-head reveal">
                     <span className="sec-eyebrow">Before you ask</span>

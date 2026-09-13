@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { X, ChevronRight } from "lucide-react";
 import { COMPANY_MENU_ITEMS } from "@/data/companyMenuData";
+import { SOLUTIONS_MENU_ITEMS } from "@/data/solutionsMenuData";
+import BrandMark from "./BrandMark";
 
 export default function MobileMenu({ open, onClose, pathname }) {
     const isCurrent = (path) => pathname === path;
 
     return (
         <div
+            id="mobileMenu"
             className={`mobile-menu${open ? " open" : ""}`}
             hidden={!open}
             onClick={(e) => {
@@ -25,13 +27,7 @@ export default function MobileMenu({ open, onClose, pathname }) {
             >
                 <div className="mobile-menu-head">
                     <Link href="/" className="mobile-menu-brand" aria-label="Innbase home">
-                        <Image
-                            src="/images/innbase-light.svg"
-                            alt="Innbase"
-                            width={132}
-                            height={28}
-                            priority
-                        />
+                        <BrandMark />
                     </Link>
                     <button
                         type="button"
@@ -44,7 +40,7 @@ export default function MobileMenu({ open, onClose, pathname }) {
                 </div>
 
                 <div className="mobile-menu-scroll">
-                    <span className="mobile-menu-label">Product</span>
+                    <span className="mobile-menu-label">Platform</span>
                     <Link href="/#product">
                         How it works
                         <ChevronRight className="mm-chevron" />
@@ -58,7 +54,15 @@ export default function MobileMenu({ open, onClose, pathname }) {
                         <ChevronRight className="mm-chevron" />
                     </Link>
 
-                    <span className="mobile-menu-label">Company</span>
+                    <span className="mobile-menu-label">Solutions</span>
+                    {SOLUTIONS_MENU_ITEMS.map((item) => (
+                        <Link href={item.href} key={item.key}>
+                            {item.title}
+                            <ChevronRight className="mm-chevron" />
+                        </Link>
+                    ))}
+
+                    <span className="mobile-menu-label">Explore</span>
                     {COMPANY_MENU_ITEMS.map((item) => (
                         <Link
                             href={item.href}

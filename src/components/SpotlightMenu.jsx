@@ -16,6 +16,7 @@ export default function SpotlightMenu({
     const [activeKey, setActiveKey] = useState(items[0].key);
     const navItemRef = useRef(null);
     const closeTimer = useRef(null);
+    const menuId = `menu-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
     const active = items.find((i) => i.key === activeKey) || items[0];
 
@@ -39,6 +40,7 @@ export default function SpotlightMenu({
         document.addEventListener("keydown", onKeyDown);
         document.addEventListener("click", onClick);
         return () => {
+            clearTimeout(closeTimer.current);
             document.removeEventListener("keydown", onKeyDown);
             document.removeEventListener("click", onClick);
         };
@@ -50,17 +52,24 @@ export default function SpotlightMenu({
             ref={navItemRef}
             onMouseEnter={openMenu}
             onMouseLeave={scheduleClose}
+            onBlur={(e) => {
+                if (!navItemRef.current?.contains(e.relatedTarget)) {
+                    scheduleClose();
+                }
+            }}
         >
             <button
                 className="nav-trigger"
                 aria-expanded={open}
                 aria-haspopup="true"
+                aria-controls={menuId}
+                onFocus={openMenu}
                 onClick={() => (open ? closeMenu() : openMenu())}
             >
                 {label} <Icon name="chevron-down" className="chev" />
             </button>
 
-            <div className={`mm mm--spot${open ? " open" : ""}`}>
+            <div id={menuId} className={`mm mm--spot${open ? " open" : ""}`}>
                 <div
                     className="mm-spot-inner"
                     role="menu"

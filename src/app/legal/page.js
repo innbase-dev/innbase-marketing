@@ -1,7 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import LegalHero from "@/components/legal/LegalHero";
-import LegalTabs from "@/components/legal/LegalTabs";
+import MarketingShell from "@/components/marketing/MarketingShell";
+import LegalPage from "@/components/marketing/LegalPage";
 import { JsonLd, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
 
 const TITLE = "Terms, Privacy & GDPR — Innbase";
@@ -18,16 +16,6 @@ export const metadata = {
   ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/legal" }),
 };
 
-export default function LegalPage() {
-  return (
-    <>
-      <Navbar />
-      <main id="main">
-        <LegalHero />
-        <LegalTabs />
-      </main>
-      <Footer />
-      <JsonLd data={breadcrumbJsonLd("Legal", "/legal")} />
-    </>
-  );
+export default function MarketingRoute() {
+  return <MarketingShell><LegalPage /><JsonLd data={breadcrumbJsonLd("Legal", "/legal")} /></MarketingShell>;
 }

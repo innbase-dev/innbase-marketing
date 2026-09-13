@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Icon from "@/components/Icon";
+import AssetImage from "@/components/AssetImage";
 import { OA_MODULE_STRIP } from "@/data/operationalAssistantData";
 
 export default function OaHero() {
@@ -50,13 +50,15 @@ export default function OaHero() {
                     <div className="hero-visual reveal in" style={{ transitionDelay: ".36s" }}>
                         <div className="hero-scene">
                             <div className="hero-dash">
-                                <Image
+                                <AssetImage
                                     src="/images/operational-assistant-bookings.png"
                                     alt="Innbase Bookings dashboard — Booking Health and Booking Stages, showing live occupancy and deposit status"
                                     width={1600}
                                     height={822}
                                     sizes="(max-width: 1024px) 100vw, 1180px"
                                     className="hero-shot-img"
+                                    fallbackLabel="Bookings workspace"
+                                    fallbackTone="sage"
                                     priority
                                 />
                             </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "../Reveal";
+import AssetImage from "../AssetImage";
 
 /**
  * Option A — rotating showcase panel.
@@ -76,16 +77,18 @@ export default function AssistantShowcase() {
                         onMouseLeave={start}
                     >
                         {IMAGES.map((src, i) => (
-                            <img
+                            <AssetImage
                                 key={src}
                                 src={src}
                                 alt=""
                                 className="showcase-bg"
+                                fill
+                                sizes="(max-width: 760px) 100vw, 980px"
+                                fallbackLabel={i === 0 ? "Night audit" : i === 1 ? "New hire" : "Busy Saturday"}
+                                fallbackTone={i === 1 ? "sage" : "forest"}
                                 style={{ 
                                     opacity: idx === i ? 1 : 0, 
-                                    objectFit: "cover", 
-                                    width: "100%", 
-                                    height: "100%" 
+                                    objectFit: "cover"
                                 }}
                             />
                         ))}

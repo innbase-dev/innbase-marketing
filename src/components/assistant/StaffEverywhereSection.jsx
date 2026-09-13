@@ -2,6 +2,7 @@
 
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
+import AssetImage from "@/components/AssetImage";
 
 /**
  * "Wherever your staff already are" — device showcase.
@@ -40,9 +41,13 @@ export default function StaffEverywhereSection() {
                             <div className="android-frame">
                                 <div className="screen">
                                     <span className="punch-hole" />
-                                    <img
+                                    <AssetImage
                                         src="/images/housekeeping-mobile.png"
                                         alt="Housekeeping mobile app showing the active cleaning queue"
+                                        fill
+                                        sizes="(max-width: 860px) 90vw, 360px"
+                                        fallbackLabel="Housekeeping queue"
+                                        fallbackTone="sage"
                                     />
                                 </div>
                             </div>
@@ -80,9 +85,13 @@ export default function StaffEverywhereSection() {
                                 <div className="ipad-screen">
                                     <span className="cam" />
                                     <div className="screen-inner">
-                                        <img
+                                        <AssetImage
                                             src="/images/live-room-board-desktop.png"
                                             alt="Live room board showing housekeeping status across every room"
+                                            fill
+                                            sizes="(max-width: 860px) 90vw, 620px"
+                                            fallbackLabel="Live room board"
+                                            fallbackTone="forest"
                                         />
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Icon from "../Icon";
 import Reveal from "../Reveal";
+import AssetImage from "../AssetImage";
 
 /**
  * Option D — "wherever your staff already are", device mockups.
@@ -12,7 +12,7 @@ import Reveal from "../Reveal";
  */
 export default function DevicesSection() {
     return (
-        <section className="sec sec-alt" id="devices-shots">
+        <section className="sec sec-alt light-surface" id="devices-shots">
             <div className="wrap">
                 <Reveal
                     className="sec-head center reveal"
@@ -40,7 +40,7 @@ export default function DevicesSection() {
                             <div className="android-frame">
                                 <div className="screen">
                                     <span className="punch-hole" />
-                                    <Image
+                                    <AssetImage
                                         src="/images/devices-housekeeping-mobile.png"
                                         alt="Housekeeping mobile app"
                                         fill
@@ -49,6 +49,8 @@ export default function DevicesSection() {
                                             objectFit: "cover",
                                             objectPosition: "top center",
                                         }}
+                                        fallbackLabel="Housekeeping queue"
+                                        fallbackTone="sage"
                                     />
                                 </div>
                             </div>
@@ -88,7 +90,7 @@ export default function DevicesSection() {
                                 <div className="macbook-screen">
                                     <span className="cam" />
                                     <div className="screen-inner">
-                                        <Image
+                                        <AssetImage
                                             src="/images/devices-live-room-board-desktop.png"
                                             alt="Live Room Board desktop"
                                             fill
@@ -97,6 +99,8 @@ export default function DevicesSection() {
                                                 objectFit: "cover",
                                                 objectPosition: "top center",
                                             }}
+                                            fallbackLabel="Live room board"
+                                            fallbackTone="forest"
                                         />
                                     </div>
                                 </div>

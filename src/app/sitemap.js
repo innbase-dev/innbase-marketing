@@ -28,6 +28,18 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: "https://innbase.co/guest-companion",
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: "https://innbase.co/assistant",
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: "https://innbase.co/contact",
       lastModified: buildTime,
       changeFrequency: "monthly",

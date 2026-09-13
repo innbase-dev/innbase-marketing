@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
+import AssetImage from "./AssetImage";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
 export default function CaseStudiesSection() {
@@ -119,12 +119,14 @@ export default function CaseStudiesSection() {
                                         />
                                         {c.badge}
                                     </div>
-                                    <Image
+                                    <AssetImage
                                         src={c.img}
                                         alt={c.alt}
                                         fill
                                         sizes="(max-width: 768px) 90vw, 340px"
                                         className="case-media-img"
+                                        fallbackLabel={c.name}
+                                        fallbackTone="property"
                                         loading="lazy"
                                     />
                                     <div className="case-media-foot">
