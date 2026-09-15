@@ -1,0 +1,48 @@
+/* Referral landing page — extends the shared ib- design system with a
+   handful of patterns specific to this page. Reuses tokens, type scale,
+   and section rhythm from marketing.css; nothing here overrides it. */
+
+.ib-ref-hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+@media (max-width: 980px) { .ib-ref-hero { grid-template-columns: 1fr; gap: 48px; } }
+
+.ib-ref-card {
+  background: #182219; border: 1px solid #ffffff17; border-radius: 16px;
+  padding: 28px 26px; color: #eef1ea;
+}
+.ib-ref-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.ib-ref-card-top span { font-size: 11px; font-weight: 650; letter-spacing: .12em; color: #b5c1b6; }
+.ib-ref-card-top small { font-size: 11px; color: #7f8c80; }
+.ib-ref-amount { font-family: var(--ib-serif); font-size: 52px; letter-spacing: -.03em; color: var(--ib-accent); line-height: 1; margin-bottom: 6px; }
+.ib-ref-amount + p { color: #b5c1b6; font-size: 14px; margin-bottom: 22px; }
+.ib-ref-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-top: 1px solid #ffffff14; font-size: 14px; }
+.ib-ref-row:first-of-type { border-top: 1px solid #ffffff14; }
+.ib-ref-row span:first-child { color: #dfe4d9; }
+.ib-ref-row b { color: var(--ib-accent); font-weight: 600; }
+.ib-ref-row small { display: block; color: #7f8c80; font-size: 12px; margin-top: 2px; }
+.ib-ref-card-foot { margin-top: 18px; padding-top: 16px; border-top: 1px solid #ffffff14; display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #7f8c80; }
+.ib-ref-card-foot span { width: 6px; height: 6px; border-radius: 50%; background: var(--ib-sage); flex-shrink: 0; }
+
+.ib-ref-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ib-line); border: 1px solid var(--ib-line); border-radius: 14px; overflow: hidden; }
+.ib-ref-steps > div { background: var(--ib-paper); padding: 32px 28px; }
+.ib-ref-steps span { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--ib-ink); color: var(--ib-accent); font-family: var(--ib-serif); font-size: 18px; margin-bottom: 18px; }
+.ib-ref-steps h3 { font-size: 19px; margin-bottom: 10px; }
+.ib-ref-steps p { color: var(--ib-muted); font-size: 15px; }
+@media (max-width: 760px) { .ib-ref-steps { grid-template-columns: 1fr; } }
+
+.ib-ref-reward { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+@media (max-width: 900px) { .ib-ref-reward { grid-template-columns: 1fr; gap: 36px; } }
+.ib-ref-reward-figure { font-family: var(--ib-serif); font-size: clamp(72px, 9vw, 132px); line-height: .95; letter-spacing: -.03em; color: var(--ib-ink); }
+.ib-ref-reward-figure small { display: block; font-family: var(--font-sans, inherit); font-size: 16px; font-weight: 600; color: var(--ib-muted); letter-spacing: 0; margin-top: 14px; }
+.ib-ref-reward-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.ib-ref-reward-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 16px; }
+.ib-ref-reward-list li svg { flex-shrink: 0; margin-top: 3px; color: #4c7a52; }
+.ib-ref-reward-list b { display: block; margin-bottom: 3px; }
+.ib-ref-reward-list p { color: var(--ib-muted); margin: 0; }
+
+.ib-ref-who { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ib-line); border: 1px solid var(--ib-line); border-radius: 14px; overflow: hidden; }
+.ib-ref-who > div { background: var(--ib-paper-alt); padding: 26px 22px; }
+.ib-ref-who svg { color: var(--ib-text); margin-bottom: 14px; }
+.ib-ref-who h3 { font-size: 16px; margin-bottom: 6px; }
+.ib-ref-who p { font-size: 13.5px; color: var(--ib-muted); }
+@media (max-width: 860px) { .ib-ref-who { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ib-ref-who { grid-template-columns: 1fr; } }
