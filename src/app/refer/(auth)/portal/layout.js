@@ -10,9 +10,16 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
+// This is a per-user authenticated dashboard — there's no valid static HTML
+// for it, and prerendering it at build time makes auth.protect() run with
+// no real request (no cookies/session), which fails and skips rendering
+// <PortalShell>/<PortalProvider> underneath. Force this whole segment to
+// render per-request instead.
+export const dynamic = "force-dynamic";
+
 // Auth guard: this is the only place in the referral portal that must be
 // reached with a signed-in Clerk session. Redirects to /refer/sign-in
-// (configured on the ClerkProvider in the parent (auth) layout) otherwise.
+// (configured on the ClerkProvider in the parent layout) otherwise.
 export default async function PortalLayout({ children }) {
   await auth.protect();
 
