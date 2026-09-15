@@ -49,7 +49,7 @@ export default function SpotlightMenu({
     return (
         <div
             className="nav-item"
-            ref={navItemng pages
+            ref={navItemRef}
             onMouseEnter={openMenu}
             onMouseLeave={scheduleClose}
             onBlur={(e) => {
