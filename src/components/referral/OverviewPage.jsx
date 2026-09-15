@@ -50,7 +50,7 @@ export default function OverviewPage() {
           Refer a hotel
         </button>
         {totals.available > 0 && (
-          <Link href="/refer/rewards" className="pf-btn pf-btn-outline">
+          <Link href="/refer/portal/rewards" className="pf-btn pf-btn-outline">
             Withdraw {nairaFormat(totals.available)}
           </Link>
         )}
@@ -58,7 +58,7 @@ export default function OverviewPage() {
 
       <div className="pf-section-title">
         <h2>Your referrals</h2>
-        <Link href="/refer/referrals">See all</Link>
+        <Link href="/refer/portal/referrals">See all</Link>
       </div>
 
       {recent.length === 0 ? (
@@ -66,7 +66,7 @@ export default function OverviewPage() {
       ) : (
         <div className="pf-list">
           {recent.map((r) => (
-            <Link key={r.id} href={`/refer/referrals/${r.id}`} className="pf-row pf-row-link">
+            <Link key={r.id} href={`/refer/portal/referrals/${r.id}`} className="pf-row pf-row-link">
               <div className="pf-row-main">
                 <p className="pf-row-name">{r.hotelName}</p>
                 <p className="pf-row-sub">{r.location}</p>

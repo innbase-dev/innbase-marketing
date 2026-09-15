@@ -7,21 +7,21 @@ import { PortalProvider, usePortal } from "./PortalContext";
 import ReferModal from "./ReferModal";
 
 const TABS = [
-  { href: "/refer", label: "Overview" },
-  { href: "/refer/referrals", label: "Referrals" },
-  { href: "/refer/rewards", label: "Rewards" },
+  { href: "/refer/portal", label: "Overview" },
+  { href: "/refer/portal/referrals", label: "Referrals" },
+  { href: "/refer/portal/rewards", label: "Rewards" },
 ];
 
 function TopBar() {
   return (
     <header className="pf-topbar">
       <div className="pf-topbar-inner">
-        <Link href="/refer" className="pf-topbar-brand">
+        <Link href="/refer/portal" className="pf-topbar-brand">
           <Image src="/images/innbase-light.svg" alt="Innbase" width={96} height={24} priority />
         </Link>
         <nav className="pf-topbar-links">
-          <Link href="/refer/help">Help</Link>
-          <Link href="/refer/account">Account</Link>
+          <Link href="/refer/portal/help">Help</Link>
+          <Link href="/refer/portal/account">Account</Link>
         </nav>
       </div>
     </header>
@@ -34,7 +34,7 @@ function Tabs() {
     <div className="pf-tabs">
       <nav className="pf-tabs-inner" aria-label="Referral portal sections">
         {TABS.map((t) => {
-          const current = t.href === "/refer" ? pathname === "/refer" : pathname.startsWith(t.href);
+          const current = t.href === "/refer/portal" ? pathname === "/refer/portal" : pathname.startsWith(t.href);
           return (
             <Link key={t.href} href={t.href} className="pf-tab" aria-current={current ? "page" : undefined}>
               {t.label}

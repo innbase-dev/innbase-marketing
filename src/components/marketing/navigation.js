@@ -16,7 +16,7 @@ export const NAV_GROUPS = [
   {
     id: "resources", label: "Resources", kicker: "GET TO KNOW INNBASE", title: "A little context. A clearer next step.", intro: "Explore the product, understand the details, or talk to the people building it.",
     groups: [
-      { title: "EXPLORE", links: [["How it works", "/#demo", "Walk through a sample shift"], ["Customer stories", "/#stories", "Experiences from the pilot properties"], ["Pricing questions", "/pricing#faq", "The details in plain sight"], ["Refer a hotel", "/refer-hotels", "Earn ₦20,000 per referral"], ["Why we’re building", "/about#story", "The thinking behind Innbase"], ["Our team", "/about#team", "Meet the founders"]] },
+      { title: "EXPLORE", links: [["How it works", "/#demo", "Walk through a sample shift"], ["Customer stories", "/#stories", "Experiences from the pilot properties"], ["Pricing questions", "/pricing#faq", "The details in plain sight"], ["Refer a hotel", "/refer", "Earn ₦20,000 per referral"], ["Why we’re building", "/about#story", "The thinking behind Innbase"], ["Our team", "/about#team", "Meet the founders"]] },
       { title: "HELP & TRUST", links: [["Contact & support", "/contact", "Get to the right conversation"], ["Privacy & data rights", "/legal#privacy", "Understand your data"], ["Terms of service", "/legal#terms", "Know where you stand"], ["Fair usage", "/legal#fair-usage", "How we manage capacity"]] },
     ],
   },
@@ -25,6 +25,6 @@ export const NAV_GROUPS = [
 export const FOOTER_GROUPS = [
   { title: "Platform", links: [["Payments & reconciliation", "/#reconciliation"], ["Point of sale", "/#sales"], ["Inventory & stock", "/#inventory"], ["Staff & shifts", "/#shifts"], ["Rooms & guests", "/#rooms"], ["Guest Companion", "/guest-companion"], ["AI Operational Assistant", "/assistant"]] },
   { title: "Solutions", links: [["Hotels & guesthouses", "/#hotels"], ["Restaurants", "/#restaurants"], ["Bars & lounges", "/#bars"], ["Multiple properties", "/#multi-property"], ["Owners & managers", "/#roles"]] },
-  { title: "Explore", links: [["Pricing", "/pricing"], ["Product demo", "/#demo"], ["Customer stories", "/#stories"], ["Refer a hotel", "/refer-hotels"], ["About Innbase", "/about"], ["Meet the team", "/about#team"], ["FAQs", "/#faq"], ["Fair usage", "/legal#fair-usage"]] },
+  { title: "Explore", links: [["Pricing", "/pricing"], ["Product demo", "/#demo"], ["Customer stories", "/#stories"], ["Refer a hotel", "/refer"], ["About Innbase", "/about"], ["Meet the team", "/about#team"], ["FAQs", "/#faq"], ["Fair usage", "/legal#fair-usage"]] },
   { title: "Let’s talk", links: [["Book a demo", "/contact"], ["Contact & support", "/contact"], ["Partnerships", "/contact?reason=partnership"], ["hello@innbase.co", "mailto:hello@innbase.co"], ["WhatsApp ↗", "https://wa.me/2349064169441"], ["Log in ↗", "https://app.innbase.co/login"]] },
 ];

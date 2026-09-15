@@ -51,7 +51,7 @@ export default function ReferralsPage() {
       ) : (
         <div className="pf-list">
           {filtered.map((r) => (
-            <Link key={r.id} href={`/refer/referrals/${r.id}`} className="pf-row pf-row-link">
+            <Link key={r.id} href={`/refer/portal/referrals/${r.id}`} className="pf-row pf-row-link">
               <div className="pf-row-main">
                 <p className="pf-row-name">{r.hotelName}</p>
                 <p className="pf-row-sub">{r.location} · Referred {formatDate(r.submittedOn)}</p>

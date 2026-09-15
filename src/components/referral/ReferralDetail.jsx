@@ -12,7 +12,7 @@ export default function ReferralDetail({ id }) {
   if (!referral) {
     return (
       <div>
-        <Link href="/refer/referrals" className="pf-back">← Back to referrals</Link>
+        <Link href="/refer/portal/referrals" className="pf-back">← Back to referrals</Link>
         <div className="pf-empty">
           <p>Referral not found</p>
           <p>It may have been removed, or the link is out of date.</p>
@@ -25,7 +25,7 @@ export default function ReferralDetail({ id }) {
 
   return (
     <div>
-      <Link href="/refer/referrals" className="pf-back">← Back to referrals</Link>
+      <Link href="/refer/portal/referrals" className="pf-back">← Back to referrals</Link>
 
       <div className="pf-detail-head">
         <h1>{referral.hotelName}</h1>

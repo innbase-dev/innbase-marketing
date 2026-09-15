@@ -46,7 +46,7 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
-      url: "https://innbase.co/refer-hotels",
+      url: "https://innbase.co/refer",
       lastModified: buildTime,
       changeFrequency: "monthly",
       priority: 0.6,
