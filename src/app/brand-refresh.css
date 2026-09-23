@@ -69,7 +69,7 @@ h1,
 h2,
 .display {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -.045em;
 }
 
@@ -523,7 +523,7 @@ h4,
     padding: 10px 2px;
 }
 
-.mm-row + .mm-row {
+.mm-row+.mm-row {
     border-top-color: #ebf0ea;
 }
 
@@ -565,6 +565,7 @@ h4,
 }
 
 @media (max-width: 980px) {
+
     .nav-links,
     .nav-actions {
         display: none;
@@ -1253,11 +1254,11 @@ h4,
     padding-top: 0;
 }
 
-.page-about main > .sec {
+.page-about main>.sec {
     background: var(--paper);
 }
 
-.page-about main > .sec.sec-alt {
+.page-about main>.sec.sec-alt {
     background: #eaf2e7;
 }
 
@@ -1695,6 +1696,7 @@ h4,
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .mm-mod,
     .btn,
     .nav-links a,
