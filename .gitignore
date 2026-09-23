@@ -77,3 +77,7 @@ desktop.ini
 
 # Hosting and platform
 .vercel
+
+# Local QA output
+/test-results/
+/playwright-report/

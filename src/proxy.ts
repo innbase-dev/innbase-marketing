@@ -1,14 +1,29 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 
-// Clerk is scoped exclusively to the /refer section (public landing page,
-// /refer/sign-in, /refer/sign-up, and the authenticated /refer/portal). The
-// main Innbase platform runs its own custom auth and must never be touched
-// by this proxy. Route-level protection itself lives in
-// `src/app/refer/(auth)/portal/layout.js` via `auth.protect()` (Clerk's
-// current resource-based guard pattern), so this file only needs to make
-// Clerk's request context available across the /refer subtree.
-export default clerkMiddleware();
+const referralAuth = clerkMiddleware({
+  // Server redirects cannot read the props on the React ClerkProvider.
+  signInUrl: "/refer/sign-in",
+  signUpUrl: "/refer/sign-up",
+});
+
+export default function proxy(request: NextRequest, event: NextFetchEvent) {
+  // This read-only lookup is already public in the BFF and backend. Let it
+  // resolve attribution without a Clerk session or a sign-in handshake.
+  if (request.nextUrl.pathname === "/refer/api/trpc/referrals.resolveReferralToken") {
+    return NextResponse.next();
+  }
+
+  // Portal pages still use auth.protect(); private API procedures verify
+  // identity independently. The public landing page does not match below.
+  return referralAuth(request, event);
+}
 
 export const config = {
-  matcher: ["/refer/:path*"],
+  matcher: [
+    "/refer/portal/:path*",
+    "/refer/sign-in/:path*",
+    "/refer/sign-up/:path*",
+    "/refer/api/:path*",
+  ],
 };

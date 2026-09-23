@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "How much can I earn per hotel?",
-    a: "Rewards vary by referral and are shown against each one in Referrals. Some referrals can also earn a bonus later on, which will appear automatically if it applies.",
+    a: "You earn ₦20,000 when a hotel you introduce becomes a paying customer and we confirm the referral. Your earned rewards appear in the Rewards page.",
   },
   {
     q: "Why does a referral say 'Attribution pending'?",

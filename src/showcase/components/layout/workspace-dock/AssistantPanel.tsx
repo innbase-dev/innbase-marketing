@@ -56,7 +56,7 @@ export function AssistantPanel({
                             </div>
                             <h3 className="text-base font-bold text-text-primary mb-2">How can I help?</h3>
                             <p className="text-xs text-text-secondary leading-relaxed mb-8 max-w-65">
-                                Ask about what's on screen — my answers are grounded in this workspace.
+                                Ask about what&apos;s on screen — my answers are grounded in this workspace.
                             </p>
                             
                             <div className="w-full space-y-2">

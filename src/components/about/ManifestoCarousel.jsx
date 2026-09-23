@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "@/components/Icon";
+import useReducedMotion from "@/hooks/useReducedMotion";
 import QuoteMark from "@/components/about/QuoteMark";
 
 const AUTOPLAY_MS = 5200;
@@ -10,33 +11,25 @@ const AUTOPLAY_MS = 5200;
 export default function ManifestoCarousel({ lines }) {
     const [index, setIndex] = useState(0);
     const [paused, setPaused] = useState(false);
-    const [reducedMotion, setReducedMotion] = useState(false);
+    const reducedMotion = useReducedMotion();
     const total = lines.length;
-
-    useEffect(() => {
-        const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-        setReducedMotion(mq.matches);
-        const onChange = (e) => setReducedMotion(e.matches);
-        mq.addEventListener("change", onChange);
-        return () => mq.removeEventListener("change", onChange);
-    }, []);
 
     const goTo = (i) => setIndex(((i % total) + total) % total);
     const next = () => goTo(index + 1);
     const prev = () => goTo(index - 1);
 
-    const timeoutRef = useRef(null);
     useEffect(() => {
-        if (paused || reducedMotion) return undefined;
-        timeoutRef.current = setTimeout(next, AUTOPLAY_MS);
-        return () => clearTimeout(timeoutRef.current);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [index, paused, reducedMotion]);
+        if (paused || reducedMotion || total < 2) return;
+        const timeout = setTimeout(() => setIndex((value) => (value + 1) % total), AUTOPLAY_MS);
+        return () => clearTimeout(timeout);
+    }, [index, paused, reducedMotion, total]);
 
     const onKeyDown = (e) => {
         if (e.key === "ArrowRight") next();
         if (e.key === "ArrowLeft") prev();
     };
+
+    if (total === 0) return null;
 
     return (
         <div
@@ -47,12 +40,12 @@ export default function ManifestoCarousel({ lines }) {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
             onFocus={() => setPaused(true)}
-            onBlur={() => setPaused(false)}
+            onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}
             onKeyDown={onKeyDown}
         >
             <QuoteMark className="manifesto-quote-mark" />
 
-            <div className="manifesto-slide-wrap" aria-live="polite">
+            <div className="manifesto-slide-wrap" aria-live={paused || reducedMotion ? "polite" : "off"}>
                 <AnimatePresence mode="wait">
                     <motion.p
                         key={index}

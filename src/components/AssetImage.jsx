@@ -10,6 +10,7 @@ import { useState } from "react";
  * layout.
  */
 export default function AssetImage({
+    alt = "",
     fallbackLabel = "Innbase visual",
     fallbackTone = "forest",
     ...props
@@ -17,12 +18,13 @@ export default function AssetImage({
     const [failed, setFailed] = useState(false);
 
     if (failed) {
-        const label = props.alt || fallbackLabel;
+        const label = alt || fallbackLabel;
         return (
             <div
                 className={`asset-fallback asset-fallback-${fallbackTone}${props.fill ? " asset-fallback-fill" : ""}${props.className ? ` ${props.className}` : ""}`}
-                role="img"
-                aria-label={label}
+                role={alt ? "img" : undefined}
+                aria-label={alt ? label : undefined}
+                aria-hidden={alt ? undefined : true}
                 style={props.style}
             >
                 <span className="asset-fallback-mark" aria-hidden="true" />
@@ -31,5 +33,5 @@ export default function AssetImage({
         );
     }
 
-    return <Image {...props} onError={() => setFailed(true)} />;
+    return <Image alt={alt} {...props} onError={() => setFailed(true)} />;
 }

@@ -19,7 +19,7 @@ export const dynamic = "force-dynamic";
 
 // Auth guard: this is the only place in the referral portal that must be
 // reached with a signed-in Clerk session. Redirects to /refer/sign-in
-// (configured on the ClerkProvider in the parent layout) otherwise.
+// (configured in src/proxy.ts) otherwise.
 export default async function PortalLayout({ children }) {
   await auth.protect();
 

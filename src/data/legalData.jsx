@@ -680,14 +680,14 @@ export const FAIR_USAGE_PANEL = {
   intro: (
     <>
       <p>
-        Innbase plans are designed around your hotel's operational size, not a
+        Innbase plans are designed around your hotel&apos;s operational size, not a
         meter you have to watch. Core hotel operations are included in your
         plan, and AI-powered features are available across all plans.
       </p>
       <p>
         We monitor usage quietly in the background so we can keep Innbase
         reliable, sustainable, and fair for every property. If your usage is
-        unusually high for the size and nature of your operation, we'll talk
+        unusually high for the size and nature of your operation, we&apos;ll talk
         to you before anything changes.
       </p>
     </>
@@ -702,14 +702,14 @@ export const FAIR_USAGE_PANEL = {
         <>
           <div>
             <p>
-              Fair usage means using Innbase for your hotel's normal day-to-day
+              Fair usage means using Innbase for your hotel&apos;s normal day-to-day
               operations in a way that is reasonably consistent with the size
               and plan of your property.
             </p>
 
             <p>
               Your subscription is not designed around a pay-per-action model.
-              You don't need to count AI questions, watch a transaction meter,
+              You don&apos;t need to count AI questions, watch a transaction meter,
               or calculate whether a normal operational action will create an
               additional charge.
             </p>
@@ -752,7 +752,7 @@ export const FAIR_USAGE_PANEL = {
 
             <p>
               Higher AI capacity is available on larger plans where the
-              property's operational needs justify it.
+              property&apos;s operational needs justify it.
             </p>
           </div>
         </>
@@ -785,7 +785,7 @@ export const FAIR_USAGE_PANEL = {
               </li>
               <li>
                 Use of Innbase as a general-purpose AI or data-processing
-                service unrelated to the property's operations.
+                service unrelated to the property&apos;s operations.
               </li>
               <li>
                 Activity that creates an unusual and sustained load on shared
@@ -798,7 +798,7 @@ export const FAIR_USAGE_PANEL = {
 
             <p>
               Heavy legitimate usage is not automatically considered abuse.
-              A property's actual operational needs are taken into account
+              A property&apos;s actual operational needs are taken into account
               before we ask it to change plans or usage patterns.
             </p>
           </div>
@@ -834,7 +834,7 @@ export const FAIR_USAGE_PANEL = {
 
             <p>
               If your property consistently exceeds the capacity appropriate
-              to its current plan, we'll contact you to discuss the appropriate
+              to its current plan, we&apos;ll contact you to discuss the appropriate
               plan or configuration.
             </p>
           </div>
@@ -856,7 +856,7 @@ export const FAIR_USAGE_PANEL = {
 
             <p>
               If we believe your property has materially outgrown its current
-              capacity, we will contact you and explain what we're seeing
+              capacity, we will contact you and explain what we&apos;re seeing
               before changing your commercial arrangement.
             </p>
 
@@ -882,7 +882,7 @@ export const FAIR_USAGE_PANEL = {
         <>
           <div>
             <p>
-              Innbase is operational software. We understand that hotels don't
+              Innbase is operational software. We understand that hotels don&apos;t
               stop operating because a usage threshold was reached.
             </p>
 
@@ -893,7 +893,7 @@ export const FAIR_USAGE_PANEL = {
             </p>
 
             <p>
-              Where a capacity issue requires action, we'll work with the
+              Where a capacity issue requires action, we&apos;ll work with the
               property to resolve it rather than leaving staff unexpectedly
               without access to an operational capability.
             </p>
@@ -958,14 +958,14 @@ export const FAIR_USAGE_PANEL = {
             </p>
 
             <p>
-              If your hotel is growing, you don't need to wait for something
-              to stop working. We'll help you understand when moving to a
+              If your hotel is growing, you don&apos;t need to wait for something
+              to stop working. We&apos;ll help you understand when moving to a
               larger plan makes sense and what additional capacity it provides.
             </p>
 
             <p>
               Plan changes normally take effect on the next billing cycle,
-              unless we've agreed otherwise with you.
+              unless we&apos;ve agreed otherwise with you.
             </p>
           </div>
         </>
@@ -980,7 +980,7 @@ export const FAIR_USAGE_PANEL = {
         <>
           <div>
             <p>
-              Fair usage does not replace Innbase's Acceptable Use requirements.
+              Fair usage does not replace Innbase&apos;s Acceptable Use requirements.
               You must not deliberately manipulate usage, bypass safeguards,
               abuse shared infrastructure, or use Innbase to provide an
               unauthorized service to third parties.
@@ -1011,7 +1011,7 @@ export const FAIR_USAGE_PANEL = {
             </p>
 
             <p>
-              If a material change affects how your plan works, we'll provide
+              If a material change affects how your plan works, we&apos;ll provide
               notice in accordance with our Terms of Service.
             </p>
           </div>
@@ -1027,7 +1027,7 @@ export const FAIR_USAGE_PANEL = {
         <span>
           <b>Think your hotel needs more capacity?</b>
           <span>
-            Talk to us before you worry about a meter. We'll look at your
+            Talk to us before you worry about a meter. We&apos;ll look at your
             operation and help you find the right plan.
           </span>
         </span>

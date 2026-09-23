@@ -114,7 +114,7 @@ export function DetailPanel() {
             {it.roomBlocked === null && (
                 <div className="border border-success-soft bg-accent-soft rounded-md p-3.5 px-4 mt-4 animate-[aiFade_0.28s_ease_both]">
                     <div className="flex items-center gap-2 font-bold text-xs text-accent-strong"><DynamicIcon name="sparkles" className="w-3.5 h-3.5" />Should {it.room} be removed from inventory?</div>
-                    <p className="text-xs text-text-secondary my-2 leading-relaxed">This issue is still open — decide whether the space should be blocked from booking while it's being fixed.</p>
+                    <p className="text-xs text-text-secondary my-2 leading-relaxed">This issue is still open — decide whether the space should be blocked from booking while it&apos;s being fixed.</p>
                     <div className="flex gap-2">
                         <button className="flex-1 justify-center inline-flex items-center gap-1.5 rounded-smp-2 font-bold text-xs bg-surface-inverse text-text-inverse hover:bg-surface-inverse" onClick={() => toggleRoomBlock.mutate({ id: it.id, blocked: true })}>Yes, block it</button>
                         <button className="flex-1 justify-center inline-flex items-center gap-1.5 rounded-smp-2 font-bold text-xs bg-surface border border-border text-text-primary hover:bg-canvas" onClick={() => toggleRoomBlock.mutate({ id: it.id, blocked: false })}>No, keep it open</button>
@@ -249,7 +249,7 @@ export function DetailPanel() {
                     {it.spendOnAsset >= (it.asset.estReplacement || 99999999) * 0.5 && (
                         <div className="border border-warning bg-warning-soft rounded-md p-3.5 px-4 mt-3">
                             <div className="flex items-center gap-2 font-bold text-xs text-warning-text"><DynamicIcon name="lightbulb" className="w-3.5 h-3.5" />Replacement may be cheaper now</div>
-                            <p className="text-xs text-text-secondary mt-2 leading-relaxed">You've spent <b className="text-text-primary">{fmt(it.spendOnAsset)}</b> repairing this {it.category.toLowerCase()} this year — close to half the ~{fmt(it.asset.estReplacement!)} cost of a new unit.</p>
+                            <p className="text-xs text-text-secondary mt-2 leading-relaxed">You&apos;ve spent <b className="text-text-primary">{fmt(it.spendOnAsset)}</b> repairing this {it.category.toLowerCase()} this year — close to half the ~{fmt(it.asset.estReplacement!)} cost of a new unit.</p>
                         </div>
                     )}
                 </>

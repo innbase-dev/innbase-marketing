@@ -1,75 +1,103 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, useCallback } from "react";
-import {
-  REFERRER,
-  REFERRALS,
-  REWARD_HISTORY,
-  WITHDRAWAL_HISTORY,
-  totalEarned,
-  availableToWithdraw,
-  pendingRewards,
-} from "@/data/referralPortalData";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useAuth } from "@clerk/nextjs";
+import { trpc } from "@/lib/trpc/referralsClient";
+import { createReferralRequest } from "@/lib/referralRequests";
+import useReferralPreference from "@/hooks/useReferralPreference";
+import { SITE_URL } from "@/lib/seo";
 
-const PortalCtx = createContext(null);
+const PortalContext = createContext(null);
 
 export function PortalProvider({ children }) {
-  const [referrals] = useState(REFERRALS);
-  const [rewardHistory, setRewardHistory] = useState(REWARD_HISTORY);
-  const [withdrawals, setWithdrawals] = useState(WITHDRAWAL_HISTORY);
+  const { userId, isLoaded, isSignedIn } = useAuth();
+  const utils = trpc.useUtils();
+  const registration = trpc.referrals.register.useMutation();
+  const { mutate: register } = registration;
+  const registrationStarted = useRef(false);
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn && !registrationStarted.current) {
+      registrationStarted.current = true;
+      register();
+    }
+  }, [isLoaded, isSignedIn, register]);
+
+  const workspaceQuery = trpc.referrals.portalWorkspace.useQuery(undefined, {
+    enabled: registration.isSuccess && Boolean(isSignedIn),
+    staleTime: 5_000,
+    // The supplied API projection is eventually consistent; an immediate
+    // invalidation can arrive before its relay publishes the new record.
+    refetchInterval: 5_000,
+    refetchIntervalInBackground: false,
+    retry: (count, error) => count < 2 && !["UNAUTHORIZED", "FORBIDDEN"].includes(error.data?.code),
+  });
+  const refreshWorkspace = () => utils.referrals.portalWorkspace.invalidate();
+  const referralMutation = trpc.referrals.referHotel.useMutation({ onSuccess: refreshWorkspace });
+  const withdrawalMutation = trpc.referrals.requestWithdrawal.useMutation({ onSuccess: refreshWorkspace });
+  const { mutateAsync: submitReferral } = referralMutation;
+  const { mutateAsync: submitWithdrawal } = withdrawalMutation;
+  const referHotel = useMemo(() => createReferralRequest(submitReferral), [submitReferral]);
+  const withdraw = useMemo(() => createReferralRequest(submitWithdrawal), [submitWithdrawal]);
   const [referModalOpen, setReferModalOpen] = useState(false);
-  const [surprise, setSurprise] = useState(
-    referrals.find((r) => r.sixMonthBonus?.earned && r.sixMonthBonus?.justSeen === undefined)
-      ? { hotelName: "Royal Suites Hotel", amount: 20000 }
-      : null
-  );
+  const [beneficiary, saveBeneficiary] = useReferralPreference(userId, "beneficiary");
+  const [dismissedSurprises, saveDismissed] = useReferralPreference(userId, "dismissed");
+  const workspace = workspaceQuery.data;
 
-  const requestWithdrawal = useCallback(() => {
-    const amount = availableToWithdraw(rewardHistory);
-    if (amount <= 0) return null;
-    setRewardHistory((prev) =>
-      prev.map((r) => (r.status === "available" ? { ...r, status: "withdrawn" } : r))
+  const surprise = useMemo(() => {
+    const reward = workspace?.rewards.find((entry) =>
+      entry.type === "RETENTION_BONUS" && !["CANCELLED", "REVERSED"].includes(entry.status)
+      && !dismissedSurprises.includes(entry.rewardId)
+      && workspace.referrals.some((referral) => referral.referralId === entry.referralId && referral.retentionRewardVisible)
     );
-    const record = {
-      id: `wd-${Date.now()}`,
-      amount,
-      date: new Date().toISOString().slice(0, 10),
-      bank: REFERRER.bank.bankName,
-      last4: REFERRER.bank.last4,
-      status: "pending",
-    };
-    setWithdrawals((prev) => [record, ...prev]);
-    return record;
-  }, [rewardHistory]);
+    return reward ? { rewardId: reward.rewardId, hotelName: reward.businessDisplayName, amountMinor: reward.amountMinor } : null;
+  }, [workspace, dismissedSurprises]);
 
-  const dismissSurprise = useCallback(() => setSurprise(null), []);
+  const requestWithdrawal = useCallback(async (override) => {
+    const fields = override ?? beneficiary;
+    if (!fields) throw new Error("Add your bank account first.");
+    const result = await withdraw({ beneficiary: fields });
+    saveBeneficiary(fields);
+    return result;
+  }, [beneficiary, withdraw, saveBeneficiary]);
 
-  const value = useMemo(
-    () => ({
-      referrer: REFERRER,
-      referrals,
-      rewardHistory,
-      withdrawals,
-      totals: {
-        earned: totalEarned(rewardHistory),
-        available: availableToWithdraw(rewardHistory),
-        pending: pendingRewards(rewardHistory),
-      },
-      referModalOpen,
-      openReferModal: () => setReferModalOpen(true),
-      closeReferModal: () => setReferModalOpen(false),
-      requestWithdrawal,
-      surprise,
-      dismissSurprise,
-    }),
-    [referrals, rewardHistory, withdrawals, referModalOpen, requestWithdrawal, surprise, dismissSurprise]
-  );
-
-  return <PortalCtx.Provider value={value}>{children}</PortalCtx.Provider>;
+  const requiresSignIn = isLoaded && !isSignedIn;
+  const error = requiresSignIn ? { message: "Your session has ended. Please sign in again." } : registration.error ?? workspaceQuery.error;
+  const value = {
+    workspace,
+    requiresSignIn,
+    isLoading: !error && (!isLoaded || registration.isIdle || registration.isPending
+      || (registration.isSuccess && workspaceQuery.isPending)),
+    isError: Boolean(error),
+    error,
+    refetch: () => registration.isSuccess ? workspaceQuery.refetch() : register(),
+    referrer: workspace ? {
+      displayName: workspace.displayName, email: workspace.email, phone: workspace.phone,
+      status: workspace.referrerStatus, referralToken: workspace.referralToken,
+      referralLink: `${SITE_URL}/refer?ref=${encodeURIComponent(workspace.referralToken)}`,
+    } : null,
+    referrals: workspace?.referrals ?? [],
+    rewards: workspace?.rewards ?? [],
+    withdrawals: workspace?.withdrawals ?? [],
+    totals: {
+      earnedMinor: workspace?.totalEarnedMinor ?? 0, availableMinor: workspace?.availableMinor ?? 0,
+      pendingMinor: workspace?.pendingMinor ?? 0, withdrawnMinor: workspace?.withdrawnMinor ?? 0,
+    },
+    canCreateReferrals: workspace?.canCreateReferrals ?? false,
+    canRequestWithdrawal: workspace?.canRequestWithdrawal ?? false,
+    referModalOpen,
+    openReferModal: () => { if (workspace?.canCreateReferrals) setReferModalOpen(true); },
+    closeReferModal: () => setReferModalOpen(false),
+    referHotel, isReferHotelPending: referralMutation.isPending,
+    requestWithdrawal, isWithdrawalPending: withdrawalMutation.isPending,
+    beneficiary, saveBeneficiary, surprise,
+    dismissSurprise: () => { if (surprise) saveDismissed([...dismissedSurprises, surprise.rewardId]); },
+  };
+  return <PortalContext.Provider value={value}>{children}</PortalContext.Provider>;
 }
 
 export function usePortal() {
-  const ctx = useContext(PortalCtx);
-  if (!ctx) throw new Error("usePortal must be used within PortalProvider");
-  return ctx;
+  const context = useContext(PortalContext);
+  if (!context) throw new Error("usePortal must be used inside PortalProvider");
+  return context;
 }

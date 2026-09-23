@@ -2,25 +2,26 @@
 
 import Link from "next/link";
 import { usePortal } from "./PortalContext";
-import { nairaFormat, referralCounts } from "@/data/referralPortalData";
+import { nairaFormat, referralCounts, formatDate } from "@/data/referralPortalData";
 import StatusPill from "./StatusPill";
 
 export default function OverviewPage() {
-  const { referrer, referrals, totals, openReferModal, surprise, dismissSurprise } = usePortal();
+  const { referrer, referrals, totals, openReferModal, canCreateReferrals, surprise, dismissSurprise } =
+    usePortal();
   const counts = referralCounts(referrals);
   const recent = referrals.slice(0, 3);
 
   return (
     <div>
       <div className="pf-greeting">
-        <h1>Good morning, {referrer.firstName}</h1>
+        <h1>Welcome, {referrer.displayName.trim().split(/\s+/)[0]}</h1>
         <p>Refer hotels. Earn rewards.</p>
       </div>
 
       {surprise && (
         <div className="pf-surprise">
           <div>
-            <h3>You&apos;ve earned another {nairaFormat(surprise.amount)}</h3>
+            <h3>You&apos;ve earned another {nairaFormat(surprise.amountMinor)}</h3>
             <p>{surprise.hotelName} has been with Innbase for six months — we&apos;ve added a bonus to your rewards.</p>
           </div>
           <button type="button" onClick={dismissSurprise}>Dismiss</button>
@@ -30,13 +31,15 @@ export default function OverviewPage() {
       <div className="pf-stats">
         <div className="pf-stat">
           <p className="pf-stat-label">Total earned</p>
-          <p className="pf-stat-value pf-accent-num">{nairaFormat(totals.earned)}</p>
+          <p className="pf-stat-value pf-accent-num">{nairaFormat(totals.earnedMinor)}</p>
           <p className="pf-stat-sub">From {counts.paying} paying referral{counts.paying === 1 ? "" : "s"}</p>
         </div>
         <div className="pf-stat">
           <p className="pf-stat-label">Available to withdraw</p>
-          <p className="pf-stat-value">{nairaFormat(totals.available)}</p>
-          <p className="pf-stat-sub">{totals.pending > 0 ? `${nairaFormat(totals.pending)} pending` : "Nothing pending"}</p>
+          <p className="pf-stat-value">{nairaFormat(totals.availableMinor)}</p>
+          <p className="pf-stat-sub">
+            {totals.pendingMinor > 0 ? `${nairaFormat(totals.pendingMinor)} pending` : "Nothing pending"}
+          </p>
         </div>
         <div className="pf-stat">
           <p className="pf-stat-label">Hotels referred</p>
@@ -46,12 +49,14 @@ export default function OverviewPage() {
       </div>
 
       <div className="pf-actions-row">
-        <button type="button" className="pf-btn pf-btn-primary" onClick={openReferModal}>
-          Refer a hotel
-        </button>
-        {totals.available > 0 && (
+        {canCreateReferrals && (
+          <button type="button" className="pf-btn pf-btn-primary" onClick={openReferModal}>
+            Refer a hotel
+          </button>
+        )}
+        {totals.availableMinor > 0 && (
           <Link href="/refer/portal/rewards" className="pf-btn pf-btn-outline">
-            Withdraw {nairaFormat(totals.available)}
+            Withdraw {nairaFormat(totals.availableMinor)}
           </Link>
         )}
       </div>
@@ -62,20 +67,18 @@ export default function OverviewPage() {
       </div>
 
       {recent.length === 0 ? (
-        <EmptyReferrals onRefer={openReferModal} />
+        <EmptyReferrals onRefer={canCreateReferrals ? openReferModal : undefined} />
       ) : (
         <div className="pf-list">
           {recent.map((r) => (
-            <Link key={r.id} href={`/refer/portal/referrals/${r.id}`} className="pf-row pf-row-link">
+            <Link key={r.referralId} href={`/refer/portal/referrals/${r.referralId}`} className="pf-row pf-row-link">
               <div className="pf-row-main">
-                <p className="pf-row-name">{r.hotelName}</p>
-                <p className="pf-row-sub">{r.location}</p>
+                <p className="pf-row-name">{r.businessDisplayName}</p>
+                <p className="pf-row-sub">Referred {formatDate(r.createdAt)}</p>
               </div>
               <div className="pf-row-end">
-                <StatusPill stage={r.stage} />
-                <span className="pf-row-reward">
-                  {r.rewardAmount ? nairaFormat(r.rewardAmount) : "—"}
-                </span>
+                <StatusPill lifecycle={r.lifecycle} label={r.statusLabel} />
+                <span className="pf-row-reward">{nairaFormat(r.totalEarnedMinor) === "₦0" ? "—" : nairaFormat(r.totalEarnedMinor)}</span>
               </div>
             </Link>
           ))}
@@ -90,7 +93,7 @@ export function EmptyReferrals({ onRefer }) {
     <div className="pf-list">
       <div className="pf-empty">
         <p>No referrals yet</p>
-        <p>Share your link with a hotel owner and it&apos;ll show up here.</p>
+        <p>Introduce a hotel using the form. We&apos;ll confirm the referral with you.</p>
         {onRefer && (
           <div style={{ marginTop: 18 }}>
             <button type="button" className="pf-btn pf-btn-primary" onClick={onRefer}>

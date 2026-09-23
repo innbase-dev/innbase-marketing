@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { PortalProvider, usePortal } from "./PortalContext";
@@ -12,14 +13,20 @@ const TABS = [
   { href: "/refer/portal/rewards", label: "Rewards" },
 ];
 
+function ReferralDialog() {
+  const { referModalOpen } = usePortal();
+  return referModalOpen ? <ReferModal /> : null;
+}
+
 function TopBar() {
+  const [logoFailed, setLogoFailed] = useState(false);
   return (
     <header className="pf-topbar">
       <div className="pf-topbar-inner">
         <Link href="/refer/portal" className="pf-topbar-brand">
-          <Image src="/images/innbase-light.svg" alt="Innbase" width={96} height={24} priority />
+          {logoFailed ? <span>Innbase</span> : <Image src="/images/innbase-light.svg" alt="Innbase" width={96} height={24} priority onError={() => setLogoFailed(true)} />}
         </Link>
-        <nav className="pf-topbar-links">
+        <nav className="pf-topbar-links" aria-label="Account and help">
           <Link href="/refer/portal/help">Help</Link>
           <Link href="/refer/portal/account">Account</Link>
         </nav>
@@ -47,7 +54,8 @@ function Tabs() {
 }
 
 function StickyReferCta() {
-  const { openReferModal } = usePortal();
+  const { openReferModal, canCreateReferrals } = usePortal();
+  if (!canCreateReferrals) return null;
   return (
     <div className="pf-sticky-cta">
       <button type="button" className="pf-btn pf-btn-primary" onClick={openReferModal}>
@@ -55,6 +63,40 @@ function StickyReferCta() {
       </button>
     </div>
   );
+}
+
+/**
+ * Centralizes the loading/error states every portal page would
+ * otherwise have to check individually. `workspace` is undefined until
+ * both registration and the first workspace fetch complete; page
+ * components below this gate can assume it is present.
+ */
+function PortalGate({ children }) {
+  const { isLoading, isError, error, workspace, refetch, requiresSignIn } = usePortal();
+
+  if (isLoading) {
+    return (
+      <div className="pf-empty" role="status" aria-live="polite">
+        <p>Loading your referral portal…</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="pf-empty" role="alert">
+        <p>We couldn&apos;t load your referral portal.</p>
+        <p>{error?.message ?? "Please try again."}</p>
+        <div style={{ marginTop: 18 }}>
+          <>{requiresSignIn ? <Link href="/refer/sign-in" className="pf-btn pf-btn-outline">Sign in again</Link> : <button type="button" className="pf-btn pf-btn-outline" onClick={() => refetch()}>Try again</button>}</>
+        </div>
+      </div>
+    );
+  }
+
+  if (!workspace) return <div className="pf-empty" role="status"><h1>Preparing your referral portal</h1><p>Your account is saved. Your details will appear shortly.</p><button className="pf-btn pf-btn-outline" onClick={() => refetch()}>Check again</button></div>;
+
+  return children;
 }
 
 export default function PortalShell({ children }) {
@@ -65,11 +107,13 @@ export default function PortalShell({ children }) {
           <TopBar />
           <Tabs />
           <main className="pf-main" id="main">
-            <div className="pf-container">{children}</div>
+            <div className="pf-container">
+              <PortalGate>{children}</PortalGate>
+            </div>
           </main>
           <StickyReferCta />
         </div>
-        <ReferModal />
+        <ReferralDialog />
       </div>
     </PortalProvider>
   );

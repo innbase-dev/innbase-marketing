@@ -1,3 +1,8 @@
+import { LANDING_PAGES } from "@/data/marketingLandingPages";
+import { SITE_URL } from "@/lib/seo";
+import { BLOG } from "@/data/blog/blogData";
+import { getCategories, getPosts, isTopicIndexable } from "@/lib/blog";
+
 // Only entries whose content genuinely changes on a predictable cadence get
 // a `lastModified` of "now" (evaluated once, at build time, since this
 // route has no dynamic APIs forcing per-request rendering — so it reflects
@@ -56,5 +61,31 @@ export default function sitemap() {
       changeFrequency: "yearly",
       priority: 0.5,
     },
+    ...LANDING_PAGES.map(({ href }) => ({
+      url: `${SITE_URL}${href}`,
+      lastModified: buildTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })),
+    {
+      url: `${SITE_URL}${BLOG.path}`,
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...getCategories().filter(isTopicIndexable).map((category) => ({
+      url: `${SITE_URL}${category.path}`,
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    })),
+    // Authored dates avoid presenting every build as an article rewrite.
+    ...getPosts().map((post) => ({
+      url: `${SITE_URL}${post.path}`,
+      lastModified: new Date(`${post.updatedAt}T00:00:00Z`),
+      changeFrequency: "monthly",
+      priority: 0.65,
+      images: [`${SITE_URL}${post.cover.src}`],
+    })),
   ];
 }

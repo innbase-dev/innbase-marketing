@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import useReducedMotion from "@/hooks/useReducedMotion";
+import styles from "./AssistantShowcase.module.css";
 import Reveal from "../Reveal";
 import AssetImage from "../AssetImage";
 
-/**
- * Option A — rotating showcase panel.
- * Ported 1:1 from the static component-options.html behavior: background
- * gradient crossfades immediately on change, the headline text fades out,
- * swaps, then fades back in ~260ms later (matching the original setTimeout),
- * and the rotation auto-advances every 4.5s, pausing on hover.
- */
+// Auto-rotation pauses for keyboard focus, pointer hover and reduced motion.
 const LINES = [
     "A night auditor gets the same help as a manager at noon.",
     "A first-week hire gets the same answers as your longest-serving staff.",
@@ -25,36 +21,16 @@ const IMAGES = [
 
 export default function AssistantShowcase() {
     const [idx, setIdx] = useState(0);
-    const [lineIdx, setLineIdx] = useState(0);
-    const [lineVisible, setLineVisible] = useState(true);
-    const timerRef = useRef(null);
-
-    const start = () => {
-        clearInterval(timerRef.current);
-        timerRef.current = setInterval(() => {
-            setIdx((i) => (i + 1) % LINES.length);
-        }, 4500);
-    };
+    const [paused, setPaused] = useState(false);
+    const reducedMotion = useReducedMotion();
 
     useEffect(() => {
-        start();
-        return () => clearInterval(timerRef.current);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        if (paused || reducedMotion) return;
+        const timer = setTimeout(() => setIdx((value) => (value + 1) % LINES.length), 4500);
+        return () => clearTimeout(timer);
+    }, [idx, paused, reducedMotion]);
 
-    useEffect(() => {
-        setLineVisible(false);
-        const t = setTimeout(() => {
-            setLineIdx(idx);
-            setLineVisible(true);
-        }, 260);
-        return () => clearTimeout(t);
-    }, [idx]);
-
-    const goTo = (i) => {
-        setIdx(i);
-        start();
-    };
+    const goTo = (index) => setIdx(index);
 
     return (
         <section className="sec" id="showcase-section">
@@ -73,8 +49,10 @@ export default function AssistantShowcase() {
                 <Reveal className="showcase-wrap reveal">
                     <div
                         className="showcase"
-                        onMouseEnter={() => clearInterval(timerRef.current)}
-                        onMouseLeave={start}
+                        onMouseEnter={() => setPaused(true)}
+                        onMouseLeave={() => setPaused(false)}
+                        onFocus={() => setPaused(true)}
+                        onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}
                     >
                         {IMAGES.map((src, i) => (
                             <AssetImage
@@ -99,10 +77,10 @@ export default function AssistantShowcase() {
                                     What that means for your hotel
                                 </span>
                                 <div
-                                    className="showcase-line"
-                                    style={{ opacity: lineVisible ? 1 : 0 }}
+                                    key={idx}
+                                    className={`showcase-line ${styles.line}`}
                                 >
-                                    {LINES[lineIdx]}
+                                    {LINES[idx]}
                                 </div>
                             </div>
                             <div className="showcase-pag">

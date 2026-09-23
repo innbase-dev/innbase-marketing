@@ -1,8 +1,6 @@
-import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Banknote, Building2, CheckCircle2, Handshake, Link2, MessageCircle, Users } from "lucide-react";
+import { Building2, CheckCircle2, Handshake, MessageCircle, Users } from "lucide-react";
 import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "./Primitives";
 import { REFERRAL_STEPS, REFERRAL_REASSURANCES, REFERRAL_AUDIENCE, REFERRAL_FAQS } from "@/data/referralLandingData";
-import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 
 const AUDIENCE_ICONS = [Building2, Handshake, Users, MessageCircle];
 
@@ -25,24 +23,10 @@ export default function ReferralLandingPage() {
               selling required, no cap on how many you refer.
             </p>
             <div className="ib-actions">
-              <Show when="signed-out">
-                <SignUpButton mode="modal">
-                  <button className="ib-button ib-button-primary">
-                    Get your referral link<ArrowUpRight size={18} aria-hidden="true" />
-                  </button>
-                </SignUpButton>
-                <SignInButton mode="modal">
-                  <button className="ib-text-link" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", fontSize: "inherit", padding: 0 }}>
-                    Already referring? Sign in<ArrowRight size={18} aria-hidden="true" />
-                  </button>
-                </SignInButton>
-              </Show>
-              <Show when="signed-in">
-                <Button href="/refer/portal" variant="primary">Go to Referral Portal</Button>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <UserButton />
-                </div>
-              </Show>
+              <Button href="/refer/sign-up" variant="primary" prefetch={false}>
+                Get your referral link
+              </Button>
+              <TextLink href="/refer/sign-in" prefetch={false}>Already referring? Sign in</TextLink>
             </div>
             <Reassurance>Free to join. Nothing to sell — just an introduction.</Reassurance>
           </div>
@@ -148,7 +132,7 @@ export default function ReferralLandingPage() {
             portal.
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Button href="/refer/portal">
+            <Button href="/refer/sign-up" prefetch={false}>
               Get your referral link
             </Button>
           </div>
