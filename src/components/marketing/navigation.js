@@ -18,8 +18,8 @@ export const NAV_GROUPS = [
   {
     id: "resources", label: "Resources", kicker: "GET TO KNOW INNBASE", title: "A little context. A clearer next step.", intro: "Explore the product, understand the details, or talk to the people building it.",
     groups: [
-      { title: "EXPLORE", links: [["How it works", "/#demo", "Walk through a sample shift"], ["The Innbase blog", "/blog", "Guides on payments, stock, and shifts"], ["Customer stories", "/#stories", "Experiences from the pilot properties"], ["Pricing questions", "/pricing#faq", "The details in plain sight"], ["Refer a hotel", "/refer", "Earn ₦20,000 per referral"], ["Why we’re building", "/about#story", "The thinking behind Innbase"], ["Our team", "/about#team", "Meet the founders"]] },
-      { title: "HELP & TRUST", links: [["Blog","/blog","Tips, Guides and News"], ["Contact & support", "/contact", "Get to the right conversation"], ["Privacy & data rights", "/legal#privacy", "Understand your data"], ["Terms of service", "/legal#terms", "Know where you stand"], ["Fair usage", "/legal#fair-usage", "How we manage capacity"]] },
+      { title: "EXPLORE", links: [["How it works", "/#demo", "Walk through a sample shift"], ["Customer stories", "/#stories", "Experiences from the pilot properties"], ["Pricing questions", "/pricing#faq", "The details in plain sight"], ["Refer a hotel", "/refer", "Earn ₦20,000 per referral"], ["Why we’re building", "/about#story", "The thinking behind Innbase"], ["Our team", "/about#team", "Meet the founders"]] },
+      { title: "HELP & TRUST", links: [["Blog","/blog","Tips, Guides, and News"], ["Contact & support", "/contact", "Get to the right conversation"], ["Privacy & data rights", "/legal#privacy", "Understand your data"], ["Terms of service", "/legal#terms", "Know where you stand"], ["Fair usage", "/legal#fair-usage", "How we manage capacity"]] },
     ],
   },
 ];
