@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import React from "react";
 
 const brands = [
-    "The George Hotel",
+    "Hotel De George",
     "Grand Emperium Hotel",
     "Lekki Shore Suites",
-    "The Bay Lounge",
+    "Cruizze Hotel & Lounge",
     "The Palm Room",
     "Ilaje Boutique Inn"
 ];

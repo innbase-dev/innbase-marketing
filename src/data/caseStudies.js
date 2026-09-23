@@ -1,7 +1,7 @@
 export const CASE_STUDIES = [
   {
     img: "/images/case-george.webp",
-    alt: "The George Hotel — 42-room hotel in Lagos Mainland",
+    alt: "Hotel De George — 42-room hotel in Lagos Mainland",
     glow: {
       width: 220,
       height: 220,
@@ -13,11 +13,11 @@ export const CASE_STUDIES = [
     badgeDot: "#2dd4bf",
     badge: "96% match confidence",
     markColor: "var(--amber-bright)",
-    name: "The George Hotel",
+    name: "Hotel De George",
     sub: "42-room hotel · Lagos Mainland",
     caption: (
       <>
-        <b>The George Hotel</b> cut its shift close-out from 45 minutes of manual counting to
+        <b>Hotel De George</b> cut its shift close-out from 45 minutes of manual counting to
         under 5.
       </>
     ),
@@ -26,7 +26,7 @@ export const CASE_STUDIES = [
   },
   {
     img: "/images/case-byl.webp",
-    alt: "The Bay Lounge — cocktail bar in Lekki Phase 1",
+    alt: "Cruizze Hotel & Lounge — cocktail bar in Lekki Phase 1",
     glow: {
       width: 240,
       height: 240,
@@ -38,11 +38,11 @@ export const CASE_STUDIES = [
     badgeDot: "#fbbf24",
     badge: "3 bottles flagged, week one",
     markColor: "var(--teal-bright)",
-    name: "The Bay Lounge",
+    name: "Cruizze Hotel & Lounge",
     sub: "Cocktail bar · Lekki Phase 1",
     caption: (
       <>
-        <b>The Bay Lounge</b> traced and recovered ₦380,000 in bar sales that never made it to
+        <b>Cruizze Hotel & Lounge</b> traced and recovered ₦380,000 in bar sales that never made it to
         the till.
       </>
     ),

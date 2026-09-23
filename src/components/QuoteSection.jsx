@@ -38,7 +38,7 @@ export default function QuoteSection() {
                         <span className="author">
                             <span className="qa-name">Ngozi Adewale</span>
                             <span className="qa-role">
-                                General Manager, The George Hotel · Lagos
+                                General Manager, Hotel De George · Lagos
                                 Mainland
                             </span>
                         </span>
@@ -61,9 +61,9 @@ export default function QuoteSection() {
                                 TB
                             </span>
                             <span className="author">
-                                <span className="qa-name">Tunde Bakare</span>
+                                <span className="qa-name">Joe Okri</span>
                                 <span className="qa-role">
-                                    Owner, The Bay Lounge · Lekki Phase 1
+                                    Owner, Cruizze Hotel & Lounge · Ughelli, Delta
                                 </span>
                             </span>
                         </figcaption>
