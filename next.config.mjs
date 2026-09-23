@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    webpackMemoryOptimizations: true,
+  },
   /* config options here */
   async redirects() {
     return [

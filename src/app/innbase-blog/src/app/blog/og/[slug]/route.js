@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { CardVisual, loadFonts, size, contentType } from "@/lib/blogOgImage";
+import { CardVisual, loadFonts, size } from "@/lib/blogOgImage";
 import { getPost, getPosts, formatDate } from "@/lib/blog";
 
 export const runtime = "nodejs";
 export const dynamicParams = false;
 export const revalidate = false; // one image per slug, rebuilt only on deploy
-export { size, contentType };
 
 export function generateStaticParams() {
   return getPosts().map(({ slug }) => ({ slug }));
