@@ -81,6 +81,7 @@
 
 .topics h2 {
   font-size: 22px;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
@@ -152,6 +153,7 @@
 .featuredCopy h2 {
   margin-top: 20px;
   font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
 }
 
 .featuredCopy h2 a:hover {
@@ -209,6 +211,7 @@
 .listHeading h2 {
   margin-top: 14px;
   font-size: clamp(28px, 3vw, 38px);
+  font-weight: 700;
 }
 
 .grid {
@@ -370,6 +373,7 @@
 
 .postHeroGrid h1 {
   font-size: clamp(38px, 4.6vw, 60px);
+  font-weight: 700;
 }
 
 .postMeta {
@@ -417,7 +421,8 @@
 .article {
   min-width: 0;
   color: var(--ib-text);
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.75;
 }
 
@@ -428,6 +433,7 @@
 .article h2 {
   margin-top: 56px;
   font-size: clamp(26px, 2.6vw, 33px);
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
