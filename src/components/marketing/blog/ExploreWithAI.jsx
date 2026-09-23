@@ -16,7 +16,7 @@ export default function ExploreWithAI({ options }) {
         <p>A clearer explanation. A useful checklist. A next step for your hotel.</p>
       </div>
       <div className={styles.aiActions}>
-        <div className={styles.aiChoices} role="group" aria-label="What would you like help with?">
+        {/* <div className={styles.aiChoices} role="group" aria-label="What would you like help with?">
           {options.map((option) => (
             <button
               key={option.id}
@@ -28,7 +28,7 @@ export default function ExploreWithAI({ options }) {
               {option.label}
             </button>
           ))}
-        </div>
+        </div> */}
         <p className={styles.aiDescription} aria-live="polite">{selected.description}</p>
         <div className={styles.aiOpenRow}>
           <a
