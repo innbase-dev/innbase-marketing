@@ -90,7 +90,7 @@ export const SOLUTIONS_MENU_ITEMS = [
             ),
             rows: [
                 { ava: "#dbead6", label: "Lagos Mainland", chipBg: "#e8f2e4", chipColor: "#416d4a", chip: "Healthy" },
-                { ava: "#f3bc80", label: "Lekki Phase 1", chipBg: "#fff0df", chipColor: "#8d5b2d", chip: "2 flags" },
+                { ava: "#f3bc80", label: "Ughelli, Delta State", chipBg: "#fff0df", chipColor: "#8d5b2d", chip: "2 flags" },
                 { ava: "#d7e1d7", label: "Port Harcourt", chipBg: "#edf2ec", chipColor: "#5d6c61", chip: "Synced" },
             ],
         },

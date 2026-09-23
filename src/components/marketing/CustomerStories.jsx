@@ -5,7 +5,7 @@ import { Eyebrow } from "./Primitives";
 // Existing customer quotes and pilot results from the production project.
 // This redesign changes their presentation, not their wording or provenance.
 const QUOTES = [
-  { text: "The stock count finally defends my bartenders instead of accusing them. That changed the whole mood of a Friday night close.", name: "Tunde Bakare", role: "Owner, Cruizze Hotel & Lounge · Lekki Phase 1" },
+  { text: "The stock count finally defends my bartenders instead of accusing them. That changed the whole mood of a Friday night close.", name: "Tunde Bakare", role: "Owner, Cruizze Hotel & Lounge · Ughelli, Delta State" },
   { text: "One screen shows the tab, the room charge, and what’s outstanding. I stopped apologising to guests while I checked three systems.", name: "Emeka Obi", role: "Front Desk Lead, Grand Emperium Hotel · Port Harcourt" },
 ];
 

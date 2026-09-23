@@ -26,7 +26,7 @@ export const CASE_STUDIES = [
   },
   {
     img: "/images/case-byl.webp",
-    alt: "Cruizze Hotel & Lounge — cocktail bar in Lekki Phase 1",
+    alt: "Cruizze Hotel & Lounge — cocktail bar in Ughelli, Delta State",
     glow: {
       width: 240,
       height: 240,
@@ -39,7 +39,7 @@ export const CASE_STUDIES = [
     badge: "3 bottles flagged, week one",
     markColor: "var(--teal-bright)",
     name: "Cruizze Hotel & Lounge",
-    sub: "Cocktail bar · Lekki Phase 1",
+    sub: "Cocktail bar · Ughelli, Delta State",
     caption: (
       <>
         <b>Cruizze Hotel & Lounge</b> traced and recovered ₦380,000 in bar sales that never made it to
