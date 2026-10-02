@@ -1,151 +1,227 @@
-.page { --msg-stone: #eceee7; --msg-line-dark: #354236; overflow-wrap: break-word; }
-.hero { padding-top: 34px; background-image: radial-gradient(rgba(183, 213, 169, .05) .65px, transparent .65px); background-size: 9px 9px; }
-.heroGrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(580px, 1.35fr); align-items: center; gap: clamp(42px, 5vw, 78px); padding-block: 62px 72px; }
+/* Page-specific composition; colour, type and section rhythm come from marketing.css. */
+.page {
+  --msg-line-dark: #354236;
+  overflow-wrap: break-word;
+}
+
 .heroCopy { min-width: 0; }
-.heroCopy h1 { max-width: 11.5ch; font-size: clamp(48px, 5vw, 75px); }
-.intro { max-width: 49ch; margin-top: 27px !important; color: #b3c0b5; font-size: 17px; }
-.channelStrip { display: flex; justify-content: space-between; align-items: center; gap: 26px; padding-block: 25px; border-top: 1px solid var(--msg-line-dark); }
-.channelStrip > span { color: #aebeaa; font-size: 10px; font-weight: 650; letter-spacing: .13em; }
-.channelStrip ul { display: flex; flex-wrap: wrap; gap: 12px 25px; margin: 0; padding: 0; list-style: none; }
-.channelStrip li { display: inline-flex; align-items: center; gap: 8px; color: #d7dfd4; font-size: 13px; }
-.channelStrip li svg { color: var(--ib-sage); }
 
-.demoShell { min-width: 0; overflow: hidden; border: 1px solid #303c33; border-radius: 15px; background: #f8f8f6; color: #171717; box-shadow: 0 28px 80px rgba(0, 0, 0, .28); }
-.demoTopbar { height: 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 14px; background: #202722; color: #9eaa9f; font-size: 8.5px; font-weight: 700; letter-spacing: .11em; }
-.demoTopbar > div { display: flex; gap: 5px; }
-.windowDot { width: 6px; height: 6px; border-radius: 50%; background: #667269; }
-.demoBody { display: grid; grid-template-columns: 120px 188px minmax(0, 1fr); min-height: 430px; }
-.demoQueues { padding: 18px 9px; background: #171d19; color: #abb4ac; }
-.demoQueues strong { display: block; padding: 0 9px 7px; color: #69766c; font-size: 8px; text-transform: uppercase; letter-spacing: .09em; }
-.demoQueues button { width: 100%; display: flex; align-items: center; gap: 6px; border: 0; border-radius: 7px; padding: 8px 9px; background: transparent; color: inherit; font: inherit; font-size: 10px; text-align: left; cursor: pointer; }
-.demoQueues button span { margin-left: auto; font-size: 9px; }
-.demoQueues button svg { color: #7f8d82; }
-.demoQueues .queueActive, .demoQueues .queueChannelActive { background: #263029; color: #e9eee8; }
-.queueRule { height: 1px; margin: 11px 8px; background: #2a342c; }
-.demoList { padding: 10px 7px; border-right: 1px solid #e0e2dd; background: #f2f2ef; }
-.demoSearch { height: 28px; display: flex; align-items: center; gap: 6px; margin-bottom: 7px; padding: 0 8px; border: 1px solid #dedfd9; border-radius: 7px; background: #fff; color: #9b9d97; font-size: 9px; }
-.conversationRow { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 9px 7px; border: 0; border-radius: 8px; background: transparent; color: inherit; text-align: left; cursor: pointer; }
-.conversationActive { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
-.conversationAvatar { width: 29px; height: 29px; flex: 0 0 29px; display: grid; place-items: center; border-radius: 50%; background: #3e6b55; color: #fff; font-size: 9px; font-weight: 700; }
-.conversationText { min-width: 0; display: block; }
-.conversationText b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; }
-.conversationText small { display: block; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #777a74; font-size: 8.5px; }
-.conversationText em { display: flex; align-items: center; gap: 4px; margin-top: 5px; color: #65776a; font-family: inherit; font-size: 7.5px; font-style: normal; }
-.demoThread { min-width: 0; display: flex; flex-direction: column; background: #fbfbf9; }
-.demoThread header { min-height: 53px; display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #e8e7e2; background: #fff; }
-.demoThread header > div { min-width: 0; flex: 1; }
-.demoThread header b { display: block; font-size: 10.5px; }
-.demoThread header span { display: block; margin-top: 1px; color: #888a84; font-size: 8px; }
-.assignment, .taskButton { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; border: 1px solid #dfded8; border-radius: 7px; padding: 0 8px; background: #fff; color: #424741; font: inherit; font-size: 8.5px; font-weight: 650; white-space: nowrap; }
-.taskButton svg { color: #3e958f; }
-.messages { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 15px 14px 10px; }
-.threadDay { align-self: center; padding: 3px 8px; border-radius: 999px; background: #ecece7; color: #8b8c86; font-size: 7.5px; font-weight: 700; }
-.incoming, .outgoing { max-width: 76%; margin-top: 10px; padding: 8px 9px; border-radius: 9px; font-size: 9.5px; line-height: 1.45; }
-.incoming { border: 1px solid #e5e4df; border-bottom-left-radius: 3px; background: #fff; }
-.outgoing { align-self: flex-end; border-bottom-right-radius: 3px; background: #1c231e; color: #fff; }
-.outgoing span { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin-top: 5px; color: #96a39a; font-size: 7px; }
-.taskArtifact { align-self: center; width: min(92%, 280px); display: grid; grid-template-columns: 27px minmax(0, 1fr); gap: 8px; align-items: center; margin-top: 14px; padding: 9px; border: 1px solid #dae3da; border-radius: 9px; background: #fff; }
-.taskArtifact > span { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 8px; background: #e7f2eb; color: #30684c; }
-.taskArtifact small { display: block; color: #588065; font-size: 6.8px; font-weight: 750; letter-spacing: .05em; }
-.taskArtifact b { display: block; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 8.5px; }
-.taskArtifact p { margin-top: 2px !important; color: #858b84; font-size: 7.5px; line-height: 1.35; }
-.demoThread footer { display: flex; align-items: center; gap: 8px; padding: 9px 11px; border-top: 1px solid #e7e6e1; background: #fff; }
-.demoThread footer > div { flex: 1; padding: 7px 8px; border: 1px solid #dfded8; border-radius: 7px; color: #858982; font-size: 8px; }
-.demoThread footer small { float: right; color: #4c7b63; font-size: 7px; font-weight: 700; }
-.demoThread footer button { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #dfded8; border-radius: 7px; background: #fff; color: #727871; }
-
-.workflowGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.workflowGrid article { min-width: 0; padding: 28px; border: 1px solid #cbd5c5; border-radius: 8px; background: #f8f9f6; }
-.workflowGrid article > div { display: flex; align-items: center; justify-content: space-between; color: #4c6650; }
-.workflowGrid article > div span { font-size: 11px; letter-spacing: .08em; }
-.workflowGrid h3 { margin-top: 43px !important; font-size: 25px; letter-spacing: -.035em; }
-.workflowGrid p { margin-top: 13px !important; color: var(--ib-muted); font-size: 15px; }
-
-.contextSection { border-top: 1px solid #e0e5dc; border-bottom: 1px solid #e0e5dc; }
-.contextGrid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(430px, .85fr); align-items: center; gap: clamp(48px, 7vw, 110px); }
-.contextCopy h2 { max-width: 11ch; }
-.contextCopy > p { max-width: 48ch; margin-top: 25px !important; color: var(--ib-muted); font-size: 16px; }
-.contextCopy ul { display: grid; gap: 12px; margin: 29px 0 0; padding: 0; list-style: none; }
-.contextCopy li { display: flex; align-items: flex-start; gap: 10px; color: #43523f; font-size: 14px; }
-.contextCopy li svg { margin-top: 4px; color: #5d805c; }
-.contextCard { border: 1px solid #cbd4c7; border-radius: 12px; background: #fff; box-shadow: 0 20px 55px rgba(16,23,20,.08); overflow: hidden; }
-.contextCardHead { display: flex; align-items: center; gap: 12px; padding: 23px 24px; border-bottom: 1px solid #e5e8e2; }
-.contextCardHead > span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #2d5f49; color: #fff; font-size: 12px; font-weight: 700; }
-.contextCardHead b { font-size: 14px; }
-.contextCardHead p { margin-top: 2px !important; color: #758172; font-size: 11px; }
-.contextRows { padding: 13px 24px; }
-.contextRows > div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #eef0eb; font-size: 12px; }
-.contextRows span { color: #72806f; }
-.contextRows b { text-align: right; font-weight: 650; }
-.contextNote, .contextTask { display: flex; align-items: flex-start; gap: 11px; margin: 0 24px 15px; padding: 14px; border-radius: 8px; }
-.contextNote { border-left: 2px solid #b88d4f; background: #f5f1e6; }
-.contextTask { border: 1px solid #d7e3d4; background: #edf4ea; }
-.contextNote small, .contextTask small { display: block; color: #74806f; font-size: 8px; font-weight: 750; letter-spacing: .08em; }
-.contextNote p { margin-top: 3px !important; font-size: 12px; }
-.contextTask b { display: block; margin-top: 2px; font-size: 12px; }
-.contextTask p { margin-top: 2px !important; color: #6f7b6c; font-size: 10px; }
-.contextNote svg, .contextTask svg { margin-top: 2px; color: #526b52; }
-
-.operationalLead { max-width: 780px; margin-bottom: 48px; }
-.operationalRows { border-top: 1px solid #ccd4c8; }
-.operationalRows article { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; align-items: center; gap: 28px; padding: 26px 6px; border-bottom: 1px solid #ccd4c8; }
-.operationalRows > article > span { color: #6a7866; font-size: 11px; letter-spacing: .08em; }
-.operationalRows small { color: #6b7b67; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.operationalRows h3 { margin-top: 5px !important; font-size: 22px; }
-.operationalRows p { max-width: 68ch; margin-top: 6px !important; color: var(--ib-muted); font-size: 14px; }
-.operationalRows svg { color: #71816d; }
-
-.bridge { padding-block: 96px; }
-.bridge > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(430px, .8fr); align-items: center; gap: clamp(48px, 7vw, 100px); }
-.bridge h2 { max-width: 12ch; }
-.bridge > div > div:first-child > p { max-width: 51ch; margin-top: 24px !important; color: #b4c0b2; }
-.bridgeFlow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 13px; }
-.bridgeFlow div { min-height: 98px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 17px; border: 1px solid #3a483d; border-radius: 9px; background: #17201a; color: #e9eee8; }
-.bridgeFlow div:last-child { grid-column: 2 / 4; }
-.bridgeFlow div svg { color: var(--ib-sage); }
-.bridgeFlow div span { font-size: 13px; font-weight: 650; }
-.bridgeFlow > svg { color: #718275; }
-
-@media (max-width: 1120px) {
-  .heroGrid { grid-template-columns: minmax(0, 1fr); }
-  .heroCopy { max-width: 720px; }
-  .demoShell { width: 100%; max-width: 800px; }
-  .contextGrid, .bridge > div { gap: 46px; }
+.channelStrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  padding-block: 28px;
+  border-top: 1px solid var(--msg-line-dark);
 }
-
-@media (max-width: 900px) {
-  .heroGrid { padding-top: 40px; }
-  .demoBody { grid-template-columns: 108px 170px minmax(0, 1fr); }
-  .workflowGrid { grid-template-columns: minmax(0, 1fr); }
-  .workflowGrid h3 { margin-top: 25px !important; }
-  .contextGrid, .bridge > div { grid-template-columns: minmax(0, 1fr); }
-  .contextCard { max-width: 620px; }
-  .bridgeFlow { max-width: 620px; }
+.channelStrip > span {
+  color: #b3c0b5;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
 }
-
-@media (max-width: 700px) {
-  .hero { padding-top: 14px; }
-  .heroGrid { gap: 34px; padding-block: 37px 46px; }
-  .heroCopy h1 { font-size: clamp(43px, 11.5vw, 58px); }
-  .intro { font-size: 16px; }
-  .channelStrip { align-items: flex-start; flex-direction: column; }
-  .demoShell { overflow-x: auto; }
-  .demoBody { width: 650px; }
-  .contextGrid { gap: 35px; }
-  .operationalRows article { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 13px; padding-block: 21px; }
-  .operationalRows p { font-size: 13px; }
-  .bridge { padding-block: 72px; }
+.channelStrip ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+.channelStrip li { display: flex; align-items: center; gap: 9px; font-size: .875rem; }
+.channelStrip li svg { color: var(--ib-accent); }
 
-@media (max-width: 520px) {
-  .workflowGrid article { padding: 23px; }
+/* A focused conversation, at reading size, instead of a scaled-down app shell. */
+.demoShell {
+  min-width: 0;
+  border: 1px solid var(--ib-line);
+  border-radius: 10px;
+  background: var(--ib-paper);
+  color: var(--ib-text);
+  box-shadow: 0 18px 40px #0002;
+}
+.demoTopbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 19px 24px;
+  border-bottom: 1px solid var(--ib-line);
+}
+.demoTopbar > span { display: flex; align-items: center; gap: 10px; font-size: .875rem; font-weight: 600; }
+.demoTopbar small { color: var(--ib-muted); font-size: .75rem; }
+.channelButtons { display: grid; grid-template-columns: 1.4fr 1fr .7fr; gap: 4px; padding: 12px; }
+.demoShell .channelButtons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 9px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ib-muted);
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: background .15s, color .15s;
+}
+.demoShell .channelButtons button[aria-pressed="true"] { background: var(--ib-ink); color: var(--ib-paper); }
+.demoShell .channelButtons button:not([aria-pressed="true"]):hover { background: var(--ib-paper-alt); color: var(--ib-text); }
+/* The global dark-section focus colour is too light on the paper demo. */
+.page .demoShell button:focus-visible { outline-color: #81501f !important; outline-offset: 2px; }
+.demoThread { margin: 0 12px; border: 1px solid var(--ib-line); border-radius: 6px; background: #fff; }
+.threadHeader {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  border-bottom: 1px solid var(--ib-line);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 50%;
+  background: var(--ib-paper-alt);
+  color: var(--ib-muted);
+  font-size: .75rem;
+  font-weight: 600;
+}
+.threadHeader > div { flex: 1; min-width: 130px; }
+.threadHeader b { display: block; font-size: .875rem; font-weight: 600; }
+.threadHeader > div > span { display: block; margin-top: 3px; color: var(--ib-muted); font-size: .75rem; }
+.assignment { display: flex; align-items: center; gap: 6px; color: var(--ib-muted); font-size: .75rem; }
+.messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  min-height: 295px;
+  padding: 18px;
+}
+.threadDay { align-self: center; color: var(--ib-muted); font-size: .75rem; }
+.incoming, .outgoing { max-width: 88%; padding: 12px 14px; border-radius: 8px; font-size: .875rem; line-height: 1.6; }
+.incoming { background: var(--ib-paper-alt); border-bottom-left-radius: 2px; }
+.outgoing { align-self: flex-end; background: var(--ib-ink); color: var(--ib-paper); border-bottom-right-radius: 2px; }
+.outgoing span { display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin-top: 8px; color: var(--ib-sage); font-size: .75rem; }
+.taskArtifact {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ib-line);
+}
+.taskArtifact > svg { margin-top: 2px; color: var(--ib-muted); }
+.taskArtifact > div { min-width: 0; }
+.taskArtifact small, .contextNote small, .contextTask small {
+  display: block;
+  color: var(--ib-muted);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+}
+.taskArtifact b { display: block; margin-top: 5px; font-size: .875rem; font-weight: 600; }
+.demoShell .taskArtifact p { margin-top: 4px; color: var(--ib-muted); font-size: .75rem; }
+.threadFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--ib-line);
+  color: var(--ib-muted);
+  font-size: .75rem;
+}
+.threadFooter > span:first-child { display: flex; align-items: center; gap: 7px; }
+.conversationStatus { padding: 3px 8px; border-radius: 4px; background: var(--ib-paper-alt); }
+.page .demoCaption { padding: 12px; color: var(--ib-muted); font-size: .75rem; text-align: center; }
+
+.workflowGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px; }
+.workflowGrid article { min-width: 0; padding-top: 23px; border-top: 1px solid var(--ib-line); }
+.workflowGrid article > div { display: flex; align-items: center; justify-content: space-between; color: var(--ib-muted); }
+.workflowGrid article > div span { font-size: .75rem; letter-spacing: .08em; }
+.page .workflowGrid h3 { margin-top: 32px; font-size: 24px; letter-spacing: -.035em; line-height: 1.3; }
+.page .workflowGrid p { margin-top: 15px; color: var(--ib-muted); font-size: 1rem; }
+
+.contextGrid, .operationalGrid, .bridge > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 80px;
+}
+.contextCopy .contextIntro { max-width: 48ch; margin-top: 25px; color: var(--ib-muted); font-size: 1rem; }
+.contextCopy ul { display: grid; gap: 15px; margin: 29px 0 0; padding: 0; list-style: none; }
+.contextCopy li { display: flex; align-items: flex-start; gap: 10px; color: var(--ib-muted); font-size: .875rem; }
+.contextCopy li svg { margin-top: 4px; }
+.contextCard { width: 100%; max-width: 520px; justify-self: end; border: 1px solid var(--ib-line); border-radius: 10px; background: #fff; }
+.contextCardHead { display: flex; align-items: center; gap: 12px; padding: 24px; border-bottom: 1px solid var(--ib-line); }
+.contextCardHead b { font-size: 1rem; font-weight: 600; }
+.page .contextCardHead p { margin-top: 3px; color: var(--ib-muted); font-size: .875rem; }
+.contextRows { margin: 0; padding: 12px 24px 24px; }
+.contextRows > div { display: flex; justify-content: space-between; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--ib-line); font-size: .875rem; }
+.contextRows dt { color: var(--ib-muted); }
+.contextRows dd { margin: 0; text-align: right; font-weight: 500; }
+.contextNote, .contextTask { display: flex; align-items: flex-start; gap: 12px; margin: 0 24px 20px; padding: 16px; border-radius: 6px; }
+.contextNote { border-left: 2px solid var(--ib-accent); background: var(--ib-paper); }
+.contextTask { background: var(--ib-paper-alt); }
+.page .contextNote p { margin-top: 5px; font-size: .875rem; }
+.contextTask b { display: block; margin-top: 5px; font-size: .875rem; font-weight: 600; }
+.page .contextTask p { margin-top: 4px; color: var(--ib-muted); font-size: .875rem; }
+.contextNote svg, .contextTask svg { margin-top: 3px; color: var(--ib-muted); }
+
+.operationalGrid { align-items: start; }
+.stepLabel { display: block; margin-bottom: 8px; color: var(--ib-muted); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; }
+
+.bridge .bridgeIntro { max-width: 48ch; margin-top: 25px; color: #b3c0b5; }
+.bridgeFlow { margin: 0; padding: 0; list-style: none; }
+.bridgeFlow li { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: start; gap: 20px; padding-block: 27px; border-top: 1px solid var(--msg-line-dark); }
+.bridgeFlow li:last-child { border-bottom: 1px solid var(--msg-line-dark); }
+.bridgeFlow li > svg { margin-top: 3px; color: var(--ib-sage); }
+.bridgeFlow small, .bridgeFlow li > span { color: #b3c0b5; font-size: .75rem; letter-spacing: .08em; }
+.page .bridgeFlow h3 { margin-top: 8px; font-size: 27px; letter-spacing: -.035em; }
+.page .bridgeFlow p { margin-top: 5px; color: #b3c0b5; font-size: .875rem; }
+
+@media (max-width: 1200px) {
+  .contextGrid, .operationalGrid, .bridge > div { gap: 55px; }
+}
+@media (max-width: 1000px) {
+  .threadHeader { gap: 9px; padding: 16px; }
+  .assignment { flex-basis: 100%; }
+  .contextGrid, .operationalGrid, .bridge > div { gap: 35px; }
+  .workflowGrid { gap: 25px; }
+}
+@media (max-width: 760px) {
+  .demoShell { width: 100%; max-width: 560px; justify-self: center; }
+  .channelStrip { align-items: flex-start; flex-direction: column; padding-block: 25px; }
+  .workflowGrid, .contextGrid, .operationalGrid, .bridge > div { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .page .workflowGrid h3 { margin-top: 22px; }
+  .contextCard { justify-self: start; }
+  .assignment { flex-basis: auto; }
+}
+@media (max-width: 420px) {
+  .demoTopbar { padding: 16px; }
+  .channelButtons { padding: 10px 8px; }
+  .demoShell .channelButtons button { padding-inline: 4px; }
+  .demoThread { margin-inline: 8px; }
+  .threadHeader, .messages { padding: 14px; }
+  .assignment { flex-basis: 100%; }
+  .incoming, .outgoing { max-width: 94%; }
   .contextCardHead, .contextRows { padding-inline: 18px; }
   .contextNote, .contextTask { margin-inline: 18px; }
-  .bridgeFlow { grid-template-columns: minmax(0, 1fr); }
-  .bridgeFlow > svg { transform: rotate(90deg); justify-self: center; }
-  .bridgeFlow div:last-child { grid-column: auto; }
+  .bridgeFlow li { gap: 14px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .page * { scroll-behavior: auto !important; }
+  .demoShell .channelButtons button { transition: none; }
 }
