@@ -45,6 +45,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: "https://innbase.co/platform/messaging",
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: "https://innbase.co/contact",
       lastModified: buildTime,
       changeFrequency: "monthly",

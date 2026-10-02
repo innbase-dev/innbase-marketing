@@ -6,6 +6,7 @@ export const PLATFORM_DESTINATIONS = [
   { id: "inventory", label: "Inventory & stock", href: "/platform/inventory", description: "Understand what came in and what went out.", icon: "inventory" },
   { id: "shifts", label: "Staff & shifts", href: "/platform/staff-and-shifts", description: "Leave the next team a clearer starting point.", icon: "shifts" },
   { id: "rooms", label: "Rooms & guests", href: "/platform/rooms-and-guests", description: "Keep the details of each stay together.", icon: "rooms" },
+  { id: "messaging", label: "Integrated messaging", href: "/platform/messaging", description: "Bring guest conversations and operational follow-through together.", icon: "messaging" },
   { id: "guest", label: "Guest Companion", href: "/guest-companion", description: "Give guests a direct way to reach your team.", icon: "guest" },
   { id: "assistant", label: "AI Operational Assistant", href: "/assistant", description: "Ask questions about the work behind the stay.", icon: "assistant" },
 ];

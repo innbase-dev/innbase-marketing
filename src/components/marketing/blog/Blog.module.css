@@ -11,6 +11,18 @@
   background: var(--ib-paper);
 }
 
+/* ----------------------------------------------------- Typography */
+
+.page h1,
+.page h2,
+.page h3 {
+  font-weight: 700;
+}
+
+.page p {
+  font-weight: 500;
+}
+
 .hero {
   padding-top: 48px;
   padding-bottom: 72px;
@@ -369,7 +381,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   gap: clamp(32px, 4vw, 64px);
-  align-items: start;
+  align-items: center;
 }
 
 .page .postHeroGrid h1 {

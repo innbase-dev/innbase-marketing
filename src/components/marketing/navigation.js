@@ -5,7 +5,7 @@ export const NAV_GROUPS = [
     id: "product", label: "Product", kicker: "THE INNBASE PLATFORM", title: "Everything your hotel needs to run well.", intro: "One operating system for the people behind every sale, shift, and stay.",
     groups: [
       { title: "RUN THE OPERATION", links: [["Payments & reconciliation", MARKETING_DESTINATIONS.payments.href, "Follow the money"], ["Point of sale", MARKETING_DESTINATIONS.sales.href, "From order to closeout"], ["Inventory", MARKETING_DESTINATIONS.inventory.href, "Give every bottle a record"], ["Staff & shifts", MARKETING_DESTINATIONS.shifts.href, "Hand over with clarity"], ["Rooms & guest folios", MARKETING_DESTINATIONS.rooms.href, "Keep every stay together"]] },
-      { title: "EXTEND THE EXPERIENCE", links: [["Guest Companion", "/guest-companion", "For the people you welcome"], ["AI Operational Assistant", "/assistant", "For the people on your team"], ["Explore the demo", "/#demo", "See how the pieces connect"]] },
+      { title: "EXTEND THE EXPERIENCE", links: [["Integrated messaging", MARKETING_DESTINATIONS.messaging.href, "Every guest conversation, one workspace"], ["Guest Companion", "/guest-companion", "For the people you welcome"], ["AI Operational Assistant", "/assistant", "For the people on your team"], ["Explore the demo", "/#demo", "See how the pieces connect"]] },
     ],
   },
   {
