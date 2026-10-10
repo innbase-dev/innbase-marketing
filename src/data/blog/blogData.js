@@ -32,6 +32,16 @@ export const AUTHORS = {
 // icon names come from components/marketing/landing/LandingIcon.jsx
 export const CATEGORIES = [
   {
+    id: "engineering",
+    name: "Behind the build",
+    seoTitle: "Innbase Engineering & Architecture Stories",
+    icon: "assistant",
+    headline: "The software beneath the shift,",
+    emphasis: "and the decisions behind it.",
+    description: "Field notes on the engineering challenges behind building reliable software for hospitality.",
+    intro: "What happens when two attendants sell the last item at once, or a shift close times out? We share the architecture, trade-offs, and evidence behind how Innbase tackles real operational problems.",
+  },
+  {
     id: "payments",
     name: "Payments & revenue",
     seoTitle: "Hotel Payments & Revenue Guides",
