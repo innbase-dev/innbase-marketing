@@ -14,7 +14,7 @@ const post = {
     "hotel management"
   ],
   "publishedAt": "2026-09-18",
-  "updatedAt": "2026-09-18",
+  "updatedAt": "2026-10-24",
   "author": "team",
   "aiQuestion": "How do I convert stock packs to units?",
   "cover": {
@@ -35,32 +35,59 @@ const post = {
       "type": "h2",
       "text": "How one receiving error becomes a stock mystery"
     },
-    "A storekeeper receives ten packs of twelve bottles. The physical quantity is 120 bottles, but the entry says ten. Sales begin. Within a day the system may report negative stock, impossible variances or strange reorder signals. Staff then spend hours investigating a shortage that never happened.",
-    "The arithmetic is simple: received base units = number of packs × units in each pack. The problem is deciding which quantity each screen is asking for.",
+    "A storekeeper receives ten packs of twelve bottles. The physical quantity is 120 bottles, but the entry says ten. Sales begin. Within a day the system may report:",
+    {
+      "type": "ul",
+      "items": [
+        "negative stock",
+        "impossible variances",
+        "strange reorder signals"
+      ]
+    },
+    "Staff then spend hours investigating a shortage that never happened.",
+    "The arithmetic is simple: received base units = number of packs \u00d7 units in each pack. The hard part is knowing which quantity each screen is asking for.",
     {
       "type": "h2",
       "text": "The right way to model inventory units"
     },
-    "Choose a base unit for each product, such as bottle, can, sachet or piece. Allow receiving in the supplier’s packaging unit while converting to base units transparently. Show the conversion before saving: “10 packs × 12 bottles = 120 bottles.”",
-    "For example, ten cartons of soft drink containing 24 cans each represent 240 cans. Do not assume the same supplier will always send cartons of 24.",
+    "Choose a base unit for each product \u2014 bottle, can, sachet, or piece. Let staff receive in the supplier\u2019s packaging. Convert to base units on the way in. Show the conversion before saving: \u201c10 packs \u00d7 12 bottles = 120 bottles.\u201d",
+    "For example, ten cartons of 24 cans each gives 240 cans total. Never assume the same supplier always sends cartons of 24.",
     {
       "type": "h2",
       "text": "What happens when a pack size changes?"
     },
-    "A new promotion may contain fourteen bottles instead of twelve. Keep the original receipt’s conversion factor with that receipt. Future deliveries can use a different factor. Retroactively rewriting old receipts would distort historical stock balances.",
-    "The screen should ask only when needed, and remember the last used pack definition as a suggestion rather than a silent rule.",
+    "A new promotion may contain fourteen bottles instead of twelve. Keep the original receipt\u2019s conversion factor with that receipt. Future deliveries can use a different factor. Do not rewrite old receipts \u2014 changing them would distort historical stock records.",
+    "The screen should ask only when needed. Store the last pack definition as a suggestion, not a fixed rule.",
     {
       "type": "h2",
       "text": "Where to place checks"
     },
-    "At receiving, display pack count, units per pack and total units. At internal transfer, show the sending and receiving unit. At stock count, let staff count full packs and loose items, then translate both into the base-unit total.",
-    "When the calculated quantity is unusually large or small, pause for a quick confirmation. A warning is cheaper than a month-end investigation.",
+    "Check three points in the flow:",
+    {
+      "type": "ul",
+      "items": [
+        "Receiving \u2014 show pack count, units per pack, and total units.",
+        "Internal transfer \u2014 show the sending unit and the receiving unit.",
+        "Stock count \u2014 let staff count full packs and loose items, then convert both to base units."
+      ]
+    },
+    "When a calculated quantity looks unusually large or small, pause for a quick confirmation. A warning is cheaper than a month-end investigation.",
     {
       "type": "h2",
       "text": "How to correct a wrong receipt"
     },
-    "Record an authorised correction with the original quantity, corrected quantity, reason and actor. Do not quietly replace the history if stock has already moved through sales or transfers.",
-    "After correction, reconcile the current physical count with all intervening movements before declaring the variance closed.",
+    "Record an authorised correction. Include:",
+    {
+      "type": "ul",
+      "items": [
+        "the original quantity",
+        "the corrected quantity",
+        "the reason for the change",
+        "the name of the person making the correction"
+      ]
+    },
+    "Do not quietly overwrite the history if stock has already moved through sales or transfers.",
+    "After a correction, reconcile the physical count against all movements since the error. Only close the variance once the numbers agree.",
     {
       "type": "callout",
       "title": "Take this into your next shift",
@@ -72,7 +99,7 @@ const post = {
     },
     {
       "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “A leaking tap is never just a leaking tap”, for the next operational perspective."
+      "text": "This is one part of a connected operating day. Read our related guide, \u201cA leaking tap is never just a leaking tap\u201d, for the next operational perspective."
     }
   ],
   "faqs": [
