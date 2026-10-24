@@ -1,7 +1,7 @@
 import MarketingShell from "@/components/marketing/MarketingShell";
 import AboutPage from "@/components/marketing/AboutPage";
 import { FOUNDERS } from "@/data/aboutData";
-import { JsonLd, SITE_URL, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
+import { JsonLd, SITE_URL, absoluteUrl, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
 
 const TITLE = "About Innbase";
 const DESCRIPTION =
@@ -12,7 +12,7 @@ export const metadata = {
     description: DESCRIPTION,
     keywords: ["about innbase", "hospitality startup", "hotel tech team"],
     alternates: {
-        canonical: "/about",
+        canonical: absoluteUrl("/about"),
     },
     ...buildSocialMetadata({ title: TITLE, description: DESCRIPTION, path: "/about" }),
 };
