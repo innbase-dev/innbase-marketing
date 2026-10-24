@@ -4,7 +4,7 @@ import { JsonLd, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/seo";
 
 const TITLE = "Terms, Privacy & GDPR — Innbase";
 const DESCRIPTION =
-  "How Innbase works with your hotel's data, what you're agreeing to when you use it, and the rights you have — Terms of Service, Privacy Policy, and GDPR & Data Rights, all in one place.";
+  "Review Innbase's Terms of Service, Privacy Policy, and GDPR & Data Rights. Understand your rights and our obligations clearly.";
 
 export const metadata = {
   title: "Terms, Privacy & GDPR",
