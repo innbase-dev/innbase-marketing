@@ -19,7 +19,7 @@ export default function AboutHero() {
                         className="reveal in"
                         style={{ transitionDelay: ".05s" }}
                     >
-                        We&apos;re building the hotel software we{" "}
+                        We&apos;re building Innbase — the hotel software we{" "}
                         <em>wish existed</em>.
                     </h1>
                     <p
