@@ -15,13 +15,13 @@ export default function AboutHero() {
                         <span className="dot" />
                         Why we&apos;re building Innbase
                     </span>
-                    <h1
+                    <h2
                         className="reveal in"
                         style={{ transitionDelay: ".05s" }}
                     >
                         We&apos;re building the hotel software we{" "}
                         <em>wish existed</em>.
-                    </h1>
+                    </h2>
                     <p
                         className="hero-sub reveal in"
                         style={{ transitionDelay: ".14s" }}
