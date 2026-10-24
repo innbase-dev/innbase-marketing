@@ -66,7 +66,7 @@ const BUSINESS_TYPES = [
     id: "bars",
     Icon: Wine,
     title: "Bars & lounges",
-    body: "Follow each sale through stock movements and the shift’s closeout.",
+    body: "Follow each sale through stock movements and the shift's closeout.",
   },
   {
     id: "multi-property",
@@ -118,9 +118,9 @@ export default function HomePage() {
           <div className="ib-home-title">
             <Eyebrow>THE OPERATING SYSTEM FOR HOSPITALITY</Eyebrow>
             <h1>
-              Behind every great stay,
+              The AI Operating System
               <br />
-              <em>a clearer way to run it.</em>
+              <em>Built for Hospitality</em>
             </h1>
             <div className="ib-home-hero-bottom">
               <p>
@@ -203,7 +203,7 @@ export default function HomePage() {
             }
           >
             <p>
-              Sales in one book. Transfers in another chat. Stock in someone’s memory. Innbase
+              Sales in one book. Transfers in another chat. Stock in someone's memory. Innbase
               brings the records together, so you can follow what happened.
             </p>
           </SectionHeading>
@@ -263,7 +263,7 @@ export default function HomePage() {
 
           <div className="ib-product-feature ib-feature-reverse" id="inventory">
             <div className="ib-feature-copy">
-              <span className="ib-section-number">02 / KNOW WHAT’S ON THE SHELF</span>
+              <span className="ib-section-number">02 / KNOW WHAT'S ON THE SHELF</span>
               <h3>
                 The stock should
                 <br />
@@ -271,7 +271,7 @@ export default function HomePage() {
               </h3>
               <p>
                 Purchases, transfers, sales, and counts belong together. See the difference between
-                expected and actual stock while there’s still a useful conversation to have.
+                expected and actual stock while there's still a useful conversation to have.
               </p>
               <TextLink href="#demo">Explore a stock count</TextLink>
             </div>
