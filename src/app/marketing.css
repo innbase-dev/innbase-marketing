@@ -6527,7 +6527,7 @@ body {
 .ib-platform-intro>p {
   max-width: 620px;
   margin-top: 24px;
-  color: #d7e0d5b3;
+  color: #9ba49b;
 }
 
 .ib-platform-controls {
@@ -6554,7 +6554,7 @@ body {
   border: 1px solid #f8f9f633;
   border-radius: 999px;
   background: transparent;
-  color: #f8f9f69e;
+  color: #a3a8a3;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -.01em;
@@ -6703,7 +6703,7 @@ body {
 .ib-platform-card-body {
   max-width: 335px;
   margin-top: 15px;
-  color: #1017149e;
+  color: var(--ib-muted);
   font-size: 15px;
   letter-spacing: -.015em;
   line-height: 1.5;
@@ -6761,7 +6761,7 @@ body {
 }
 
 .ib-platform-note>span:first-child {
-  color: #f8f9f68a;
+  color: #8e918e;
   font-size: 11px;
   font-weight: 650;
   letter-spacing: .08em;
