@@ -71,9 +71,9 @@ export const TERMS_PANEL = {
       body: (
         <>
           <div><p>Paid plans are billed on the cycle and amount agreed at signup or shown in your
-              account. Fees are quoted in Nigerian Naira (₦), Ghanaian Cedi (₵), South African Rand (ZAR), Kenyan Shilling (KES), and Tanzanian Shilling (TZS) unless stated otherwise, and are exclusive of
-              applicable taxes unless
-              we say they&apos;re included.</p>
+              account. Fees are quoted in Nigerian Naira (₦), Ghanaian Cedi (₵), South African
+              Rand (ZAR), Kenyan Shilling (KES), or Tanzanian Shilling (TZS) unless stated
+              otherwise. Prices exclude applicable taxes unless we say otherwise.</p>
             <p>If a payment fails or lapses, we may suspend access to paid features until it&apos;s
               resolved. We&apos;ll always try to notify you before doing so.</p>
             <h4>Trials &amp; pilots</h4>
@@ -129,9 +129,10 @@ export const TERMS_PANEL = {
       body: (
         <>
           <div><p>Innbase — the software, design, branding, and underlying technology — belongs to us
-              or our licensors. Using the service gives you a limited, non-exclusive,
-              non-transferable right to use it for your own hotel or business operations. Nothing
-              in these Terms transfers ownership of our intellectual property to you.</p></div>
+              or our licensors. Using the service gives you a personal right to use it for your
+              own hotel or business. This right cannot be transferred or sublicensed to anyone
+              else. Nothing in these Terms transfers ownership of our intellectual property to
+              you.</p></div>
         </>
       ),
     },
@@ -194,12 +195,15 @@ export const TERMS_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>To the maximum extent permitted by law, Innbase will not be liable for indirect,
-              incidental, or consequential damages arising from your use of the service, including
-              lost revenue or lost data, except where caused by our gross negligence or willful
-              misconduct. Our total liability for any claim will be capped at 500,000 NGN.</p>
+          <div>
+            <p style={{background: 'var(--surface-raised, #f8f5ee)', borderLeft: '3px solid var(--brass-bright)', padding: '0.65rem 1rem', borderRadius: '4px', marginBottom: '1rem'}}><b>In plain English:</b> Innbase is not responsible for indirect losses like lost revenue or data. Our total liability is capped at ₦500,000 per claim.</p>
+            <p>As far as the law allows, Innbase is not liable for indirect losses you suffer
+              from using the service — for example, lost revenue or lost data. This limit does
+              not apply if the loss was caused by our gross negligence or intentional
+              wrongdoing. Our total liability for any single claim is capped at ₦500,000.</p>
             <p>Nothing in these Terms limits liability where it cannot be limited under applicable
-              law.</p></div>
+              law.</p>
+          </div>
         </>
       ),
     },
@@ -225,11 +229,9 @@ export const TERMS_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>These Terms are governed by the laws of the Federal Republic of
-                Nigeria, without regard to
-              conflict-of-law principles. We&apos;ll try to resolve any dispute informally first; if
-              that doesn&apos;t work, disputes will be handled by any court of repute within Nigeria, unless applicable law says otherwise.
-            </p></div>
+          <div><p>These Terms are governed by the laws of Nigeria. We&apos;ll try to resolve any
+              dispute informally first. If that doesn&apos;t work, disputes will be handled by a
+              competent court in Nigeria, unless applicable law says otherwise.</p></div>
         </>
       ),
     },
@@ -425,11 +427,10 @@ export const PRIVACY_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>Where data is processed or stored outside the country it was collected in — for
-              example, by a cloud hosting provider — we take steps to make sure it&apos;s protected to
-              a standard consistent with this policy, including relying on providers with
-              appropriate safeguards in place. See the GDPR tab for more on transfers involving
-              the EU/EEA.</p></div>
+          <div><p>When data is stored or processed outside the country where it was collected —
+              for example, by a cloud hosting provider — we ensure it is protected to the same
+              standard as this policy. We only use providers with appropriate safeguards in
+              place. See the GDPR tab for more on transfers involving the EU/EEA.</p></div>
         </>
       ),
     },
@@ -505,7 +506,9 @@ export const GDPR_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>This distinction matters, so we&apos;re explicit about it:</p>
+          <div>
+            <p style={{background: 'var(--surface-raised, #f8f5ee)', borderLeft: '3px solid var(--brass-bright)', padding: '0.65rem 1rem', borderRadius: '4px', marginBottom: '1rem'}}><b>In plain English:</b> For your guests&apos; data, the hotel is in charge — Innbase just processes it on your instructions. For your own staff accounts, Innbase is in charge.</p>
+            <p>This distinction matters, so we&apos;re explicit about it:</p>
             <table>
               <tbody><tr>
                   <th>Data</th>
@@ -613,10 +616,10 @@ export const GDPR_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>Where personal data covered by GDPR is transferred outside the EU/EEA — for example,
-              to hosting infrastructure — we rely on recognized safeguards such as Standard
-              Contractual Clauses (SCCs) or an adequacy decision, as applicable. Details of
-              specific transfer mechanisms are available on request.</p></div>
+          <div><p>When personal data under GDPR is transferred outside the EU/EEA — for example,
+              to our hosting providers — we use recognized legal safeguards. These include
+              Standard Contractual Clauses (SCCs) or adequacy decisions, as appropriate. Details
+              of specific transfer mechanisms are available on request.</p></div>
         </>
       ),
     },
@@ -626,12 +629,11 @@ export const GDPR_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>If a breach affecting personal data occurs, we&apos;ll assess it promptly and notify
-              affected customers without undue delay, and in any case within the timeframe
-              required by applicable law (GDPR sets this at 72 hours for notifying the relevant
-              supervisory authority, where the breach poses a risk). Customers acting as
-              controllers remain responsible for notifying their own supervisory authority and
-              affected individuals where required, and we&apos;ll support that process.</p></div>
+          <div><p>If a personal data breach occurs, we&apos;ll assess it quickly and notify affected
+              customers promptly. Under GDPR, we must notify the relevant supervisory authority
+              within 72 hours if the breach poses a risk to individuals. Customers who are data
+              controllers remain responsible for notifying their own authority and affected
+              individuals. We&apos;ll support that process.</p></div>
         </>
       ),
     },
@@ -641,10 +643,10 @@ export const GDPR_PANEL = {
       defaultOpen: false,
       body: (
         <>
-          <div><p>Properties using Innbase to process guest data can request our standard Data
-              Processing Agreement, which sets out the terms of our processor relationship in line
-              with GDPR Article 28 — including confidentiality, sub-processor use, security
-              measures, and assistance with data subject requests. Request a copy at <a href="mailto:hello@innbase.co?subject=DPA%20request" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a>.</p></div>
+          <div><p>If you use Innbase to process guest data, you can request our standard Data
+              Processing Agreement (DPA). It covers confidentiality, sub-processors, security
+              measures, and how we assist with data subject requests — as required by GDPR
+              Article 28. Request a copy at <a href="mailto:hello@innbase.co?subject=DPA%20request" style={{color: 'var(--brass-bright)'}}>hello@innbase.co</a>.</p></div>
         </>
       ),
     },
