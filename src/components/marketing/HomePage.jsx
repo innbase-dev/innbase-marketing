@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -12,9 +13,7 @@ import {
 } from "lucide-react";
 import { FAQS } from "@/data/faqData";
 import { PLANS } from "@/data/pricingPlans";
-import OperationsDemo from "./OperationsDemo";
 import CustomerStories from "./CustomerStories";
-import StockIllustration from "./StockIllustration";
 import {
   Button,
   Eyebrow,
@@ -26,7 +25,10 @@ import {
   TextLink,
 } from "./Primitives";
 import LogoStrip from "../LogoStrip";
-import PlatformAvailabilitySection from "../PlatformAvailabilitySection";
+
+const OperationsDemo = dynamic(() => import("./OperationsDemo"));
+const StockIllustration = dynamic(() => import("./StockIllustration"));
+const PlatformAvailabilitySection = dynamic(() => import("../PlatformAvailabilitySection"));
 
 const MODULE_ROWS = [
   {
@@ -66,7 +68,7 @@ const BUSINESS_TYPES = [
     id: "bars",
     Icon: Wine,
     title: "Bars & lounges",
-    body: "Follow each sale through stock movements and the shift’s closeout.",
+    body: "Follow each sale through stock movements and the shift's closeout.",
   },
   {
     id: "multi-property",
@@ -203,7 +205,7 @@ export default function HomePage() {
             }
           >
             <p>
-              Sales in one book. Transfers in another chat. Stock in someone’s memory. Innbase
+              Sales in one book. Transfers in another chat. Stock in someone's memory. Innbase
               brings the records together, so you can follow what happened.
             </p>
           </SectionHeading>
@@ -263,7 +265,7 @@ export default function HomePage() {
 
           <div className="ib-product-feature ib-feature-reverse" id="inventory">
             <div className="ib-feature-copy">
-              <span className="ib-section-number">02 / KNOW WHAT’S ON THE SHELF</span>
+              <span className="ib-section-number">02 / KNOW WHAT'S ON THE SHELF</span>
               <h3>
                 The stock should
                 <br />
@@ -271,7 +273,7 @@ export default function HomePage() {
               </h3>
               <p>
                 Purchases, transfers, sales, and counts belong together. See the difference between
-                expected and actual stock while there’s still a useful conversation to have.
+                expected and actual stock while there's still a useful conversation to have.
               </p>
               <TextLink href="#demo">Explore a stock count</TextLink>
             </div>
