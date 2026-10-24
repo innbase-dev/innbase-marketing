@@ -5,6 +5,8 @@ import { JsonLd, SITE_URL, SITE_NAME, toPlainText } from "@/lib/seo";
 
 export const metadata = {
   title: "Your Hotel Control Center",
+  description:
+    "Innbase: AI operating system for hospitality. Automatically reconcile every sale, payment, shift, and stock movement. Know where revenue is lost.",
   alternates: {
     canonical: "/",
   },
