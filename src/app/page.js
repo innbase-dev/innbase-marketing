@@ -39,5 +39,10 @@ const softwareAppJsonLd = {
 };
 
 export default function MarketingRoute() {
-  return <MarketingShell><HomePage /><JsonLd data={[faqJsonLd, softwareAppJsonLd]} /></MarketingShell>;
+  return (
+    <>
+      <link rel="preload" as="image" href="/images/marketing/hotel-room.webp" fetchPriority="high" />
+      <MarketingShell><HomePage /><JsonLd data={[faqJsonLd, softwareAppJsonLd]} /></MarketingShell>
+    </>
+  );
 }
