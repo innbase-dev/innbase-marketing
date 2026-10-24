@@ -4,7 +4,7 @@ import { FAQS } from "@/data/faqData";
 import { JsonLd, SITE_URL, SITE_NAME, toPlainText } from "@/lib/seo";
 
 export const metadata = {
-  title: "Your Hotel Control Center",
+  title: "The AI Operating System for Hospitality",
   alternates: {
     canonical: "/",
   },
