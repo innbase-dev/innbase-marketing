@@ -6,7 +6,7 @@ import { JsonLd, SITE_URL, SITE_NAME, toPlainText } from "@/lib/seo";
 export const metadata = {
   title: "Your Hotel Control Center",
   alternates: {
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
 };
 
