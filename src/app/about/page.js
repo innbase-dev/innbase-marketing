@@ -5,7 +5,7 @@ import { JsonLd, SITE_URL, breadcrumbJsonLd, buildSocialMetadata } from "@/lib/s
 
 const TITLE = "About Innbase";
 const DESCRIPTION =
-    "Innbase started with a simple frustration: hotels generate enormous amounts of information every day, and almost none of it stays connected. Here's why — and who's building it.";
+    "Innbase is a property management platform helping hospitality businesses streamline operations and deliver great guest experiences.";
 
 export const metadata = {
     title: "About",
