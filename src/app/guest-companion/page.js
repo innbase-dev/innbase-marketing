@@ -35,5 +35,15 @@ export const metadata = {
 };
 
 export default function MarketingRoute() {
-  return <MarketingShell><GuestPage /></MarketingShell>;
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/marketing/hotel-room.webp"
+        fetchPriority="high"
+      />
+      <MarketingShell><GuestPage /></MarketingShell>
+    </>
+  );
 }
