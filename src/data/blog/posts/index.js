@@ -1,6 +1,7 @@
 // Register every post here. Order doesn't matter: the blog sorts by
 // publishedAt (newest first). See BLOG_README.md for the post shape.
 
+import phantomBottleScheme from "./phantom-bottle-scheme-hotel-bar-fraud";
 import reconcileBankTransfers from "./reconcile-bank-transfers";
 import whereHotelRevenueLeaks from "./where-hotel-revenue-leaks";
 import barStockCount from "./how-to-run-a-bar-stock-count";
@@ -20,6 +21,7 @@ import newPost9 from "./engineering-shift-closeout-single-transaction";
 import newPost10 from "./engineering-hotel-sales-concurrency";
 
 export const RAW_POSTS = [
+  phantomBottleScheme,
   newPost1,
   newPost2,
   newPost3,
