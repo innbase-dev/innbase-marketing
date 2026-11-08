@@ -23,6 +23,8 @@ const founderJsonLd = FOUNDERS.map((f) => ({
     name: f.name,
     jobTitle: f.role,
     worksFor: { "@id": `${SITE_URL}/#organization` },
+    ...(f.website ? { url: f.website } : {}),
+    sameAs: [f.linkedin, f.twitter, f.website].filter(Boolean),
 }));
 
 export default function MarketingRoute() {
