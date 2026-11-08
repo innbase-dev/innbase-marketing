@@ -9,7 +9,7 @@ export const TERMS_PANEL = {
   intro: (
     <>
       <p>These Terms of Service (&quot;<b>Terms</b>&quot;) govern your access to and use of
-        Innbase — the software, mobile apps, and related services provided by Innbase
+        Innbase — the software, mobile apps, and related services provided by Innbase Ops
         Limited (&quot;<b>Innbase</b>&quot;, &quot;<b>we</b>&quot;, &quot;<b>us</b>&quot;). By creating an
         account or using Innbase, you&apos;re agreeing to these Terms on behalf of yourself and, if
         applicable, the hotel or business you represent (&quot;<b>you</b>&quot;, &quot;<b>your property</b>&quot;).</p>
