@@ -46,6 +46,7 @@ export const FOUNDERS = [
         role: "CEO",
         linkedin: "https://linkedin.com/in/ojadua-efe",
         twitter: "https://x.com/integral19",
+        website: "https://www.efeojadua.com",
         focusLabel: "Focus:",
         focus:
             " product, strategy, and company direction — deciding what Innbase should do, and just as importantly, what it shouldn't.",
