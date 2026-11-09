@@ -5,7 +5,7 @@ import { isValidElement, Children } from "react";
  * JSON-LD @id/url fields, and OG/Twitter absolute URLs so it only ever
  * needs to change in one place.
  */
-export const SITE_URL = "https://innbase.co";
+export const SITE_URL = "https://www.innbase.co";
 export const SITE_NAME = "Innbase";
 
 /**

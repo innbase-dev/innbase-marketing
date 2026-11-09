@@ -62,7 +62,7 @@ export const metadata = {
     title: "Your Hotel Control Center | Innbase",
     description:
       "The AI operating system helping hotels, restaurants, and bars eliminate revenue leakage through intelligent reconciliation and operations.",
-    url: "https://innbase.co",
+    url: SITE_URL,
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
