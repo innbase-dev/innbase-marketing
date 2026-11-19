@@ -4,7 +4,12 @@ export function initializeConsentManager(scope) {
   const manager = scope.silktideConsentManager;
   if (!manager || typeof manager.init !== "function") return false;
   if (initializedManagers.has(manager)) return true;
-  manager.init(createConsentConfig(scope));
+  try {
+    manager.init(createConsentConfig(scope));
+  } catch (e) {
+    console.warn("Consent manager failed to initialize:", e);
+    return false;
+  }
   initializedManagers.add(manager);
   return true;
 }
@@ -26,9 +31,7 @@ export function createConsentConfig(scope) {
       label: "Essential",
       description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
       required: true,
-      onAccept: function() {
-        console.log('Add logic for the required Essential consent type here');
-      }
+      onAccept: function() {}
     },
     {
       id: "analytics",
