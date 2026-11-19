@@ -348,7 +348,7 @@ const CONTENT = [
     related: ["assistant", "payments", "properties"],
   },
   // ── Five priority pages (2026-11-19) ──
-  // Booking engine has its own dedicated page (src/app/platform/booking-engine).
+  // Booking engine and Procurement have their own dedicated pages (src/app/platform/*).
   // Rule: sell the outcome confidently, describe the capability precisely, and
   // never turn an intended feature into an implied production guarantee. Each
   // page's wording matches its release stage in marketingDestinations.js;
@@ -463,43 +463,6 @@ const CONTENT = [
     related: ["guestIntelligence", "sales", "bars"],
     ctaHref: "/contact?reason=early-access&feature=loyalty",
     reassurance: "A few conversations, not a project.",
-  },
-  {
-    id: "procurement",
-    title: "Hotel procurement & supplier control",
-    description: "Know who you’re paying. Innbase approves suppliers, verifies bank account names and keeps proof of every supplier payment. In development.",
-    eyebrow: "CONTROL WHAT GOES OUT",
-    headline: "The invoice says ₦1.2 million.",
-    emphasis: "Who approved it?",
-    intro: "Margin leaks before a guest ever arrives. Keep an approved supplier list, check bank details before anyone pays them, and keep proof of every payment where you can find it months later.",
-    connections: ["Suppliers", "Bank details", "Proof of payment"],
-    sectionTitle: "Every naira that leaves",
-    sectionEmphasis: "has an explanation.",
-    benefits: [
-      { title: "Approved suppliers only.", body: "New suppliers start as pending and only count as approved for your property once someone with authority signs them off." },
-      { title: "Bank details you can trust.", body: "The account name on a supplier’s bank details is verified, and two people must approve the details before they are accepted. A new account number can’t slip in quietly." },
-      { title: "Proof that stays with the payment.", body: "Pay from your bank as usual, then keep the receipt with the supplier. Files are encrypted, checked for malware and opened only by people you allow, with every opening recorded." },
-    ],
-    question: "“Did we just pay this supplier twice?”",
-    answer: "With approved suppliers and their payment proof in one place, you can check in a minute instead of digging through bank alerts.",
-    scenario: {
-      title: "One supplier, properly controlled.",
-      context: "Sample hotel · how it is designed to work",
-      stages: [
-        { label: "Supplier", title: "Register and approve", value: "Eko Beverages", status: "Approved supplier", rows: [["Category", "Drinks"], ["Property", "Main hotel"], ["Approved by", "Owner"]], note: "A new supplier stays pending until someone with authority approves it." },
-        { label: "Bank details", title: "Check before anyone pays", value: "Account verified", status: "Two approvals", rows: [["Account name", "Matches the supplier"], ["First approval", "Accounts"], ["Second approval", "Owner"]], note: "The account name is verified, and two people approve the details." },
-        { label: "Proof", title: "Keep the evidence", value: "₦640,000", status: "Proof stored", rows: [["Paid from", "Your bank"], ["Receipt", "Uploaded and checked"], ["Opened by", "Owner, recorded"]], note: "Innbase doesn’t make the payment. It keeps the proof with the supplier for when someone asks." },
-      ],
-    },
-    faqs: [
-      { q: "When can we use it?", a: "Procurement is in development. Join the pilot list and we’ll contact you when pilot places open." },
-      { q: "Does Innbase pay our suppliers?", a: "No. You keep paying suppliers from your own bank. Innbase controls who counts as an approved supplier, checks their bank details and keeps the proof." },
-      { q: "Is our financial information safe?", a: "Bank details and payment proof are encrypted, files are checked for malware before anyone can open them, and every opening is recorded." },
-      { q: "Can we track purchase orders and deliveries?", a: "Not in the first release, which starts with suppliers, bank details and payment proof. Tell us how you order today; it shapes what comes next." },
-    ],
-    related: ["payments", "inventory", "owners"],
-    ctaHref: "/contact?reason=early-access&feature=procurement",
-    reassurance: "Bring three suppliers. We’ll walk through them with you.",
   },
 ];
 
