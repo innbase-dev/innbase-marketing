@@ -7,8 +7,6 @@
 
 .hero {
   padding-block: 27px 0;
-  background-image: radial-gradient(rgba(183, 213, 169, .055) .65px, transparent .65px);
-  background-size: 9px 9px;
 }
 
 .breadcrumb {
