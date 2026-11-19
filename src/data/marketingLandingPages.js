@@ -348,47 +348,11 @@ const CONTENT = [
     related: ["assistant", "payments", "properties"],
   },
   // ── Five priority pages (2026-11-19) ──
+  // Booking engine has its own dedicated page (src/app/platform/booking-engine).
   // Rule: sell the outcome confidently, describe the capability precisely, and
   // never turn an intended feature into an implied production guarantee. Each
   // page's wording matches its release stage in marketingDestinations.js;
   // review the copy before moving a page to a later stage.
-  {
-    id: "bookingEngine",
-    title: "Hotel booking engine & room availability",
-    description: "One room, one guest. Innbase Booking keeps availability, unpaid holds and deposits in one live record. In development; join the pilot list.",
-    eyebrow: "FILL EVERY ROOM, ONCE",
-    headline: "Every room sold once.",
-    emphasis: "Every confirmation backed by money.",
-    intro: "By phone, on WhatsApp or at the desk, your team books from the same live availability. A room can be held while the guest pays, and a booking is confirmed when the deposit is recorded, not when someone says it’s on the way.",
-    connections: ["Live availability", "Holds & deposits", "Arrival to checkout"],
-    sectionTitle: "Fewer awkward phone calls.",
-    sectionEmphasis: "More rooms that pay.",
-    benefits: [
-      { title: "One room, one guest.", body: "Specific rooms and room types are checked against the same availability. When two requests reach for the last room at the same moment, one succeeds and the other is told the room has gone." },
-      { title: "Hold it, then secure it.", body: "Hold a room while the guest arranges payment. A hold lasts as long as your property allows, then the room goes back on sale without anyone having to remember." },
-      { title: "Confirmed means the money is in.", body: "A booking is confirmed against a recorded deposit. If that payment is later reversed, the booking doesn’t carry on looking paid." },
-    ],
-    question: "“Did we just promise Room 12 to two people?”",
-    answer: "That is exactly the question Innbase Booking is built to retire. Every yes comes from the same availability, whoever answers the phone.",
-    scenario: {
-      title: "One Friday night, one room.",
-      context: "Sample guesthouse · how it is designed to work",
-      stages: [
-        { label: "Enquiry", title: "A WhatsApp request arrives", value: "Deluxe · Fri–Sun", status: "Room available", rows: [["Guest", "Amaka Bello"], ["Stay", "2 nights"], ["Rate", "₦45,000 per night"]], note: "The front desk answers from live availability, not yesterday’s reservation sheet." },
-        { label: "Hold", title: "Hold it while the guest pays", value: "₦45,000 deposit", status: "Room on hold", attention: true, rows: [["Hold ends", "6:00 pm (property setting)"], ["Other enquiries", "See the room as taken"], ["If unpaid", "Back on sale"]], note: "While the hold runs, nobody else can sell the room. If the deposit doesn’t arrive, the room returns to sale." },
-        { label: "Confirmed", title: "Confirm when the money lands", value: "Confirmed", status: "Deposit recorded", rows: [["Deposit", "₦45,000 received"], ["Room", "Deluxe 204"], ["Balance", "Due at check-in"]], note: "Confirmed means the deposit is recorded, not that someone said it was sent." },
-      ],
-    },
-    faqs: [
-      { q: "When can we use it?", a: "Innbase Booking is in development and being tested ahead of a pilot with selected properties. Join the pilot list and we’ll contact you when places open. Nothing changes in your current setup until you decide." },
-      { q: "We take most bookings by phone and WhatsApp. Is it built for that?", a: "Yes. The first release is built for the bookings your team takes by phone, on WhatsApp and at the desk, all checked against one live availability." },
-      { q: "Can guests book online by themselves?", a: "Not in the first release, which starts with the bookings your team takes. Tell us how your guests book today; it shapes what comes next." },
-      { q: "Do we have to stop using booking sites?", a: "No. Keep the channels that bring you guests. The first release doesn’t connect to booking sites, so tell us which ones you rely on." },
-    ],
-    related: ["rooms", "payments", "doorAccess"],
-    ctaHref: "/contact?reason=early-access&feature=booking-engine",
-    reassurance: "Pilot places are limited. Bring your room list.",
-  },
   {
     id: "doorAccess",
     title: "Hotel door access for guests",
