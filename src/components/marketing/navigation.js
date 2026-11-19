@@ -1,11 +1,25 @@
-import { MARKETING_DESTINATIONS, PLATFORM_DESTINATIONS, SOLUTION_DESTINATIONS } from "@/data/marketingDestinations";
+import { MARKETING_DESTINATIONS, PLATFORM_DESTINATIONS, SOLUTION_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
+
+// A menu link for a destination this build serves, or nothing.
+function destinationLink(id, tagline) {
+  const destination = MARKETING_DESTINATIONS[id];
+  return isVisible(destination) ? [[destination.label, destination.href, tagline]] : [];
+}
+
+const GROW_LINKS = [
+  ...destinationLink("bookingEngine", "One room, one guest"),
+  ...destinationLink("doorAccess", "The door is ready before they are"),
+  ...destinationLink("guestIntelligence", "Remember every guest"),
+  ...destinationLink("loyalty", "Turn guests into regulars"),
+];
 
 export const NAV_GROUPS = [
   {
     id: "product", label: "Product", kicker: "THE INNBASE PLATFORM", title: "Everything your hotel needs to run well.", intro: "One operating system for the people behind every sale, shift, and stay.",
     groups: [
-      { title: "RUN THE OPERATION", links: [["Payments & reconciliation", MARKETING_DESTINATIONS.payments.href, "Follow the money"], ["Point of sale", MARKETING_DESTINATIONS.sales.href, "From order to closeout"], ["Inventory", MARKETING_DESTINATIONS.inventory.href, "Give every bottle a record"], ["Staff & shifts", MARKETING_DESTINATIONS.shifts.href, "Hand over with clarity"], ["Rooms & guest folios", MARKETING_DESTINATIONS.rooms.href, "Keep every stay together"]] },
+      { title: "RUN THE OPERATION", links: [["Payments & reconciliation", MARKETING_DESTINATIONS.payments.href, "Follow the money"], ["Point of sale", MARKETING_DESTINATIONS.sales.href, "From order to closeout"], ["Inventory", MARKETING_DESTINATIONS.inventory.href, "Give every bottle a record"], ["Staff & shifts", MARKETING_DESTINATIONS.shifts.href, "Hand over with clarity"], ["Rooms & guest folios", MARKETING_DESTINATIONS.rooms.href, "Keep every stay together"], ...destinationLink("procurement", "Control what goes out")] },
       { title: "EXTEND THE EXPERIENCE", links: [["Integrated messaging", MARKETING_DESTINATIONS.messaging.href, "Every guest conversation, one workspace"], ["Guest Companion", "/guest-companion", "For the people you welcome"], ["AI Operational Assistant", "/assistant", "For the people on your team"], ["Explore the demo", "/#demo", "See how the pieces connect"]] },
+      ...(GROW_LINKS.length ? [{ title: "GROW YOUR HOTEL", links: GROW_LINKS }] : []),
     ],
   },
   {
@@ -25,7 +39,7 @@ export const NAV_GROUPS = [
 ];
 
 export const FOOTER_GROUPS = [
-  { title: "Platform", links: PLATFORM_DESTINATIONS.map(({ label, href }) => [label, href]) },
+  { title: "Platform", links: PLATFORM_DESTINATIONS.filter(isVisible).map(({ label, href }) => [label, href]) },
   { title: "Solutions", links: SOLUTION_DESTINATIONS.map(({ label, href }) => [label, href]) },
   { title: "Explore", links: [["Pricing", "/pricing"], ["Blog", "/blog"], ["Product demo", "/#demo"], ["Customer stories", "/#stories"], ["Refer a hotel", "/refer"], ["About Innbase", "/about"], ["Meet the team", "/about#team"], ["FAQs", "/#faq"], ["Fair usage", "/legal#fair-usage"]] },
   { title: "Let’s talk", links: [["Book a demo", "/contact"], ["Contact & support", "/contact"], ["Partnerships", "/contact?reason=partnership"], ["hello@innbase.co", "mailto:hello@innbase.co"], ["WhatsApp ↗", "https://wa.me/2349064169441"], ["Log in ↗", "https://app.innbase.co/login"]] },

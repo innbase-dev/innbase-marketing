@@ -10,5 +10,7 @@ export function buildLandingMetadata(page) {
       description: page.description,
       path: page.href,
     }),
+    // A preview build can render unpublished pages; keep them out of search.
+    ...(page.published ? {} : { robots: { index: false, follow: false } }),
   };
 }

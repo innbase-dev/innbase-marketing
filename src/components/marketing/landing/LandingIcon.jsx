@@ -1,5 +1,10 @@
 import {
   BedDouble,
+  CalendarCheck,
+  Gift,
+  HeartHandshake,
+  KeyRound,
+  Truck,
   Building2,
   Clock3,
   MessageCircle,
@@ -26,6 +31,11 @@ const ICONS = {
   bars: Wine,
   properties: Building2,
   owners: Users,
+  bookingEngine: CalendarCheck,
+  doorAccess: KeyRound,
+  guestIntelligence: HeartHandshake,
+  loyalty: Gift,
+  procurement: Truck,
 };
 
 export default function LandingIcon({ name, size = 24, ...props }) {

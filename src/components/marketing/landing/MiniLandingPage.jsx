@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, ChevronRight } from "lucide-react";
-import { MARKETING_DESTINATIONS } from "@/data/marketingDestinations";
+import { MARKETING_DESTINATIONS, RELEASE_STAGES, isVisible } from "@/data/marketingDestinations";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import { Button, Eyebrow, FAQ, TextLink } from "../Primitives";
 import LandingIcon from "./LandingIcon";
@@ -8,7 +8,10 @@ import LandingScenario from "./LandingScenario";
 import styles from "./MiniLandingPage.module.css";
 
 export default function MiniLandingPage({ page }) {
-  const related = page.related.map((id) => MARKETING_DESTINATIONS[id]);
+  // Never link to a page this build doesn't serve.
+  const related = page.related.map((id) => MARKETING_DESTINATIONS[id]).filter(isVisible);
+  // Pre-release pages carry a short status note under the intro.
+  const prerelease = page.stage && page.stage !== RELEASE_STAGES.available;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -28,8 +31,9 @@ export default function MiniLandingPage({ page }) {
               <Eyebrow>{page.eyebrow}</Eyebrow>
               <h1 id="landing-title">{page.headline}<em>{page.emphasis}</em></h1>
               <p className={styles.intro}>{page.intro}</p>
+              {prerelease && page.statusNote && <p className={styles.statusNote}>{page.statusNote}</p>}
               <div className={styles.actions}>
-                <Button href={page.ctaHref || "/contact"}>{page.cta || "Book a demo"}</Button>
+                <Button href={page.ctaHref || "/contact"}>{page.cta || page.stage?.cta || "Book a demo"}</Button>
                 <TextLink href="#how-it-works">A closer look</TextLink>
               </div>
               <p className={styles.reassurance}>

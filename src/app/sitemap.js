@@ -1,4 +1,4 @@
-import { LANDING_PAGES } from "@/data/marketingLandingPages";
+import { getPublishedLandingPages } from "@/data/marketingLandingPages";
 import { SITE_URL } from "@/lib/seo";
 import { BLOG } from "@/data/blog/blogData";
 import { getCategories, getPosts, isTopicIndexable } from "@/lib/blog";
@@ -67,7 +67,8 @@ export default function sitemap() {
       changeFrequency: "yearly",
       priority: 0.5,
     },
-    ...LANDING_PAGES.map(({ href }) => ({
+    // Published pages only: a preview build never adds unpublished pages here.
+    ...getPublishedLandingPages().map(({ href }) => ({
       url: `${SITE_URL}${href}`,
       lastModified: buildTime,
       changeFrequency: "monthly",
