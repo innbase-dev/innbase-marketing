@@ -52,7 +52,7 @@ export default function sitemap() {
       priority: 0.85,
     },
     // Dedicated platform pages outside the shared landing template.
-    ...[MARKETING_DESTINATIONS.bookingEngine, MARKETING_DESTINATIONS.procurement].filter(isPublished).map(({ href }) => ({
+    ...[MARKETING_DESTINATIONS.bookingEngine, MARKETING_DESTINATIONS.procurement, MARKETING_DESTINATIONS.guestIntelligence].filter(isPublished).map(({ href }) => ({
       url: `${SITE_URL}${href}`,
       lastModified: buildTime,
       changeFrequency: "weekly",

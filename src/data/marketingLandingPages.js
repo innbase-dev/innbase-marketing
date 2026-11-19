@@ -348,7 +348,7 @@ const CONTENT = [
     related: ["assistant", "payments", "properties"],
   },
   // ── Five priority pages (2026-11-19) ──
-  // Booking engine and Procurement have their own dedicated pages (src/app/platform/*).
+  // Booking engine, Procurement and Guest intelligence have their own dedicated pages (src/app/platform/*).
   // Rule: sell the outcome confidently, describe the capability precisely, and
   // never turn an intended feature into an implied production guarantee. Each
   // page's wording matches its release stage in marketingDestinations.js;
@@ -389,43 +389,6 @@ const CONTENT = [
     related: ["bookingEngine", "rooms", "guest"],
     ctaHref: "/contact?reason=early-access&feature=door-access",
     reassurance: "Pilot places are limited. We start by looking at your doors.",
-  },
-  {
-    id: "guestIntelligence",
-    title: "Guest preferences & guest profiles for hotels",
-    description: "Remember every guest like your best receptionist. Innbase records guest preferences for your hotel, shares them with your team and respects consent.",
-    eyebrow: "KNOW YOUR GUESTS",
-    headline: "Your best receptionist remembers everyone.",
-    emphasis: "What happens when she leaves?",
-    intro: "Extra pillows, a late breakfast, no peanuts. Note what a guest prefers once, let the whole team see it, and welcome them back as if they never left.",
-    connections: ["Front desk", "Restaurant & bar", "Housekeeping"],
-    sectionTitle: "Personal service",
-    sectionEmphasis: "that doesn’t walk out the door.",
-    benefits: [
-      { title: "Note it once.", body: "A preference recorded at the desk, the table or the room stays on the guest’s record for the next visit, instead of in one person’s memory." },
-      { title: "The whole team sees it.", body: "Front desk, restaurant and housekeeping work from the same picture of the guest, and you decide which staff can read or change it." },
-      { title: "The guest decides what you keep.", body: "Optional preferences are kept only with the guest’s consent, given after they’ve seen your notice, and they can withdraw it. Preferences stay with your hotel and aren’t shared with other properties." },
-    ],
-    question: "“Didn’t this guest ask for something last time?”",
-    answer: "If it was noted, the whole team will know, and the guest won’t have to ask twice.",
-    scenario: {
-      title: "The second stay feels like the first.",
-      context: "Sample guest · how it is designed to work",
-      stages: [
-        { label: "First stay", title: "Note it once", value: "Room 204", status: "Preferences noted", rows: [["Pillows", "Two extra"], ["Breakfast", "After 10 a.m."], ["Allergy", "Peanuts"]], note: "Noted at the desk, the table or the room, with the guest’s agreement." },
-        { label: "Return", title: "The team already knows", value: "Welcome back", status: "Returning guest", rows: [["Front desk", "Sees the preferences"], ["Housekeeping", "Extra pillows ready"], ["Kitchen", "Peanut allergy flagged"]], note: "Nobody asks again, and nothing depends on one person’s memory." },
-        { label: "Consent", title: "The guest stays in control", value: "Their choice", status: "Consent respected", rows: [["Kept", "Only what they agreed to"], ["Changes", "The guest can update them"], ["Withdrawn", "No longer used"]], note: "Attentive, not intrusive." },
-      ],
-    },
-    faqs: [
-      { q: "When can we use it?", a: "Guest Intelligence is in development. Its preference and consent foundations are built, and the staff experience is being completed. Join the pilot list and we’ll be in touch." },
-      { q: "Isn’t remembering guests a bit intrusive?", a: "It keeps only what guests agree to, after they’ve seen your notice, and they can change their mind. That’s the difference between attentive and intrusive." },
-      { q: "Can guests tell us their preferences themselves?", a: "That is part of the design. Through Guest Companion, guests will be able to share what they prefer and choose what you keep." },
-      { q: "Are a guest’s preferences shared with other hotels?", a: "No. Preferences are recorded for your hotel only." },
-    ],
-    related: ["guest", "rooms", "loyalty"],
-    ctaHref: "/contact?reason=early-access&feature=guest-intelligence",
-    reassurance: "Bring a returning guest’s story. We’ll show you their next stay.",
   },
   {
     id: "loyalty",
