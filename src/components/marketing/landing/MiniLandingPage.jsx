@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, ChevronRight } from "lucide-react";
-import { MARKETING_DESTINATIONS, RELEASE_STAGES, isVisible, releaseStage } from "@/data/marketingDestinations";
+import { MARKETING_DESTINATIONS, RELEASE_STAGES, isVisible } from "@/data/marketingDestinations";
 import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import { Button, Eyebrow, FAQ, TextLink } from "../Primitives";
 import LandingIcon from "./LandingIcon";
@@ -10,7 +10,7 @@ import styles from "./MiniLandingPage.module.css";
 export default function MiniLandingPage({ page }) {
   // Never link to a page this build doesn't serve.
   const related = page.related.map((id) => MARKETING_DESTINATIONS[id]).filter(isVisible);
-  // Pages that are not yet available say so plainly, next to the promise.
+  // Pre-release pages carry a short status note under the intro.
   const prerelease = page.stage && page.stage !== RELEASE_STAGES.available;
   const faqSchema = {
     "@context": "https://schema.org",
@@ -29,7 +29,6 @@ export default function MiniLandingPage({ page }) {
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <Eyebrow>{page.eyebrow}</Eyebrow>
-              {prerelease && <p className={styles.stage}><span>{page.stage.label}</span></p>}
               <h1 id="landing-title">{page.headline}<em>{page.emphasis}</em></h1>
               <p className={styles.intro}>{page.intro}</p>
               {prerelease && page.statusNote && <p className={styles.statusNote}>{page.statusNote}</p>}
@@ -93,7 +92,6 @@ export default function MiniLandingPage({ page }) {
                   <ArrowUpRight size={19} aria-hidden="true" />
                 </div>
                 <h3>{item.label}</h3>
-                {releaseStage(item) !== "available" && <span className={styles.relatedStage}>{RELEASE_STAGES[releaseStage(item)].label}</span>}
                 <p>{item.description}</p>
               </Link>
             ))}

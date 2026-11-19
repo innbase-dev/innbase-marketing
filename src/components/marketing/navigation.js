@@ -1,13 +1,9 @@
-import { MARKETING_DESTINATIONS, PLATFORM_DESTINATIONS, RELEASE_STAGES, SOLUTION_DESTINATIONS, isVisible, releaseStage } from "@/data/marketingDestinations";
+import { MARKETING_DESTINATIONS, PLATFORM_DESTINATIONS, SOLUTION_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
 
-// A menu link for a destination this build serves, or nothing. Pages that are
-// not yet available carry their stage in the description, so the menu never
-// presents an intended feature as a finished one.
+// A menu link for a destination this build serves, or nothing.
 function destinationLink(id, tagline) {
   const destination = MARKETING_DESTINATIONS[id];
-  if (!isVisible(destination)) return [];
-  const stage = releaseStage(destination);
-  return [[destination.label, destination.href, stage === "available" ? tagline : `${RELEASE_STAGES[stage].label} · ${tagline}`]];
+  return isVisible(destination) ? [[destination.label, destination.href, tagline]] : [];
 }
 
 const GROW_LINKS = [
