@@ -1,5 +1,5 @@
 import { isValidElement } from "react";
-import { MARKETING_DESTINATIONS } from "@/data/marketingDestinations";
+import { MARKETING_DESTINATIONS, isPublished } from "@/data/marketingDestinations";
 import { AUTHORS, BLOG, CATEGORIES } from "@/data/blog/blogData";
 import { RAW_POSTS } from "@/data/blog/posts";
 import { SITE_NAME, SITE_URL, absoluteUrl, buildSocialMetadata, toPlainText } from "@/lib/seo";
@@ -128,9 +128,11 @@ function validatePosts(raws) {
 
     (raw.relatedProducts || []).forEach((id) => {
       if (!MARKETING_DESTINATIONS[id]) fail(`unknown related product "${id}"`);
+      else if (!isPublished(MARKETING_DESTINATIONS[id])) fail(`related product "${id}" is not published`);
     });
     (raw.body || []).forEach((block) => {
       if (block.type === "product" && !MARKETING_DESTINATIONS[block.id]) fail(`unknown product block "${block.id}"`);
+      else if (block.type === "product" && !isPublished(MARKETING_DESTINATIONS[block.id])) fail(`product block "${block.id}" is not published`);
       if (block.type === "figure" && !block.alt) fail("every figure needs alt text");
     });
 

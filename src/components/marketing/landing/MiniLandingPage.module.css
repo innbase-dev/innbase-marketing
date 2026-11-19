@@ -62,6 +62,51 @@
   margin-top: 32px;
 }
 
+/* Release stage: stated beside the promise, never hidden in small print. */
+.stage { margin-top: 16px; }
+
+.stage span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px;
+  border: 1px solid rgba(183, 213, 169, .45);
+  border-radius: 999px;
+  color: #dce8d6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.stage span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ib-accent, #b7d5a9);
+}
+
+.heroCopy .statusNote {
+  max-width: 50ch;
+  margin-top: 16px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(183, 213, 169, .45);
+  color: #dce8d6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.relatedStage {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
 .heroCopy .reassurance {
   display: flex;
   align-items: flex-start;

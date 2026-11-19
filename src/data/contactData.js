@@ -21,6 +21,17 @@ export const REASONS = {
     submit: "Send request",
     note: true,
   },
+  "early-access": {
+    icon: "sparkles",
+    label: "Pilots & design partners",
+    labelSub: "Try new features first",
+    title: "Join a pilot",
+    sub: "A small group of properties tries new features first, works directly with our team and helps decide what we build next.",
+    messageLabel: "What would this change for your hotel?",
+    placeholder: "e.g. We get late arrivals most weekends and our night desk is one person…",
+    submit: "Request a place",
+    note: false,
+  },
   partnership: {
     icon: "handshake",
     label: "Partnership",
@@ -45,7 +56,17 @@ export const REASONS = {
   },
 };
 
-export const REASON_ORDER = ["sales", "support", "partnership", "general"];
+export const REASON_ORDER = ["sales", "early-access", "support", "partnership", "general"];
+
+// Features with a pilot list or design-partner programme. Keys match the
+// `feature` query parameter set by each platform page's call to action.
+export const PILOT_FEATURES = {
+  "booking-engine": "Booking engine",
+  "door-access": "Door access",
+  "guest-intelligence": "Guest intelligence",
+  loyalty: "Loyalty",
+  procurement: "Procurement & suppliers",
+};
 
 export const IMPROVE_CHIPS = [
   "Inventory",

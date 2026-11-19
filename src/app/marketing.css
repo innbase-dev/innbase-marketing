@@ -440,6 +440,27 @@ body {
   box-shadow: 0 24px 45px #0005;
 }
 
+/* Product menu with a third column (only when "Grow your hotel" has
+   published pages). Desktop only: the mobile rules below stay in charge. */
+@media (min-width: 1201px) {
+  .ib-mega.ib-mega-wide {
+    grid-template-columns: 1.05fr 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+  .ib-mega.ib-mega-wide {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ib-mega.ib-mega-wide .ib-mega-lead {
+    grid-column: 1 / -1;
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+
 .ib-mega-lead {
   border-right: 1px solid #364137;
   padding-right: 35px;

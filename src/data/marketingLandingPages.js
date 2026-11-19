@@ -1,4 +1,4 @@
-import { MARKETING_DESTINATIONS } from "./marketingDestinations";
+import { MARKETING_DESTINATIONS, RELEASE_STAGES, isPublished, isVisible, releaseStage } from "./marketingDestinations";
 
 // Authored marketing examples, not live accounts or screenshots of the app.
 // A scenario row is [record label, display value]. Keep labels and values brief
@@ -347,18 +347,221 @@ const CONTENT = [
     ],
     related: ["assistant", "payments", "properties"],
   },
+  // ── Five priority pages (2026-11-19) ──
+  // Rule: sell the outcome confidently, describe the capability precisely, and
+  // never turn an intended feature into an implied production guarantee. Each
+  // page's wording matches its release stage in marketingDestinations.js;
+  // review the copy before moving a page to a later stage.
+  {
+    id: "bookingEngine",
+    title: "Hotel booking engine & room availability",
+    description: "One room, one guest. Innbase Booking keeps availability, unpaid holds and deposits in one live record. In development; join the pilot list.",
+    eyebrow: "FILL EVERY ROOM, ONCE",
+    headline: "Every room sold once.",
+    emphasis: "Every confirmation backed by money.",
+    intro: "By phone, on WhatsApp or at the desk, your team books from the same live availability. A room can be held while the guest pays, and a booking is confirmed when the deposit is recorded, not when someone says it’s on the way.",
+    statusNote: "Innbase Booking is in development and being tested ahead of its pilot. The first release covers the bookings your team takes.",
+    connections: ["Live availability", "Holds & deposits", "Arrival to checkout"],
+    sectionTitle: "Fewer awkward phone calls.",
+    sectionEmphasis: "More rooms that pay.",
+    benefits: [
+      { title: "One room, one guest.", body: "Specific rooms and room types are checked against the same availability. When two requests reach for the last room at the same moment, one succeeds and the other is told the room has gone." },
+      { title: "Hold it, then secure it.", body: "Hold a room while the guest arranges payment. A hold lasts as long as your property allows, then the room goes back on sale without anyone having to remember." },
+      { title: "Confirmed means the money is in.", body: "A booking is confirmed against a recorded deposit. If that payment is later reversed, the booking doesn’t carry on looking paid." },
+    ],
+    question: "“Did we just promise Room 12 to two people?”",
+    answer: "That is exactly the question Innbase Booking is built to retire. Every yes comes from the same availability, whoever answers the phone.",
+    scenario: {
+      title: "One Friday night, one room.",
+      context: "Sample guesthouse · how it is designed to work",
+      stages: [
+        { label: "Enquiry", title: "A WhatsApp request arrives", value: "Deluxe · Fri–Sun", status: "Room available", rows: [["Guest", "Amaka Bello"], ["Stay", "2 nights"], ["Rate", "₦45,000 per night"]], note: "The front desk answers from live availability, not yesterday’s reservation sheet." },
+        { label: "Hold", title: "Hold it while the guest pays", value: "₦45,000 deposit", status: "Room on hold", attention: true, rows: [["Hold ends", "6:00 pm (property setting)"], ["Other enquiries", "See the room as taken"], ["If unpaid", "Back on sale"]], note: "While the hold runs, nobody else can sell the room. If the deposit doesn’t arrive, the room returns to sale." },
+        { label: "Confirmed", title: "Confirm when the money lands", value: "Confirmed", status: "Deposit recorded", rows: [["Deposit", "₦45,000 received"], ["Room", "Deluxe 204"], ["Balance", "Due at check-in"]], note: "Confirmed means the deposit is recorded, not that someone said it was sent." },
+      ],
+    },
+    faqs: [
+      { q: "When can we use it?", a: "Innbase Booking is in development and being tested ahead of a pilot with selected properties. Join the pilot list and we’ll contact you when places open. Nothing changes in your current setup until you decide." },
+      { q: "We take most bookings by phone and WhatsApp. Is it built for that?", a: "Yes. The first release is built for the bookings your team takes by phone, on WhatsApp and at the desk, all checked against one live availability." },
+      { q: "Can guests book online by themselves?", a: "Not in the first release, which starts with the bookings your team takes. Tell us how your guests book today; it shapes what comes next." },
+      { q: "Do we have to stop using booking sites?", a: "No. Keep the channels that bring you guests. The first release doesn’t connect to booking sites, so tell us which ones you rely on." },
+    ],
+    related: ["rooms", "payments", "doorAccess"],
+    ctaHref: "/contact?reason=early-access&feature=booking-engine",
+    reassurance: "Pilot places are limited. Bring your room list.",
+  },
+  {
+    id: "doorAccess",
+    title: "Hotel door access for guests",
+    description: "Room access that starts with the stay and ends with it. Innbase Door Access checks booking, payment and room before granting entry. In development.",
+    eyebrow: "WELCOME GUESTS AT ANY HOUR",
+    headline: "Your guest arrives at 1 a.m.",
+    emphasis: "The door is ready.",
+    intro: "Door Access ties room entry to the stay itself. When a booking is confirmed, paid and assigned a room, access is granted for that room and that stay, and it is built to end when the stay does.",
+    statusNote: "Door Access is in development. It is being built to work with connected smart locks through an integration partner, and pilot properties will shape the first rollout.",
+    connections: ["Confirmed bookings", "Room access", "Checkout"],
+    sectionTitle: "Less waiting in the lobby.",
+    sectionEmphasis: "No key you can’t account for.",
+    benefits: [
+      { title: "The stay is the key.", body: "Before access is granted, Innbase checks the booking, its assigned room, its payment and any known risk on the stay. A promise at the desk is not enough." },
+      { title: "Late arrivals, without a late shift.", body: "Guests reach their room on their own schedule. Your night team handles the exceptions instead of every arrival." },
+      { title: "Every grant on record.", body: "Each grant is recorded once, for one guest, one room and one stay, and can’t be issued twice. You can see who had access, and when it stopped." },
+    ],
+    question: "“Who still has a key to Room 108?”",
+    answer: "With access tied to stays, the answer is a record, not a guess.",
+    scenario: {
+      title: "One late arrival.",
+      context: "Sample boutique hotel · how it is designed to work",
+      stages: [
+        { label: "Checks", title: "The stay qualifies", value: "Room 108", status: "Access approved", rows: [["Booking", "Confirmed"], ["Payment", "Recorded"], ["Room", "Assigned to this stay"]], note: "Access is only granted for a confirmed, paid stay with an assigned room." },
+        { label: "Arrival", title: "The guest lets themselves in", value: "1:40 a.m.", status: "Access active", rows: [["Guest", "Tunde Adeyemi"], ["Valid", "For this stay only"], ["Night desk", "Still on the bar bill"]], note: "Nobody waits in the lobby while the desk finishes another job." },
+        { label: "Checkout", title: "Access ends with the stay", value: "Checked out", status: "Access ended", rows: [["Checkout", "11:00 a.m."], ["Room 108 access", "Ended"], ["Record", "Kept with the stay"]], note: "The next guest gets a room nobody else can open." },
+      ],
+    },
+    faqs: [
+      { q: "When can we use it?", a: "Door Access is in development. We are preparing a pilot with selected properties; join the list and we’ll contact you when places open." },
+      { q: "Does it work with the locks we already have?", a: "It is being built for connected smart locks, through an integration partner that supports a range of lock makers. Traditional key or keycard locks would need upgrading. We’ll look at your doors before you commit to anything." },
+      { q: "What if the power or the internet goes down?", a: "Every property needs a fallback, and we agree yours before anything goes live, so your team always has a way to let a guest in." },
+      { q: "Can a guest who hasn’t paid get in?", a: "Door Access is designed so they can’t. Access is only granted for a confirmed stay whose payment checks out, and a cancelled booking doesn’t keep its access." },
+    ],
+    related: ["bookingEngine", "rooms", "guest"],
+    ctaHref: "/contact?reason=early-access&feature=door-access",
+    reassurance: "Pilot places are limited. We start by looking at your doors.",
+  },
+  {
+    id: "guestIntelligence",
+    title: "Guest preferences & guest profiles for hotels",
+    description: "Remember every guest like your best receptionist. Innbase records guest preferences for your hotel, shares them with your team and respects consent.",
+    eyebrow: "KNOW YOUR GUESTS",
+    headline: "Your best receptionist remembers everyone.",
+    emphasis: "What happens when she leaves?",
+    intro: "Extra pillows, a late breakfast, no peanuts. Note what a guest prefers once, let the whole team see it, and welcome them back as if they never left.",
+    statusNote: "Guest Intelligence is in development. Its preference and consent foundations are built; the staff experience is being completed before the pilot.",
+    connections: ["Front desk", "Restaurant & bar", "Housekeeping"],
+    sectionTitle: "Personal service",
+    sectionEmphasis: "that doesn’t walk out the door.",
+    benefits: [
+      { title: "Note it once.", body: "A preference recorded at the desk, the table or the room stays on the guest’s record for the next visit, instead of in one person’s memory." },
+      { title: "The whole team sees it.", body: "Front desk, restaurant and housekeeping work from the same picture of the guest, and you decide which staff can read or change it." },
+      { title: "The guest decides what you keep.", body: "Optional preferences are kept only with the guest’s consent, given after they’ve seen your notice, and they can withdraw it. Preferences stay with your hotel and aren’t shared with other properties." },
+    ],
+    question: "“Didn’t this guest ask for something last time?”",
+    answer: "If it was noted, the whole team will know, and the guest won’t have to ask twice.",
+    scenario: {
+      title: "The second stay feels like the first.",
+      context: "Sample guest · how it is designed to work",
+      stages: [
+        { label: "First stay", title: "Note it once", value: "Room 204", status: "Preferences noted", rows: [["Pillows", "Two extra"], ["Breakfast", "After 10 a.m."], ["Allergy", "Peanuts"]], note: "Noted at the desk, the table or the room, with the guest’s agreement." },
+        { label: "Return", title: "The team already knows", value: "Welcome back", status: "Returning guest", rows: [["Front desk", "Sees the preferences"], ["Housekeeping", "Extra pillows ready"], ["Kitchen", "Peanut allergy flagged"]], note: "Nobody asks again, and nothing depends on one person’s memory." },
+        { label: "Consent", title: "The guest stays in control", value: "Their choice", status: "Consent respected", rows: [["Kept", "Only what they agreed to"], ["Changes", "The guest can update them"], ["Withdrawn", "No longer used"]], note: "Attentive, not intrusive." },
+      ],
+    },
+    faqs: [
+      { q: "When can we use it?", a: "Guest Intelligence is in development. Its preference and consent foundations are built, and the staff experience is being completed. Join the pilot list and we’ll be in touch." },
+      { q: "Isn’t remembering guests a bit intrusive?", a: "It keeps only what guests agree to, after they’ve seen your notice, and they can change their mind. That’s the difference between attentive and intrusive." },
+      { q: "Can guests tell us their preferences themselves?", a: "That is part of the design. Through Guest Companion, guests will be able to share what they prefer and choose what you keep." },
+      { q: "Are a guest’s preferences shared with other hotels?", a: "No. Preferences are recorded for your hotel only." },
+    ],
+    related: ["guest", "rooms", "loyalty"],
+    ctaHref: "/contact?reason=early-access&feature=guest-intelligence",
+    reassurance: "Bring a returning guest’s story. We’ll show you their next stay.",
+  },
+  {
+    id: "loyalty",
+    title: "Loyalty programme for hotels, restaurants & bars",
+    description: "Turn guests into regulars. Innbase Loyalty is being designed to reward real spend and recognise returning guests by phone number. Become a design partner.",
+    eyebrow: "BRING THEM BACK",
+    headline: "They came back nine times.",
+    emphasis: "Did anyone notice?",
+    intro: "Your best guests are already loyal. Innbase Loyalty is being designed to reward their real spend, recognise them by the phone number they already give you, and give them a reason to choose you again.",
+    statusNote: "Innbase Loyalty is in design. A small group of design partners is helping shape the first version.",
+    connections: ["Sales", "Guests", "Rewards"],
+    sectionTitle: "Stop paying to win back",
+    sectionEmphasis: "guests who already know you.",
+    benefits: [
+      { title: "Rewards from real spend.", body: "Perks will be earned from sales recorded in Innbase, so there are no stamp cards to lose, no tallies to keep and no arguments at the till." },
+      { title: "A programme you control.", body: "You’ll choose the spend, the perk and who qualifies, and see what each programme costs next to the spend it brings back." },
+      { title: "The phone number is the card.", body: "No app to download and no account to create. Regulars will be recognised by the number they already give you." },
+    ],
+    question: "“Why do our regulars feel like strangers?”",
+    answer: "Because nothing connects their visits. Loyalty is designed to link the spend to the guest, so the thank-you takes care of itself.",
+    scenario: {
+      title: "From regular to reward.",
+      context: "Sample hotel bar · how it is designed to work",
+      stages: [
+        { label: "Spend", title: "The visits add up", value: "₦150,000", status: "Spent this quarter", rows: [["Guest", "Ifeoma N."], ["Visits this quarter", "9"], ["Programme", "Every ₦100,000 earns dinner for two"]], note: "Spend is counted from recorded sales, not memory." },
+        { label: "Reward", title: "The perk is earned", value: "Dinner for two", status: "Reward available", rows: [["Earned on", "Sale #18472"], ["Cost to you", "₦18,000"], ["Available", "Next visit"]], note: "The reward and its cost are clear before anyone redeems it." },
+        { label: "Return", title: "The guest comes back", value: "Redeemed", status: "Returning guest", rows: [["Redeemed", "Saturday dinner"], ["Spend that visit", "₦42,000"], ["Programme", "Paying for itself"]], note: "In this example, the reward brings back more than it costs." },
+      ],
+    },
+    faqs: [
+      { q: "When can we use it?", a: "Loyalty is in design. Design partners help decide how the first version works, and are first to use it." },
+      { q: "Loyalty schemes never take off here. Why would this one?", a: "Most ask guests to do something. This is designed to ask only for a phone number they already give you." },
+      { q: "Will it cost me more than it brings in?", a: "It is designed so you set every rule and see what each programme costs next to the spend it brings back." },
+      { q: "What does a design partner do?", a: "Share how you reward regulars today, try early designs and tell us what would make a difference. It takes a few conversations, not a project." },
+    ],
+    related: ["guestIntelligence", "sales", "bars"],
+    ctaHref: "/contact?reason=early-access&feature=loyalty",
+    reassurance: "A few conversations, not a project.",
+  },
+  {
+    id: "procurement",
+    title: "Hotel procurement & supplier control",
+    description: "Know who you’re paying. Innbase approves suppliers, verifies bank account names and keeps proof of every supplier payment. In development.",
+    eyebrow: "CONTROL WHAT GOES OUT",
+    headline: "The invoice says ₦1.2 million.",
+    emphasis: "Who approved it?",
+    intro: "Margin leaks before a guest ever arrives. Keep an approved supplier list, check bank details before anyone pays them, and keep proof of every payment where you can find it months later.",
+    statusNote: "Procurement is in development. Innbase never moves your money: you keep paying suppliers from your own bank.",
+    connections: ["Suppliers", "Bank details", "Proof of payment"],
+    sectionTitle: "Every naira that leaves",
+    sectionEmphasis: "has an explanation.",
+    benefits: [
+      { title: "Approved suppliers only.", body: "New suppliers start as pending and only count as approved for your property once someone with authority signs them off." },
+      { title: "Bank details you can trust.", body: "The account name on a supplier’s bank details is verified, and two people must approve the details before they are accepted. A new account number can’t slip in quietly." },
+      { title: "Proof that stays with the payment.", body: "Pay from your bank as usual, then keep the receipt with the supplier. Files are encrypted, checked for malware and opened only by people you allow, with every opening recorded." },
+    ],
+    question: "“Did we just pay this supplier twice?”",
+    answer: "With approved suppliers and their payment proof in one place, you can check in a minute instead of digging through bank alerts.",
+    scenario: {
+      title: "One supplier, properly controlled.",
+      context: "Sample hotel · how it is designed to work",
+      stages: [
+        { label: "Supplier", title: "Register and approve", value: "Eko Beverages", status: "Approved supplier", rows: [["Category", "Drinks"], ["Property", "Main hotel"], ["Approved by", "Owner"]], note: "A new supplier stays pending until someone with authority approves it." },
+        { label: "Bank details", title: "Check before anyone pays", value: "Account verified", status: "Two approvals", rows: [["Account name", "Matches the supplier"], ["First approval", "Accounts"], ["Second approval", "Owner"]], note: "The account name is verified, and two people approve the details." },
+        { label: "Proof", title: "Keep the evidence", value: "₦640,000", status: "Proof stored", rows: [["Paid from", "Your bank"], ["Receipt", "Uploaded and checked"], ["Opened by", "Owner, recorded"]], note: "Innbase doesn’t make the payment. It keeps the proof with the supplier for when someone asks." },
+      ],
+    },
+    faqs: [
+      { q: "When can we use it?", a: "Procurement is in development. Join the pilot list and we’ll contact you when pilot places open." },
+      { q: "Does Innbase pay our suppliers?", a: "No. You keep paying suppliers from your own bank. Innbase controls who counts as an approved supplier, checks their bank details and keeps the proof." },
+      { q: "Is our financial information safe?", a: "Bank details and payment proof are encrypted, files are checked for malware before anyone can open them, and every opening is recorded." },
+      { q: "Can we track purchase orders and deliveries?", a: "Not in the first release, which starts with suppliers, bank details and payment proof. Tell us how you order today; it shapes what comes next." },
+    ],
+    related: ["payments", "inventory", "owners"],
+    ctaHref: "/contact?reason=early-access&feature=procurement",
+    reassurance: "Bring three suppliers. We’ll walk through them with you.",
+  },
 ];
 
 export const LANDING_PAGES = CONTENT.map((content) => {
   const destination = MARKETING_DESTINATIONS[content.id];
   const [, section, slug] = destination.href.split("/");
-  return { ...destination, ...content, section, slug };
+  const stage = RELEASE_STAGES[releaseStage(destination)];
+  return { ...destination, ...content, section, slug, stage, published: isPublished(destination) };
 });
 
+// Pages that may be rendered and routed in this build. Unpublished pages are
+// included only in a preview build (see SHOW_UNPUBLISHED).
 export function getLandingPages(section) {
-  return LANDING_PAGES.filter((page) => page.section === section);
+  return LANDING_PAGES.filter((page) => page.section === section && isVisible(page));
 }
 
 export function getLandingPage(section, slug) {
-  return LANDING_PAGES.find((page) => page.section === section && page.slug === slug);
+  return getLandingPages(section).find((page) => page.slug === slug);
+}
+
+// Pages search engines may index: published only, never preview.
+export function getPublishedLandingPages() {
+  return LANDING_PAGES.filter((page) => page.published);
 }

@@ -35,7 +35,7 @@ export default function MarketingNav() {
   function group(item) {
     return <div className="ib-nav-group" key={item.id}>
       <button type="button" className="ib-nav-trigger" ref={el => { triggers.current[item.id] = el; }} aria-expanded={open === item.id} aria-controls={`ib-menu-${item.id}`} onClick={() => setOpen(open === item.id ? null : item.id)}>{item.label}<ChevronDown size={14} aria-hidden="true" /></button>
-      <div className="ib-mega" id={`ib-menu-${item.id}`} hidden={open !== item.id}>
+      <div className={`ib-mega${item.groups.length > 2 ? " ib-mega-wide" : ""}`} id={`ib-menu-${item.id}`} hidden={open !== item.id}>
         <div className="ib-mega-lead"><span>{item.kicker}</span><h2>{item.title}</h2><p>{item.intro}</p><Link href="/contact" onClick={close}>Let’s talk about your hotel <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
         {item.groups.map(column => <div className="ib-mega-col" key={column.title}><h3>{column.title}</h3>{column.links.map(([label, href, description]) => <Link key={href} href={href} onClick={close}><span>{label}<ArrowUpRight size={14} aria-hidden="true" /></span><small>{description}</small></Link>)}</div>)}
       </div>
