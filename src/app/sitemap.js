@@ -1,4 +1,5 @@
 import { getPublishedLandingPages } from "@/data/marketingLandingPages";
+import { MARKETING_DESTINATIONS, isPublished } from "@/data/marketingDestinations";
 import { SITE_URL } from "@/lib/seo";
 import { BLOG } from "@/data/blog/blogData";
 import { getCategories, getPosts, isTopicIndexable } from "@/lib/blog";
@@ -50,6 +51,13 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    // Dedicated platform pages outside the shared landing template.
+    ...[MARKETING_DESTINATIONS.bookingEngine].filter(isPublished).map(({ href }) => ({
+      url: `${SITE_URL}${href}`,
+      lastModified: buildTime,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    })),
     {
       url: `${SITE_URL}/contact`,
       lastModified: buildTime,
