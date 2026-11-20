@@ -559,10 +559,8 @@ p.contrastBody {
 
 /* ── Design partners ── */
 
-/* Lighter than the shared bridge copy so it stays readable on the dark band. */
 .partner .partnerCopy > p.partnerIntro {
   margin-bottom: 28px;
-  color: #b3c0b5;
 }
 
 .partnerSteps {
