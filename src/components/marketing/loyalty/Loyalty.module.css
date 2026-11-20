@@ -1,0 +1,718 @@
+/* Loyalty page. Shared brand pieces come from marketing.css; this module
+   holds the counter card, the programme explorer, the contrasts, and the
+   design-partner section. Paragraph rules that set margins use `p.<class>`
+   so they outrank the site-wide `.ib-site p { margin: 0 }`. */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.till {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e4e8dc;
+}
+
+.tillIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #f3e6cf;
+  color: #74501b;
+}
+
+.till small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--ib-muted);
+}
+
+.till b {
+  display: block;
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: -.03em;
+}
+
+/* ── Hero ── */
+
+.heroScene {
+  position: relative;
+  height: 600px;
+  min-width: 0;
+}
+
+.heroCard {
+  position: absolute;
+  inset: 80px 70px 130px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: #fbfbf7;
+  color: var(--ib-text);
+  border: 6px solid #eef0e8;
+  border-radius: 16px;
+  box-shadow: 0 24px 48px #0006;
+}
+
+.heroField {
+  padding: 10px 12px;
+  border: 1px solid #d8dfd0;
+  border-radius: 9px;
+}
+
+.heroField small,
+.heroPerk small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--ib-muted);
+}
+
+.heroField span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: .02em;
+}
+
+.heroGuest {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e2efd9;
+  color: #2f5127;
+}
+
+.heroGuest b {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.heroGuest p {
+  font-size: 12.5px;
+  color: var(--ib-muted);
+}
+
+.heroPerk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #d9ecd0;
+  border-radius: 9px;
+  color: #2b4a22;
+}
+
+.heroPerk b {
+  display: block;
+  margin-top: 2px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #22401b;
+}
+
+.heroNumber {
+  position: absolute;
+  top: 14px;
+  right: -8px;
+  width: 210px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #c98a3b, #a8692a);
+  color: #fffaf1;
+  border-radius: 14px;
+  box-shadow: 0 18px 32px #0007;
+  transform: rotate(5deg);
+}
+
+.heroNumber span {
+  font-size: 10px;
+  letter-spacing: .14em;
+  opacity: .85;
+}
+
+.heroNumber b {
+  display: block;
+  margin-top: 18px;
+  font-size: 21px;
+  font-weight: 550;
+  letter-spacing: .04em;
+}
+
+.heroNumber p {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .9;
+}
+
+.heroNote {
+  bottom: 34px;
+  right: 0;
+}
+
+/* ── Explorer ── */
+
+.deskGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) 64px minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.panel,
+.counter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #cdd6c4;
+  border-radius: 12px;
+}
+
+.choice {
+  min-width: 0;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+
+.choice legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ib-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  border: 1px solid #d2dac9;
+  border-radius: 9px;
+  background: #f9faf5;
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip small {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 450;
+  color: var(--ib-muted);
+}
+
+.chip:hover {
+  border-color: #9fae9f;
+}
+
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--ib-accent);
+  outline-offset: 2px;
+}
+
+.chipOn {
+  background: var(--ib-ink);
+  border-color: var(--ib-ink);
+  color: var(--ib-paper);
+}
+
+.chipOn small {
+  color: #c9d3c8;
+}
+
+.chipOn:hover {
+  border-color: var(--ib-ink);
+}
+
+p.modeDetail {
+  margin-top: -6px;
+  font-size: 12px;
+  color: var(--ib-muted);
+}
+
+.cost {
+  margin-top: auto;
+  padding: 14px 16px;
+  background: #f4f7f0;
+  border-radius: 10px;
+  transform: translateY(0);
+}
+
+.panel .cost {
+  margin-top: 16px;
+}
+
+.cost small {
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--ib-muted);
+}
+
+p.rule {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cost dl {
+  margin: 10px 0 0;
+}
+
+.cost dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid #e1e7d9;
+  font-size: 13px;
+}
+
+.cost dt {
+  color: var(--ib-muted);
+}
+
+.cost dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.costLive dd {
+  color: #2b4a22;
+  animation: arrive .35s ease-out;
+}
+
+.flow {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid #eef1ea;
+  animation: arrive .3s ease-out;
+}
+
+.flow li:first-child {
+  border-top: 0;
+}
+
+.flow li > span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef1ea;
+  color: var(--ib-muted);
+}
+
+.flow b {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.flow p {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ib-muted);
+}
+
+.flow p strong {
+  color: var(--ib-text);
+  font-weight: 600;
+}
+
+.flow_pass > span {
+  background: #e2efd9 !important;
+  color: #2f5127 !important;
+}
+
+.flow_win > span {
+  background: #2f5127 !important;
+  color: #fff !important;
+}
+
+.flow_win p {
+  color: #2b4a22;
+  font-weight: 600;
+}
+
+.meter {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #f4f7f0;
+  border-radius: 10px;
+}
+
+.meterHead {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 12.5px;
+}
+
+.meterHead span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meterHead span:first-child {
+  font-weight: 600;
+}
+
+.meterHead span:last-child {
+  color: var(--ib-muted);
+}
+
+.bar {
+  height: 8px;
+  margin-top: 9px;
+  background: #dfe5d7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6d9a5d, #3f6b34);
+  border-radius: inherit;
+  transition: width .45s ease;
+}
+
+p.applied {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #d9ecd0;
+  border-radius: 8px;
+  color: #2b4a22;
+  font-size: 12.5px;
+  line-height: 1.5;
+  animation: arrive .35s ease-out;
+}
+
+.applied svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.actions > button:global(.ib-button) {
+  width: 100%;
+  min-height: 48px;
+  font-size: 13px;
+}
+
+.tryButton {
+  display: block;
+  margin: 4px auto 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ib-text);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+p.refusal {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fbeee6;
+  border: 1px solid #efcfbd;
+  border-radius: 8px;
+  color: #6b3a1f;
+  font-size: 12.5px;
+  line-height: 1.5;
+  animation: arrive .3s ease-out;
+}
+
+.refusal svg {
+  flex: none;
+  margin-top: 3px;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* ── Contrasts ── */
+
+.contrastGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contrastGrid li {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px;
+  background: #f9faf5;
+  border: 1px solid #d2dac9;
+  border-radius: 12px;
+}
+
+p.old {
+  font-size: 14px;
+  color: var(--ib-muted);
+  text-decoration: line-through;
+  text-decoration-color: #c98a3b;
+  text-decoration-thickness: 2px;
+}
+
+.contrastGrid h3 {
+  margin-top: 18px;
+  font-size: 24px;
+  letter-spacing: -.03em;
+}
+
+p.contrastBody {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--ib-muted);
+}
+
+/* ── Who does what ── */
+
+.scopeCard > svg {
+  color: var(--ib-muted);
+}
+
+/* ── Design partners ── */
+
+/* Lighter than the shared bridge copy so it stays readable on the dark band. */
+.partner .partnerCopy > p.partnerIntro {
+  margin-bottom: 28px;
+  color: #b3c0b5;
+}
+
+.partnerSteps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #ffffff1f;
+}
+
+.partnerSteps li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  padding: 22px 0;
+  border-bottom: 1px solid #ffffff1f;
+}
+
+.partnerSteps li > span {
+  font-size: 12px;
+  color: #9fae9f;
+}
+
+.partnerSteps h3 {
+  font-size: 20px;
+  letter-spacing: -.03em;
+}
+
+.partnerSteps p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #b3c0b5;
+}
+
+.builtOn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.builtOn a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 9px;
+  padding: 13px 15px;
+  border: 1px solid #ffffff1f;
+  border-radius: 8px;
+  color: var(--ib-paper);
+  font-size: 13px;
+  font-weight: 550;
+  transition: border-color .2s ease;
+}
+
+.builtOn a svg {
+  color: var(--ib-sage);
+}
+
+.builtOn a span {
+  grid-column: 2;
+  font-size: 11px;
+  font-weight: 400;
+  color: #9fae9f;
+}
+
+.builtOn a > svg:last-child {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.builtOn a:hover {
+  border-color: var(--ib-accent);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1200px) {
+  .deskGrid {
+    grid-template-columns: minmax(0, 1.1fr) 34px minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .deskGrid {
+    grid-template-columns: minmax(0, 1.05fr) 20px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .heroCard {
+    inset: 86px 40px 130px 10px;
+    padding: 18px;
+  }
+
+  .contrastGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroScene {
+    width: 100%;
+    max-width: 525px;
+    height: auto;
+    margin-inline: auto;
+    padding: 130px 0 110px;
+  }
+
+  .heroCard {
+    position: relative;
+    inset: auto;
+    padding: 16px 14px;
+    border-width: 5px;
+  }
+
+  .heroNumber {
+    top: 0;
+    right: 0;
+    width: 190px;
+  }
+
+  .heroNote {
+    bottom: 0;
+  }
+
+  .deskGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .panel,
+  .counter {
+    padding: 16px;
+  }
+
+  .builtOn {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar i,
+  .chip {
+    transition: none;
+  }
+
+  .flow li,
+  .costLive dd,
+  p.applied,
+  p.refusal {
+    animation: none;
+  }
+}

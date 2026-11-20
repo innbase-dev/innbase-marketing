@@ -348,48 +348,11 @@ const CONTENT = [
     related: ["assistant", "payments", "properties"],
   },
   // ── Five priority pages (2026-11-19) ──
-  // Booking engine, Procurement, Guest intelligence and Door access have their own dedicated pages (src/app/platform/*).
+  // All five (Booking engine, Procurement, Guest intelligence, Door access, Loyalty) have their own dedicated pages (src/app/platform/*).
   // Rule: sell the outcome confidently, describe the capability precisely, and
   // never turn an intended feature into an implied production guarantee. Each
   // page's wording matches its release stage in marketingDestinations.js;
   // review the copy before moving a page to a later stage.
-  {
-    id: "loyalty",
-    title: "Loyalty programme for hotels, restaurants & bars",
-    description: "Turn guests into regulars. Innbase Loyalty is being designed to reward real spend and recognise returning guests by phone number. Become a design partner.",
-    eyebrow: "BRING THEM BACK",
-    headline: "They came back nine times.",
-    emphasis: "Did anyone notice?",
-    intro: "Your best guests are already loyal. Innbase Loyalty is being designed to reward their real spend, recognise them by the phone number they already give you, and give them a reason to choose you again.",
-    connections: ["Sales", "Guests", "Rewards"],
-    sectionTitle: "Stop paying to win back",
-    sectionEmphasis: "guests who already know you.",
-    benefits: [
-      { title: "Rewards from real spend.", body: "Perks will be earned from sales recorded in Innbase, so there are no stamp cards to lose, no tallies to keep and no arguments at the till." },
-      { title: "A programme you control.", body: "You’ll choose the spend, the perk and who qualifies, and see what each programme costs next to the spend it brings back." },
-      { title: "The phone number is the card.", body: "No app to download and no account to create. Regulars will be recognised by the number they already give you." },
-    ],
-    question: "“Why do our regulars feel like strangers?”",
-    answer: "Because nothing connects their visits. Loyalty is designed to link the spend to the guest, so the thank-you takes care of itself.",
-    scenario: {
-      title: "From regular to reward.",
-      context: "Sample hotel bar · how it is designed to work",
-      stages: [
-        { label: "Spend", title: "The visits add up", value: "₦150,000", status: "Spent this quarter", rows: [["Guest", "Ifeoma N."], ["Visits this quarter", "9"], ["Programme", "Every ₦100,000 earns dinner for two"]], note: "Spend is counted from recorded sales, not memory." },
-        { label: "Reward", title: "The perk is earned", value: "Dinner for two", status: "Reward available", rows: [["Earned on", "Sale #18472"], ["Cost to you", "₦18,000"], ["Available", "Next visit"]], note: "The reward and its cost are clear before anyone redeems it." },
-        { label: "Return", title: "The guest comes back", value: "Redeemed", status: "Returning guest", rows: [["Redeemed", "Saturday dinner"], ["Spend that visit", "₦42,000"], ["Programme", "Paying for itself"]], note: "In this example, the reward brings back more than it costs." },
-      ],
-    },
-    faqs: [
-      { q: "When can we use it?", a: "Loyalty is in design. Design partners help decide how the first version works, and are first to use it." },
-      { q: "Loyalty schemes never take off here. Why would this one?", a: "Most ask guests to do something. This is designed to ask only for a phone number they already give you." },
-      { q: "Will it cost me more than it brings in?", a: "It is designed so you set every rule and see what each programme costs next to the spend it brings back." },
-      { q: "What does a design partner do?", a: "Share how you reward regulars today, try early designs and tell us what would make a difference. It takes a few conversations, not a project." },
-    ],
-    related: ["guestIntelligence", "sales", "bars"],
-    ctaHref: "/contact?reason=early-access&feature=loyalty",
-    reassurance: "A few conversations, not a project.",
-  },
 ];
 
 export const LANDING_PAGES = CONTENT.map((content) => {
