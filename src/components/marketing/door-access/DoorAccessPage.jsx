@@ -1,110 +1,78 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BedDouble, Check, ClipboardCheck, DoorOpen, KeyRound, Lock, LockOpen, ShieldCheck, Smartphone, Users } from "lucide-react";
-import { DOOR_FAQ, DOOR_ROLES, GUEST, PLAN_B, ROOM } from "@/data/doorAccessData";
+import { ArrowUpRight, BedDouble, ClipboardCheck, KeyRound, Smartphone, Users } from "lucide-react";
+import { DOOR_FAQ, DOOR_ROLES, PLAN_B } from "@/data/doorAccessData";
 import { MARKETING_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
+import { Eyebrow, FAQ, SectionHeading, TextLink } from "../Primitives";
 import AccessDesk from "./AccessDesk";
+import ShiftNote from "../feature/ShiftNote";
+import FeatureOpening from "../feature/FeatureOpening";
 import styles from "./DoorAccess.module.css";
 
 const PILOT_HREF = "/contact?reason=early-access&feature=door-access";
-const HERO_CHECKS = ["Booking confirmed", `Room ${ROOM} assigned`, "Deposit confirmed", "No known risk"];
 
 export default function DoorAccessPage() {
   const booking = MARKETING_DESTINATIONS.bookingEngine;
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>DOOR ACCESS</Eyebrow>
-            <h1>Your guest arrives at 1 a.m.<br /><em>The door is ready.</em></h1>
-            <p>Door Access ties room entry to the stay itself. When a booking is confirmed, paid and assigned a room, the guest’s access is granted for that room and that stay, and it is built to end when the stay does.</p>
-            <div className="ib-actions">
-              <Button href="#desk">Follow a late arrival</Button>
-              <TextLink href={PILOT_HREF}>Join the pilot list</TextLink>
-            </div>
-            <Reassurance>Pilot places are limited. We start by looking at your doors.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.recordHead}>
-                <span className={styles.recordIcon} aria-hidden="true"><ShieldCheck size={20} /></span>
-                <div><small>GUEST ACCESS · SAMPLE</small><b>{GUEST} · Room {ROOM}</b></div>
-              </div>
-              <ul className={styles.heroChecks}>
-                {HERO_CHECKS.map((c) => <li key={c}><Check size={14} aria-hidden="true" />{c}</li>)}
-              </ul>
-              <div className={styles.heroWindow}>
-                <div><small>FROM</small><b>Fri 2:00 pm</b></div>
-                <ArrowRight size={16} aria-hidden="true" />
-                <div><small>UNTIL CHECKOUT</small><b>Sun 11:00 am</b></div>
-              </div>
-            </div>
-            <div className={styles.heroKey} aria-hidden="true">
-              <span><KeyRound size={13} />Room key</span>
-              <b>Room {ROOM}</b>
-              <p><LockOpen size={13} />Opened at 1:40 a.m.</p>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className="ib-note-icon"><Lock size={20} aria-hidden="true" /></span>
-              <div>
-                <small>ACCESS · ROOM {ROOM}</small>
-                <strong>This stay only.</strong>
-                <p><Check size={12} aria-hidden="true" />Ends at checkout</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [ClipboardCheck, "The whole stay, checked", "Booking, room, payment, risk, dates"],
-            [KeyRound, "One grant per stay", "Recorded once, never duplicated"],
-            [DoorOpen, "Ends with the stay", "The next guest gets a fresh room"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
-          ))}
-        </div>
-      </section>
+      <FeatureOpening
+        name="Door access"
+        title="A late arrival."
+        emphasis="A key for this stay."
+        intro="Tunde reaches Room 108 at 1:40 a.m. Follow the booking, payment and room checks that determine when his key can work and when access ends."
+        primary={{ href: "#desk", label: "Follow a late arrival" }}
+        secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
+        photo="/images/marketing/feature-door.webp"
+        alt="A brushed brass electronic lock on a timber guest-room door"
+        recordLabel="Guest key example"
+        recordTitle="Room 108"
+        chapters={[
+          { href: "#desk", label: "The late arrival", detail: "Follow the key to checkout", Icon: KeyRound },
+          { href: "#practical", label: "Locks and fallbacks", detail: "Plan for a power cut", Icon: ClipboardCheck },
+          { href: "#how-it-works", label: "Manager exceptions", detail: "See who can grant access", Icon: Users },
+        ]}
+      >
+        <dl className={styles.keyWindow}>
+          <div><dt>Valid from</dt><dd>Fri · 2 pm</dd></div>
+          <div><dt>Checkout</dt><dd>Sun · 11 am</dd></div>
+        </dl>
+      </FeatureOpening>
 
       <AccessDesk />
 
-      <section className={`ib-section ib-paper-alt ${styles.planB}`} id="practical">
+      <section className="ib-section ib-paper-alt" id="practical">
         <div className="ib-container">
           <SectionHeading eyebrow="BEFORE ANYTHING GOES LIVE" title={<>Every door<br /><em>needs a plan B.</em></>}>
             <p>Smart access is only as good as what happens when something goes wrong. These are settled with you before a single door changes.</p>
           </SectionHeading>
-          <ol className={styles.planGrid}>
-            {PLAN_B.map((item, i) => (
-              <li key={item.title}>
-                <span>0{i + 1}</span>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </li>
+          <dl className={styles.readiness}>
+            {PLAN_B.map(item => (
+              <div key={item.title}><dt>{item.title}</dt><dd>{item.body}</dd></div>
             ))}
-          </ol>
+          </dl>
         </div>
       </section>
 
       <section className="ib-section" id="how-it-works">
         <div className="ib-container">
           <SectionHeading eyebrow="WHO DOES WHAT" title={<>Your night team<br /><em>handles the exceptions.</em></>}>
-            <p>Most arrivals need nobody at all. The few that do reach a named manager, with the reason in front of them.</p>
+            <p>The desk checks the booking. A named manager can approve an unpaid stay and leave a reason the morning shift can read.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Users size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>FRONT DESK · DUTY MANAGERS · GUESTS</span>
-              <h3>Late arrivals,<br /><em>without a late shift.</em></h3>
-              <p>Guests reach their room on their own schedule. Your night team is free for the bar bill, the phone and the guest who really needs them.</p>
-            </div>
+            <ShiftNote
+              label="Night shift · example"
+              title="Room 108, at 1:40 a.m."
+              detail="Tunde’s arrival falls inside the access window for this room. The morning shift can see when that permission ends."
+              entries={[
+                ["Guest", "Tunde Adeyemi"],
+                ["Access begins", "Friday · 2:00 pm"],
+                ["Access ends", "Sunday · 11:00 am"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {DOOR_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -112,7 +80,7 @@ export default function DoorAccessPage() {
         </div>
       </section>
 
-      <section className={`ib-section ib-dark ${styles.connected}`} id="connected">
+      <section className="ib-section ib-dark" id="connected">
         <div className="ib-container ib-bridge">
           <div>
             <Eyebrow>ONE CONNECTED OPERATION</Eyebrow>
@@ -139,8 +107,8 @@ export default function DoorAccessPage() {
 
       <FAQ
         items={DOOR_FAQ}
-        title={<>A few things<br /><em>worth knowing.</em></>}
-        description="Door Access is in development. Tell us about your doors, your late arrivals and your night shift."
+        title={<>Before you<br /><em>change your locks.</em></>}
+        description="Tell us about your existing locks or how your night team handles arrivals."
       />
     </>
   );

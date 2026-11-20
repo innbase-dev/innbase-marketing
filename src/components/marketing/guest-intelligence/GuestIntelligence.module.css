@@ -133,75 +133,6 @@ p.listTitle {
   white-space: nowrap;
 }
 
-/* ── Hero ── */
-
-.heroScene {
-  position: relative;
-  height: 640px;
-  min-width: 0;
-}
-
-.heroCard {
-  position: absolute;
-  inset: 138px 0 100px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  background: #fbfbf7;
-  color: var(--ib-text);
-  border: 6px solid #eef0e8;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px #0006;
-}
-
-.heroBubble {
-  position: absolute;
-  top: 0;
-  left: -22px;
-  width: 250px;
-  padding: 12px 15px 13px;
-  background: #fffefa;
-  color: var(--ib-text);
-  border-radius: 16px;
-  box-shadow: 0 14px 28px #0005;
-  transform: rotate(-4deg);
-}
-
-.heroBubble span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: .06em;
-  color: var(--ib-muted);
-}
-
-.heroBubble p {
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.heroBubble b {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding: 7px;
-  border-radius: 8px;
-  background: var(--ib-ink);
-  color: var(--ib-paper);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.heroNote {
-  bottom: 0;
-  right: -12px;
-}
-
 /* ── Profile desk ── */
 
 .deskGrid {
@@ -371,16 +302,6 @@ p.notice {
   left: 3px;
 }
 
-.sideAction {
-  margin-top: 14px;
-}
-
-.sideAction > button {
-  width: 100%;
-  min-height: 48px;
-  font-size: 13px;
-}
-
 .profile {
   flex: 1;
   display: flex;
@@ -401,22 +322,41 @@ p.notice {
   border-radius: 9px;
 }
 
-.viewer button {
-  min-height: 34px;
-  padding: 6px 8px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--ib-muted);
-  font-size: 12px;
-  font-weight: 550;
+.viewer label {
+  position: relative;
+  display: grid;
+  align-items: stretch;
   cursor: pointer;
 }
 
-.viewer button[aria-checked="true"] {
+.viewer input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.viewer label > span {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: var(--ib-muted);
+  font-size: .875rem;
+  font-weight: 550;
+  text-align: center;
+}
+
+.viewer input:checked + span {
   background: #fff;
   color: var(--ib-text);
   box-shadow: 0 1px 3px #1c2e161a;
+}
+
+.viewer input:focus-visible + span {
+  outline: 3px solid #86501c;
+  outline-offset: -2px;
 }
 
 p.none {
@@ -610,12 +550,6 @@ p.switchHint {
   color: var(--ib-muted);
 }
 
-/* ── Who does what ── */
-
-.scopeCard > svg {
-  color: var(--ib-muted);
-}
-
 /* ── Connected operation ── */
 
 .connectedModules {
@@ -672,19 +606,6 @@ p.switchHint {
     gap: 9px;
   }
 
-  .heroScene {
-    height: 660px;
-  }
-
-  .heroCard {
-    inset: 140px 0 104px 10px;
-    padding: 18px;
-  }
-
-  .heroBubble {
-    left: -6px;
-  }
-
   .boundaryGrid {
     grid-template-columns: 1fr;
   }
@@ -695,30 +616,6 @@ p.switchHint {
 }
 
 @media (max-width: 760px) {
-  .heroScene {
-    width: 100%;
-    max-width: 525px;
-    height: auto;
-    margin-inline: auto;
-    padding: 132px 0 104px;
-  }
-
-  .heroCard {
-    position: relative;
-    inset: auto;
-    padding: 16px 14px;
-    border-width: 5px;
-  }
-
-  .heroBubble {
-    left: 0;
-    width: 230px;
-  }
-
-  .heroNote {
-    right: 0;
-  }
-
   .deskGrid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -761,9 +658,6 @@ p.switchHint {
     justify-self: start;
   }
 
-  .heroBubble {
-    width: 210px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -783,3 +677,14 @@ p.switchHint {
     transition: none;
   }
 }
+
+.preferenceNote { display: flex; align-items: flex-start; gap: 10px; border-left: 2px solid #839b77; padding: 6px 0 6px 14px; }
+.preferenceNote > svg { margin-top: 1px; color: var(--ib-muted); }
+.preferenceNote b { display: block; font-size: 1rem; font-weight: 550; line-height: 1.3; }
+.preferenceNote small { margin-top: 4px; }
+
+.walkthrough { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 24px; padding: 18px 20px; border: 1px solid #d0d9ca; background: var(--ib-paper); border-radius: 8px; }
+.walkthrough b, .walkthrough small { display: block; }
+.walkthrough small { color: var(--ib-muted); font-size: .8125rem; }
+.walkthrough b { font-weight: 550; }
+.walkthrough button { max-width: 100%; }

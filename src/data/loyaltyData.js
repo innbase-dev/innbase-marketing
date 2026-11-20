@@ -81,7 +81,7 @@ export const PARTNER_STEPS = [
 ];
 
 export const LOYALTY_FAQ = [
-  { q: "When can we use it?", a: "Loyalty is in design. Design partners help decide how the first version works, and are first to use it." },
+  { q: "How do we take part in the design?", a: "Design partners help shape the first version. Bring a reward you offer today and try it in the programme explorer with your team." },
   { q: "Loyalty schemes never take off here. Why would this one?", a: "Most ask guests to do something: download, sign up, carry a card. This is designed to ask only for a phone number they already give you." },
   { q: "Will it cost me more than it brings in?", a: "That depends on your guests and the rules you set, and nobody can promise it in advance. Loyalty is designed so you set every rule and see what each reward costs next to the spend that earned it." },
   { q: "Which rewards can we offer?", a: "The designs include discounts, hotel credit, a free product or service, Wi-Fi access, a room upgrade or another perk of your own, with programmes based on visits, total spend, a single big visit or credit back on spend." },

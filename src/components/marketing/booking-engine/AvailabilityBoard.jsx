@@ -5,9 +5,9 @@ import styles from "./BookingEngine.module.css";
 // `cells` overrides individual nights, keyed `${roomId}:${night}`, with
 // { state: "held" | "new" | "released", label }. Everything else comes from
 // the sample bookings in bookingEngineData.
-export default function AvailabilityBoard({ cells = {}, focusType = null, offered = null, unavailable = [], caption, compact = false }) {
+export default function AvailabilityBoard({ cells = {}, focusType = null, offered = null, unavailable = [], caption }) {
   return (
-    <div className={`${styles.board} ${compact ? styles.boardCompact : ""}`}>
+    <div className={styles.board}>
       <table>
         <caption className={styles.visuallyHidden}>{caption}</caption>
         <thead>

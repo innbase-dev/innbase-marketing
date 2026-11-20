@@ -1,0 +1,126 @@
+.opening {
+  --record-paper: #f4f5ed;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  align-items: center;
+  column-gap: clamp(32px, 5vw, 80px);
+  padding-block: clamp(40px, 5.3vw, 80px);
+}
+
+.copy h1 {
+  font-size: clamp(3rem, 5.55vw, 5.25rem);
+  line-height: 1.01;
+  letter-spacing: -.058em;
+  text-wrap: balance;
+}
+
+.copy h1 em { display: block; }
+
+p.intro {
+  max-width: 46ch;
+  margin-top: 24px;
+  color: #c4cec4;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.scene {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #475048;
+  border-radius: 14px;
+  background: var(--record-paper);
+  color: var(--ib-text);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 1.65;
+  overflow: hidden;
+  background: #574b39;
+}
+
+.photo img { object-fit: cover; }
+
+.record {
+  display: grid;
+  grid-template-columns: minmax(0, .87fr) minmax(0, 1.13fr);
+  align-items: center;
+  gap: 16px;
+  padding: clamp(16px, 2vw, 28px);
+  font-variant-numeric: tabular-nums;
+}
+
+.recordHead { min-width: 0; }
+.recordHead > span, .record small {
+  display: block;
+  color: var(--ib-muted);
+  font-size: .75rem;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+.recordHead > span {
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+.recordHead > strong {
+  display: block;
+  font-size: clamp(1.15rem, 1.75vw, 1.55rem);
+  font-weight: 550;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #414c44;
+  padding-block: 15px;
+}
+
+.chapters a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 22px;
+  min-height: 64px;
+  border-radius: 4px;
+}
+.chapters a + a { border-left: 1px solid #414c44; }
+.chapters a > svg:first-child { color: var(--ib-accent); }
+.chapters a > svg:last-child { color: #adb9ad; }
+.chapters strong, .chapters small { display: block; }
+.chapters strong { font-weight: 550; font-size: 1rem; }
+.chapters small { font-size: .875rem; color: #b8c4b9; }
+.chapters a:hover { background: var(--ib-ink-soft); }
+.chapters a:focus-visible { outline-offset: -3px !important; }
+
+@media (min-width: 761px) and (max-width: 1050px) {
+  .hero { column-gap: 28px; }
+  .record { grid-template-columns: 1fr; gap: 12px; }
+  .chapters a { padding-inline: 12px; gap: 8px; }
+}
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 28px; }
+  .copy h1 { font-size: clamp(2.65rem, 8.2vw, 3.85rem); }
+  .photo { aspect-ratio: 1.9; }
+  p.intro { margin-top: 16px; }
+  .chapters { grid-template-columns: 1fr; padding-block: 4px; }
+  .chapters a { grid-template-columns: auto 1fr auto; gap: 12px; min-height: 48px; padding: 9px 4px; }
+  .chapters a + a { border-left: 0; border-top: 1px solid #344138; }
+  .chapters small { display: none; }
+}
+
+@media (max-width: 420px) {
+  .record { grid-template-columns: 1fr; gap: 12px; }
+  .recordHead > span { margin-bottom: 4px; }
+}

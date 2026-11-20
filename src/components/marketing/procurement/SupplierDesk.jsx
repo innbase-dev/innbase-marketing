@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, Ban, Building2, Check, FileCheck2, FileLock2, Landmark, Lock, MessageCircle, RotateCcw, ScanSearch, ShieldCheck, TriangleAlert } from "lucide-react";
 import { AMOUNT, PROPERTY, SCENARIOS, SUPPLIER, TRANSFER_REF } from "@/data/procurementData";
 import { SectionHeading } from "../Primitives";
+import demo from "../feature/FeatureDemo.module.css";
 import styles from "./Procurement.module.css";
 
 const APPROVED_ACCOUNT = { number: "•••• 4417", bank: "Sample Bank", name: "EKO BEVERAGES LTD", nameTone: "sage", nameNote: "Matches the supplier", submitted: "Chidi · Accounts", approval: ["Approved by Funmi · Owner", "sage"] };
@@ -172,7 +173,7 @@ function Outside({ view }) {
 }
 
 export default function SupplierDesk() {
-  const [scenario, setScenario] = useState("new");
+  const [scenario, setScenario] = useState("change");
   const [step, setStep] = useState(0);
   const [tried, setTried] = useState(false);
   const tabs = useRef([]);
@@ -210,13 +211,13 @@ export default function SupplierDesk() {
   const nextLabel = s.next && SCENARIOS.find((x) => x.key === s.next).label;
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="desk">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="desk">
       <div className="ib-container">
-        <SectionHeading eyebrow="THE SUPPLIER CONTROL DESK" title={<>Every naira that leaves<br /><em>has an explanation.</em></>}>
+        <SectionHeading eyebrow="THE SUPPLIER CONTROL DESK" title={<>The account changed.<br /><em>Who checked it?</em></>}>
           <p>Approve a supplier, pay them from your bank, and handle the message every hotel eventually gets. See what Innbase records, and what stays with your bank.</p>
         </SectionHeading>
 
-        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose a supplier situation" style={{ gridTemplateColumns: `repeat(${SCENARIOS.length}, 1fr)` }}>
+        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose a supplier situation">
           {SCENARIOS.map(({ key, label }, i) => (
             <button key={key} type="button" role="tab" id={`proc-tab-${key}`} aria-controls="proc-desk" aria-selected={scenario === key} tabIndex={scenario === key ? 0 : -1} ref={(el) => { tabs.current[i] = el; }} onClick={() => choose(key)} onKeyDown={(e) => keydown(e, i)}>
               {label}
@@ -225,7 +226,7 @@ export default function SupplierDesk() {
         </div>
 
         <div className="ib-demo-stage" id="proc-desk" role="tabpanel" aria-labelledby={`proc-tab-${scenario}`}>
-          <div className="ib-demo-topline"><span>TRY IT FROM BOTH SIDES</span><span>Illustrative demo · sample supplier, people and amounts</span></div>
+          <div className="ib-demo-topline"><span>SUPPLIER ACCOUNT REVIEW</span><span>Example supplier and transactions</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>

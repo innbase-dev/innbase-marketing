@@ -80,133 +80,6 @@
   letter-spacing: -.03em;
 }
 
-/* ── Hero ── */
-
-.heroScene {
-  position: relative;
-  height: 600px;
-  min-width: 0;
-}
-
-.heroCard {
-  position: absolute;
-  inset: 84px 0 108px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  background: #fbfbf7;
-  color: var(--ib-text);
-  border: 6px solid #eef0e8;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px #0006;
-}
-
-.heroFacts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 16px 0 0;
-}
-
-.heroFacts dt {
-  font-size: 11px;
-  color: var(--ib-muted);
-}
-
-.heroFacts dd {
-  margin: 3px 0 0;
-  font-size: 13px;
-  font-weight: 550;
-}
-
-p.heroListTitle {
-  margin-top: 26px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ib-muted);
-}
-
-.heroPayments {
-  margin: 8px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.heroPayments li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 11px 0;
-  border-top: 1px solid #eef1ea;
-}
-
-.heroPayments b {
-  display: block;
-  font-size: 16px;
-  font-weight: 550;
-  letter-spacing: -.02em;
-}
-
-.heroPayments li > div > span {
-  font-size: 11px;
-  color: var(--ib-muted);
-}
-
-.heroReceipt {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #e2efd9;
-  color: #2f5127;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.heroBubble {
-  position: absolute;
-  top: 0;
-  left: -22px;
-  width: 262px;
-  padding: 12px 15px 13px;
-  background: #fffefa;
-  color: var(--ib-text);
-  border-radius: 14px 14px 14px 4px;
-  box-shadow: 0 14px 28px #0005;
-  transform: rotate(-4deg);
-}
-
-.heroBubble span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: .06em;
-  color: var(--ib-muted);
-}
-
-.heroBubble p {
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.heroNote {
-  bottom: 0;
-  right: -12px;
-}
-
-.alertIcon {
-  background: #f3bc8022 !important;
-  color: var(--ib-accent) !important;
-}
-
 /* ── Control desk ── */
 
 .deskGrid {
@@ -646,12 +519,6 @@ p.splitFoot {
   color: #6f6754;
 }
 
-/* ── Who does what ── */
-
-.scopeCard > svg {
-  color: var(--ib-muted);
-}
-
 /* ── Connected operation ── */
 
 .connectedModules {
@@ -698,29 +565,12 @@ p.splitFoot {
     gap: 14px;
   }
 
-  .heroFacts {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 1000px) {
   .deskGrid {
     grid-template-columns: minmax(0, 1.15fr) 20px minmax(0, 1fr);
     gap: 9px;
-  }
-
-  .heroScene {
-    height: 620px;
-  }
-
-  .heroCard {
-    inset: 84px 0 112px 10px;
-    padding: 18px;
-  }
-
-  .heroBubble {
-    left: -6px;
-    width: 236px;
   }
 
   .account dl {
@@ -737,34 +587,6 @@ p.splitFoot {
 }
 
 @media (max-width: 760px) {
-  .heroScene {
-    width: 100%;
-    max-width: 525px;
-    height: auto;
-    margin-inline: auto;
-    padding: 112px 0 104px;
-  }
-
-  .heroCard {
-    position: relative;
-    inset: auto;
-    padding: 16px 14px;
-    border-width: 5px;
-  }
-
-  .heroFacts {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .heroBubble {
-    left: 0;
-    width: 230px;
-  }
-
-  .heroNote {
-    right: 0;
-  }
-
   .deskGrid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -791,19 +613,6 @@ p.splitFoot {
 }
 
 @media (max-width: 390px) {
-  .heroFacts {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .heroBubble {
-    width: 205px;
-  }
-
-  .heroBubble p {
-    font-size: 13px;
-  }
-
   .recordHead {
     grid-template-columns: auto 1fr;
   }
@@ -825,3 +634,9 @@ p.splitFoot {
     animation: none;
   }
 }
+
+.accountReview { display: grid; gap: 6px; margin: 0; font-size: .8125rem; }
+.accountReview > div { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.accountReview > div + div { padding-top: 6px; border-top: 1px solid var(--ib-line); }
+.accountReview dd { display: flex; gap: 4px; align-items: center; margin: 0; font-weight: 600; color: #35552d; }
+.accountReview > div:last-child dd { color: #853e1b; }

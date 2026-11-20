@@ -1,0 +1,47 @@
+.note {
+  align-self: start;
+  min-width: 0;
+  padding: clamp(24px, 3.5vw, 48px);
+  background: var(--ib-ink-soft);
+  color: var(--ib-paper);
+  border-radius: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--ib-accent);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.note h3 {
+  font-family: var(--ib-serif);
+  font-size: clamp(2.2rem, 3.65vw, 3.5rem);
+  line-height: 1.03;
+  font-weight: 400;
+  letter-spacing: -.025em;
+}
+
+.note > p {
+  margin: 16px 0 24px;
+  color: #cad5ca;
+  font-size: 1rem;
+}
+
+.note dl { margin: 0; }
+.note dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding-block: 12px;
+  border-top: 1px solid #455347;
+  font-size: .9375rem;
+}
+.note dt { color: #cad5ca; }
+.note dd { margin: 0; font-weight: 550; }

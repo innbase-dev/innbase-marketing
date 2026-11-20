@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, Ban, Check, CircleDashed, Lock, MapPin, MessageSquareText, RotateCcw, Smartphone, UserRound } from "lucide-react";
 import { GUEST } from "@/data/guestIntelligenceData";
 import { SectionHeading } from "../Primitives";
+import demo from "../feature/FeatureDemo.module.css";
 import styles from "./GuestIntelligence.module.css";
 
 const QUIET = { label: "Quiet room", source: "Told the front desk", Icon: MessageSquareText };
@@ -83,6 +84,7 @@ export default function GuestProfileDesk() {
     setTried(false);
     setStep(0);
     setViewer("desk");
+    requestAnimationFrame(() => actionRef.current?.focus({ preventScroll: true }));
   }
 
   const actionButton = (
@@ -92,30 +94,33 @@ export default function GuestProfileDesk() {
   );
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="desk">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="desk">
       <div className="ib-container">
         <SectionHeading eyebrow="THE RETURNING GUEST" title={<>One guest. Two stays.<br /><em>Her choice throughout.</em></>}>
           <p>Follow Amaka from her first stay to her return. See what the team records, what she shares herself, and what changes when she says no.</p>
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>TRY IT FROM BOTH SIDES</span><span>Illustrative demo · sample guest, rooms and dates</span></div>
+          <div className="ib-demo-topline"><span>GUEST AND STAFF VIEWS</span><span>Example guest · Amaka Bello</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
               <div className="ib-demo-label"><span>01 / THE GUEST</span><span><Smartphone size={13} aria-hidden="true" />Guest Companion</span></div>
               <GuestPhone view={s.guest} />
-              {(s.side === "guest" || last) && <div className={styles.sideAction}>{actionButton}</div>}
+
             </div>
 
             <div className="ib-demo-connector" aria-hidden="true"><span /><ArrowRight size={24} /><span /></div>
 
             <div className={styles.side}>
-              <div className="ib-demo-label"><span>02 / THE HOTEL TEAM</span><span>Step {step + 1} of {STEPS.length}</span></div>
+              <div className="ib-demo-label"><span>02 / THE HOTEL TEAM</span><span>Property profile</span></div>
               <div className={styles.profile}>
                 <div className={styles.viewer} role="radiogroup" aria-label="View the profile as">
                   {[["desk", "Front desk manager"], ["none", "Staff without access"]].map(([key, label]) => (
-                    <button key={key} type="button" role="radio" aria-checked={viewer === key} onClick={() => setViewer(key)}>{label}</button>
+                    <label key={key}>
+                      <input type="radio" name="guest-profile-viewer" value={key} checked={viewer === key} onChange={() => setViewer(key)} />
+                      <span>{label}</span>
+                    </label>
                   ))}
                 </div>
 
@@ -153,7 +158,7 @@ export default function GuestProfileDesk() {
                   </>
                 )}
 
-                {viewer === "desk" && s.side === "team" && <div className={styles.sideAction}>{actionButton}</div>}
+
                 {viewer === "desk" && s.tryAction && !tried && <button type="button" className={styles.tryButton} onClick={() => setTried(true)}>Try: {s.tryAction.label}</button>}
                 {viewer === "desk" && s.tryAction && tried && <p className={styles.refusal} role="status"><Ban size={15} aria-hidden="true" /><span>{s.tryAction.refusal}</span></p>}
                 {viewer === "none" && s.side === "team" && <p className={styles.switchHint}>Switch back to the front desk manager to continue.</p>}
@@ -161,6 +166,12 @@ export default function GuestProfileDesk() {
             </div>
           </div>
 
+          <div className={styles.walkthrough}>
+            <div><small>Step {step + 1} of {STEPS.length}</small><b>{last ? "Guest decision recorded" : s.side === "guest" ? "Amaka’s turn" : "At the front desk"}</b></div>
+            {s.side === "team" && viewer === "none"
+              ? <button type="button" className="ib-button ib-button-dark" onClick={() => setViewer("desk")}>View as front desk manager</button>
+              : actionButton}
+          </div>
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
             <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
