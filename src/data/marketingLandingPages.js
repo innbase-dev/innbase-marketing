@@ -4,40 +4,7 @@ import { MARKETING_DESTINATIONS, RELEASE_STAGES, isPublished, isVisible, release
 // A scenario row is [record label, display value]. Keep labels and values brief
 // enough to read at phone width. Only the selected page's scenario is hydrated.
 const CONTENT = [
-  {
-    id: "payments",
-    title: "Hospitality payments & reconciliation",
-    description: "Connect sales to payments, review suggested matches and follow up on differences. Clearer payment records for hotels, restaurants and bars with Innbase.",
-    eyebrow: "FOLLOW THE MONEY",
-    headline: "The payment came in.",
-    emphasis: "What was it for?",
-    intro: "A transfer alert is only one part of the story. Bring the sale, payment and shift together, so your team can check the details before calling it settled.",
-    connections: ["Sales", "Payments", "Shift closeout"],
-    sectionTitle: "A clearer trail.",
-    sectionEmphasis: "A better answer.",
-    benefits: [
-      { title: "Start with the sale.", body: "Keep the amount, items and staff member with the service record. You have a useful starting point when a payment needs checking." },
-      { title: "Review the match.", body: "Compare the source records behind a suggested match. Confirm what agrees and flag what needs another look." },
-      { title: "Keep the decision.", body: "A confirmation needs context. Retain the link between the payment and sale, and the record of who confirmed it." },
-    ],
-    question: "“Has this order actually been paid for?”",
-    answer: "Start with the order. Check the payment evidence. Leave a clear decision for the next person who asks.",
-    scenario: {
-      title: "One dinner. One payment trail.",
-      context: "Restaurant · evening shift",
-      stages: [
-        { label: "The sale", title: "Start with the order", value: "₦18,000", status: "Sale recorded", rows: [["Order", "#1042 · Table 08"], ["Recorded by", "Ada · evening shift"], ["Payment method", "Bank transfer"]], note: "The sale gives the payment a context: an order, a team member and a shift." },
-        { label: "The match", title: "Compare the evidence", value: "₦18,000", status: "Review suggested match", attention: true, rows: [["Recorded sale", "₦18,000"], ["Incoming transfer", "₦18,000"], ["Reference", "DIN-1042 on both"]], note: "The amount and reference agree. That is a reason to review the match, not skip the review." },
-        { label: "The record", title: "Leave a clear decision", value: "Linked", status: "Example confirmation", rows: [["Order", "#1042"], ["Payment reference", "DIN-1042"], ["Confirmed by", "Ada"]], note: "In this example, the team has checked and confirmed the link. The decision stays with the record." },
-      ],
-    },
-    faqs: [
-      { q: "Does a suggested match mean a payment is confirmed?", a: "No. A suggestion helps the team find records worth comparing. Review the evidence before confirming, and flag a difference when it needs follow-up." },
-      { q: "Can this help with cash, card and transfer payments?", a: "Innbase keeps payment records alongside sales. In your demo, we can walk through the payment methods you use and discuss the bank or provider connections your setup needs." },
-      { q: "Where can I try an example?", a: "The sample above shows the record trail. For a hands-on payment-match example, open the product demo on the home page and choose “Check a payment”." },
-    ],
-    related: ["sales", "shifts", "owners"],
-  },
+  // Payments has its own dedicated page (src/app/platform/payments).
   {
     id: "sales",
     title: "Point of sale for hospitality",
