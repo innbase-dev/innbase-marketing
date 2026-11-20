@@ -34,7 +34,6 @@ export default function ReferralLandingPage() {
           <div className="ib-ref-card">
             <div className="ib-ref-card-top">
               <span>YOUR REFERRALS</span>
-              <small>Illustrative view</small>
             </div>
             <div className="ib-ref-amount">₦40,000</div>
             <p>Earned from 2 referrals so far</p>

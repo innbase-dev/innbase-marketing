@@ -93,5 +93,5 @@ test('reviewing a supplier bank change preserves the approved account', async ({
   await expect(panel.getByText('Doesn’t match the supplier')).toBeVisible();
   await panel.getByRole('button', { name: 'Funmi reviews the change' }).click();
   await expect(panel.getByText('Rejected by Funmi · kept in history')).toBeVisible();
-  await expect(panel.getByText('•••• 4417 · Sample Bank')).toBeVisible();
+  await expect(panel.getByText('•••• 4417', { exact: true })).toBeVisible();
 });

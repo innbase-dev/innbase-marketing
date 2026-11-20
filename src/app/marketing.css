@@ -2103,12 +2103,6 @@ body {
   color: var(--ib-muted);
 }
 
-.ib-snapshot-top small {
-  color: var(--ib-muted);
-  font-size: 11px;
-  letter-spacing: 0;
-}
-
 .ib-home-snapshot h3 {
   font-size: 29px;
   letter-spacing: -.04em;
@@ -2200,11 +2194,6 @@ body {
 .ib-workspace-bar b {
   font-weight: 400;
   color: #8ea188;
-}
-
-.ib-workspace-bar small {
-  font-size: 11px;
-  color: #a2b499;
 }
 
 .ib-operations-inner {
@@ -2556,15 +2545,6 @@ body {
 .ib-ledger-art b {
   font-weight: 500;
   color: var(--ib-accent);
-}
-
-.ib-ledger-art>p {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding-top: 18px;
-  color: #8fa77c;
-  font-size: 11px;
 }
 
 .ib-stock-art {
@@ -2984,12 +2964,6 @@ body {
   margin-left: auto;
 }
 
-.ib-slip-note {
-  color: #9caf89;
-  font-size: 11px;
-  margin-top: 15px !important;
-}
-
 .ib-action-slip>a {
   display: flex;
   justify-content: space-between;
@@ -3078,15 +3052,6 @@ body {
   border-radius: 4px;
   font-size: 11px;
   color: #bdcfae;
-}
-
-.ib-assistant-sidebar>small {
-  display: block;
-  color: #8da17f;
-  font-size: 11px;
-  line-height: 1.65;
-  margin-top: auto;
-  padding-top: 40px;
 }
 
 .ib-chat-panel {
@@ -5621,10 +5586,6 @@ body {
     padding: 17px 19px;
   }
 
-  .ib-workspace-bar small {
-    font-size: 11px;
-  }
-
   .ib-operations-inner {
     grid-template-columns: 1fr;
   }
@@ -5886,16 +5847,6 @@ body {
 
   .ib-assistant-sidebar h3 {
     font-size: 28px;
-  }
-
-  .ib-assistant-sidebar>small {
-    padding: 0;
-    grid-column: 1/-1;
-    font-size: 11px;
-  }
-
-  .ib-assistant-sidebar>small br {
-    display: none;
   }
 
   .ib-assistant-role {

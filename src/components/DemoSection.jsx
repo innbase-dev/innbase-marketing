@@ -105,12 +105,10 @@ export default function DemoSection() {
                 <Reveal className="sec-head reveal">
                     <span className="sec-eyebrow">Try it yourself</span>
                     <h2 className="sec-h2">
-                        Tap around. It&apos;s the real thing.
+                        Follow a shift in Innbase.
                     </h2>
                     <p className="sec-sub">
-                        Every screen below is built on the same data model as
-                        your actual dashboard — nothing here is a mockup
-                        pretending to be a product.
+                        Choose a module to explore the records your team works with during a shift.
                     </p>
                 </Reveal>
 
@@ -156,9 +154,7 @@ export default function DemoSection() {
 
                 <Reveal className="mid-cta reveal">
                     <p>
-                        <b>These are sample numbers.</b> Yours load in an
-                        afternoon — bank statements, POS, and stock counts
-                        included.
+                        Bring a bank statement, POS records and a recent stock count to your demo.
                     </p>
                     <a href="#cta" className="btn btn-brass btn-sm">
                         See it with your numbers

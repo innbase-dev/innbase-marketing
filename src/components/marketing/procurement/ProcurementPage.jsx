@@ -23,7 +23,7 @@ export default function ProcurementPage() {
         secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
         photo="/images/marketing/feature-procurement.webp"
         alt="A hotel receiving clerk checks a delivery docket beside a crate of bottled drinks"
-        recordLabel="Supplier review example"
+        recordLabel="Supplier review"
         recordTitle="Eko Beverages Ltd"
         chapters={[
           { href: "#desk", label: "The supplier desk", detail: "Check a change of account", Icon: ShieldCheck },
@@ -69,7 +69,7 @@ export default function ProcurementPage() {
           </SectionHeading>
           <div className="ib-welcome-flow">
             <ShiftNote
-              label="Account change review · example"
+              label="Account change review"
               title="Eko Beverages Ltd"
               detail="Accounts received new bank details. The account name came back different, so the owner rejected the change."
               entries={[

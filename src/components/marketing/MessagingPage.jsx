@@ -83,12 +83,11 @@ function InboxDemo() {
   const selected = CHANNELS.find((item) => item.id === selectedId);
 
   return (
-    <div className={styles.demoShell} role="group" aria-label="Illustrative Innbase messaging workspace">
+    <div className={styles.demoShell} role="group" aria-label="Innbase messaging workspace">
       <div className={styles.demoTopbar}>
         <span><MessagesSquare size={18} strokeWidth={1.5} aria-hidden="true" />Conversations</span>
-        <small>Illustrative view</small>
       </div>
-      <div className={styles.channelButtons} role="group" aria-label="Choose an example conversation">
+      <div className={styles.channelButtons} role="group" aria-label="Choose a conversation">
         {CHANNELS.map((channel) => (
           <button
             key={channel.id}
@@ -101,7 +100,7 @@ function InboxDemo() {
           </button>
         ))}
       </div>
-      <section id="messaging-conversation" className={styles.demoThread} aria-label={`${selected.label} example conversation`} aria-live="polite" aria-atomic="true">
+      <section id="messaging-conversation" className={styles.demoThread} aria-label={`${selected.label} conversation`} aria-live="polite" aria-atomic="true">
         <header className={styles.threadHeader}>
           <span className={styles.avatar} aria-hidden="true">{selected.guest.split(" ").map((part) => part[0]).join("")}</span>
           <div><b>{selected.guest}</b><span>{selected.meta}</span></div>
@@ -121,7 +120,6 @@ function InboxDemo() {
           <span className={styles.conversationStatus}>{selected.badge}</span>
         </footer>
       </section>
-      <p className={styles.demoCaption}>Choose a channel to explore an example.</p>
     </div>
   );
 }
@@ -144,7 +142,7 @@ export default function MessagingPage() {
             </div>
             <InboxDemo />
           </div>
-          <div className={styles.channelStrip} aria-label="Messaging channels shown in the examples">
+          <div className={styles.channelStrip} aria-label="Messaging channels">
             <span>ONE COMMUNICATIONS WORKSPACE</span>
             <ul>
               <li><MessageCircle size={15} aria-hidden="true" />WhatsApp</li>

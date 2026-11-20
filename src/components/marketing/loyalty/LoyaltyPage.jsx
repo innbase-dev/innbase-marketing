@@ -22,7 +22,7 @@ export default function LoyaltyPage() {
         secondary={{ href: PARTNER_HREF, label: "Become a design partner" }}
         photo="/images/marketing/feature-loyalty.webp"
         alt="A server brings jollof rice, fish and plantain to a diner in a Lagos restaurant"
-        recordLabel="Example reward programme"
+        recordLabel="Reward programme"
         recordTitle="A meal on the house"
         chapters={[
           { href: "#explorer", label: "The reward calculator", detail: "Test visits, spend and rewards", Icon: Gift },
@@ -62,7 +62,7 @@ export default function LoyaltyPage() {
           </SectionHeading>
           <div className="ib-welcome-flow">
             <ShiftNote
-              label="Counter receipt · example"
+              label="Counter receipt"
               title="A fifth visit earns lunch."
               detail="Five sales count towards Ifeoma’s reward. The manager can compare the cost of a free meal with the spend that earned it."
               entries={[

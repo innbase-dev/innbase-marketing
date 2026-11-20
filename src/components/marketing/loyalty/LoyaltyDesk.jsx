@@ -128,7 +128,7 @@ export default function LoyaltyDesk() {
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>PROGRAMME EXPLORER</span><span>Design concept · example sales</span></div>
+          <div className="ib-demo-topline"><span>PROGRAMME EXPLORER</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -203,7 +203,7 @@ export default function LoyaltyDesk() {
 
           <div className="ib-demo-bottom">
             <p>{note}</p>
-            <button type="button" className="ib-reset" onClick={restart}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={restart}><RotateCcw size={15} aria-hidden="true" />Reset visits</button>
           </div>
           <p className={styles.visuallyHidden} role="status">{status}. {perk[1]}.</p>
         </div>
