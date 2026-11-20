@@ -18,13 +18,6 @@ export const PREFERENCE_TYPES = [
   { type: "Check-in", values: "Express or assisted" },
 ];
 
-export const HERO_PREFERENCES = [
-  ["Quiet room", "Told the front desk"],
-  ["High floor", "Shared it herself"],
-  ["Firm pillow", "Shared it herself"],
-  ["Express check-in", "Shared it herself"],
-];
-
 export const BOUNDARIES = [
   { title: "It stays with your hotel.", body: "Preferences belong to the property that recorded them. They are not shared with other hotels." },
   { title: "Nothing sensitive.", body: "Health, dietary, religious and other sensitive details are deliberately left out." },
@@ -41,7 +34,7 @@ export const GI_ROLES = [
 ];
 
 export const GI_FAQ = [
-  { q: "When can we use it?", a: "Guest Intelligence is in development. Its preference and consent foundations are built, and the staff experience is being completed. Join the pilot list and we’ll be in touch." },
+  { q: "How can our property join the pilot?", a: "Join the guest intelligence pilot list to discuss how your team records preferences and how guests give permission at your property." },
   { q: "What kinds of preferences does it remember?", a: "The first release covers room environment (a quiet room), floor (high or low), pillow (firm or soft) and check-in style (express or assisted). It deliberately leaves out health, dietary and other sensitive details." },
   { q: "Isn’t remembering guests a bit intrusive?", a: "Every preference shows whether the guest told your team or shared it herself, only staff you choose can see it, and personalising her stays needs her agreement, which she can withdraw at any time." },
   { q: "Can guests tell us their preferences themselves?", a: "Yes. Through Guest Companion, guests can share what they prefer and decide whether you may use it to personalise their stays." },

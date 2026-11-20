@@ -44,7 +44,7 @@ export const PROCUREMENT_ROLES = [
 ];
 
 export const PROCUREMENT_FAQ = [
-  { q: "When can we use it?", a: "Procurement is in development. Join the pilot list and we’ll contact you when pilot places open." },
+  { q: "How can our property join the pilot?", a: "Join the pilot list to discuss your supplier approval process, bank checks and payment records." },
   { q: "Does Innbase pay our suppliers?", a: "No, and it never will. You pay suppliers from your own bank. Innbase decides who counts as an approved supplier, checks their bank details and keeps the record and proof of each payment." },
   { q: "What happens when a supplier sends new bank details?", a: "The new account goes through the full check again: the bank returns the account name, and a second person has to approve it. Until then, the account you already approved stays the only approved one, and the old details stay in the history." },
   { q: "Is our financial information safe?", a: "Bank details and receipts are encrypted. Every receipt is checked for malware and stays locked until it passes, and every time someone opens one, it’s recorded." },

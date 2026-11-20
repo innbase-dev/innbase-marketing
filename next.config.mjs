@@ -5,7 +5,13 @@ const nextConfig = {
   },
   /* config options here */
   async redirects() {
+    const platformPages = ["booking-engine", "door-access", "loyalty", "guest-intelligence", "procurement"];
     return [
+      ...platformPages.map(slug => ({
+        source: `/${slug}`,
+        destination: `/platform/${slug}`,
+        permanent: true,
+      })),
       // Referral naming standardization (Sept 2026): the public referral
       // landing page moved from /refer-hotels to /refer, and the
       // authenticated referrer dashboard moved from /refer to /refer/portal

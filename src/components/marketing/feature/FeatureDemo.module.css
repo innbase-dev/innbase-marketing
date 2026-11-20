@@ -1,0 +1,42 @@
+.surface :global(.ib-demo-topline) {
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #c9d3c2;
+  font-size: .8125rem;
+}
+.surface :global(.ib-demo-label),
+.surface :global(.ib-demo-label) > span:last-child {
+  font-size: .75rem;
+}
+.surface :global(.ib-scenario-tabs) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.surface :global(.ib-scenario-tabs) button {
+  min-width: 0;
+  min-height: 48px;
+  padding: 8px;
+  white-space: normal;
+  line-height: 1.3;
+  font-size: .875rem;
+}
+.surface :global(.ib-demo-bottom) { align-items: center; }
+.surface :global(.ib-reset) { min-height: 44px; }
+
+@media (max-width: 760px) {
+  .surface :global(.ib-demo-stage) { padding: 16px 12px; }
+  .surface :global(.ib-demo-label) { flex-wrap: wrap; }
+  .surface :global(.ib-demo-topline) { gap: 3px; }
+  .surface :global(.ib-demo-bottom) { align-items: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .surface :global(.ib-scenario-tabs) { gap: 4px; }
+  .surface :global(.ib-scenario-tabs) button { font-size: .8125rem; padding-inline: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface *, .surface *::before, .surface *::after {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}

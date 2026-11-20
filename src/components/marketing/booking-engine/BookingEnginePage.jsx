@@ -1,77 +1,53 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BedDouble, CalendarCheck, CalendarClock, CheckCheck, DoorOpen, MessageCircle, ShieldCheck, Smartphone, Users } from "lucide-react";
+import { ArrowUpRight, CalendarCheck, CalendarClock, DoorOpen, ShieldCheck, Smartphone, Users } from "lucide-react";
 import { MARKETING_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
-import { BOOKING_FAQ, CONFIRMATION_ROUTES, DESK_ROLES, HERO_BOOKED } from "@/data/bookingEngineData";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
-import AvailabilityBoard from "./AvailabilityBoard";
+import { BOOKING_FAQ, CONFIRMATION_ROUTES, DESK_ROLES, DEPOSIT } from "@/data/bookingEngineData";
+import { Eyebrow, FAQ, SectionHeading, TextLink } from "../Primitives";
 import ReservationDesk from "./ReservationDesk";
+import ShiftNote from "../feature/ShiftNote";
+import FeatureOpening from "../feature/FeatureOpening";
 import styles from "./BookingEngine.module.css";
 
 const PILOT_HREF = "/contact?reason=early-access&feature=booking-engine";
 
-const heroCells = Object.fromEntries(HERO_BOOKED.nights.map((n) => [`${HERO_BOOKED.room}:${n}`, { state: "new", label: HERO_BOOKED.label }]));
 
 export default function BookingEnginePage() {
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>BOOKING ENGINE</Eyebrow>
-            <h1>Every room sold once.<br /><em>Every confirmation backed by money.</em></h1>
-            <p>By phone, on WhatsApp or at the desk, your team books from one live availability. Hold a room while the guest pays, and confirm it when the deposit is verified, not when someone says it’s on the way.</p>
-            <div className="ib-actions">
-              <Button href="#desk">Try the reservation desk</Button>
-              <TextLink href={PILOT_HREF}>Join the pilot list</TextLink>
-            </div>
-            <Reassurance>Built for the bookings your team takes.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.heroCardHead}>
-                <div><small>THIS WEEKEND · SAMPLE PROPERTY</small><b>Availability</b></div>
-                <span><CalendarClock size={14} aria-hidden="true" />Live</span>
-              </div>
-              <AvailabilityBoard compact cells={heroCells} caption="Sample weekend availability with Deluxe 204 newly booked" />
-            </div>
-            <div className={styles.heroBubble} aria-hidden="true">
-              <span><MessageCircle size={13} />WhatsApp · 2:14 pm</span>
-              <p>Do you have a deluxe room for Friday and Saturday?</p>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className="ib-note-icon"><CalendarCheck size={21} aria-hidden="true" /></span>
-              <div>
-                <small>DELUXE 204 · FRI–SAT</small>
-                <strong>Confirmed. Deposit verified.</strong>
-                <p><CheckCheck size={12} aria-hidden="true" />Balance due at check-in</p>
-              </div>
-            </div>
-          </div>
+      <FeatureOpening
+        name="Booking engine"
+        title="One Deluxe left."
+        emphasis="Two guests asking."
+        intro="Amaka asks for the weekend on WhatsApp. Then the phone rings. See which nights are free, hold the room for her deposit and give the next guest a clear answer."
+        primary={{ href: "#desk", label: "Try the reservation desk" }}
+        secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
+        photo="/images/marketing/feature-booking.webp"
+        alt="Afternoon light across a made-up bed in a boutique hotel room"
+        recordLabel="Weekend booking example"
+        recordTitle="Deluxe 204"
+        chapters={[
+          { href: "#desk", label: "The reservation desk", detail: "Follow Amaka’s enquiry", Icon: CalendarClock },
+          { href: "#confirmation", label: "Holds and deposits", detail: "See what confirms a booking", Icon: ShieldCheck },
+          { href: "#how-it-works", label: "At the front desk", detail: "See who handles each decision", Icon: Users },
+        ]}
+      >
+        <div className={styles.weekend}>
+          <div className={styles.nights}><span>Friday</span><span>Saturday</span></div>
+          <b><CalendarCheck size={15} aria-hidden="true" />Deposit verified · {DEPOSIT}</b>
         </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [BedDouble, "One live availability", "Rooms and room types, one supply"],
-            [CalendarClock, "Holds that end on time", "Set by your property"],
-            [ShieldCheck, "Confirmed when the money lands", "Claims wait for verification"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
-          ))}
-        </div>
-      </section>
+      </FeatureOpening>
 
       <ReservationDesk />
 
-      <section className={`ib-section ib-paper-alt ${styles.routes}`} id="confirmation">
+      <section className="ib-section ib-paper-alt" id="confirmation">
         <div className="ib-container">
-          <SectionHeading eyebrow="THREE WAYS TO SAY YES" title={<>A confirmed booking.<br /><em>Never just a promise.</em></>}>
+          <SectionHeading eyebrow="BOOKING DECISIONS" title={<>When does a hold<br /><em>become a booking?</em></>}>
             <p>“I’ve sent it” is not a deposit, and a hold is not a free room. Innbase Booking keeps the difference visible.</p>
           </SectionHeading>
           <ol className={styles.routeGrid}>
-            {CONFIRMATION_ROUTES.map((route, i) => (
+            {CONFIRMATION_ROUTES.map((route) => (
               <li key={route.key}>
-                <span className={styles.routeNumber}>0{i + 1}</span>
+                <span className={styles.routeNumber}>{route.key === "deposit" ? "Deposit" : route.key === "hold" ? "Timed hold" : "Company account"}</span>
                 <h3>{route.title}</h3>
                 <p>{route.body}</p>
                 <ol className={styles.chain} aria-label={`${route.title} status sequence`}>
@@ -91,18 +67,21 @@ export default function BookingEnginePage() {
             <p>A booking passes through several hands before the guest arrives. Each one sees the same record, and each step has an owner.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Users size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>FRONT DESK · ACCOUNTS · MANAGERS</span>
-              <h3>Built for<br /><em>the people at the desk.</em></h3>
-              <p>The first release covers the bookings your team takes by phone, on WhatsApp and at the desk. Online self-booking and booking-site connections are not part of it.</p>
-            </div>
+            <ShiftNote
+              label="Reservation handover · example"
+              title="Deluxe 204, Friday to Sunday"
+              detail="The transfer has been verified. The next shift can see exactly what to collect at check-in."
+              entries={[
+                ["Guest", "Amaka Bello"],
+                ["Verified deposit", "₦45,000"],
+                ["Balance at check-in", "₦45,000"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {DESK_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -110,7 +89,7 @@ export default function BookingEnginePage() {
         </div>
       </section>
 
-      <section className={`ib-section ib-dark ${styles.connected}`} id="connected">
+      <section className="ib-section ib-dark" id="connected">
         <div className="ib-container ib-bridge">
           <div>
             <Eyebrow>ONE CONNECTED OPERATION</Eyebrow>
@@ -135,8 +114,8 @@ export default function BookingEnginePage() {
 
       <FAQ
         items={BOOKING_FAQ}
-        title={<>A few things<br /><em>worth knowing.</em></>}
-        description="Booking is in development and being tested ahead of its pilot. Tell us how your hotel takes bookings today."
+        title={<>Questions from<br /><em>the front desk.</em></>}
+        description="Ask us about holds, deposits or the channels your guests use to book."
       />
     </>
   );
