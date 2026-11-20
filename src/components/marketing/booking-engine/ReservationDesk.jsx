@@ -111,7 +111,7 @@ export default function ReservationDesk() {
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>FRONT DESK ENQUIRY</span><span>Example stay · Friday to Sunday</span></div>
+          <div className="ib-demo-topline"><span>FRONT DESK ENQUIRY</span><span>Friday to Sunday</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.frontDesk}>
@@ -181,7 +181,7 @@ export default function ReservationDesk() {
                   ))}
                 </ol>
 
-                <AvailabilityBoard caption="Sample availability for six rooms over four nights" {...board} />
+                <AvailabilityBoard caption="Availability for six rooms over four nights" {...board} />
 
                 <div className={styles.record}>
                   <div className={styles.recordHead}>
@@ -212,7 +212,7 @@ export default function ReservationDesk() {
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset booking</button>
           </div>
           <p className={styles.visuallyHidden} role="status">{s.event}</p>
         </div>

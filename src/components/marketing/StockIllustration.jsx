@@ -46,7 +46,7 @@ export default function StockIllustration() {
 
   return (
     <div className={`ib-stock-art${isLive ? " is-live" : ""}`} ref={containerRef}>
-      <span>EXAMPLE / EVENING CLOSEOUT</span>
+      <span>EVENING CLOSEOUT</span>
       <div className="ib-bottles" aria-hidden="true">
         {STOCK_BOTTLES.map(({ id, missing }, index) => (
           <div key={id} className={missing ? "is-missing" : undefined} style={{ "--i": index }}>

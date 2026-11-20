@@ -137,7 +137,7 @@ export default function AccessDesk() {
         </div>
 
         <div className="ib-demo-stage" id="door-desk" role="tabpanel" aria-labelledby={`door-tab-${scenario}`}>
-          <div className="ib-demo-topline"><span>GUEST ACCESS RECORD</span><span>Example stay · Room 108</span></div>
+          <div className="ib-demo-topline"><span>GUEST ACCESS RECORD</span><span>Room {ROOM}</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -172,14 +172,14 @@ export default function AccessDesk() {
               <div className="ib-demo-label"><span>02 / THE DOOR AND THE GUEST</span><span>Room {ROOM}</span></div>
               <div className={styles.arrivalFrame}>
                 <Arrival state={s.arrival} onOpen={scenario === "late" && s.arrival === "ready" ? advance : undefined} />
-                <p className={styles.partnerNote}>Example arrival with a compatible connected lock.</p>
+                <p className={styles.partnerNote}>Mobile keys require a compatible connected lock.</p>
               </div>
             </div>
           </div>
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Restart arrival</button>
           </div>
           <p className={styles.visuallyHidden} aria-live="polite">{s.decision[0]}. {s.note}</p>
         </div>

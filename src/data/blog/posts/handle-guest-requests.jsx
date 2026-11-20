@@ -74,8 +74,8 @@ const post = {
     "Agree how quickly each kind of request should be acknowledged and completed, and tell your team. These are examples to adjust to your property and staffing:",
     {
       type: "table",
-      caption: "Example response targets by request type",
-      head: ["Request", "Owner", "Example target"],
+      caption: "Suggested response times by request type",
+      head: ["Request", "Owner", "Service target"],
       rows: [
         ["Towels, toiletries, extra linen", "Housekeeping", "Delivered within 15 minutes"],
         ["Air conditioning, plumbing, power", "Maintenance", "Acknowledged in 10 minutes; fixed the same day, or a room change offered"],

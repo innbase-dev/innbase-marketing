@@ -24,7 +24,7 @@ export default function GuestIntelligencePage() {
         secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
         photo="/images/marketing/feature-guest.webp"
         alt="A housekeeper arranges a firm linen pillow before a guest arrives"
-        recordLabel="Guest preference example"
+        recordLabel="Guest preference"
         recordTitle="Amaka’s next stay"
         chapters={[
           { href: "#desk", label: "The returning guest", detail: "Follow two stays with Amaka", Icon: Smartphone },
@@ -70,7 +70,7 @@ export default function GuestIntelligencePage() {
           </SectionHeading>
           <div className="ib-welcome-flow">
             <ShiftNote
-              label="Returning guest · example"
+              label="Returning guest"
               title="Amaka is coming back."
               detail="The team knows which preferences came from Amaka directly and which ones she mentioned at reception."
               entries={[

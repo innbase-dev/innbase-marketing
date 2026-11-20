@@ -11,7 +11,6 @@
 }
 .ib-ref-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
 .ib-ref-card-top span { font-size: 11px; font-weight: 650; letter-spacing: .12em; color: #b5c1b6; }
-.ib-ref-card-top small { font-size: 11px; color: #7f8c80; }
 .ib-ref-amount { font-family: var(--ib-serif); font-size: 52px; letter-spacing: -.03em; color: var(--ib-accent); line-height: 1; margin-bottom: 6px; }
 .ib-ref-amount + p { color: #b5c1b6; font-size: 14px; margin-bottom: 22px; }
 .ib-ref-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-top: 1px solid #ffffff14; font-size: 14px; }

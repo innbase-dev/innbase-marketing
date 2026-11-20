@@ -101,7 +101,7 @@ export default function GuestProfileDesk() {
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>GUEST AND STAFF VIEWS</span><span>Example guest · Amaka Bello</span></div>
+          <div className="ib-demo-topline"><span>GUEST AND STAFF VIEWS</span><span>Amaka Bello</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -174,7 +174,7 @@ export default function GuestProfileDesk() {
           </div>
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset guest profile</button>
           </div>
           <p className={styles.visuallyHidden} aria-live="polite">{viewer === "none" ? "Viewing as staff without access. Preferences are hidden." : s.note}</p>
         </div>

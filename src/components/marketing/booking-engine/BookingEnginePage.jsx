@@ -23,7 +23,7 @@ export default function BookingEnginePage() {
         secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
         photo="/images/marketing/feature-booking.webp"
         alt="Afternoon light across a made-up bed in a boutique hotel room"
-        recordLabel="Weekend booking example"
+        recordLabel="Weekend booking"
         recordTitle="Deluxe 204"
         chapters={[
           { href: "#desk", label: "The reservation desk", detail: "Follow Amaka’s enquiry", Icon: CalendarClock },
@@ -68,7 +68,7 @@ export default function BookingEnginePage() {
           </SectionHeading>
           <div className="ib-welcome-flow">
             <ShiftNote
-              label="Reservation handover · example"
+              label="Reservation handover"
               title="Deluxe 204, Friday to Sunday"
               detail="The transfer has been verified. The next shift can see exactly what to collect at check-in."
               entries={[

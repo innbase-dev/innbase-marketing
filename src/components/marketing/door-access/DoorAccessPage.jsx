@@ -23,7 +23,7 @@ export default function DoorAccessPage() {
         secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
         photo="/images/marketing/feature-door.webp"
         alt="A brushed brass electronic lock on a timber guest-room door"
-        recordLabel="Guest key example"
+        recordLabel="Guest key"
         recordTitle="Room 108"
         chapters={[
           { href: "#desk", label: "The late arrival", detail: "Follow the key to checkout", Icon: KeyRound },
@@ -59,7 +59,7 @@ export default function DoorAccessPage() {
           </SectionHeading>
           <div className="ib-welcome-flow">
             <ShiftNote
-              label="Night shift · example"
+              label="Night shift"
               title="Room 108, at 1:40 a.m."
               detail="Tunde’s arrival falls inside the access window for this room. The morning shift can see when that permission ends."
               entries={[

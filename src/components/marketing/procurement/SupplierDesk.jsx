@@ -7,7 +7,7 @@ import { SectionHeading } from "../Primitives";
 import demo from "../feature/FeatureDemo.module.css";
 import styles from "./Procurement.module.css";
 
-const APPROVED_ACCOUNT = { number: "•••• 4417", bank: "Sample Bank", name: "EKO BEVERAGES LTD", nameTone: "sage", nameNote: "Matches the supplier", submitted: "Chidi · Accounts", approval: ["Approved by Funmi · Owner", "sage"] };
+const APPROVED_ACCOUNT = { number: "•••• 4417", name: "EKO BEVERAGES LTD", nameTone: "sage", nameNote: "Matches the supplier", submitted: "Chidi · Accounts", approval: ["Approved by Funmi · Owner", "sage"] };
 
 // Each step describes both sides of the desk. `try` is an action the
 // visitor can attempt that Innbase refuses, with the reason it gives.
@@ -93,14 +93,14 @@ const FLOWS = {
     },
     {
       status: ["Change waiting for approval", "amber"], property: ["Approved", "sage"], account: APPROVED_ACCOUNT,
-      candidate: { number: "•••• 9035", bank: "Sample Bank", name: "KAYODE ADEBAYO", nameTone: "red", nameNote: "Doesn’t match the supplier", approval: ["Waiting for a second person", "amber"] },
+      candidate: { number: "•••• 9035", name: "KAYODE ADEBAYO", nameTone: "red", nameNote: "Doesn’t match the supplier", approval: ["Waiting for a second person", "amber"] },
       outside: { kind: "message" },
       action: "Funmi reviews the change",
       note: "The bank returns the real name on the new account. It doesn’t match Eko Beverages.",
     },
     {
       status: ["Ready to pay", "sage"], property: ["Approved", "sage"], account: APPROVED_ACCOUNT,
-      candidate: { number: "•••• 9035", bank: "Sample Bank", name: "KAYODE ADEBAYO", nameTone: "red", nameNote: "Doesn’t match the supplier", approval: ["Rejected by Funmi · kept in history", "neutral"] },
+      candidate: { number: "•••• 9035", name: "KAYODE ADEBAYO", nameTone: "red", nameNote: "Doesn’t match the supplier", approval: ["Rejected by Funmi · kept in history", "neutral"] },
       outside: { kind: "call" },
       next: "new",
       note: "The approved account didn’t change, and the rejected details stay in the history as a record of the attempt.",
@@ -117,7 +117,7 @@ function Account({ title, account }) {
     <div className={styles.account}>
       <div className={styles.accountHead}><span>{title}</span><Pill tone={account.approval[1]}>{account.approval[0]}</Pill></div>
       <dl>
-        <div><dt>Account</dt><dd>{account.number} · {account.bank}</dd></div>
+        <div><dt>Account</dt><dd>{account.number}</dd></div>
         <div>
           <dt>Name at the bank</dt>
           <dd className={styles[`name_${account.nameTone}`]}>
@@ -138,7 +138,7 @@ function Outside({ view }) {
         <span className={styles.outsideTag}><MessageCircle size={13} aria-hidden="true" />Message · unknown number</span>
         <div className={styles.inboxBubble}>
           <b>Eko Beverages?</b>
-          <p>Good morning. We’ve changed banks. Please pay this month’s invoice into 0219 9035, Sample Bank.</p>
+          <p>Good morning. We’ve changed banks. Please pay this month’s invoice into the account ending in 9035.</p>
         </div>
         {view.kind === "call" && (
           <p className={styles.outsideNote}><ShieldCheck size={15} aria-hidden="true" />Your team calls Eko Beverages on the number they already had. The supplier never changed banks.</p>
@@ -226,7 +226,7 @@ export default function SupplierDesk() {
         </div>
 
         <div className="ib-demo-stage" id="proc-desk" role="tabpanel" aria-labelledby={`proc-tab-${scenario}`}>
-          <div className="ib-demo-topline"><span>SUPPLIER ACCOUNT REVIEW</span><span>Example supplier and transactions</span></div>
+          <div className="ib-demo-topline"><span>SUPPLIER ACCOUNT REVIEW</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -270,7 +270,7 @@ export default function SupplierDesk() {
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Restart review</button>
           </div>
           <p className={styles.visuallyHidden} aria-live="polite">{s.note}</p>
         </div>
