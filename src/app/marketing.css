@@ -1314,6 +1314,11 @@ body {
   font-size: 15px;
 }
 
+/* --ib-muted on the dark band is 2.8:1, below WCAG AA. 9.6:1 here. */
+.ib-dark .ib-bridge>div>p:not(.ib-eyebrow) {
+  color: #b3c0b5;
+}
+
 .ib-platform-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
