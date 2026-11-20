@@ -1,0 +1,702 @@
+/* Door Access page. Shared brand pieces come from marketing.css; this module
+   holds the access record, the door and phone-key illustration, the plan-B
+   section and the connected record. Paragraph rules that set margins use
+   `p.<class>` so they outrank the site-wide `.ib-site p { margin: 0 }`. */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.recordHead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e4e8dc;
+}
+
+.recordIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #e2efd9;
+  color: #2f5127;
+}
+
+.recordHead small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--ib-muted);
+}
+
+.recordHead b {
+  display: block;
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: -.03em;
+}
+
+/* ── Hero ── */
+
+.heroScene {
+  position: relative;
+  height: 600px;
+  min-width: 0;
+}
+
+.heroCard {
+  position: absolute;
+  inset: 70px 70px 120px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  background: #fbfbf7;
+  color: var(--ib-text);
+  border: 6px solid #eef0e8;
+  border-radius: 16px;
+  box-shadow: 0 24px 48px #0006;
+}
+
+.heroChecks {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heroChecks li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 0;
+  border-top: 1px solid #eef1ea;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.heroChecks li:first-child {
+  border-top: 0;
+}
+
+.heroChecks svg {
+  color: #3f6b34;
+}
+
+.heroWindow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #f4f7f0;
+  border-radius: 9px;
+  color: var(--ib-muted);
+}
+
+.heroWindow small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+.heroWindow b {
+  display: block;
+  margin-top: 2px;
+  color: var(--ib-text);
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.heroKey {
+  position: absolute;
+  top: 18px;
+  right: -8px;
+  width: 200px;
+  padding: 14px 16px 16px;
+  background: var(--ib-ink-soft);
+  color: var(--ib-paper);
+  border: 1px solid #ffffff1f;
+  border-radius: 20px;
+  box-shadow: 0 18px 32px #0007;
+  transform: rotate(4deg);
+}
+
+.heroKey span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: #9fae9f;
+}
+
+.heroKey b {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 550;
+  letter-spacing: -.04em;
+}
+
+.heroKey p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #b7d5a91f;
+  color: var(--ib-sage);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.heroNote {
+  bottom: 30px;
+  right: 0;
+}
+
+/* ── Arrival desk ── */
+
+.deskGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) 64px minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.record {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #cdd6c4;
+  border-radius: 12px;
+}
+
+.checks {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checks li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #eef1ea;
+  font-size: 13px;
+}
+
+.checks li:first-child {
+  border-top: 0;
+}
+
+.checks li > span {
+  color: var(--ib-muted);
+}
+
+.checks b {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 550;
+  text-align: right;
+}
+
+.check_pass b {
+  color: #2b4a22;
+}
+
+.check_fail b {
+  color: #8a2f15;
+}
+
+.check_pending b {
+  color: var(--ib-muted);
+  font-weight: 500;
+}
+
+p.exception {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #f4f7f0;
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #43503f;
+  animation: arrive .35s ease-out;
+}
+
+.exception svg {
+  margin-top: 3px;
+}
+
+.exception b {
+  color: var(--ib-text);
+}
+
+p.decision {
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  animation: arrive .35s ease-out;
+}
+
+.decision_neutral {
+  background: #eef1ea;
+  color: #43503f;
+}
+
+.decision_amber {
+  background: #f8e3c6;
+  color: #74430f;
+}
+
+.decision_sage {
+  background: #d9ecd0;
+  color: #2b4a22;
+}
+
+.decision_red {
+  background: #f8dcd2;
+  color: #7a2a14;
+}
+
+p.grant {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--ib-muted);
+  text-align: center;
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.actions > button:global(.ib-button) {
+  width: 100%;
+  min-height: 48px;
+  font-size: 13px;
+}
+
+.tryButton {
+  display: block;
+  margin: 14px auto 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ib-text);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+p.refusal {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fbeee6;
+  border: 1px solid #efcfbd;
+  border-radius: 8px;
+  color: #6b3a1f;
+  font-size: 12.5px;
+  line-height: 1.5;
+  animation: arrive .3s ease-out;
+}
+
+.refusal svg {
+  margin-top: 3px;
+}
+
+.arrivalFrame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 16px;
+  background: linear-gradient(#1b251e, #101714);
+  border-radius: 12px;
+  color: var(--ib-paper);
+}
+
+.arrival {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.door {
+  position: relative;
+  justify-self: center;
+  width: 130px;
+  height: 230px;
+  background: linear-gradient(90deg, #6b4f35, #7d5d3f 50%, #6b4f35);
+  border: 5px solid #3c2c1e;
+  border-bottom-width: 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: inset 0 0 0 10px #745638, 0 0 0 0 transparent;
+  transition: box-shadow .5s ease, transform .5s ease;
+}
+
+.doorOpen {
+  box-shadow: inset 0 0 0 10px #745638, 0 0 40px 4px #b7d5a955;
+  transform: perspective(500px) rotateY(-14deg);
+}
+
+.plate {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 9px;
+  background: #e9dcc3;
+  color: #3c2c1e;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: .04em;
+}
+
+.lock {
+  position: absolute;
+  top: 104px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 6px;
+  background: #1b1d1a;
+  color: #d8ddd3;
+  border-radius: 6px;
+}
+
+.lock i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: background-color .3s ease, box-shadow .3s ease;
+}
+
+.ledOff {
+  background: #55594f;
+}
+
+.ledGreen {
+  background: #7ddc6f;
+  box-shadow: 0 0 8px #7ddc6f;
+}
+
+.ledRed {
+  background: #e36a4f;
+  box-shadow: 0 0 8px #e36a4f;
+}
+
+.handle {
+  position: absolute;
+  top: 150px;
+  right: 18px;
+  width: 22px;
+  height: 6px;
+  background: #c9b48c;
+  border-radius: 3px;
+}
+
+.phone {
+  justify-self: center;
+  width: 100%;
+  max-width: 190px;
+  padding: 16px;
+  background: #fffefa;
+  color: var(--ib-text);
+  border: 5px solid #e3e6dc;
+  border-radius: 22px;
+  animation: arrive .35s ease-out;
+}
+
+.phoneTop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--ib-muted);
+}
+
+.phone b {
+  display: block;
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 550;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+}
+
+.phone p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ib-muted);
+}
+
+.keyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px;
+  background: var(--ib-ink);
+  color: var(--ib-paper);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+p.doorStatus {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: #b3c0b5;
+  text-align: center;
+}
+
+p.partnerNote {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ffffff2e;
+  font-size: 11.5px;
+  color: #9fae9f;
+  text-align: center;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* ── Plan B ── */
+
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planGrid li {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 26px;
+  background: #f9faf5;
+  border: 1px solid #d2dac9;
+  border-radius: 12px;
+}
+
+.planGrid li > span {
+  font-size: 12px;
+  color: var(--ib-muted);
+}
+
+.planGrid h3 {
+  margin-top: 24px;
+  font-size: 22px;
+  letter-spacing: -.03em;
+}
+
+.planGrid p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--ib-muted);
+}
+
+/* ── Who does what ── */
+
+.scopeCard > svg {
+  color: var(--ib-muted);
+}
+
+/* ── Connected operation ── */
+
+.connectedModules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.connectedModules a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 9px;
+  padding: 13px 15px;
+  border: 1px solid #ffffff1f;
+  border-radius: 8px;
+  color: var(--ib-paper);
+  font-size: 13px;
+  font-weight: 550;
+  transition: border-color .2s ease;
+}
+
+.connectedModules a svg {
+  color: var(--ib-sage);
+}
+
+.connectedModules a span {
+  grid-column: 2;
+  font-size: 11px;
+  font-weight: 400;
+  color: #9fae9f;
+}
+
+.connectedModules a:hover {
+  border-color: var(--ib-accent);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1200px) {
+  .deskGrid {
+    grid-template-columns: minmax(0, 1.1fr) 34px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .planGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .deskGrid {
+    grid-template-columns: minmax(0, 1.05fr) 20px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .heroCard {
+    inset: 76px 40px 120px 10px;
+    padding: 18px;
+  }
+
+  .arrival {
+    grid-template-columns: 1fr;
+  }
+
+  .door {
+    width: 110px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroScene {
+    width: 100%;
+    max-width: 525px;
+    height: auto;
+    margin-inline: auto;
+    padding: 150px 0 110px;
+  }
+
+  .heroCard {
+    position: relative;
+    inset: auto;
+    padding: 16px 14px;
+    border-width: 5px;
+  }
+
+  .heroKey {
+    top: 0;
+    right: 0;
+    width: 180px;
+  }
+
+  .heroNote {
+    bottom: 0;
+  }
+
+  .deskGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .record {
+    padding: 16px;
+  }
+
+  .arrival {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .connectedModules {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .arrival {
+    grid-template-columns: 1fr;
+  }
+
+  .heroWindow {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door,
+  .lock i {
+    transition: none;
+  }
+
+  .doorOpen {
+    transform: none;
+  }
+
+  p.exception,
+  p.decision,
+  p.refusal,
+  .phone {
+    animation: none;
+  }
+}

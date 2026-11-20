@@ -348,48 +348,11 @@ const CONTENT = [
     related: ["assistant", "payments", "properties"],
   },
   // ── Five priority pages (2026-11-19) ──
-  // Booking engine, Procurement and Guest intelligence have their own dedicated pages (src/app/platform/*).
+  // Booking engine, Procurement, Guest intelligence and Door access have their own dedicated pages (src/app/platform/*).
   // Rule: sell the outcome confidently, describe the capability precisely, and
   // never turn an intended feature into an implied production guarantee. Each
   // page's wording matches its release stage in marketingDestinations.js;
   // review the copy before moving a page to a later stage.
-  {
-    id: "doorAccess",
-    title: "Hotel door access for guests",
-    description: "Room access that starts with the stay and ends with it. Innbase Door Access checks booking, payment and room before granting entry. In development.",
-    eyebrow: "WELCOME GUESTS AT ANY HOUR",
-    headline: "Your guest arrives at 1 a.m.",
-    emphasis: "The door is ready.",
-    intro: "Door Access ties room entry to the stay itself. When a booking is confirmed, paid and assigned a room, access is granted for that room and that stay, and it is built to end when the stay does.",
-    connections: ["Confirmed bookings", "Room access", "Checkout"],
-    sectionTitle: "Less waiting in the lobby.",
-    sectionEmphasis: "No key you can’t account for.",
-    benefits: [
-      { title: "The stay is the key.", body: "Before access is granted, Innbase checks the booking, its assigned room, its payment and any known risk on the stay. A promise at the desk is not enough." },
-      { title: "Late arrivals, without a late shift.", body: "Guests reach their room on their own schedule. Your night team handles the exceptions instead of every arrival." },
-      { title: "Every grant on record.", body: "Each grant is recorded once, for one guest, one room and one stay, and can’t be issued twice. You can see who had access, and when it stopped." },
-    ],
-    question: "“Who still has a key to Room 108?”",
-    answer: "With access tied to stays, the answer is a record, not a guess.",
-    scenario: {
-      title: "One late arrival.",
-      context: "Sample boutique hotel · how it is designed to work",
-      stages: [
-        { label: "Checks", title: "The stay qualifies", value: "Room 108", status: "Access approved", rows: [["Booking", "Confirmed"], ["Payment", "Recorded"], ["Room", "Assigned to this stay"]], note: "Access is only granted for a confirmed, paid stay with an assigned room." },
-        { label: "Arrival", title: "The guest lets themselves in", value: "1:40 a.m.", status: "Access active", rows: [["Guest", "Tunde Adeyemi"], ["Valid", "For this stay only"], ["Night desk", "Still on the bar bill"]], note: "Nobody waits in the lobby while the desk finishes another job." },
-        { label: "Checkout", title: "Access ends with the stay", value: "Checked out", status: "Access ended", rows: [["Checkout", "11:00 a.m."], ["Room 108 access", "Ended"], ["Record", "Kept with the stay"]], note: "The next guest gets a room nobody else can open." },
-      ],
-    },
-    faqs: [
-      { q: "When can we use it?", a: "Door Access is in development. We are preparing a pilot with selected properties; join the list and we’ll contact you when places open." },
-      { q: "Does it work with the locks we already have?", a: "It is being built for connected smart locks, through an integration partner that supports a range of lock makers. Traditional key or keycard locks would need upgrading. We’ll look at your doors before you commit to anything." },
-      { q: "What if the power or the internet goes down?", a: "Every property needs a fallback, and we agree yours before anything goes live, so your team always has a way to let a guest in." },
-      { q: "Can a guest who hasn’t paid get in?", a: "Door Access is designed so they can’t. Access is only granted for a confirmed stay whose payment checks out, and a cancelled booking doesn’t keep its access." },
-    ],
-    related: ["bookingEngine", "rooms", "guest"],
-    ctaHref: "/contact?reason=early-access&feature=door-access",
-    reassurance: "Pilot places are limited. We start by looking at your doors.",
-  },
   {
     id: "loyalty",
     title: "Loyalty programme for hotels, restaurants & bars",
