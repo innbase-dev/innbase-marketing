@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const origin = 'http://127.0.0.1:3035';
-const features = ['booking-engine', 'door-access', 'loyalty', 'guest-intelligence', 'procurement'];
+const features = ['booking-engine', 'door-access', 'loyalty', 'guest-intelligence', 'procurement', 'payments'];
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
@@ -19,7 +19,7 @@ for (const feature of features) {
     const canonical = await page.locator('link[rel=canonical]').getAttribute('href');
     expect(new URL(canonical).pathname).toBe(canonicalPath);
     await expect(page.getByRole('figure').first().getByRole('img')).toBeVisible();
-    const chapters = page.getByRole('navigation', { name: /^Explore / }).getByRole('link');
+    const chapters = page.getByRole('main').getByRole('navigation', { name: /^Explore / }).getByRole('link');
     await expect(chapters).toHaveCount(3);
     for (const chapter of await chapters.all()) {
       const target = await chapter.getAttribute('href');
@@ -94,4 +94,24 @@ test('reviewing a supplier bank change preserves the approved account', async ({
   await panel.getByRole('button', { name: 'Funmi reviews the change' }).click();
   await expect(panel.getByText('Rejected by Funmi · kept in history')).toBeVisible();
   await expect(panel.getByText('•••• 4417', { exact: true })).toBeVisible();
+});
+
+test('an ambiguous transfer is never applied until a manager resolves it', async ({ page }) => {
+  await page.goto(origin + '/platform/payments#desk');
+  const panel = page.getByRole('tabpanel');
+  await page.getByRole('tab', { name: 'Two tables, one amount' }).click();
+  await panel.getByRole('button', { name: 'A ₦18,000 transfer arrives' }).click();
+  await expect(panel.getByText('Two orders could own this transfer · flagged for review', { exact: true })).toBeVisible();
+  await panel.getByRole('button', { name: 'Try: Apply it to the first order' }).click();
+  await expect(panel.getByRole('status')).toContainText('Innbase won’t guess');
+  await panel.getByRole('button', { name: 'Funmi resolves it to Table 11' }).click();
+  await expect(panel.getByText('Resolved to order #1047 by Funmi, manager', { exact: true })).toBeVisible();
+});
+
+test('a guest screenshot never marks an order as paid', async ({ page }) => {
+  await page.goto(origin + '/platform/payments#desk');
+  await page.getByRole('tab', { name: '“I’ve sent it”' }).click();
+  const panel = page.getByRole('tabpanel');
+  await panel.getByRole('button', { name: 'Try: Mark it as paid' }).click();
+  await expect(panel.getByRole('status')).toContainText('isn’t proof of payment');
 });

@@ -4,40 +4,7 @@ import { MARKETING_DESTINATIONS, RELEASE_STAGES, isPublished, isVisible, release
 // A scenario row is [record label, display value]. Keep labels and values brief
 // enough to read at phone width. Only the selected page's scenario is hydrated.
 const CONTENT = [
-  {
-    id: "payments",
-    title: "Hospitality payments & reconciliation",
-    description: "Connect sales to payments, review suggested matches and follow up on differences. Clearer payment records for hotels, restaurants and bars with Innbase.",
-    eyebrow: "FOLLOW THE MONEY",
-    headline: "The payment came in.",
-    emphasis: "What was it for?",
-    intro: "A transfer alert is only one part of the story. Bring the sale, payment and shift together, so your team can check the details before calling it settled.",
-    connections: ["Sales", "Payments", "Shift closeout"],
-    sectionTitle: "A clearer trail.",
-    sectionEmphasis: "A better answer.",
-    benefits: [
-      { title: "Start with the sale.", body: "Keep the amount, items and staff member with the service record. You have a useful starting point when a payment needs checking." },
-      { title: "Review the match.", body: "Compare the source records behind a suggested match. Confirm what agrees and flag what needs another look." },
-      { title: "Keep the decision.", body: "A confirmation needs context. Retain the link between the payment and sale, and the record of who confirmed it." },
-    ],
-    question: "“Has this order actually been paid for?”",
-    answer: "Start with the order. Check the payment evidence. Leave a clear decision for the next person who asks.",
-    scenario: {
-      title: "One dinner. One payment trail.",
-      context: "Restaurant · evening shift",
-      stages: [
-        { label: "The sale", title: "Start with the order", value: "₦18,000", status: "Sale recorded", rows: [["Order", "#1042 · Table 08"], ["Recorded by", "Ada · evening shift"], ["Payment method", "Bank transfer"]], note: "The sale gives the payment a context: an order, a team member and a shift." },
-        { label: "The match", title: "Compare the evidence", value: "₦18,000", status: "Review suggested match", attention: true, rows: [["Recorded sale", "₦18,000"], ["Incoming transfer", "₦18,000"], ["Reference", "DIN-1042 on both"]], note: "The amount and reference agree. That is a reason to review the match, not skip the review." },
-        { label: "The record", title: "Leave a clear decision", value: "Linked", status: "Match confirmed", rows: [["Order", "#1042"], ["Payment reference", "DIN-1042"], ["Confirmed by", "Ada"]], note: "Ada confirmed that transfer DIN-1042 paid for order #1042." },
-      ],
-    },
-    faqs: [
-      { q: "Does a suggested match mean a payment is confirmed?", a: "No. A suggestion helps the team find records worth comparing. Review the evidence before confirming, and flag a difference when it needs follow-up." },
-      { q: "Can this help with cash, card and transfer payments?", a: "Innbase keeps payment records alongside sales. In your demo, we can walk through the payment methods you use and discuss the bank or provider connections your setup needs." },
-      { q: "Where can I try matching a payment?", a: "Choose “Check a payment” on the home page to compare a transfer with a sale and confirm or flag the match." },
-    ],
-    related: ["sales", "shifts", "owners"],
-  },
+  // Payments has its own dedicated page (src/app/platform/payments).
   {
     id: "sales",
     title: "Point of sale for hospitality",
@@ -58,7 +25,7 @@ const CONTENT = [
     answer: "A connected order gives the team somewhere to start, even when the person who served the table has gone home.",
     scenario: {
       title: "A table, from order to closeout.",
-      context: "Table 08 · dinner service",
+      context: "Table 08 · sample dinner service",
       stages: [
         { label: "Order", title: "Every item has a place", value: "Table 08", status: "Open order", rows: [["2 × Jollof rice & chicken", "₦14,000"], ["2 × Fresh juice", "₦4,000"], ["Order total", "₦18,000"]], note: "The team can follow the order without piecing it together from separate notes." },
         { label: "Payment", title: "Keep payment with service", value: "₦18,000", status: "Payment recorded", rows: [["Order", "#1042"], ["Payment method", "Bank transfer"], ["Recorded by", "Ada"]], note: "Recording the payment keeps the reference with the sale. Payment checks still need their own review." },
@@ -92,9 +59,9 @@ const CONTENT = [
     answer: "Check the opening count, deliveries, transfers and recorded sales. A visible difference gives you a specific question to follow up.",
     scenario: {
       title: "An evening count, in context.",
-      context: "Bar store · closing count",
+      context: "Bar store · sample stock record",
       stages: [
-        { label: "Expected", title: "Start with the records", value: "36 bottles", status: "Expected at closeout", rows: [["Opening stock", "48 bottles"], ["Recorded sales", "12 bottles"], ["Other stock movements", "None"]], note: "The bar opened with 48 bottles and sold 12. The closing count should be 36." },
+        { label: "Expected", title: "Start with the records", value: "36 bottles", status: "Expected at closeout", rows: [["Opening stock", "48 bottles"], ["Recorded sales", "12 bottles"], ["Other movements in example", "None"]], note: "In this simplified example, 48 opening bottles minus 12 sold leaves 36 expected." },
         { label: "Counted", title: "Count what is there", value: "34 bottles", status: "Count recorded", attention: true, rows: [["Expected", "36 bottles"], ["Counted", "34 bottles"], ["Difference", "2 bottles short"]], note: "The actual count is kept separate from the expected amount. The difference remains visible." },
         { label: "Follow up", title: "Ask the useful question", value: "−2 bottles", status: "Needs follow-up", attention: true, rows: [["Check the count", "Recount the shelf"], ["Check movements", "Sales and transfers"], ["Keep the explanation", "With the record"]], note: "A variance identifies a gap. It does not, by itself, explain the cause or prove wrongdoing." },
       ],
@@ -126,11 +93,11 @@ const CONTENT = [
     answer: "Which records are complete, which need review, and who can explain the work. That is a more useful handover than “everything is fine”.",
     scenario: {
       title: "A handover with something to go on.",
-      context: "Evening shift · handover checklist",
+      context: "Evening shift · illustrative checklist",
       stages: [
-        { label: "People", title: "Put names to the work", value: "Evening shift", status: "People in context", rows: [["Restaurant record", "Ada"], ["Bar stock count", "Tayo"], ["Closeout review", "Manager"]], note: "Ada recorded the restaurant sales. Tayo counted the bar stock. The manager knows who to ask about each figure." },
+        { label: "People", title: "Put names to the work", value: "Evening shift", status: "People in context", rows: [["Restaurant record", "Ada"], ["Bar stock count", "Tayo"], ["Closeout review", "Manager"]], note: "These sample names show why attribution helps when a question crosses departments." },
         { label: "Review", title: "See what needs attention", value: "2 questions", status: "Follow-up needed", attention: true, rows: [["Sales", "Records available"], ["One transfer", "Needs review"], ["Bar stock count", "Difference to check"]], note: "The team can focus the conversation on specific records rather than a general concern." },
-        { label: "Handover", title: "Leave the context behind", value: "A clear start", status: "Ready for handover", rows: [["Transfer question", "Order reference kept"], ["Stock difference", "Count kept with shift"], ["Next conversation", "Review with the team"]], note: "A useful handover explains the open questions; it does not make them disappear." },
+        { label: "Handover", title: "Leave the context behind", value: "A clear start", status: "Example handover", rows: [["Transfer question", "Order reference kept"], ["Stock difference", "Count kept with shift"], ["Next conversation", "Review with the team"]], note: "A useful handover explains the open questions; it does not make them disappear." },
       ],
     },
     faqs: [
@@ -160,7 +127,7 @@ const CONTENT = [
     answer: "Two simple questions that depend on several people. Connected records help the front desk find a clearer answer.",
     scenario: {
       title: "Room 204, beyond the key.",
-      context: "Two-night stay",
+      context: "Sample guest · two-night stay",
       stages: [
         { label: "Arrival", title: "Know who you are welcoming", value: "Room 204", status: "Expected arrival", rows: [["Guest", "Chinedu Okafor"], ["Booking", "Two nights"], ["Front desk check", "Confirm room readiness"]], note: "A booking gives the front desk a starting point. Readiness still needs the room’s current information." },
         { label: "The stay", title: "Keep the teams connected", value: "One stay", status: "Service in context", rows: [["Front desk", "Guest and booking details"], ["Housekeeping", "Room readiness"], ["Maintenance", "Recorded room issues"]], note: "The guest should not need to repeat the whole story whenever another team becomes involved." },
@@ -194,7 +161,7 @@ const CONTENT = [
     answer: "That starts with keeping the day’s work together, so a simple guest question does not become a search across departments.",
     scenario: {
       title: "A day at a small hotel.",
-      context: "24-room property",
+      context: "Illustrative day · 24-room property",
       stages: [
         { label: "Morning", title: "Prepare for the arrivals", value: "6 arrivals", status: "Start with the stay", rows: [["Front desk", "Check bookings"], ["Housekeeping", "Review room readiness"], ["Guest details", "Keep with the booking"]], note: "The guest’s welcome begins with what the team knows before arrival." },
         { label: "Service", title: "Keep the busy parts connected", value: "One operation", status: "Follow the records", rows: [["Restaurant", "Orders and payments"], ["Bar", "Sales and stock"], ["Guest service", "Requests and follow-up"]], note: "Different departments do different work. The useful context should not stop at the doorway." },
@@ -228,7 +195,7 @@ const CONTENT = [
     answer: "Keep the items, payment reference and team member with the order. The service record should remain useful after the plates are cleared.",
     scenario: {
       title: "One dinner service, three moments.",
-      context: "Restaurant · Table 08",
+      context: "Sample restaurant · Table 08",
       stages: [
         { label: "Order", title: "Keep the table in context", value: "Table 08", status: "Open tab", rows: [["Main meals", "₦14,000"], ["Drinks", "₦4,000"], ["Running total", "₦18,000"]], note: "A clear tab lets the team follow the order as service continues." },
         { label: "Settle", title: "Keep the reference with it", value: "₦18,000", status: "Payment to check", attention: true, rows: [["Payment method", "Transfer"], ["Reference", "DIN-1042"], ["Source order", "#1042"]], note: "The payment can be checked against the service record instead of a disconnected alert." },
@@ -262,15 +229,15 @@ const CONTENT = [
     answer: "Sales, payments and stock each show part of the evening. Keep them together while the team can still explain what happened.",
     scenario: {
       title: "The shelf after a busy evening.",
-      context: "Bar stock · bottled drinks",
+      context: "Sample bar · bottled drinks",
       stages: [
-        { label: "Open", title: "Start with a known count", value: "48 bottles", status: "Opening stock", rows: [["Location", "Bar shelf"], ["Shift", "Evening"], ["Other stock movements", "None"]], note: "A useful closing count begins with a clear opening record." },
+        { label: "Open", title: "Start with a known count", value: "48 bottles", status: "Opening stock", rows: [["Location", "Bar shelf"], ["Shift", "Evening"], ["Other movements in example", "None"]], note: "A useful closing count begins with a clear opening record." },
         { label: "Serve", title: "Keep recorded sales close", value: "12 sold", status: "During the shift", rows: [["Opening stock", "48 bottles"], ["Recorded sales", "12 bottles"], ["Expected remaining", "36 bottles"]], note: "Recorded sales explain part of the movement. Include any real transfers and other movements when reviewing your own stock." },
         { label: "Count", title: "See the difference clearly", value: "34 counted", status: "2 bottles to explain", attention: true, rows: [["Expected", "36 bottles"], ["Actual count", "34 bottles"], ["Next step", "Recount and review"]], note: "The shortage is visible. Its cause still needs evidence and a conversation." },
       ],
     },
     faqs: [
-      { q: "Is this only for bottled drinks?", a: "Bring your product list, purchase units and serving sizes. We’ll look at how to record what comes in and what your bar serves." },
+      { q: "Is this only for bottled drinks?", a: "The example uses bottles to make the arithmetic clear. Bring your actual products, purchase units and serving practices to the demo so we can discuss how to record them." },
       { q: "Can we follow transfers from a central store?", a: "Transfers are part of the inventory workflow. We can walk through the locations and stock movements your operation needs." },
       { q: "Does Innbase explain every shortage automatically?", a: "A stock difference shows what needs attention. Its cause depends on the records available and the checks your team makes; a variance is not proof of a particular cause." },
     ],
@@ -299,9 +266,9 @@ const CONTENT = [
     reassurance: "Enterprise is quoted around your setup.",
     scenario: {
       title: "Your Enterprise conversation.",
-      context: "Hotel and restaurant · guesthouse",
+      context: "Enterprise planning · an example conversation",
       stages: [
-        { label: "Locations", title: "Map the operation", value: "Your properties", status: "Start with the structure", rows: [["Property A", "Hotel and restaurant"], ["Property B", "Guesthouse"], ["Shared responsibilities", "To agree together"]], note: "Start with the locations you run and the responsibilities they share." },
+        { label: "Locations", title: "Map the operation", value: "Your properties", status: "Start with the structure", rows: [["Property A", "Hotel and restaurant"], ["Property B", "Guesthouse"], ["Shared responsibilities", "To agree together"]], note: "These are sample planning details. The first step is understanding the business you actually run." },
         { label: "People", title: "Agree who needs what", value: "Clear access", status: "Requirements to confirm", rows: [["Local teams", "Day-to-day work"], ["Property managers", "Their responsibilities"], ["Owners", "Wider access needs"]], note: "Discuss permissions and property boundaries before assuming a group setup will work a particular way." },
         { label: "Rollout", title: "Make the next step practical", value: "A shared plan", status: "Enterprise discussion", rows: [["Reporting needs", "Document and confirm"], ["Integrations", "Review requirements"], ["Onboarding", "Agree scope and sequence"]], note: "The demo and quote should reflect confirmed requirements, with the rollout planned around your teams." },
       ],
@@ -333,7 +300,7 @@ const CONTENT = [
     answer: "Look for the open questions, then follow the source records. The aim is a better conversation with the team, not another round of guessing.",
     scenario: {
       title: "A more useful morning review.",
-      context: "Morning review · yesterday’s records",
+      context: "Sample manager review · yesterday’s records",
       stages: [
         { label: "Overview", title: "Start with the day", value: "3 areas", status: "Review in context", rows: [["Sales", "What was recorded"], ["Payments", "What needs checking"], ["Stock", "What the team counted"]], note: "A headline total becomes more useful when the underlying records are available." },
         { label: "Focus", title: "Make the question specific", value: "One difference", status: "Stock follow-up", attention: true, rows: [["Expected stock", "36 bottles"], ["Recorded count", "34 bottles"], ["Context", "Bar · evening shift"]], note: "The record identifies the question and its context. It does not establish the cause." },
@@ -342,7 +309,7 @@ const CONTENT = [
     },
     faqs: [
       { q: "Can I understand the day without asking everyone separately?", a: "Innbase brings operational records into one platform so there is a clearer place to start. Missing or unrecorded information may still need a conversation with the team." },
-      { q: "Can I ask questions in plain language?", a: "On the AI Operational Assistant page, ask about Room 105 and open the maintenance record behind the answer." },
+      { q: "Can I ask questions in plain language?", a: "The AI Operational Assistant has its own page and example. Explore it to see how a question can be connected to the hotel’s operational context." },
       { q: "Can I use this across several properties?", a: "A wider property setup needs the right permissions and scope. See the multiple-properties page and speak with us about your Enterprise requirements." },
     ],
     related: ["assistant", "payments", "properties"],

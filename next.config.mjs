@@ -5,7 +5,7 @@ const nextConfig = {
   },
   /* config options here */
   async redirects() {
-    const platformPages = ["booking-engine", "door-access", "loyalty", "guest-intelligence", "procurement"];
+    const platformPages = ["booking-engine", "door-access", "loyalty", "guest-intelligence", "procurement", "payments"];
     return [
       ...platformPages.map(slug => ({
         source: `/${slug}`,
