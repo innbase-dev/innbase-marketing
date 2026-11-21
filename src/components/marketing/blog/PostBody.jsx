@@ -22,7 +22,7 @@ function Block({ block }) {
       );
     case "ol":
       return (
-        <ol>
+        <ol start={block.start}>
           {block.items.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
