@@ -1482,7 +1482,8 @@ body {
 }
 
 .ib-pricing-intro>div:last-child {
-  color: var(--ib-muted);
+  /* On the dark pricing hero; --ib-muted here measured 2.78:1. */
+  color: #b3c0b5;
   padding-bottom: 6px;
   font-size: 17px;
 }
