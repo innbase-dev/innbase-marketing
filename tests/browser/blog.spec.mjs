@@ -26,7 +26,7 @@ test('every article renders its own illustration, canonical URL and AI context',
     const path = `/blog/${slug}`;
     expect((await page.goto(origin + path)).status()).toBe(200);
     await expect(page.locator('main h1')).toHaveCount(1);
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://innbase.co' + path);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.innbase.co' + path);
     const illustration = page.locator(`img[src*="${asset}.webp"]`).first();
     await expect(illustration).toBeVisible();
     await expect.poll(() => illustration.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
@@ -34,7 +34,7 @@ test('every article renders its own illustration, canonical URL and AI context',
     const ai = page.getByRole('region', { name: 'Explore this topic with AI.' });
     const link = ai.getByRole('link', { name: /Open ChatGPT/ });
     const prompt = new URL(await link.getAttribute('href')).searchParams.get('q');
-    expect(prompt).toContain('https://innbase.co' + path);
+    expect(prompt).toContain('https://www.innbase.co' + path);
     expect(prompt).toContain('Use simple English');
     expect(prompt).toContain('The guide\'s main points:');
     expect(prompt).not.toContain('127.0.0.1');
@@ -73,25 +73,18 @@ test('article and sidebar fill the container, and sharing controls have matching
   }
 });
 
-test('AI choices work with the keyboard and prepare distinct article-specific questions', async ({ page }) => {
+test('Explore with AI opens ChatGPT with an article-specific question, from the keyboard', async ({ page }) => {
   await page.goto(origin + '/blog/how-to-run-a-bar-stock-count');
   const panel = page.getByRole('region', { name: 'Explore this topic with AI.' });
-  const choices = panel.getByRole('button');
-  const link = panel.getByRole('link', { name: /Open ChatGPT/ });
-  const prompts = [];
-  for (let index = 0; index < 3; index += 1) {
-    await choices.nth(index).focus();
-    await page.keyboard.press('Enter');
-    await expect(choices.nth(index)).toHaveAttribute('aria-pressed', 'true');
-    await expect(panel.locator('button[aria-pressed="true"]')).toHaveCount(1);
-    const url = new URL(await link.getAttribute('href'));
-    expect(url.origin).toBe('https://chatgpt.com');
-    prompts.push(url.searchParams.get('q'));
-  }
-  expect(new Set(prompts).size).toBe(3);
-  expect(prompts[0]).toContain('five short points');
-  expect(prompts[1]).toContain('practical checklist');
-  expect(prompts[2]).toContain('asking one short question');
+  const link = panel.getByRole('link', { name: /^Open ChatGPT/ });
+  await expect(link).toHaveCount(1);
+  await link.focus();
+  await expect(link).toBeFocused();
+  const url = new URL(await link.getAttribute('href'));
+  expect(url.origin).toBe('https://chatgpt.com');
+  const prompt = url.searchParams.get('q');
+  expect(prompt).toContain('five short points');
+  expect(prompt).toContain('https://www.innbase.co/blog/how-to-run-a-bar-stock-count');
   await expect(link).toHaveAttribute('target', '_blank');
   await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
 });
@@ -104,7 +97,7 @@ test('copy link gives feedback without resizing and offers a selected URL if cli
       value: { writeText: async value => { window.copiedArticle = value; } },
     });
   });
-  const canonical = 'https://innbase.co/blog/where-hotel-revenue-leaks';
+  const canonical = 'https://www.innbase.co/blog/where-hotel-revenue-leaks';
   await page.goto(origin + '/blog/where-hotel-revenue-leaks');
   const copy = page.getByRole('button', { name: 'Copy link', exact: true });
   const before = await copy.boundingBox();
@@ -128,7 +121,7 @@ test('blog listings, RSS, sitemap and every Open Graph image work; missing topic
   await page.goto(origin + '/blog');
   await expect(page.locator('footer a[href="/blog"]')).toHaveText('Blog');
   await page.getByRole('button', { name: 'Resources', exact: true }).click();
-  await expect(page.getByRole('link', { name: /The Innbase blog/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Blog.*Tips, Guides, and News/ })).toBeVisible();
   for (const path of ['/blog', '/blog/category/payments', '/blog/category/stock', '/blog/category/operations']) {
     expect((await page.goto(origin + path)).status()).toBe(200);
     await expect(page.locator('main h1')).toHaveCount(1);
@@ -137,8 +130,12 @@ test('blog listings, RSS, sitemap and every Open Graph image work; missing topic
     await page.setViewportSize({ width: 1440, height: 1000 });
   }
   const feed = await (await request.get(origin + '/blog/feed.xml')).text();
-  expect((feed.match(/<item>/g) || []).length).toBe(6);
   const sitemap = await (await request.get(origin + '/sitemap.xml')).text();
+  // Every published post is in both the feed and the sitemap.
+  const sitemapPosts = new Set([...sitemap.matchAll(/<loc>[^<]*\/blog\/([a-z0-9-]+)<\/loc>/g)].map(([, slug]) => slug));
+  const feedItems = (feed.match(/<item>/g) || []).length;
+  expect(feedItems).toBeGreaterThanOrEqual(posts.length);
+  expect(feedItems).toBe(sitemapPosts.size);
   for (const [slug] of posts) {
     expect(feed).toContain('/blog/' + slug);
     expect(sitemap).toContain('/blog/' + slug);

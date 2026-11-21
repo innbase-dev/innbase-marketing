@@ -24,7 +24,7 @@ test('public referral page renders its real content without Clerk', async ({ pag
   const response = await page.goto(`${origin}/refer`);
   expect(response.status()).toBe(200);
   await expect(page.locator('main h1')).toHaveText(/You know hotels.*Send them our way\./);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://innbase.co/refer');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.innbase.co/refer');
   const signupLinks = page.getByRole('link', { name: 'Get your referral link' });
   await expect(signupLinks).toHaveCount(2);
   for (const link of await signupLinks.all()) {
