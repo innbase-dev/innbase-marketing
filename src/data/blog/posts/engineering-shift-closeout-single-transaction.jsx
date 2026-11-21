@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "engineering-shift-closeout-single-transaction",
   "headline": "A shift is not closed",
@@ -6,20 +8,14 @@ const post = {
   "description": "Inside Innbase engineering: how we designed shift closeout with transactional state, idempotent retries, outbox delivery and honest certification evidence.",
   "excerpt": "A cashier taps Close Shift. The network fails. Did the cash report close? Was the event published? Can they try again? These are architectural questions.",
   "category": "engineering",
-  "tags": [
-    "engineering",
-    "innbase",
-    "hotel operations",
-    "software architecture",
-    "reliability engineering"
-  ],
+  "tags": ["engineering", "shift closeout", "database transactions", "data integrity", "software architecture"],
   "publishedAt": "2026-10-06",
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What is an outbox in backend engineering?",
   "cover": {
     "src": "/images/blog/engineering-shift-closeout-single-transaction.svg",
-    "alt": "Innbase editorial illustration about a shift is not closed just because the screen says so, using linked records and hospitality symbols.",
+    "alt": "Stacked records held together inside one bracket with a check mark, representing a shift closed in a single transaction.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"
@@ -72,14 +68,9 @@ const post = {
       "title": "Engineering note",
       "text": "Passing focused tests is not the same as certifying every workflow in production."
     },
-    {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “Two attendants. One last item. The architecture has to choose.”, for the next operational perspective."
-    }
+    <>
+      For the same idea applied to selling, read <Link href="/blog/engineering-hotel-sales-concurrency">what happens when two attendants sell the last item</Link>.
+    </>
   ],
   "faqs": [
     {

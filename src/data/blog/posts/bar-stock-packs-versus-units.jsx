@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "bar-stock-packs-versus-units",
   "headline": "Ten packs are not ten bottles",
@@ -6,20 +8,14 @@ const post = {
   "description": "Learn how to record hotel bar stock in packs and individual units, handle changing pack sizes and avoid expensive inventory variances.",
   "excerpt": "Ten packs of water arrive. Someone enters ten units. Your records are now wrong before the first bottle is sold.",
   "category": "stock",
-  "tags": [
-    "stock",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["bar inventory", "stock units", "pack sizes", "receiving stock", "hotel bar"],
   "publishedAt": "2026-09-18",
-  "updatedAt": "2026-09-18",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "How do I convert stock packs to units?",
   "cover": {
     "src": "/images/blog/bar-stock-packs-versus-units.svg",
-    "alt": "Innbase editorial illustration about ten packs are not ten bottles the inventory mistake that compounds, using linked records and hospitality symbols.",
+    "alt": "A shrink-wrapped pack of bottles with an arrow to three single bottles, showing that a pack and a unit are different counts.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Check unit conversions at receiving and transfers."
     },
+    <>
+      Once packs and units are recorded correctly, <Link href="/blog/how-to-run-a-bar-stock-count">a bar stock count that finds the gap</Link> becomes far easier to trust.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “A leaking tap is never just a leaking tap”, for the next operational perspective."
+      "type": "product",
+      "id": "inventory",
+      "text": "Innbase records stock received, transferred and adjusted in one movement log, so every change to the count has a source."
     }
   ],
   "faqs": [

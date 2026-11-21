@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "hotel-manager-daily-operations-review",
   "headline": "The ten-minute manager review",
@@ -6,20 +8,14 @@ const post = {
   "description": "A concise daily hotel manager checklist connecting occupancy, room readiness, open complaints, sales exceptions, stock and shift handovers.",
   "excerpt": "Every department has a report. The manager still does not know whether the property is ready for the day. Here is how to join the dots.",
   "category": "operations",
-  "tags": [
-    "operations",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["daily review", "hotel manager", "exceptions", "internal controls", "hotel operations"],
   "publishedAt": "2026-09-30",
-  "updatedAt": "2026-09-30",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What should a hotel manager check each morning?",
   "cover": {
     "src": "/images/blog/hotel-manager-daily-operations-review.svg",
-    "alt": "Innbase editorial illustration about the ten-minute manager review that exposes yesterday’s blind spots, using linked records and hospitality symbols.",
+    "alt": "A clipboard and a cup of coffee in front of a rising sun, representing a short morning review.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "End the review with named decisions and owners."
     },
+    <>
+      If the review keeps surfacing the same gaps, check <Link href="/blog/where-hotel-revenue-leaks">the seven places hotel revenue leaks</Link>.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “A reservation is not a room until the record agrees”, for the next operational perspective."
+      "type": "product",
+      "id": "owners",
+      "text": "Owners and managers see the same connected record as the team. Sales, payments, stock and shifts sit together, so every gap has a trail to follow."
     }
   ],
   "faqs": [

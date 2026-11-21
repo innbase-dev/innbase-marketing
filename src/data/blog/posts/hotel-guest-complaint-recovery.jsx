@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "hotel-guest-complaint-recovery",
   "headline": "The guest is angry.",
@@ -6,20 +8,14 @@ const post = {
   "description": "A realistic hotel guest complaint workflow: acknowledge the issue, assign an owner, escalate urgent cases and verify a lasting resolution.",
   "excerpt": "A late meal. A cold shower. A room move no one communicated. What matters next is not a perfect apology but a kept promise.",
   "category": "operations",
-  "tags": [
-    "operations",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["guest complaints", "service recovery", "shift handover", "guest experience", "front desk"],
   "publishedAt": "2026-09-27",
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What is hotel service recovery?",
   "cover": {
     "src": "/images/blog/hotel-guest-complaint-recovery.svg",
-    "alt": "Innbase editorial illustration about the guest is angry. your handover is the real test., using linked records and hospitality symbols.",
+    "alt": "A speech bubble with a warning sign turning into a speech bubble with a check mark, representing a complaint resolved.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Resolve the practical problem and verify that the guest knows."
     },
+    <>
+      Many complaints start as a request nobody owned. Read <Link href="/blog/handle-guest-requests-whatsapp-calls-front-desk">how to handle guest requests from WhatsApp, calls and the desk</Link>.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “The ten-minute manager review that exposes yesterday’s blind spots”, for the next operational perspective."
+      "type": "product",
+      "id": "guest",
+      "text": "Guest Companion gives guests a direct way to reach your team, and each request moves through receipt, acceptance and completion in the same record as the work."
     }
   ],
   "faqs": [

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "why-hotel-bank-transfers-go-unmatched",
   "headline": "Why hotel bank transfers go unmatched",
@@ -6,20 +8,14 @@ const post = {
   "description": "A practical Nigerian hotel guide to unmatched bank transfers, payment references, duplicate alerts and daily reconciliation across front desk and restaurant sales.",
   "excerpt": "Your bank app says paid. Your front desk says pending. The guest is standing right there. Here is how a small gap becomes a long evening.",
   "category": "payments",
-  "tags": [
-    "payments",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["bank transfers", "reconciliation", "payment references", "front desk", "unmatched payments"],
   "publishedAt": "2026-09-12",
-  "updatedAt": "2026-09-12",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "Is a transfer screenshot proof of payment?",
   "cover": {
     "src": "/images/blog/why-hotel-bank-transfers-go-unmatched.svg",
-    "alt": "Innbase editorial illustration about why hotel bank transfers go unmatched and how to fix the trail, using linked records and hospitality symbols.",
+    "alt": "A phone showing a credit alert next to a receipt, with a broken link between them, representing a transfer that can’t be matched.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Unmatched credits need an owner and a daily review."
     },
+    <>
+      For the full daily routine, read <Link href="/blog/reconcile-bank-transfers-hotel-restaurant">how to reconcile bank transfers at a hotel restaurant</Link>.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “The room looks clean. Is it actually ready for check-in?”, for the next operational perspective."
+      "type": "product",
+      "id": "payments",
+      "text": "Innbase applies a transfer only when its reference matches the order exactly. Anything uncertain waits for a manager, and the decision stays on record."
     }
   ],
   "faqs": [
