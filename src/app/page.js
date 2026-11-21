@@ -33,7 +33,7 @@ const softwareAppJsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "The AI operating system for hospitality — reconciles every sale, payment, shift, and stock movement so hotels, restaurants, and bars always know where revenue is made or lost.",
+    "The AI operating system for hospitality. Innbase connects every sale, payment, shift and stock movement, so hotels, restaurants and bars can see where revenue is made or lost.",
   areaServed: "NG",
   provider: { "@id": `${SITE_URL}/#organization` },
 };
