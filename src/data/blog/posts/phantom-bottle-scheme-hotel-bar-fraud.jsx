@@ -40,7 +40,7 @@ const post = {
   slug: "phantom-bottle-scheme-hotel-bar-fraud",
   headline: "The Phantom Bottle Scheme:",
   emphasis: "The Hotel Bar Fraud Your POS May Never See",
-  seoTitle: "Phantom Bottle Scheme: Hotel Bar Fraud Your POS Can't See",
+  seoTitle: "The Phantom Bottle Scheme: Hotel Bar Fraud",
   description: "Discover how privately supplied drinks and unrecorded cash sales create invisible hotel revenue leakage, and what managers can do to reduce it.",
   excerpt: "A bartender can sell privately bought drinks for cash without touching hotel inventory. Here's why a perfect stock count may still miss the sale.",
   category: "payments",

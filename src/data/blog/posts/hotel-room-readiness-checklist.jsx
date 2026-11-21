@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "hotel-room-readiness-checklist",
   "headline": "The room looks clean.",
@@ -6,20 +8,14 @@ const post = {
   "description": "A practical room readiness checklist for small hotels covering housekeeping, maintenance, inspection, handover and how to prevent early check-in surprises.",
   "excerpt": "The bed is made. The AC is not cooling. The next guest arrives in seven minutes. Room readiness is more than a clean-room label.",
   "category": "operations",
-  "tags": [
-    "operations",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["room readiness", "housekeeping", "check-in", "inspection", "front desk"],
   "publishedAt": "2026-09-15",
-  "updatedAt": "2026-09-15",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "Who should mark a hotel room ready?",
   "cover": {
     "src": "/images/blog/hotel-room-readiness-checklist.svg",
-    "alt": "Innbase editorial illustration about the room looks clean. is it actually ready for check-in?, using linked records and hospitality symbols.",
+    "alt": "A made bed beside a checklist and a spray bottle, representing a room inspected before check-in.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Record who verified readiness and when."
     },
+    <>
+      A room with an open repair is not ready. Read <Link href="/blog/hotel-maintenance-requests-that-get-lost">why maintenance requests get lost</Link> and how to keep them attached to the room.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “Ten packs are not ten bottles the inventory mistake that compounds”, for the next operational perspective."
+      "type": "product",
+      "id": "rooms",
+      "text": "Innbase keeps every room’s status in one shared record, so the front desk and housekeeping agree which rooms can be sold."
     }
   ],
   "faqs": [

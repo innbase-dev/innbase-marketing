@@ -12,7 +12,7 @@ const post = {
   category: "payments",
   tags: ["bank transfers", "reconciliation", "restaurant", "cash and POS"],
   publishedAt: "2026-09-16",
-  updatedAt: "2026-09-18",
+  updatedAt: "2026-11-21",
   author: "team",
   aiQuestion: "How can my hotel restaurant match each bank transfer to the right sale and follow up payments that do not match?",
   cover: {
@@ -127,7 +127,7 @@ const post = {
     {
       type: "product",
       id: "payments",
-      text: "Innbase keeps the sale, the payment, and the shift in one record. It suggests matches for you to review, and keeps a note of who confirmed each one.",
+      text: "Innbase keeps the sale, the payment and the shift in one record. It applies a transfer only when its reference matches the order exactly, and sends anything uncertain to a manager, with a note of who resolved it.",
     },
 
     { type: "h2", text: "Cash and POS need the same habit" },

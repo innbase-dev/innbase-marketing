@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "hotel-maintenance-requests-that-get-lost",
   "headline": "A leaking tap is never",
@@ -6,20 +8,14 @@ const post = {
   "description": "How small hotels can track maintenance requests from discovery to repair, assign clear ownership and stop defects disappearing between shifts.",
   "excerpt": "The guest told reception. Reception told maintenance. Maintenance thought the plumber was coming tomorrow. The room was resold today.",
   "category": "operations",
-  "tags": [
-    "operations",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["maintenance", "room readiness", "housekeeping", "work orders", "hotel operations"],
   "publishedAt": "2026-09-21",
-  "updatedAt": "2026-09-21",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What information should a hotel maintenance ticket contain?",
   "cover": {
     "src": "/images/blog/hotel-maintenance-requests-that-get-lost.svg",
-    "alt": "Innbase editorial illustration about a leaking tap is never just a leaking tap, using linked records and hospitality symbols.",
+    "alt": "A dripping tap beside a wrench and a clipboard, representing a maintenance request that needs an owner.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Close work only after verifying the problem was solved."
     },
+    <>
+      An open repair is a room that may not be ready. Use our <Link href="/blog/hotel-room-readiness-checklist">room readiness checklist</Link> before you sell it.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “Three payment methods one trustworthy shift close”, for the next operational perspective."
+      "type": "product",
+      "id": "rooms",
+      "text": "Innbase keeps housekeeping and maintenance in the same picture as each room, so a reported fault stays attached to the room until it is fixed."
     }
   ],
   "faqs": [

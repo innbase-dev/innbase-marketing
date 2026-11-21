@@ -1,25 +1,21 @@
+import Link from "next/link";
+
 const post = {
   "slug": "preventing-hotel-double-bookings",
   "headline": "A reservation is not a room",
   "emphasis": "until the record agrees",
-  "seoTitle": "How to Prevent Hotel Double Bookings and Room Conflicts",
+  "seoTitle": "Preventing Hotel Double Bookings: A Guide",
   "description": "Learn how small hotels can reduce double bookings across walk-ins, phone reservations, online channels, extensions and last-minute room changes.",
   "excerpt": "One room. Two confirmations. Both guests are arriving. The mistake usually starts long before anyone notices the collision.",
   "category": "operations",
-  "tags": [
-    "operations",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["double bookings", "reservations", "room holds", "front desk", "availability"],
   "publishedAt": "2026-10-03",
-  "updatedAt": "2026-10-03",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What causes hotel double bookings?",
   "cover": {
     "src": "/images/blog/preventing-hotel-double-bookings.svg",
-    "alt": "Innbase editorial illustration about a reservation is not a room until the record agrees, using linked records and hospitality symbols.",
+    "alt": "Two room keys pointing at one door, with a calendar showing the same night chosen twice, representing a double booking.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Resolve collisions with clear guest communication and a recorded correction."
     },
+    <>
+      Many double bookings start with an informal hold. Read <Link href="/blog/hotel-room-hold-deposit-policy">how long to hold a room before the deposit arrives</Link>.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “A shift is not closed just because the screen says so”, for the next operational perspective."
+      "type": "product",
+      "id": "bookingEngine",
+      "text": "Innbase’s booking engine is being built around one rule: one room, one guest, for each night, with timed holds and confirmation when the deposit is verified."
     }
   ],
   "faqs": [

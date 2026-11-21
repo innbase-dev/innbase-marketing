@@ -12,7 +12,7 @@ const post = {
   category: "stock",
   tags: ["stock count", "bar inventory", "variance", "hotel bar"],
   publishedAt: "2026-09-02",
-  updatedAt: "2026-09-02",
+  updatedAt: "2026-11-21",
   author: "team",
   aiQuestion: "How can my bar team run a reliable stock count, record movements and compare the count with our records?",
   cover: {
@@ -139,7 +139,7 @@ const post = {
     {
       type: "product",
       id: "inventory",
-      text: "Innbase records purchases, transfers, sales, and counts together, so the expected number is ready when you start counting.",
+      text: "Innbase records stock received, transferred and adjusted in one movement log, so you start the count knowing where every change came from.",
     },
   ],
   faqs: [

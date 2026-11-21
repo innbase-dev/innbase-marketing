@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "hotel-pos-cash-transfer-shift-close",
   "headline": "Three payment methods",
@@ -6,20 +8,14 @@ const post = {
   "description": "A shift-closing process for Nigerian hotels and restaurants handling cash, POS terminals, bank transfers, unsettled payments and discrepancies.",
   "excerpt": "Cash in a drawer, card slips by the terminal and transfer alerts on three phones. Which number is the day’s actual revenue?",
   "category": "payments",
-  "tags": [
-    "payments",
-    "innbase",
-    "hotel operations",
-    "Nigeria",
-    "hotel management"
-  ],
+  "tags": ["shift close", "cash count", "POS", "bank transfers", "reconciliation"],
   "publishedAt": "2026-09-24",
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "Does POS approval always mean money reached the bank?",
   "cover": {
     "src": "/images/blog/hotel-pos-cash-transfer-shift-close.svg",
-    "alt": "Innbase editorial illustration about three payment methods one trustworthy shift close, using linked records and hospitality symbols.",
+    "alt": "Cash notes, a card terminal and a phone with a transfer alert meeting at a check mark, representing one shift close across three payment methods.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"
@@ -66,13 +62,13 @@ const post = {
       "title": "Take this into your next shift",
       "text": "Leave unsettled or unexplained items open with an owner."
     },
+    <>
+      Card payments need one more step after the shift. Read <Link href="/blog/reconcile-pos-terminal-settlements">how to reconcile POS terminal settlements</Link>.
+    </>,
     {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “The guest is angry. Your handover is the real test.”, for the next operational perspective."
+      "type": "product",
+      "id": "payments",
+      "text": "Innbase keeps card, cash and transfer payments with the orders they belong to, so each shift closes from the same record the team sold from."
     }
   ],
   "faqs": [

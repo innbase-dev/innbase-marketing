@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const post = {
   "slug": "engineering-hotel-sales-concurrency",
   "headline": "Two attendants. One last item.",
@@ -6,20 +8,14 @@ const post = {
   "description": "Inside Innbase engineering: what chaotic hotel sales taught us about single-transaction execution, inventory consistency, payment evidence and idempotency.",
   "excerpt": "Two workstations sell the final bottle at once. A transfer arrives late. A cashier retries. We designed for the messy version of the day.",
   "category": "engineering",
-  "tags": [
-    "engineering",
-    "innbase",
-    "hotel operations",
-    "software architecture",
-    "reliability engineering"
-  ],
+  "tags": ["engineering", "concurrency", "point of sale", "inventory integrity", "software architecture"],
   "publishedAt": "2026-10-09",
-  "updatedAt": "2026-10-09",
+  "updatedAt": "2026-11-21",
   "author": "team",
   "aiQuestion": "What is concurrency control in hotel sales software?",
   "cover": {
     "src": "/images/blog/engineering-hotel-sales-concurrency.svg",
-    "alt": "Innbase editorial illustration about two attendants. one last item. the architecture has to choose., using linked records and hospitality symbols.",
+    "alt": "Two arrows converging on a single bottle protected by a lock, showing two sales competing for the last item.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"
@@ -72,14 +68,9 @@ const post = {
       "title": "Engineering note",
       "text": "Concurrency and replay tests expose failures that happy-path demos cannot."
     },
-    {
-      "type": "h2",
-      "text": "Keep reading"
-    },
-    {
-      "type": "p",
-      "text": "This is one part of a connected operating day. Read our related guide, “Why hotel bank transfers go unmatched and how to fix the trail”, for the next operational perspective."
-    }
+    <>
+      The same principle shapes how a shift closes. Read <Link href="/blog/engineering-shift-closeout-single-transaction">why a shift is not closed just because the screen says so</Link>.
+    </>
   ],
   "faqs": [
     {
