@@ -33,7 +33,7 @@ const MODULE_ROWS = [
     id: "sales",
     Icon: ReceiptText,
     title: "From first order to final closeout.",
-    body: "Point of sale, open tabs, and payments keep the service record together.",
+    body: "Point of sale and payments keep each order and how it was paid together.",
   },
   {
     id: "rooms",
@@ -60,7 +60,7 @@ const BUSINESS_TYPES = [
     id: "restaurants",
     Icon: Utensils,
     title: "Restaurants",
-    body: "Keep orders, tabs, and payments moving with the service.",
+    body: "Keep orders and payments moving with the service.",
   },
   {
     id: "bars",
@@ -232,10 +232,10 @@ export default function HomePage() {
                 has a <em>backstory.</em>
               </h3>
               <p>
-                Connect what was sold to what was paid. Review suggested matches, investigate the
-                gaps, and keep a record of who confirmed what.
+                Connect what was sold to what was paid. Innbase applies a transfer only when its
+                reference matches the order exactly, and sends anything uncertain to a manager, on the record.
               </p>
-              <TextLink href="#demo">Try a payment match</TextLink>
+              <TextLink href="#demo">Follow a payment</TextLink>
             </div>
             <div className="ib-ledger-art">
               <div className="ib-ledger-heading">
@@ -251,8 +251,8 @@ export default function HomePage() {
                 <b>₦18,000</b>
               </div>
               <div>
-                <span>Evening shift · Ada</span>
-                <b>Linked</b>
+                <span>Exact reference match</span>
+                <b>Settled</b>
               </div>
             </div>
           </div>

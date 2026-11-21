@@ -137,7 +137,7 @@ export default function PaymentsDesk() {
         </div>
 
         <div className="ib-demo-stage" id="pay-desk" role="tabpanel" aria-labelledby={`pay-tab-${scenario}`}>
-          <div className="ib-demo-topline"><span>FROM THE TABLE TO THE RECORD</span><span>Illustrative demo · sample orders, people and amounts</span></div>
+          <div className="ib-demo-topline"><span>FROM THE TABLE TO THE RECORD</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -201,7 +201,7 @@ export default function PaymentsDesk() {
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Start again</button>
           </div>
           <p className={styles.visuallyHidden} aria-live="polite">{s.match ? `${s.match[0]}. ` : ""}{s.note}</p>
         </div>
