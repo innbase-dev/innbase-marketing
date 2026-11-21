@@ -25,6 +25,6 @@ export const PRICING_FAQS = [
   },
   {
     q: "Is there a free trial or a card required to start?",
-    a: "Yes, your business is entitled to a 1-month free trial period, no card required to start. We set up your workspace together — opening balances, stock counts, bank statements — and most properties are running the same evening. Cancel any month; your data leaves with you.",
+    a: "Yes, your business is entitled to a 1-month free trial period, no card required to start. We set up your workspace together — rooms, menu, opening stock and team — and most properties are running the same evening. Cancel any month; your data leaves with you.",
   },
 ];

@@ -3,9 +3,9 @@ export const FAQS = [
     q: "How long does setup actually take?",
     a: (
       <>
-        One afternoon for most properties. We import your opening balances and stock counts with
-        you, connect your bank statements and POS exports, and your first shift runs on Innbase
-        the same evening. <b>No consultants, no six-week rollout.</b>
+        One afternoon for most properties. We set up your rooms, menu, opening stock and team with
+        you, and your first shift runs on Innbase the same evening.{" "}
+        <b>No consultants, no six-week rollout.</b>
       </>
     ),
   },
@@ -14,7 +14,7 @@ export const FAQS = [
     a: (
       <>
         If they can use WhatsApp, they can use Innbase. Each role sees only its own screen — the
-        bartender logs sales, the front desk sees one guest profile, the manager confirms matches.
+        bartender logs sales, the front desk sees one guest profile, the manager resolves payment exceptions.
         Most teams are comfortable by the second shift.
       </>
     ),
@@ -23,20 +23,21 @@ export const FAQS = [
     q: "Which banks and POS providers does it work with?",
     a: (
       <>
-        Statement imports work with every Nigerian bank our pilots use today — including GTBank,
-        UBA, Access, and Zenith — alongside Moniepoint and Opay POS records. If your provider
-        isn&apos;t on the list, we add it during your onboarding.
+        Innbase records cash, card payments at the terminal and bank transfers. Transfers are
+        verified through a connected payment provider, which we set up with you property by
+        property. Innbase doesn&apos;t import bank statements. Tell us which banks and POS
+        providers you use, and we&apos;ll confirm what is supported for your property.
       </>
     ),
   },
   {
-    q: "What happens when a match is wrong?",
+    q: "What happens when a payment can’t be matched?",
     a: (
       <>
-        Nothing is final until a person confirms it. Innbase proposes matches with a confidence
-        score and its reasons; you accept, correct, or reject each one.{" "}
-        <b>Every correction teaches the matcher</b> — and every accepted match keeps a record of
-        who confirmed it and when.
+        Nothing is guessed. Innbase applies a transfer automatically only when its reference
+        matches the order exactly. If the reference is missing or points elsewhere, or more than
+        one order could own it, the transfer waits for a manager.{" "}
+        <b>Every manual decision keeps a record of who made it and when.</b>
       </>
     ),
   },
