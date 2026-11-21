@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, Ban, Check, CircleDashed, KeyRound, Lock, LockOpen, RotateCcw, ShieldCheck, UserRoundCheck, X } from "lucide-react";
 import { ACCESS_SCENARIOS, GUEST, ROOM, WINDOW } from "@/data/doorAccessData";
 import { SectionHeading } from "../Primitives";
+import demo from "../feature/FeatureDemo.module.css";
 import styles from "./DoorAccess.module.css";
 
 const PENDING = ["pending", "Not checked yet"];
@@ -54,7 +55,7 @@ function CheckIcon({ state }) {
   return <CircleDashed size={14} aria-hidden="true" />;
 }
 
-function Arrival({ state }) {
+function Arrival({ state, onOpen }) {
   const open = state === "open";
   const phone = {
     waiting: ["Your stay", "Your key will appear here when your stay is ready."],
@@ -74,7 +75,8 @@ function Arrival({ state }) {
         <span className={styles.phoneTop}><KeyRound size={13} aria-hidden="true" />Room key</span>
         <b>{phone[0]}</b>
         <p>{phone[1]}</p>
-        {state === "ready" || state === "open" ? <span className={styles.keyButton}>{open ? <><Check size={13} aria-hidden="true" />Door opened</> : "Tap to open"}</span> : null}
+        {onOpen && <button type="button" className={styles.keyButton} onClick={onOpen}>Open Room {ROOM}</button>}
+        {open && <span className={styles.keyStatus}><Check size={13} aria-hidden="true" />Door opened</span>}
       </div>
       <p className={styles.doorStatus}>Room {ROOM}: {open ? "unlocked for Tunde" : "locked"}</p>
     </div>
@@ -120,13 +122,13 @@ export default function AccessDesk() {
   const nextLabel = s.next && ACCESS_SCENARIOS.find((x) => x.key === s.next).label;
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="desk">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="desk">
       <div className="ib-container">
         <SectionHeading eyebrow="THE ARRIVAL" title={<>The stay decides<br /><em>who gets in.</em></>}>
           <p>Follow a late arrival from booking to checkout, then see what happens when the payment hasn’t landed, or the booking was cancelled.</p>
         </SectionHeading>
 
-        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose an arrival" style={{ gridTemplateColumns: `repeat(${ACCESS_SCENARIOS.length}, 1fr)` }}>
+        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose an arrival">
           {ACCESS_SCENARIOS.map(({ key, label }, i) => (
             <button key={key} type="button" role="tab" id={`door-tab-${key}`} aria-controls="door-desk" aria-selected={scenario === key} tabIndex={scenario === key ? 0 : -1} ref={(el) => { tabs.current[i] = el; }} onClick={() => choose(key)} onKeyDown={(e) => keydown(e, i)}>
               {label}
@@ -135,7 +137,7 @@ export default function AccessDesk() {
         </div>
 
         <div className="ib-demo-stage" id="door-desk" role="tabpanel" aria-labelledby={`door-tab-${scenario}`}>
-          <div className="ib-demo-topline"><span>FROM THE RECORD TO THE DOOR</span><span>Illustrative demo · sample guest, room and times</span></div>
+          <div className="ib-demo-topline"><span>GUEST ACCESS RECORD</span><span>Room {ROOM}</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -169,15 +171,15 @@ export default function AccessDesk() {
             <div className={styles.side}>
               <div className="ib-demo-label"><span>02 / THE DOOR AND THE GUEST</span><span>Room {ROOM}</span></div>
               <div className={styles.arrivalFrame}>
-                <Arrival state={s.arrival} />
-                <p className={styles.partnerNote}>The lock and phone-key steps are being built with our lock integration partner.</p>
+                <Arrival state={s.arrival} onOpen={scenario === "late" && s.arrival === "ready" ? advance : undefined} />
+                <p className={styles.partnerNote}>Mobile keys require a compatible connected lock.</p>
               </div>
             </div>
           </div>
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={() => choose(scenario)}><RotateCcw size={15} aria-hidden="true" />Restart arrival</button>
           </div>
           <p className={styles.visuallyHidden} aria-live="polite">{s.decision[0]}. {s.note}</p>
         </div>

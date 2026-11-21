@@ -30,3 +30,20 @@ test('existing marketing routes and referral redirects still work with third-par
  }
  expect(errors).toEqual([]);
 });
+
+test('public product cards and controls use hotel workflow labels', async ({ request }) => {
+ const response = await request.get(origin + '/sitemap.xml');
+ expect(response.ok()).toBe(true);
+ const paths = [...(await response.text()).matchAll(/<loc>([^<]+)<\/loc>/g)]
+   .map(([, url]) => new URL(url).pathname)
+   .filter(path => ['/', '/guest-companion', '/assistant', '/refer'].includes(path)
+     || path.startsWith('/platform/') || path.startsWith('/solutions/'));
+ expect(paths).toContain('/solutions/multiple-properties');
+ expect(paths).toContain('/platform/procurement');
+ const stamp = /\billustrative (?:view|scenario|data|record trail|demo|checklist)|\bsample (?:workspace|bank|shift)|\bdesign concept · example sales|(?:Reset|Send|Accept|Confirm) example\b| · example(?=[<"])/i;
+ for (const path of paths) {
+   const page = await request.get(origin + path);
+   expect(page.status(), path).toBe(200);
+   expect(await page.text(), path).not.toMatch(stamp);
+ }
+});

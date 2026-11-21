@@ -44,7 +44,7 @@ The build was **not completed in the authoring environment**. Dependency install
 
 ## Behavior to know
 
-- Demos use local illustrative data. They do not contact a hotel workspace, payment service, or AI provider.
+- Demos run locally without contacting a hotel workspace, payment service or AI provider. Use the language of the hotel workflow on cards, controls and accessible labels. Omit badges and captions that call the content “Illustrative”, “Sample” or “Example”.
 - Pricing uses production data: Boutique **₦24,000**, Base **₦60,000**, Growth **₦150,000** per month. Enterprise is recommended above 50 staff accounts.
 - Contact prepares a message for the visitor to send through email or WhatsApp. There is no submission backend or false delivery confirmation. Pricing links carry their plan into the form.
 - Legal copy remains unchanged in `src/data/legalData.jsx`. Document hashes and native expandable sections support navigation.

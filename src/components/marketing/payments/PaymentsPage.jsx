@@ -1,69 +1,42 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BedDouble, Check, ClipboardCheck, Landmark, Receipt, ScanSearch, UserRoundCheck, Users } from "lucide-react";
+import { ArrowUpRight, BedDouble, Landmark, Receipt, ScanSearch, Users } from "lucide-react";
 import { FOUR_FIGURES, PAY_FAQ, PAY_ROLES } from "@/data/paymentsData";
 import { MARKETING_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
+import { Eyebrow, FAQ, SectionHeading, TextLink } from "../Primitives";
+import FeatureOpening from "../feature/FeatureOpening";
+import ShiftNote from "../feature/ShiftNote";
 import PaymentsDesk from "./PaymentsDesk";
 import styles from "./Payments.module.css";
 
-const HERO_FIGURES = [["Owed", "₦0"], ["Claimed", "₦18,000"], ["Verified", "₦18,000"], ["Settled", "₦18,000"]];
+const HERO_FIGURES = [["Claimed", "₦18,000"], ["Verified", "₦18,000"], ["Owed", "₦0"]];
 
 export default function PaymentsPage() {
   const booking = MARKETING_DESTINATIONS.bookingEngine;
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>PAYMENTS &amp; RECONCILIATION</Eyebrow>
-            <h1>The payment came in.<br /><em>What was it for?</em></h1>
-            <p>A transfer alert is only half the story. Innbase keeps every payment with the order it belongs to, applies money only when the match is certain, and leaves anything in doubt to a named person, on the record.</p>
-            <div className="ib-actions">
-              <Button>Book a demo</Button>
-              <TextLink href="#desk">Follow a payment</TextLink>
-            </div>
-            <Reassurance>We’ll walk through the way your guests actually pay.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.orderHead}>
-                <div><small>ORDER #1042 · SAMPLE</small><b>Table 08 · ₦18,000</b></div>
-                <span className={`${styles.pill} ${styles.pill_sage}`}>Settled</span>
-              </div>
-              <dl className={styles.figures}>
-                {HERO_FIGURES.map(([label, value]) => (
-                  <div key={label} className={value !== "₦0" ? styles.figureOn : ""}><dt>{label}</dt><dd>{value}</dd></div>
-                ))}
-              </dl>
-              <p className={`${styles.match} ${styles.match_sage}`}><Check size={15} aria-hidden="true" />Reference matches order #1042 exactly</p>
-            </div>
-            <div className={styles.heroAlert} aria-hidden="true">
-              <span><Landmark size={13} />Credit alert</span>
-              <b>₦18,000</b>
-              <p>Ref: DIN-1042 · 8:47 pm</p>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className="ib-note-icon"><ScanSearch size={20} aria-hidden="true" /></span>
-              <div>
-                <small>NOT SURE?</small>
-                <strong>Innbase doesn’t guess.</strong>
-                <p><UserRoundCheck size={12} aria-hidden="true" />A manager decides</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [Receipt, "Every payment has an order", "Amount, table, cashier and shift"],
-            [ScanSearch, "Matched only when certain", "Exact references, never a hunch"],
-            [ClipboardCheck, "Every decision on record", "Who resolved what, and why it was flagged"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
+      <FeatureOpening
+        name="Payments & reconciliation"
+        title="The payment came in."
+        emphasis="What was it for?"
+        intro="Table 08 says they’ve paid ₦18,000 by transfer. Follow the order from the claim to the money, and see what Innbase does when it can’t be sure."
+        primary={{ href: "#desk", label: "Follow a payment" }}
+        secondary={{ href: "/contact", label: "Book a demo" }}
+        photo="/images/marketing/feature-payments.webp"
+        alt="A card payment terminal on a café counter, printing a receipt"
+        recordLabel="Order #1042"
+        recordTitle="Table 08 · ₦18,000"
+        chapters={[
+          { href: "#desk", label: "Follow a payment", detail: "From claim to settled", Icon: Receipt },
+          { href: "#four-figures", label: "Four figures", detail: "Owed, claimed, verified, settled", Icon: ScanSearch },
+          { href: "#how-it-works", label: "Manager decisions", detail: "Who resolves the exceptions", Icon: Users },
+        ]}
+      >
+        <dl className={styles.heroFigures}>
+          {HERO_FIGURES.map(([label, value]) => (
+            <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
           ))}
-        </div>
-      </section>
+        </dl>
+      </FeatureOpening>
 
       <PaymentsDesk />
 
@@ -90,18 +63,21 @@ export default function PaymentsPage() {
             <p>Nobody has to scroll through transfer alerts at closing time. The exceptions come to the person who can decide them.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Users size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>CASHIERS · MANAGERS · OWNERS</span>
-              <h3>Fewer awkward<br /><em>conversations.</em></h3>
-              <p>No chasing a guest who already paid, and no letting one leave who didn’t. Every answer starts from the order.</p>
-            </div>
+            <ShiftNote
+              label="Evening shift"
+              title="One transfer, two tables"
+              detail="A ₦18,000 transfer arrived with no reference while two tables owed ₦18,000. Funmi decided which order it paid, and the next shift can see that she did."
+              entries={[
+                ["Transfer", "₦18,000 · 9:12 pm"],
+                ["Applied to", "Order #1047 · Table 11"],
+                ["Resolved by", "Funmi, manager"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {PAY_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>

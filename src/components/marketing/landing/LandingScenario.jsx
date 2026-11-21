@@ -41,7 +41,7 @@ export default function LandingScenario({ scenario, icon }) {
       </div>
       <p className={styles.scenarioContext}>{scenario.context}</p>
 
-      <div className={styles.tabs} role="tablist" aria-label="Explore the sample scenario">
+      <div className={styles.tabs} role="tablist" aria-labelledby={titleId}>
         {scenario.stages.map((item, index) => (
           <button
             key={item.label}
@@ -86,7 +86,6 @@ export default function LandingScenario({ scenario, icon }) {
         </dl>
         <p className={styles.scenarioNote}><ArrowRight size={16} aria-hidden="true" />{stage.note}</p>
       </div>
-      <p className={styles.sampleLabel}>Illustrative scenario · explore each step above</p>
     </section>
   );
 }

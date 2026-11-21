@@ -100,69 +100,33 @@
   color: #74430f !important;
 }
 
-/* ── Hero ── */
+/* ── Hero record (inside FeatureOpening) ── */
 
-.heroScene {
-  position: relative;
-  height: 600px;
-  min-width: 0;
+.heroFigures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  background: #23342a;
+  color: #fff;
+  border-radius: 7px;
 }
 
-.heroCard {
-  position: absolute;
-  inset: 160px 60px auto 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  background: #fbfbf7;
-  color: var(--ib-text);
-  border: 6px solid #eef0e8;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px #0006;
+.heroFigures div + div {
+  padding-left: 10px;
+  border-left: 1px solid #617366;
 }
 
-.heroAlert {
-  position: absolute;
-  top: 18px;
-  right: -8px;
-  width: 220px;
-  padding: 14px 16px 16px;
-  background: var(--ib-ink-soft);
-  color: var(--ib-paper);
-  border: 1px solid #ffffff1f;
-  border-radius: 18px;
-  box-shadow: 0 18px 32px #0007;
-  transform: rotate(4deg);
+.heroFigures dt {
+  font-size: .75rem;
+  color: #ccdacb;
 }
 
-.heroAlert span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #9fae9f;
-}
-
-.heroAlert b {
-  display: block;
-  margin-top: 8px;
-  font-size: 26px;
+.heroFigures dd {
+  margin: 3px 0 0;
+  font-size: .9375rem;
   font-weight: 550;
-  letter-spacing: -.04em;
-}
-
-.heroAlert p {
-  margin-top: 4px;
-  font-size: 12px;
-  color: #b3c0b5;
-}
-
-.heroNote {
-  bottom: 40px;
-  right: 0;
 }
 
 /* ── Desk ── */
@@ -459,12 +423,6 @@ p.match {
   color: var(--ib-muted);
 }
 
-/* ── Who does what ── */
-
-.scopeCard > svg {
-  color: var(--ib-muted);
-}
-
 /* ── Connected operation ── */
 
 .connectedModules {
@@ -522,42 +480,12 @@ p.match {
     gap: 9px;
   }
 
-  .heroCard {
-    inset: 160px 30px auto 0;
-    padding: 18px;
-  }
-
   .figures {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 760px) {
-  .heroScene {
-    width: 100%;
-    max-width: 525px;
-    height: auto;
-    margin-inline: auto;
-    padding: 120px 0 110px;
-  }
-
-  .heroCard {
-    position: relative;
-    inset: auto;
-    padding: 16px 14px;
-    border-width: 5px;
-  }
-
-  .heroAlert {
-    top: 0;
-    right: 0;
-    width: 200px;
-  }
-
-  .heroNote {
-    bottom: 0;
-  }
-
   .deskGrid {
     grid-template-columns: 1fr;
     gap: 0;

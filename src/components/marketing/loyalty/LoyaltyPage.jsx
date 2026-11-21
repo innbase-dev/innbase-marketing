@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Gift, Phone, Receipt, SlidersHorizontal, Smartphone, Store, UserRound } from "lucide-react";
-import { CONTRASTS, GUEST, LOYALTY_FAQ, LOYALTY_ROLES, PARTNER_STEPS, PHONE } from "@/data/loyaltyData";
+import { ArrowUpRight, Check, Gift, Receipt, Store } from "lucide-react";
+import { CONTRASTS, LOYALTY_FAQ, LOYALTY_ROLES, PARTNER_STEPS } from "@/data/loyaltyData";
 import { MARKETING_DESTINATIONS } from "@/data/marketingDestinations";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
+import { Button, Eyebrow, FAQ, SectionHeading } from "../Primitives";
 import LoyaltyDesk from "./LoyaltyDesk";
+import ShiftNote from "../feature/ShiftNote";
+import FeatureOpening from "../feature/FeatureOpening";
 import styles from "./Loyalty.module.css";
 
 const PARTNER_HREF = "/contact?reason=early-access&feature=loyalty";
@@ -11,68 +13,32 @@ const PARTNER_HREF = "/contact?reason=early-access&feature=loyalty";
 export default function LoyaltyPage() {
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>LOYALTY</Eyebrow>
-            <h1>They came back nine times.<br /><em>Did anyone notice?</em></h1>
-            <p>Your best guests are already loyal. Innbase Loyalty is being designed to reward their real spend, recognise them by the phone number they already give you, and give them a reason to choose you again.</p>
-            <div className="ib-actions">
-              <Button href={PARTNER_HREF}>Become a design partner</Button>
-              <TextLink href="#explorer">Try the idea</TextLink>
-            </div>
-            <Reassurance>A few conversations, not a project.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.till}>
-                <span className={styles.tillIcon} aria-hidden="true"><Receipt size={19} /></span>
-                <div><small>AT THE COUNTER · SAMPLE</small><b>Sale completed · ₦42,500</b></div>
-              </div>
-              <div className={styles.heroField}>
-                <small>KNOW THIS GUEST?</small>
-                <span><Phone size={14} aria-hidden="true" />{PHONE}</span>
-              </div>
-              <div className={styles.heroGuest}>
-                <span className={styles.avatar} aria-hidden="true"><UserRound size={17} /></span>
-                <div><b>{GUEST}</b><p>Visit 9 this quarter</p></div>
-              </div>
-              <div className={styles.heroPerk}>
-                <Gift size={18} aria-hidden="true" />
-                <div><small>PERK AVAILABLE</small><b>Free meal</b></div>
-              </div>
-            </div>
-            <div className={styles.heroNumber} aria-hidden="true">
-              <span>THE CARD</span>
-              <b>{PHONE}</b>
-              <p>No app. No sign-up.</p>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className="ib-note-icon"><SlidersHorizontal size={20} aria-hidden="true" /></span>
-              <div>
-                <small>BEFORE IT’S REDEEMED</small>
-                <strong>Costs you ₦12,000.</strong>
-                <p>Shown next to the spend that earned it</p>
-              </div>
-            </div>
-          </div>
+      <FeatureOpening
+        name="Loyalty"
+        title="Make the fifth visit"
+        emphasis="one to remember."
+        intro="A familiar face, a phone number and five meals at your restaurant. Explore what it would take to offer the next meal on the house, down to the cost of the reward."
+        primary={{ href: "#explorer", label: "Try a reward programme" }}
+        secondary={{ href: PARTNER_HREF, label: "Become a design partner" }}
+        photo="/images/marketing/feature-loyalty.webp"
+        alt="A server brings jollof rice, fish and plantain to a diner in a Lagos restaurant"
+        recordLabel="Reward programme"
+        recordTitle="A meal on the house"
+        chapters={[
+          { href: "#explorer", label: "The reward calculator", detail: "Test visits, spend and rewards", Icon: Gift },
+          { href: "#how-it-works", label: "At the counter", detail: "Follow the sale and redemption", Icon: Receipt },
+          { href: "#design-partners", label: "Design partners", detail: "Help shape the programme", Icon: Store },
+        ]}
+      >
+        <div className={styles.visitCard}>
+          <div aria-hidden="true">{[1, 2, 3, 4].map(visit => <span key={visit}><Check size={13} /></span>)}<span><Gift size={15} /></span></div>
+          <b>5 visits · ₦12,000 reward cost</b>
         </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [Receipt, "Earned from real spend", "Counted from the sale, not a stamp card"],
-            [Smartphone, "The number is the card", "No app, no sign-up, no plastic"],
-            [SlidersHorizontal, "Every rule is yours", "And every cost is visible"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
-          ))}
-        </div>
-      </section>
+      </FeatureOpening>
 
       <LoyaltyDesk />
 
-      <section className={`ib-section ib-paper-alt ${styles.contrasts}`} id="why">
+      <section className="ib-section ib-paper-alt" id="why">
         <div className="ib-container">
           <SectionHeading eyebrow="WHY MOST SCHEMES STALL" title={<>Built around how<br /><em>you already sell.</em></>}>
             <p>Loyalty schemes usually ask guests and staff to do something new. This one is designed to work from what already happens at the till.</p>
@@ -95,18 +61,21 @@ export default function LoyaltyPage() {
             <p>You decide the rules once. After that, the work is a phone number at the till.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Store size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>HOTELS · RESTAURANTS · BARS</span>
-              <h3>Regulars,<br /><em>recognised.</em></h3>
-              <p>The guest who orders the same drink every Friday, the couple who book the same room every anniversary. Recognised at the counter, without a card.</p>
-            </div>
+            <ShiftNote
+              label="Counter receipt"
+              title="A fifth visit earns lunch."
+              detail="Five sales count towards Ifeoma’s reward. The manager can compare the cost of a free meal with the spend that earned it."
+              entries={[
+                ["Qualifying visits", "5"],
+                ["Spend across five visits", "₦164,500"],
+                ["Cost of the meal", "₦12,000"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {LOYALTY_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -138,8 +107,8 @@ export default function LoyaltyPage() {
 
       <FAQ
         items={LOYALTY_FAQ}
-        title={<>A few things<br /><em>worth knowing.</em></>}
-        description="Loyalty is in design. Tell us how you look after your regulars today."
+        title={<>About your<br /><em>reward programme.</em></>}
+        description="Talk to us about repeat visits, reward costs or becoming a design partner."
       />
     </>
   );

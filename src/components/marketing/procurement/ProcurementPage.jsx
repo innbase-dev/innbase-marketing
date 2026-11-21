@@ -1,85 +1,45 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Building2, Check, FileLock2, Landmark, MessageCircle, PackageCheck, ShieldCheck, TriangleAlert, UserCheck, Users } from "lucide-react";
+import { ArrowUpRight, Check, Landmark, PackageCheck, ShieldCheck, TriangleAlert, Users } from "lucide-react";
 import { CONTROL_SPLIT, PROCUREMENT_FAQ, PROCUREMENT_ROLES } from "@/data/procurementData";
 import { MARKETING_DESTINATIONS } from "@/data/marketingDestinations";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
+import { Eyebrow, FAQ, SectionHeading, TextLink } from "../Primitives";
 import SupplierDesk from "./SupplierDesk";
+import ShiftNote from "../feature/ShiftNote";
+import FeatureOpening from "../feature/FeatureOpening";
 import styles from "./Procurement.module.css";
 
 const PILOT_HREF = "/contact?reason=early-access&feature=procurement";
 
-const HERO_PAYMENTS = [
-  ["₦1,200,000", "TRF-88190", "Invoice 0412"],
-  ["₦640,000", "TRF-88231", "Invoice 0398"],
-];
 
 export default function ProcurementPage() {
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>PROCUREMENT &amp; SUPPLIERS</Eyebrow>
-            <h1>The invoice says ₦1.2 million.<br /><em>Who approved it?</em></h1>
-            <p>Margin leaks before a guest ever arrives. Keep an approved supplier list, check bank details before anyone pays them, and keep proof of every payment where you can find it months later.</p>
-            <div className="ib-actions">
-              <Button href="#desk">Try the control desk</Button>
-              <TextLink href={PILOT_HREF}>Join the pilot list</TextLink>
-            </div>
-            <Reassurance>Innbase never moves your money.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.recordHead}>
-                <span className={styles.recordIcon} aria-hidden="true"><Building2 size={20} /></span>
-                <div><small>SUPPLIER · SAMPLE</small><b>Eko Beverages Ltd</b></div>
-                <span className={`${styles.pill} ${styles.pill_sage}`}>Approved</span>
-              </div>
-              <dl className={styles.heroFacts}>
-                <div><dt>Bank account</dt><dd>•••• 4417 · name matches</dd></div>
-                <div><dt>Entered by</dt><dd>Chidi · Accounts</dd></div>
-                <div><dt>Approved by</dt><dd>Funmi · Owner</dd></div>
-              </dl>
-              <p className={styles.heroListTitle}>Payments recorded</p>
-              <ul className={styles.heroPayments}>
-                {HERO_PAYMENTS.map(([amount, ref, invoice]) => (
-                  <li key={ref}>
-                    <div><b>{amount}</b><span>{ref} · {invoice}</span></div>
-                    <span className={styles.heroReceipt}><FileLock2 size={13} aria-hidden="true" />Receipt · clean</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles.heroBubble} aria-hidden="true">
-              <span><MessageCircle size={13} />Message · unknown number</span>
-              <p>We’ve changed banks. Please pay this month’s invoice into our new account.</p>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className={`ib-note-icon ${styles.alertIcon}`}><TriangleAlert size={20} aria-hidden="true" /></span>
-              <div>
-                <small>NEW BANK DETAILS · EKO BEVERAGES</small>
-                <strong>Name doesn’t match. Not approved.</strong>
-                <p><Check size={12} aria-hidden="true" />Approved account unchanged</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [BadgeCheck, "Approved suppliers only", "Per property, signed off"],
-            [UserCheck, "Bank details, checked twice", "Name from the bank, a second approver"],
-            [FileLock2, "Proof that stays put", "Encrypted, scanned, every opening logged"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
-          ))}
-        </div>
-      </section>
+      <FeatureOpening
+        name="Procurement & suppliers"
+        title="Same supplier."
+        emphasis="New bank details?"
+        intro="A message asks accounts to pay Eko Beverages into a different account. Check the name at the bank, see who approved the details and keep the receipt with the supplier."
+        primary={{ href: "#desk", label: "Review a bank change" }}
+        secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
+        photo="/images/marketing/feature-procurement.webp"
+        alt="A hotel receiving clerk checks a delivery docket beside a crate of bottled drinks"
+        recordLabel="Supplier review"
+        recordTitle="Eko Beverages Ltd"
+        chapters={[
+          { href: "#desk", label: "The supplier desk", detail: "Check a change of account", Icon: ShieldCheck },
+          { href: "#who-holds-what", label: "Bank and payment records", detail: "Trace a supplier transfer", Icon: Landmark },
+          { href: "#how-it-works", label: "Second approval", detail: "See who signs off on changes", Icon: Users },
+        ]}
+      >
+        <dl className={styles.accountReview}>
+          <div><dt>•••• 4417</dt><dd><Check size={13} aria-hidden="true" />Approved</dd></div>
+          <div><dt>•••• 9035</dt><dd><TriangleAlert size={13} aria-hidden="true" />Name mismatch</dd></div>
+        </dl>
+      </FeatureOpening>
 
       <SupplierDesk />
 
-      <section className={`ib-section ib-paper-alt ${styles.split}`} id="who-holds-what">
+      <section className="ib-section ib-paper-alt" id="who-holds-what">
         <div className="ib-container">
           <SectionHeading eyebrow="CLEAR BOUNDARIES" title={<>Innbase keeps the record.<br /><em>Your bank keeps the money.</em></>}>
             <p>Supplier payments stay exactly where they are today. Innbase adds the control and the evidence around them.</p>
@@ -96,7 +56,7 @@ export default function ProcurementPage() {
               <small>YOUR BANK HANDLES</small>
               <h3>The money.<br /><em>Only your bank.</em></h3>
               <ul>{CONTROL_SPLIT.bank.map((item) => <li key={item}><Check size={16} aria-hidden="true" />{item}</li>)}</ul>
-              <p className={styles.splitFoot}>Innbase never initiates, holds or moves supplier payments. It’s a permanent boundary, not a missing feature.</p>
+              <p className={styles.splitFoot}>Your team authorises the transfer in your banking app, then attaches the receipt to the supplier record.</p>
             </div>
           </div>
         </div>
@@ -104,22 +64,25 @@ export default function ProcurementPage() {
 
       <section className="ib-section" id="how-it-works">
         <div className="ib-container">
-          <SectionHeading eyebrow="WHO DOES WHAT" title={<>Two people, not one,<br /><em>behind every bank account.</em></>}>
+          <SectionHeading eyebrow="WHO DOES WHAT" title={<>One person enters the details.<br /><em>A second approves them.</em></>}>
             <p>Registering a supplier, approving them and entering bank details are separate steps with separate permissions. Approving bank details always takes a second person.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Users size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>PURCHASING · ACCOUNTS · OWNERS</span>
-              <h3>Starts with<br /><em>the people you pay.</em></h3>
-              <p>The first release covers suppliers, their bank details and proof of payment. Purchase orders and deliveries are not part of it.</p>
-            </div>
+            <ShiftNote
+              label="Account change review"
+              title="Eko Beverages Ltd"
+              detail="Accounts received new bank details. The account name came back different, so the owner rejected the change."
+              entries={[
+                ["Approved account", "Ending 4417"],
+                ["Requested change", "Ending 9035"],
+                ["Reviewed by", "Funmi · Owner"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {PROCUREMENT_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -127,7 +90,7 @@ export default function ProcurementPage() {
         </div>
       </section>
 
-      <section className={`ib-section ib-dark ${styles.connected}`} id="connected">
+      <section className="ib-section ib-dark" id="connected">
         <div className="ib-container ib-bridge">
           <div>
             <Eyebrow>ONE CONNECTED OPERATION</Eyebrow>
@@ -151,8 +114,8 @@ export default function ProcurementPage() {
 
       <FAQ
         items={PROCUREMENT_FAQ}
-        title={<>A few things<br /><em>worth knowing.</em></>}
-        description="Procurement is in development. Tell us how you choose and pay suppliers today."
+        title={<>About paying<br /><em>your suppliers.</em></>}
+        description="Ask us about supplier approvals, changes of account or locating a receipt."
       />
     </>
   );

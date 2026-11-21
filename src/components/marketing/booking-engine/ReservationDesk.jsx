@@ -5,6 +5,7 @@ import { ArrowRight, Ban, Building2, Check, CheckCheck, Hourglass, Landmark, Mes
 import { DEPOSIT, DESK_STEPS, GUEST, HELD_ROOM, HOLD_ENDS, REQUEST_NIGHTS, TOTAL } from "@/data/bookingEngineData";
 import { SectionHeading } from "../Primitives";
 import AvailabilityBoard from "./AvailabilityBoard";
+import demo from "../feature/FeatureDemo.module.css";
 import styles from "./BookingEngine.module.css";
 
 // One weekend booking, acted out step by step. Stages:
@@ -103,14 +104,14 @@ export default function ReservationDesk() {
   const corporate = stage === "credit";
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="desk">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="desk">
       <div className="ib-container">
         <SectionHeading eyebrow="THE RESERVATION DESK" title={<>One weekend.<br /><em>One room. Every outcome.</em></>}>
           <p>Take a WhatsApp enquiry, hold the room, and decide what happens next. Watch the availability board answer for every step.</p>
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>TRY IT AT THE DESK</span><span>Illustrative demo · sample rooms, guests and amounts</span></div>
+          <div className="ib-demo-topline"><span>FRONT DESK ENQUIRY</span><span>Friday to Sunday</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.frontDesk}>
@@ -134,6 +135,9 @@ export default function ReservationDesk() {
                   {corporate && <Bubble from="system">No deposit · approved by the general manager</Bubble>}
                 </div>
 
+                {stage !== "enquiry" && <p className={styles.deskAnswer}>
+                  <strong>{s.status[0]}</strong><span>{s.event}</span>
+                </p>}
                 <div className={styles.actions}>
                   {stage === "enquiry" && <button type="button" className="ib-button ib-button-dark" ref={actionRef} onClick={() => go("checked")}>Check Deluxe availability<ArrowRight size={16} aria-hidden="true" /></button>}
                   {stage === "checked" && <button type="button" className="ib-button ib-button-dark" ref={actionRef} onClick={() => go("held")}>Hold Deluxe 204 for Amaka<ArrowRight size={16} aria-hidden="true" /></button>}
@@ -177,7 +181,7 @@ export default function ReservationDesk() {
                   ))}
                 </ol>
 
-                <AvailabilityBoard caption="Sample availability for six rooms over four nights" {...board} />
+                <AvailabilityBoard caption="Availability for six rooms over four nights" {...board} />
 
                 <div className={styles.record}>
                   <div className={styles.recordHead}>
@@ -208,9 +212,9 @@ export default function ReservationDesk() {
 
           <div className="ib-demo-bottom">
             <p>{s.note}</p>
-            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={reset}><RotateCcw size={15} aria-hidden="true" />Reset booking</button>
           </div>
-          <p className={styles.visuallyHidden} aria-live="polite">{s.event}</p>
+          <p className={styles.visuallyHidden} role="status">{s.event}</p>
         </div>
       </div>
     </section>

@@ -136,7 +136,7 @@
 
 /* The sample is light even inside the dark hero, so it needs a dark focus ring. */
 .page .scenario :is(button, [tabindex]):focus-visible { outline: 3px solid #81501f !important; outline-offset: 3px; }
-.scenarioPanel { min-height: 382px; margin: 17px 18px 0; padding: 24px; border: 1px solid #e2e3d8; border-radius: 6px; background: var(--ib-paper); }
+.scenarioPanel { min-height: 382px; margin: 17px 18px 18px; padding: 24px; border: 1px solid #e2e3d8; border-radius: 6px; background: var(--ib-paper); }
 .stageTitle { color: var(--ib-muted); font-size: 12px; }
 .stageIntro .stageValue { margin-top: 5px; font-size: clamp(31px, 3vw, 43px); font-weight: 500; letter-spacing: -.06em; line-height: 1.2; }
 .status { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; margin-top: 15px; padding: 5px 9px; border-radius: 4px; background: #e3eddd; color: #3d5235; font-size: 11px; font-weight: 600; line-height: 1.5; }
@@ -148,7 +148,6 @@
 .records dd { margin: 0; text-align: right; font-weight: 600; }
 .scenarioPanel .scenarioNote { display: flex; align-items: flex-start; gap: 8px; min-height: 58px; color: #53624c; font-size: 12px; line-height: 1.65; }
 .scenarioNote svg { margin-top: 3px; }
-.scenario .sampleLabel { padding: 15px 20px 18px; color: #58644f; font-size: 10px; text-align: center; letter-spacing: .025em; }
 
 .sectionHeading { margin-bottom: 48px; }
 .sectionHeading h2 { max-width: 19ch; }
@@ -209,7 +208,7 @@
   .tabs { margin-inline: 10px; gap: 3px; }
   .tabs button { min-height: 48px; font-size: 11px; gap: 4px; }
   .tabs button > span { display: none; }
-  .scenarioPanel { margin: 11px 10px 0; padding: 18px 16px; }
+  .scenarioPanel { margin: 11px 10px 10px; padding: 18px 16px; }
   .stageIntro .stageValue { font-size: 32px; }
   .records > div { gap: 10px; }
   .scenarioPanel .scenarioNote { min-height: 0; font-size: 11px; }

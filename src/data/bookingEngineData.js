@@ -24,9 +24,6 @@ export const DEPOSIT = "₦45,000";
 export const TOTAL = "₦90,000";
 export const HOLD_ENDS = "6:00 pm";
 
-// Hero board: the same sample weekend, after the booking is confirmed.
-export const HERO_BOOKED = { room: "204", nights: REQUEST_NIGHTS, label: "Bello" };
-
 export const DESK_STEPS = ["Enquiry", "Hold", "Payment", "Confirmed"];
 
 export const CONFIRMATION_ROUTES = [
@@ -59,7 +56,7 @@ export const DESK_ROLES = [
 ];
 
 export const BOOKING_FAQ = [
-  { q: "When can we use it?", a: "Innbase Booking is in development and being tested ahead of a pilot with selected properties. Join the pilot list and we’ll contact you when places open. Nothing changes in your current setup until you decide." },
+  { q: "How can our property join the pilot?", a: "Join the booking pilot list to discuss your room types, hold times and payment process with the team." },
   { q: "We take most bookings by phone and WhatsApp. Is it built for that?", a: "Yes. The first release is built for the bookings your team takes by phone, on WhatsApp and at the desk, all checked against one live availability." },
   { q: "Can guests book online by themselves?", a: "Not in the first release, which starts with the bookings your team takes. Tell us how your guests book today; it shapes what comes next." },
   { q: "Do we have to stop using booking sites?", a: "No. Keep the channels that bring you guests. The first release doesn’t connect to booking sites, so tell us which ones you rely on." },

@@ -51,7 +51,6 @@
   border-bottom: 1px solid var(--ib-line);
 }
 .demoTopbar > span { display: flex; align-items: center; gap: 10px; font-size: .875rem; font-weight: 600; }
-.demoTopbar small { color: var(--ib-muted); font-size: .75rem; }
 .channelButtons { display: grid; grid-template-columns: 1.4fr 1fr .7fr; gap: 4px; padding: 12px; }
 .demoShell .channelButtons button {
   display: flex;
@@ -146,8 +145,6 @@
 }
 .threadFooter > span:first-child { display: flex; align-items: center; gap: 7px; }
 .conversationStatus { padding: 3px 8px; border-radius: 4px; background: var(--ib-paper-alt); }
-.page .demoCaption { padding: 12px; color: var(--ib-muted); font-size: .75rem; text-align: center; }
-
 .workflowGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px; }
 .workflowGrid article { min-width: 0; padding-top: 23px; border-top: 1px solid var(--ib-line); }
 .workflowGrid article > div { display: flex; align-items: center; justify-content: space-between; color: var(--ib-muted); }

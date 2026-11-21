@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, HeartHandshake, Lock, MessageSquareText, ShieldCheck, Smartphone, Sparkles, UserRound, Users } from "lucide-react";
-import { BOUNDARIES, GI_FAQ, GI_ROLES, HERO_PREFERENCES, PREFERENCE_TYPES } from "@/data/guestIntelligenceData";
+import { ArrowUpRight, Check, HeartHandshake, MessageSquareText, ShieldCheck, Smartphone, Sparkles, Users } from "lucide-react";
+import { BOUNDARIES, GI_FAQ, GI_ROLES, PREFERENCE_TYPES } from "@/data/guestIntelligenceData";
 import { MARKETING_DESTINATIONS, isVisible } from "@/data/marketingDestinations";
-import { Button, Eyebrow, FAQ, Reassurance, SectionHeading, TextLink } from "../Primitives";
+import { Eyebrow, FAQ, SectionHeading, TextLink } from "../Primitives";
 import GuestProfileDesk from "./GuestProfileDesk";
+import ShiftNote from "../feature/ShiftNote";
+import FeatureOpening from "../feature/FeatureOpening";
 import styles from "./GuestIntelligence.module.css";
 
 const PILOT_HREF = "/contact?reason=early-access&feature=guest-intelligence";
@@ -13,71 +15,32 @@ export default function GuestIntelligencePage() {
   const loyalty = MARKETING_DESTINATIONS.loyalty;
   return (
     <>
-      <section className={`ib-dark ${styles.opening}`}>
-        <div className="ib-container ib-split-hero">
-          <div className="ib-hero-copy">
-            <Eyebrow>GUEST INTELLIGENCE</Eyebrow>
-            <h1>Your best receptionist remembers everyone.<br /><em>What happens when she leaves?</em></h1>
-            <p>A quiet room. A high floor. A firm pillow. Note what a guest prefers once, let the right people on your team see it, and welcome her back as if she never left, with her agreement every step of the way.</p>
-            <div className="ib-actions">
-              <Button href="#desk">Meet a returning guest</Button>
-              <TextLink href={PILOT_HREF}>Join the pilot list</TextLink>
-            </div>
-            <Reassurance>Her preferences stay with your hotel.</Reassurance>
-          </div>
-
-          <div className={styles.heroScene}>
-            <div className={styles.heroCard}>
-              <div className={styles.profileHead}>
-                <span className={styles.avatar} aria-hidden="true"><UserRound size={20} /></span>
-                <div><small>GUEST PROFILE · SAMPLE</small><b>Amaka Bello</b></div>
-                <span className={`${styles.pill} ${styles.pill_sage}`}>Returning guest</span>
-              </div>
-              <dl className={styles.visits}>
-                <div><dt>Completed stays</dt><dd>3</dd></div>
-                <div><dt>Last checkout</dt><dd>14 Sept</dd></div>
-                <div><dt>Arriving</dt><dd>Friday</dd></div>
-              </dl>
-              <p className={styles.listTitle}>Preferences</p>
-              <ul className={styles.prefs}>
-                {HERO_PREFERENCES.map(([label, source]) => (
-                  <li key={label}>
-                    <b>{label}</b>
-                    <span>{source === "Told the front desk" ? <MessageSquareText size={13} aria-hidden="true" /> : <Smartphone size={13} aria-hidden="true" />}{source}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles.heroBubble} aria-hidden="true">
-              <span><Smartphone size={13} />Guest Companion</span>
-              <p>Use my preferences for my next stay here?</p>
-              <b><Check size={13} />Yes, use them</b>
-            </div>
-            <div className={`ib-floating-note ${styles.heroNote}`}>
-              <span className="ib-note-icon"><ShieldCheck size={21} aria-hidden="true" /></span>
-              <div>
-                <small>CONSENT · AMAKA BELLO</small>
-                <strong>Agreed. This hotel only.</strong>
-                <p><Check size={12} aria-hidden="true" />She can change her mind anytime</p>
-              </div>
-            </div>
-          </div>
+      <FeatureOpening
+        name="Guest intelligence"
+        title="The quiet room."
+        emphasis="You remembered."
+        intro="Amaka asked for a quiet room on her first stay. When she returns, an authorised receptionist can see what she shared and whether she agreed to use it again."
+        primary={{ href: "#desk", label: "Meet a returning guest" }}
+        secondary={{ href: PILOT_HREF, label: "Join the pilot list" }}
+        photo="/images/marketing/feature-guest.webp"
+        alt="A housekeeper arranges a firm linen pillow before a guest arrives"
+        recordLabel="Guest preference"
+        recordTitle="Amaka’s next stay"
+        chapters={[
+          { href: "#desk", label: "The returning guest", detail: "Follow two stays with Amaka", Icon: Smartphone },
+          { href: "#what-it-remembers", label: "What stays on file", detail: "Explore preferences and consent", Icon: ShieldCheck },
+          { href: "#how-it-works", label: "Staff access", detail: "See who can view her profile", Icon: Users },
+        ]}
+      >
+        <div className={styles.preferenceNote}>
+          <MessageSquareText size={19} aria-hidden="true" />
+          <div><b>“A quiet room, please.”</b><small>Shared with the front desk</small></div>
         </div>
-
-        <div className="ib-container ib-essentials">
-          {[
-            [MessageSquareText, "Every preference has a source", "Told the team, or shared herself"],
-            [Lock, "Seen by the right people", "Access you give, not by default"],
-            [HeartHandshake, "Her agreement, her choice", "Given and withdrawn by the guest"],
-          ].map(([Icon, title, body]) => (
-            <div key={title}><Icon size={25} aria-hidden="true" /><p>{title}<span>{body}</span></p></div>
-          ))}
-        </div>
-      </section>
+      </FeatureOpening>
 
       <GuestProfileDesk />
 
-      <section className={`ib-section ib-paper-alt ${styles.boundaries}`} id="what-it-remembers">
+      <section className="ib-section ib-paper-alt" id="what-it-remembers">
         <div className="ib-container">
           <SectionHeading eyebrow="DELIBERATE BOUNDARIES" title={<>Remember what matters.<br /><em>Leave the rest alone.</em></>}>
             <p>Personal service depends on trust. Guest Intelligence is focused on purpose, and the limits are part of the design.</p>
@@ -106,18 +69,21 @@ export default function GuestIntelligencePage() {
             <p>Each preference has a clear source, each viewer has been given access, and the guest decides how her preferences are used.</p>
           </SectionHeading>
           <div className="ib-welcome-flow">
-            <div className={`ib-scan-card ${styles.scopeCard}`}>
-              <Users size={54} strokeWidth={1.2} aria-hidden="true" />
-              <span>FRONT DESK · GUESTS · ADMINISTRATORS</span>
-              <h3>Personal service<br /><em>that doesn’t walk out the door.</em></h3>
-              <p>When an experienced receptionist leaves, what she knew about your guests stays with the hotel.</p>
-            </div>
+            <ShiftNote
+              label="Returning guest"
+              title="Amaka is coming back."
+              detail="The team knows which preferences came from Amaka directly and which ones she mentioned at reception."
+              entries={[
+                ["Quiet room", "Told the front desk"],
+                ["Firm pillow", "Shared in Guest Companion"],
+                ["Permission", "This property only"],
+              ]}
+            />
             <ol className="ib-numbered-list">
               {GI_ROLES.map((role, i) => (
                 <li key={role.title}>
                   <span>0{i + 1}</span>
                   <div><h3>{role.title}</h3><p>{role.body}</p></div>
-                  <ArrowRight size={20} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -125,7 +91,7 @@ export default function GuestIntelligencePage() {
         </div>
       </section>
 
-      <section className={`ib-section ib-dark ${styles.connected}`} id="connected">
+      <section className="ib-section ib-dark" id="connected">
         <div className="ib-container ib-bridge">
           <div>
             <Eyebrow>ONE CONNECTED OPERATION</Eyebrow>
@@ -153,8 +119,8 @@ export default function GuestIntelligencePage() {
 
       <FAQ
         items={GI_FAQ}
-        title={<>A few things<br /><em>worth knowing.</em></>}
-        description="Guest Intelligence is in development. Tell us how your team remembers guests today."
+        title={<>About guest<br /><em>preferences.</em></>}
+        description="Ask us how preferences, permission and access work at your property."
       />
     </>
   );

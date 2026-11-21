@@ -147,7 +147,6 @@ export default function HomePage() {
             <div className="ib-home-snapshot">
               <div className="ib-snapshot-top">
                 <span>YOUR HOTEL / AT A GLANCE</span>
-                <small>Illustrative view</small>
               </div>
               <h3>The day, in focus.</h3>
               <div className="ib-snapshot-stats">
@@ -181,7 +180,7 @@ export default function HomePage() {
                 <small>Bar</small>
               </div>
               <Link href="#demo">
-                Explore a sample shift
+                Explore the evening shift
                 <ArrowUpRight size={15} aria-hidden="true" />
               </Link>
             </div>
@@ -255,9 +254,6 @@ export default function HomePage() {
                 <span>Evening shift · Ada</span>
                 <b>Linked</b>
               </div>
-              <p>
-                <span className="ib-dot" /> Illustrative record trail
-              </p>
             </div>
           </div>
 

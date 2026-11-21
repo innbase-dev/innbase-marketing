@@ -20,6 +20,18 @@ import newPost8 from "./preventing-hotel-double-bookings";
 import newPost9 from "./engineering-shift-closeout-single-transaction";
 import newPost10 from "./engineering-hotel-sales-concurrency";
 
+// November 2026 batch
+import hotelOccupancyAdrRevpar from "./hotel-occupancy-adr-revpar";
+import hotelNightAuditChecklist from "./hotel-night-audit-checklist";
+import hotelRoomHoldDepositPolicy from "./hotel-room-hold-deposit-policy";
+import hotelLateArrivalCheckIn from "./hotel-late-arrival-check-in";
+import hotelGuestPreferencesDataProtection from "./hotel-guest-preferences-data-protection";
+import hotelLoyaltyProgrammeCost from "./hotel-loyalty-programme-cost";
+import supplierBankAccountChangeFraud from "./supplier-bank-account-change-fraud";
+import reconcilePosTerminalSettlements from "./reconcile-pos-terminal-settlements";
+import restaurantFoodCostPercentage from "./restaurant-food-cost-percentage";
+import choosingHotelManagementSoftwareNigeria from "./choosing-hotel-management-software-nigeria";
+
 export const RAW_POSTS = [
   phantomBottleScheme,
   newPost1,
@@ -39,4 +51,15 @@ export const RAW_POSTS = [
   stockVariance,
   shiftHandover,
   guestRequests,
+
+  hotelOccupancyAdrRevpar,
+  hotelNightAuditChecklist,
+  hotelRoomHoldDepositPolicy,
+  hotelLateArrivalCheckIn,
+  hotelGuestPreferencesDataProtection,
+  hotelLoyaltyProgrammeCost,
+  supplierBankAccountChangeFraud,
+  reconcilePosTerminalSettlements,
+  restaurantFoodCostPercentage,
+  choosingHotelManagementSoftwareNigeria,
 ];

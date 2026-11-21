@@ -33,7 +33,7 @@ export const DOOR_ROLES = [
 ];
 
 export const DOOR_FAQ = [
-  { q: "When can we use it?", a: "Door Access is in development. The access decision and the grant record are built; the connection to your locks is being built with our integration partner. Join the pilot list and we’ll contact you when places open." },
+  { q: "How can our property join the pilot?", a: "The pilot starts with a review of your locks, your connection and the fallback your night team can use. Join the list to discuss your property." },
   { q: "Does it work with the locks we already have?", a: "It is being built for connected smart locks, through an integration partner that supports a range of lock makers. Traditional key or keycard locks would need upgrading. We’ll look at your doors before you commit to anything." },
   { q: "What if the power or the internet goes down?", a: "Every property needs a fallback, and we agree yours before anything goes live, so your team always has a way to let a guest in." },
   { q: "Can a guest who hasn’t paid get in?", a: "Not by default. Access needs a confirmed payment, unless a named manager approves an exception for that stay. Nobody can override a cancelled booking or a known risk." },

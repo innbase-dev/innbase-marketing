@@ -5,6 +5,7 @@ import { ArrowRight, Ban, Check, CircleDashed, Landmark, RotateCcw, TriangleAler
 import { PAY_SCENARIOS } from "@/data/paymentsData";
 import { SectionHeading } from "../Primitives";
 import styles from "./Payments.module.css";
+import demo from "../feature/FeatureDemo.module.css";
 
 const naira = (n) => `₦${n.toLocaleString("en-NG")}`;
 
@@ -121,13 +122,13 @@ export default function PaymentsDesk() {
   const nextLabel = s.next && PAY_SCENARIOS.find((x) => x.key === s.next).label;
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="desk">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="desk">
       <div className="ib-container">
         <SectionHeading eyebrow="FOLLOW A PAYMENT" title={<>A claim is not<br /><em>a payment.</em></>}>
           <p>Follow a transfer from the table to the record, then see what happens when two tables pay the same amount, or a guest shows a screenshot.</p>
         </SectionHeading>
 
-        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose a payment" style={{ gridTemplateColumns: `repeat(${PAY_SCENARIOS.length}, 1fr)` }}>
+        <div className="ib-scenario-tabs" role="tablist" aria-label="Choose a payment">
           {PAY_SCENARIOS.map(({ key, label }, i) => (
             <button key={key} type="button" role="tab" id={`pay-tab-${key}`} aria-controls="pay-desk" aria-selected={scenario === key} tabIndex={scenario === key ? 0 : -1} ref={(el) => { tabs.current[i] = el; }} onClick={() => choose(key)} onKeyDown={(e) => keydown(e, i)}>
               {label}

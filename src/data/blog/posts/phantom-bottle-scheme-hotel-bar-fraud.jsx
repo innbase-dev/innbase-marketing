@@ -27,7 +27,7 @@ function blocksFromMarkdown(markdown) {
     if (lines.every((line) => line.startsWith("|"))) {
       const parseRow = (line) => line.slice(1, -1).split("|").map((cell) => cell.trim());
       const rows = lines.filter((line, i) => i !== 1).map(parseRow);
-      return [{ type: "table", caption: "Illustrative gross proceeds from ten privately supplied drinks", head: rows[0], rows: rows.slice(1).map((cells) => cells.map((cell) => cell.replace(/\*\*/g, ""))) }];
+      return [{ type: "table", caption: "Gross proceeds if ten privately supplied drinks are sold", head: rows[0], rows: rows.slice(1).map((cells) => cells.map((cell) => cell.replace(/\*\*/g, ""))) }];
     }
     if (lines.every((line) => line.startsWith("- ")))
       return [{ type: "ul", items: lines.map((line) => inline(line.slice(2))) }];

@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, Ban, Check, CircleDashed, Gift, Phone, Receipt, RotateCcw, UserRound } from "lucide-react";
 import { GUEST, MODES, PHONE, PROGRAMMES, REWARDS, SALES, naira } from "@/data/loyaltyData";
 import { SectionHeading } from "../Primitives";
+import demo from "../feature/FeatureDemo.module.css";
 import styles from "./Loyalty.module.css";
 
 const FIRST_SALE = 18460;
@@ -65,6 +66,7 @@ export default function LoyaltyDesk() {
   const earned = earn && visits >= earn.at;
   const redeemed = earned && (mode === "auto" || redeemedManually);
   const prog = progress(programme, target, visits);
+  const spendToDate = SALES.slice(0, visits).reduce((total, amount) => total + amount, 0);
   const sale = visits > 0 ? SALES[visits - 1] : null;
   const nextSale = SALES[visits];
 
@@ -105,7 +107,7 @@ export default function LoyaltyDesk() {
   else perk = ["pending", `Not yet · ${prog.text}`];
 
   let note;
-  if (!sale) note = "Set up a programme, then record Ifeoma’s visits. Nothing here is a forecast: the guest and figures are samples.";
+  if (!sale) note = "Changing a rule starts a fresh set of visits so you can try another programme.";
   else if (redeemed && mode === "auto") note = "Applied the moment she qualified, with no staff step. You saw the cost before it was applied.";
   else if (redeemed) note = "You saw what the perk cost before anyone redeemed it. Whether that is worth it is your call.";
   else if (earned && mode === "cashier") note = "The perk waits on the cashier’s screen until they choose to apply it.";
@@ -119,14 +121,14 @@ export default function LoyaltyDesk() {
   const status = !sale ? "Waiting for a sale" : redeemed ? "Perk redeemed" : earned ? "Perk available" : `Visit ${visits} recorded`;
 
   return (
-    <section className={`ib-section ib-experience ${styles.desk}`} id="explorer">
+    <section className={`ib-section ib-experience ${demo.surface}`} id="explorer">
       <div className="ib-container">
         <SectionHeading eyebrow="TRY THE IDEA" title={<>Set the rule.<br /><em>Watch it play out.</em></>}>
           <p>Choose a programme and a reward, then record a regular’s visits at the counter. You see what the perk costs you next to the spend that earned it.</p>
         </SectionHeading>
 
         <div className="ib-demo-stage">
-          <div className="ib-demo-topline"><span>FROM THE RULE TO THE COUNTER</span><span>Concept · how Loyalty is being designed · sample guest and figures</span></div>
+          <div className="ib-demo-topline"><span>PROGRAMME EXPLORER</span></div>
 
           <div className={styles.deskGrid}>
             <div className={styles.side}>
@@ -165,11 +167,11 @@ export default function LoyaltyDesk() {
                 </div>
 
                 <ol className={styles.flow}>
-                  <li className={sale ? styles.flow_pass : styles.flow_pending}>
+                  <li className={sale ? styles.flow_pass : undefined}>
                     <span>{sale ? <Check size={14} aria-hidden="true" /> : <CircleDashed size={14} aria-hidden="true" />}</span>
                     <div><b>Sale completed</b><p>{sale ? `${naira(sale)} recorded as normal` : "Recorded as it is today"}</p></div>
                   </li>
-                  <li className={sale ? styles.flow_pass : styles.flow_pending}>
+                  <li className={sale ? styles.flow_pass : undefined}>
                     <span>{sale ? <Phone size={14} aria-hidden="true" /> : <CircleDashed size={14} aria-hidden="true" />}</span>
                     <div><b>“Know this guest?”</b><p>{sale ? <>{PHONE} · <strong>{GUEST}</strong>, visit {visits}</> : "One field. No account needed."}</p></div>
                   </li>
@@ -181,7 +183,11 @@ export default function LoyaltyDesk() {
 
                 <div className={styles.meter}>
                   <div className={styles.meterHead}><span><UserRound size={13} aria-hidden="true" />{GUEST}</span><span>{prog.text}</span></div>
-                  <div className={styles.bar}><i style={{ width: `${prog.ratio * 100}%` }} /></div>
+                  <div className={styles.bar} aria-hidden="true"><i style={{ width: `${prog.ratio * 100}%` }} /></div>
+                  <dl className={styles.spend}>
+                    <div><dt>Spend to date</dt><dd>{naira(spendToDate)}</dd></div>
+                    <div><dt>Reward cost</dt><dd>{naira(r.cost)}</dd></div>
+                  </dl>
                 </div>
 
                 {redeemed && <p className={styles.applied}><Gift size={15} aria-hidden="true" /><span><b>{r.label}</b> applied to sale #{FIRST_SALE + earn.at}. Cost to you: {naira(r.cost)}.</span></p>}
@@ -197,9 +203,9 @@ export default function LoyaltyDesk() {
 
           <div className="ib-demo-bottom">
             <p>{note}</p>
-            <button type="button" className="ib-reset" onClick={restart}><RotateCcw size={15} aria-hidden="true" />Reset example</button>
+            <button type="button" className="ib-reset" onClick={restart}><RotateCcw size={15} aria-hidden="true" />Reset visits</button>
           </div>
-          <p className={styles.visuallyHidden} aria-live="polite">{status}. {perk[1]}.</p>
+          <p className={styles.visuallyHidden} role="status">{status}. {perk[1]}.</p>
         </div>
       </div>
     </section>

@@ -15,98 +15,6 @@
   border: 0;
 }
 
-/* ── Hero ── */
-
-.heroScene {
-  position: relative;
-  height: 600px;
-  min-width: 0;
-}
-
-.heroCard {
-  position: absolute;
-  inset: 78px 0 116px 34px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px 24px 20px;
-  background: #fbfbf7;
-  color: var(--ib-text);
-  border: 6px solid #eef0e8;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px #0006;
-}
-
-.heroCardHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  padding-bottom: 14px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--ib-line);
-}
-
-.heroCardHead small {
-  display: block;
-  font-size: 10px;
-  letter-spacing: .12em;
-  color: var(--ib-muted);
-}
-
-.heroCardHead b {
-  display: block;
-  margin-top: 4px;
-  font-size: 22px;
-  font-weight: 550;
-  letter-spacing: -.04em;
-}
-
-.heroCardHead > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #e2efd9;
-  color: #2f5127;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.heroBubble {
-  position: absolute;
-  top: 0;
-  left: -22px;
-  width: 262px;
-  padding: 12px 15px 13px;
-  background: #fffefa;
-  color: var(--ib-text);
-  border-radius: 14px 14px 14px 4px;
-  box-shadow: 0 14px 28px #0005;
-  transform: rotate(-4deg);
-}
-
-.heroBubble span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: .06em;
-  color: var(--ib-muted);
-}
-
-.heroBubble p {
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.heroNote {
-  bottom: 0;
-  right: -12px;
-}
-
 /* ── Availability board ── */
 
 .board table {
@@ -175,7 +83,7 @@
 
 .cell_booked {
   background: #dee4d8;
-  color: #5b6a55;
+  color: #43533e;
 }
 
 .cell_held {
@@ -207,7 +115,7 @@
 }
 
 .dimmed {
-  opacity: .32;
+  filter: grayscale(1);
 }
 
 .offered td.cell_free {
@@ -262,18 +170,6 @@
 
 .keyNew {
   background: #b9d9a9;
-}
-
-.boardCompact table {
-  border-spacing: 3px;
-}
-
-.boardCompact td {
-  height: 34px;
-}
-
-.boardCompact .legend {
-  margin-top: 8px;
 }
 
 /* ── Reservation desk ── */
@@ -719,12 +615,6 @@ p.refusal {
   color: var(--ib-paper) !important;
 }
 
-/* ── Who does what ── */
-
-.scopeCard > svg {
-  color: var(--ib-muted);
-}
-
 /* ── Connected operation ── */
 
 .connectedModules {
@@ -788,20 +678,6 @@ p.refusal {
     gap: 9px;
   }
 
-  .heroScene {
-    height: 580px;
-  }
-
-  .heroCard {
-    inset: 80px 0 116px 10px;
-    padding: 18px;
-  }
-
-  .heroBubble {
-    left: -6px;
-    width: 236px;
-  }
-
   .routeGrid {
     grid-template-columns: 1fr;
   }
@@ -816,30 +692,6 @@ p.refusal {
 }
 
 @media (max-width: 760px) {
-  .heroScene {
-    width: 100%;
-    max-width: 525px;
-    height: 580px;
-    margin-inline: auto;
-  }
-
-  .heroCard {
-    inset: 104px 0 112px 0;
-    padding: 16px 14px 14px;
-    border-width: 5px;
-  }
-
-  .heroBubble {
-    left: 0;
-    top: 0;
-    width: 230px;
-  }
-
-  .heroNote {
-    right: 0;
-    bottom: 0;
-  }
-
   .deskGrid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -916,13 +768,6 @@ p.refusal {
     width: 40px;
   }
 
-  .heroBubble {
-    width: 205px;
-  }
-
-  .heroBubble p {
-    font-size: 13px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -937,3 +782,15 @@ p.refusal {
     transition: none;
   }
 }
+
+.weekend { display: grid; gap: 6px; }
+.nights { display: flex; gap: 2px; }
+.nights span { flex: 1; padding: 6px; text-align: center; color: #254322; background: #d5e6ca; font-size: .875rem; font-weight: 600; }
+.nights span:first-child { border-radius: 5px 0 0 5px; }
+.nights span:last-child { border-radius: 0 5px 5px 0; }
+.weekend b { display: flex; align-items: center; gap: 6px; font-size: .8125rem; font-weight: 550; }
+
+p.deskAnswer { margin-top: 16px; border-left: 2px solid #708a63; padding: 4px 12px; }
+.deskAnswer strong, .deskAnswer span { display: block; }
+.deskAnswer strong { font-weight: 600; font-size: .9375rem; }
+.deskAnswer span { margin-top: 2px; font-size: .875rem; color: var(--ib-muted); }
