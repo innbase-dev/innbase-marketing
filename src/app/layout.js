@@ -24,7 +24,7 @@ export const metadata = {
     default: "Your Hotel Control Center | Innbase",
   },
   description:
-    "The AI operating system for hospitality. Automatically reconcile every sale, payment, shift, and stock movement so you always know where revenue is made—or lost.",
+    "The AI operating system for hospitality. Innbase connects every sale, payment, shift and stock movement, so you can see where revenue is made or lost.",
   keywords: [
     "hospitality",
     "hotel management",
@@ -61,7 +61,7 @@ export const metadata = {
     siteName: "Innbase",
     title: "Your Hotel Control Center | Innbase",
     description:
-      "The AI operating system helping hotels, restaurants, and bars eliminate revenue leakage through intelligent reconciliation and operations.",
+      "The AI operating system for hotels, restaurants and bars: sales, payments, stock and shifts in one connected record.",
     url: SITE_URL,
     images: [
       {
@@ -76,7 +76,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Your Hotel Control Center | Innbase",
     description:
-      "Every sale. Every payment. Every shift. Every bottle. Automatically reconciled.",
+      "Every sale. Every payment. Every shift. Every bottle. One connected record.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };
@@ -98,7 +98,7 @@ const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/images/innbase-light.svg`,
   description:
-    "Innbase builds the AI operating system for hospitality — reconciling payments, inventory, shifts, and guest folios automatically for hotels, restaurants, and bars.",
+    "Innbase builds the AI operating system for hospitality, connecting sales, payments, stock and shifts for hotels, restaurants and bars.",
   email: "hello@innbase.co",
   areaServed: "NG",
 };
