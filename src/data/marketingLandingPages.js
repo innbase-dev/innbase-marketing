@@ -93,7 +93,7 @@ const CONTENT = [
     answer: "Which records are complete, which need review, and who can explain the work. That is a more useful handover than “everything is fine”.",
     scenario: {
       title: "A handover with something to go on.",
-      context: "Evening shift · illustrative checklist",
+      context: "Evening shift · handover checklist",
       stages: [
         { label: "People", title: "Put names to the work", value: "Evening shift", status: "People in context", rows: [["Restaurant record", "Ada"], ["Bar stock count", "Tayo"], ["Closeout review", "Manager"]], note: "These sample names show why attribution helps when a question crosses departments." },
         { label: "Review", title: "See what needs attention", value: "2 questions", status: "Follow-up needed", attention: true, rows: [["Sales", "Records available"], ["One transfer", "Needs review"], ["Bar stock count", "Difference to check"]], note: "The team can focus the conversation on specific records rather than a general concern." },
