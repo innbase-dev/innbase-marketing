@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "Does POS approval always mean money reached the bank?",
   "cover": {
-    "src": "/images/blog/hotel-pos-cash-transfer-shift-close.svg",
-    "alt": "Cash notes, a card terminal and a phone with a transfer alert meeting at a check mark, representing one shift close across three payment methods.",
+    "src": "/images/blog/hotel-pos-cash-transfer-shift-close.webp",
+    "alt": "A cashier’s counter with a calculator, a printed receipt and a cash box at the end of a shift.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"

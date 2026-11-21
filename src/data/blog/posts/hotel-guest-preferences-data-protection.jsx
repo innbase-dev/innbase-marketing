@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "Which guest preferences should my hotel record, and how do we ask for consent in a way guests are comfortable with?",
   cover: {
-    src: "/images/blog/hotel-guest-preferences-data-protection.svg",
-    alt: "A guest profile card beside a pillow and a padlock, representing guest preferences kept with care.",
+    src: "/images/blog/hotel-guest-preferences-data-protection.webp",
+    alt: "A hotel bed with two pillows and a pair of slippers on the rug.",
     width: 1600,
     height: 1200,
     tone: "sage",

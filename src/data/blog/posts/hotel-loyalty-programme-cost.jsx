@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "How do I work out whether a loyalty reward at my hotel restaurant or bar is affordable?",
   cover: {
-    src: "/images/blog/hotel-loyalty-programme-cost.svg",
-    alt: "A phone beside a gift box and a progress bar filling up, representing a loyalty reward earned over visits.",
+    src: "/images/blog/hotel-loyalty-programme-cost.webp",
+    alt: "A pair of hotel slippers beside a drawstring gift pouch: a small reward for a returning guest.",
     width: 1600,
     height: 1200,
     tone: "oat",

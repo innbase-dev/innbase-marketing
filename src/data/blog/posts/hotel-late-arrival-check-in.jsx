@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "What should my night staff check before giving a late-arriving guest access to their room?",
   cover: {
-    src: "/images/blog/hotel-late-arrival-check-in.svg",
-    alt: "A hotel room door with a lit keypad under a crescent moon, beside a phone showing a key, representing late-night check-in.",
+    src: "/images/blog/hotel-late-arrival-check-in.webp",
+    alt: "A small car arriving beside a signpost, with a suitcase waiting at the kerb.",
     width: 1600,
     height: 1200,
     tone: "oat",

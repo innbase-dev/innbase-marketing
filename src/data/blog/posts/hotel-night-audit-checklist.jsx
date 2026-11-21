@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "What should my night auditor check each night at a small hotel, and in what order?",
   cover: {
-    src: "/images/blog/hotel-night-audit-checklist.svg",
-    alt: "A crescent moon over an open ledger and a stack of receipts with a check mark, representing the hotel night audit.",
+    src: "/images/blog/hotel-night-audit-checklist.webp",
+    alt: "A hotel front desk with paperwork, a card tray and a tablet, and a guest’s suitcase beside it.",
     width: 1600,
     height: 1200,
     tone: "oat",

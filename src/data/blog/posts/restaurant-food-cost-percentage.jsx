@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "How do I calculate food cost percentage for my hotel kitchen and use it to check my menu prices?",
   cover: {
-    src: "/images/blog/restaurant-food-cost-percentage.svg",
-    alt: "A plate of food on a kitchen scale beside a pie chart, representing food cost as a share of sales.",
+    src: "/images/blog/restaurant-food-cost-percentage.webp",
+    alt: "A restaurant table set with a plate of rice, cutlery and a glass of water.",
     width: 1600,
     height: 1200,
     tone: "sage",

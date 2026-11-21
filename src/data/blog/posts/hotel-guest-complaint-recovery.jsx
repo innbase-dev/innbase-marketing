@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What is hotel service recovery?",
   "cover": {
-    "src": "/images/blog/hotel-guest-complaint-recovery.svg",
-    "alt": "A speech bubble with a warning sign turning into a speech bubble with a check mark, representing a complaint resolved.",
+    "src": "/images/blog/hotel-guest-complaint-recovery.webp",
+    "alt": "An open envelope holding a handwritten card, with a pen beside it: a personal note to a guest.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"
