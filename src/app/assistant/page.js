@@ -8,7 +8,7 @@ import { buildSocialMetadata } from "@/lib/seo";
 
 const TITLE = "AI Operational Assistant";
 const DESCRIPTION =
-    "Meet the newest member of your hotel's operations team. Innbase's AI Operational Assistant creates tasks, answers questions, and takes routine work off your staff — in plain English, day or night.";
+    "Innbase's AI Operational Assistant creates tasks, answers questions, and takes routine work off your hotel staff — in plain English, day or night.";
 
 export const metadata = {
     title: TITLE,
