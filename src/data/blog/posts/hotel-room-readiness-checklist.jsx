@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "Who should mark a hotel room ready?",
   "cover": {
-    "src": "/images/blog/hotel-room-readiness-checklist.svg",
-    "alt": "A made bed beside a checklist and a spray bottle, representing a room inspected before check-in.",
+    "src": "/images/blog/hotel-room-readiness-checklist.webp",
+    "alt": "A freshly made hotel bed beside a bedside lamp, ready for the next guest.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"

@@ -13,8 +13,8 @@ const post = {
   author: "team",
   aiQuestion: "What checks should my hotel do before changing a supplier’s bank account or paying a new supplier?",
   cover: {
-    src: "/images/blog/supplier-bank-account-change-fraud.svg",
-    alt: "Two bank buildings joined by an arrow, with a shield and check mark between them, representing a verified supplier payment.",
+    src: "/images/blog/supplier-bank-account-change-fraud.webp",
+    alt: "A letter in an open envelope beside a fountain pen: a message with new payment details.",
     width: 1600,
     height: 1200,
     tone: "sage",

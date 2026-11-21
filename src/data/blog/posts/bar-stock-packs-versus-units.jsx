@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "How do I convert stock packs to units?",
   "cover": {
-    "src": "/images/blog/bar-stock-packs-versus-units.svg",
-    "alt": "A shrink-wrapped pack of bottles with an arrow to three single bottles, showing that a pack and a unit are different counts.",
+    "src": "/images/blog/bar-stock-packs-versus-units.webp",
+    "alt": "An open carton of bottles beside a single loose bottle: the difference between a pack and a unit.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"

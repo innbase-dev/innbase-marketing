@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "What room hold and deposit policy should my hotel use for bookings that come in on WhatsApp or by phone?",
   cover: {
-    src: "/images/blog/hotel-room-hold-deposit-policy.svg",
-    alt: "A calendar with one day held by a clock, beside a chat bubble and a room key, representing a timed room hold.",
+    src: "/images/blog/hotel-room-hold-deposit-policy.webp",
+    alt: "A suitcase beside a large room key tag: a room set aside for a guest.",
     width: 1600,
     height: 1200,
     tone: "sage",

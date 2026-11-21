@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "What questions should I ask before choosing hotel management software for a hotel in Nigeria?",
   cover: {
-    src: "/images/blog/choosing-hotel-management-software-nigeria.svg",
-    alt: "A laptop showing a checklist beside a small hotel building and a magnifying glass, representing choosing hotel software.",
+    src: "/images/blog/choosing-hotel-management-software-nigeria.webp",
+    alt: "A small boutique hotel with planters at the entrance and a guest’s suitcase by the door.",
     width: 1600,
     height: 1200,
     tone: "oat",

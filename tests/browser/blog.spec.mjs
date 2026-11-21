@@ -162,7 +162,9 @@ test('article has no WCAG A/AA violations in the refreshed content and captures 
   await page.evaluate(async () => {
     const images = Array.from(document.querySelectorAll('main img'));
     for (const image of images) image.loading = 'eager';
-    await Promise.all(images.map(image => image.decode()));
+    // decode() can occasionally never settle for a lazy image switched to eager
+    // in headless Chromium; cap each wait so a preview capture cannot hang.
+    await Promise.all(images.map(image => Promise.race([image.decode().catch(() => {}), new Promise(done => setTimeout(done, 5000))])));
   });
   await page.screenshot({ path: testInfo.outputPath('blog-article-desktop.png'), fullPage: true });
   await page.locator('[class*="bodyGrid"]').evaluate(element => {
@@ -177,7 +179,9 @@ test('article has no WCAG A/AA violations in the refreshed content and captures 
   await page.evaluate(async () => {
     const images = Array.from(document.querySelectorAll('main img'));
     for (const image of images) image.loading = 'eager';
-    await Promise.all(images.map(image => image.decode()));
+    // decode() can occasionally never settle for a lazy image switched to eager
+    // in headless Chromium; cap each wait so a preview capture cannot hang.
+    await Promise.all(images.map(image => Promise.race([image.decode().catch(() => {}), new Promise(done => setTimeout(done, 5000))])));
   });
   await page.screenshot({ path: testInfo.outputPath('blog-index-desktop.png'), fullPage: true });
 });

@@ -31,7 +31,7 @@ Aim for 900–1,300 words. If a section doesn't help someone act, cut it.
 - British spelling (programme, organise), curly quotes and apostrophes, "₦18,000" with a comma, and times as "1:40 a.m.".
 - `seoTitle` stays at 52 characters or fewer, because " | Innbase" is appended. `description` is 110–160 characters, and `excerpt` is 190 characters or fewer.
 - Tags describe the topic ("night audit", "POS"). Don't use "innbase" or other filler tags.
-- Covers are text-free SVG or WebP illustrations, 1600×1200, in the blog palette. The alt text describes what is drawn.
+- Every cover is an isometric scene from the Innbase illustration library that relates to the post’s theme, never a flat or generated graphic. Export it as a transparent 1600×1200 WebP with the art centred, filling about 84% of the width or 82% of the height (`public/images/blog/<slug>.webp`). Use each scene once, and avoid the dark-palette scenes, which disappear on the dark article hero. The alt text describes what is drawn.
 - Legal and regulatory statements are checked against a primary or reputable source at the time of writing and flagged as "not legal advice" where relevant. Avoid figures that change often, such as fees and settlement times. Tell readers to confirm them with their bank or provider.
 
 ## Checklist before publishing

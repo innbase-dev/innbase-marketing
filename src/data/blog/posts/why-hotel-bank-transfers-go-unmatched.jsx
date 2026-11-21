@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "Is a transfer screenshot proof of payment?",
   "cover": {
-    "src": "/images/blog/why-hotel-bank-transfers-go-unmatched.svg",
-    "alt": "A phone showing a credit alert next to a receipt, with a broken link between them, representing a transfer that can’t be matched.",
+    "src": "/images/blog/why-hotel-bank-transfers-go-unmatched.webp",
+    "alt": "A desk telephone beside a notepad, ready to note down a payment reference.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"

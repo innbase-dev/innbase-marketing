@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What is concurrency control in hotel sales software?",
   "cover": {
-    "src": "/images/blog/engineering-hotel-sales-concurrency.svg",
-    "alt": "Two arrows converging on a single bottle protected by a lock, showing two sales competing for the last item.",
+    "src": "/images/blog/engineering-hotel-sales-concurrency.webp",
+    "alt": "A lifted serving cloche over an empty plate with crumbs: the last portion has already gone.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"

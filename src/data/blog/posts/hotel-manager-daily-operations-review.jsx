@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What should a hotel manager check each morning?",
   "cover": {
-    "src": "/images/blog/hotel-manager-daily-operations-review.svg",
-    "alt": "A clipboard and a cup of coffee in front of a rising sun, representing a short morning review.",
+    "src": "/images/blog/hotel-manager-daily-operations-review.webp",
+    "alt": "A breakfast tray with coffee, a croissant and a napkin, ready for a short morning review.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"

@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What is an outbox in backend engineering?",
   "cover": {
-    "src": "/images/blog/engineering-shift-closeout-single-transaction.svg",
-    "alt": "Stacked records held together inside one bracket with a check mark, representing a shift closed in a single transaction.",
+    "src": "/images/blog/engineering-shift-closeout-single-transaction.webp",
+    "alt": "A front-office cabinet with an open log book, a clock and a tray of room keys at the end of a shift.",
     "width": 1600,
     "height": 1200,
     "tone": "moss"

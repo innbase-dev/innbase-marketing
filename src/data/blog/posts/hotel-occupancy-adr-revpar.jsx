@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "Using my hotel's room numbers, how do I calculate occupancy, ADR and RevPAR, and which one should I watch?",
   cover: {
-    src: "/images/blog/hotel-occupancy-adr-revpar.svg",
-    alt: "A hotel bed beside three rising bars and a room key, representing occupancy, average rate and revenue per room.",
+    src: "/images/blog/hotel-occupancy-adr-revpar.webp",
+    alt: "A luggage trolley loaded with a suitcase and a holdall as guests arrive for the night.",
     width: 1600,
     height: 1200,
     tone: "sage",

@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What information should a hotel maintenance ticket contain?",
   "cover": {
-    "src": "/images/blog/hotel-maintenance-requests-that-get-lost.svg",
-    "alt": "A dripping tap beside a wrench and a clipboard, representing a maintenance request that needs an owner.",
+    "src": "/images/blog/hotel-maintenance-requests-that-get-lost.webp",
+    "alt": "A dripping bathroom tap with a small puddle and a wrench beside it.",
     "width": 1600,
     "height": 1200,
     "tone": "sage"

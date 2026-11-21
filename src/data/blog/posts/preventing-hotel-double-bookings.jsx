@@ -14,8 +14,8 @@ const post = {
   "author": "team",
   "aiQuestion": "What causes hotel double bookings?",
   "cover": {
-    "src": "/images/blog/preventing-hotel-double-bookings.svg",
-    "alt": "Two room keys pointing at one door, with a calendar showing the same night chosen twice, representing a double booking.",
+    "src": "/images/blog/preventing-hotel-double-bookings.webp",
+    "alt": "A suitcase beside a tray holding a single room key: one room, one guest.",
     "width": 1600,
     "height": 1200,
     "tone": "oat"

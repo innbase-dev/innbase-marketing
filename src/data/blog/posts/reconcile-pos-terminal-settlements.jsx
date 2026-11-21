@@ -15,8 +15,8 @@ const post = {
   author: "team",
   aiQuestion: "How do I reconcile my hotel’s POS terminal sales with what the bank actually settles?",
   cover: {
-    src: "/images/blog/reconcile-pos-terminal-settlements.svg",
-    alt: "A card payment terminal printing a receipt, with an arrow to a bank building and a calendar page, representing POS settlement.",
+    src: "/images/blog/reconcile-pos-terminal-settlements.webp",
+    alt: "A card payment terminal printing a long receipt, with a bank card beside it.",
     width: 1600,
     height: 1200,
     tone: "oat",
