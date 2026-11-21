@@ -34,9 +34,9 @@ test('referral modal traps focus, closes on Escape, restores focus and resets dr
  await page.getByLabel('Hotel name',{exact:true}).fill('Unsaved Hotel');for(let i=0;i<13;i++)await page.keyboard.press('Tab');expect(await page.evaluate(()=>Boolean(document.activeElement.closest('[role="dialog"]')))).toBe(true);
  await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).toHaveCount(0);await expect(trigger).toBeFocused();await trigger.click();await expect(page.getByLabel('Hotel name',{exact:true})).toHaveValue('');
 });
-test('link and WhatsApp use innbase.co; failed clipboard leaves a selectable link',async({page})=>{
+test('link and WhatsApp use www.innbase.co; failed clipboard leaves a selectable link',async({page})=>{
  await openPortal(page);await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw Error('denied');}},configurable:true}));await page.getByRole('button',{name:'Refer a hotel',exact:true}).first().click();
- await expect(page.getByLabel('Your referral link')).toHaveValue('https://innbase.co/refer?ref=token-user_a');await expect(page.getByRole('link',{name:'Share on WhatsApp'})).toHaveAttribute('href',/https%3A%2F%2Finnbase.co%2Frefer%3Fref%3Dtoken-user_a/);
+ await expect(page.getByLabel('Your referral link')).toHaveValue('https://www.innbase.co/refer?ref=token-user_a');await expect(page.getByRole('link',{name:'Share on WhatsApp'})).toHaveAttribute('href',/https%3A%2F%2Fwww.innbase.co%2Frefer%3Fref%3Dtoken-user_a/);
  await page.getByRole('button',{name:'Copy link',exact:true}).click();await expect(page.getByRole('status')).toContainText('Select and copy');await expect(page.getByLabel('Your referral link')).toBeFocused();
 });
 test('referral submission handles rejection, reuses idempotency and blocks accidental close',async({page})=>{
