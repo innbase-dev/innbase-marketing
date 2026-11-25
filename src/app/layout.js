@@ -101,6 +101,12 @@ const organizationJsonLd = {
     "Innbase builds the AI operating system for hospitality, connecting sales, payments, stock and shifts for hotels, restaurants and bars.",
   email: "hello@innbase.co",
   areaServed: "NG",
+  sameAs: ["https://www.wikidata.org/wiki/Q142293171"],
+  // Same @id as on efeojadua.com, so search engines treat both pages as one person.
+  founder: [
+    { "@id": "https://www.efeojadua.com/#person" },
+    { "@type": "Person", name: "Chibeze Ochonogor" },
+  ],
 };
 
 const websiteJsonLd = {
