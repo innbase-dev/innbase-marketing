@@ -20,11 +20,13 @@ export const metadata = {
 const founderJsonLd = FOUNDERS.map((f) => ({
     "@context": "https://schema.org",
     "@type": "Person",
+    ...(f.entityId ? { "@id": f.entityId } : {}),
     name: f.name,
     jobTitle: f.role,
     worksFor: { "@id": `${SITE_URL}/#organization` },
+    ...(f.image ? { image: `${SITE_URL}${f.image}` } : {}),
     ...(f.website ? { url: f.website } : {}),
-    sameAs: [f.linkedin, f.twitter, f.website].filter(Boolean),
+    sameAs: [f.linkedin, f.twitter, f.website, f.wikidata].filter(Boolean),
 }));
 
 export default function MarketingRoute() {

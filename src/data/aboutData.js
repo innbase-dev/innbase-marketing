@@ -47,6 +47,9 @@ export const FOUNDERS = [
         linkedin: "https://linkedin.com/in/ojadua-efe",
         twitter: "https://x.com/integral19",
         website: "https://www.efeojadua.com",
+        // Used only in structured data on /about; must match efeojadua.com and Wikidata.
+        entityId: "https://www.efeojadua.com/#person",
+        wikidata: "https://www.wikidata.org/wiki/Q142088175",
         focusLabel: "Focus:",
         focus:
             " product, strategy, and company direction — deciding what Innbase should do, and just as importantly, what it shouldn't.",
