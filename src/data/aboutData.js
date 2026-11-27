@@ -41,7 +41,7 @@ export const FOUNDERS = [
     {
         initials: "EO",
         color: "var(--brass)",
-        image: "/images/efe-o.jpeg",
+        image: "/images/efe-ojadua-corporate-portrait.webp",
         name: "Efe Ojadua",
         role: "CEO",
         linkedin: "https://linkedin.com/in/ojadua-efe",
